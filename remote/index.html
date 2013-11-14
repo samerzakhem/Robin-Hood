@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Robin Hood Remote Control</title>
+
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIdhzKhqsejGhHtPZbb8LR80W60GJgEkg&sensor=true"></script>
+		<script type="text/javascript" src="js/jquery.ui.punch-0.2.2.js"></script>
+
+		<script src="bootstrap/js/bootstrap.js"></script>
+	
+		<script src="js/faye-browser-min.js"></script>
+		<script src="js/constants.js"></script>
+		
+		<script src="js/v3_epoly.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.2/TweenMax.min.js"></script>
+
+		
+		<script src="js/controllers/map_controller.js"></script>
+		<script src="js/controllers/rssi_controller.js"></script>
+		<script src="js/controllers/trauma_controller.js"></script>
+		<script src="js/controllers/messaging_controller.js"></script>
+		<script src="js/controllers/navbar_controller.js"></script>
+		<script src="js/controllers/status_controller.js"></script>
+
+		<script src="js/models/HMI.js"></script>
+		<script src="js/models/Vehicle.js"></script>
+		
+		<script src="js/models/rssi/DistanceBroadcaster.js"></script>
+		<script src="js/models/map/DrivingSimulator.js"></script>
+
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+		<link rel="stylesheet" href="css/main.css" />
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				var mapController = new MapController({
+					element: 		'gps-container',
+					map: 				'map-canvas',
+					center: 		new google.maps.LatLng(41.8354087, -87.8704379)
+				});
+
+				var rssiController = new RSSIController({
+					element: 		'rssi-container',
+					device: 		constants.RSSI_DEVICE
+				});
+
+				var traumaController = new TraumaController({
+					element: 		'trauma-container'
+				});
+
+				var messagingController = new MessagingController({
+					element: 		'messaging-container'
+				});
+
+				var navbarController = new NavbarController({
+					element: 		'nav'
+				});
+
+				var statusController = new StatusController({
+					element: 		'status-container'
+				});
+
+			});
+		</script>
+
+	</head>
+	<body>
+
+		<div class='navbar navbar-static-top'>
+			<div class='navbar-inner'>
+				<div class="container">
+					<a href='#' class='brand'>Robin Hood Remote Control</a>	
+
+					<ul id='nav' class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Car Controls
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-header">Ignition</li>
+								<li><a href="#" class='ignition-on'>On</a></li>
+								<li><a href="#" class='ignition-off'>Off</a></li>
+								<li class="divider"></li>
+								<li class="nav-header">Security</li>
+								<li><a href="#" class='lock'>Lock</a></li>
+								<li><a href="#" class='unlock'>Unlock</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row-fluid">
+				<div class="span4">
+					<div id="rssi-container" class="well well-small">
+						<h4>Bluetooth Distance</h4>
+
+						<table class="table table-condensed">
+							<tr>
+								<td>Min: <span class='min-range pull-right'>0</span></td>
+							</tr>
+							<tr>
+								<td>Max: <span class='max-range pull-right'>0</span></td>
+							</tr>
+							<tr>
+								<td>Threshold: <span class='threshold-range pull-right'>0</span></td>
+							</tr>
+							<tr>
+								<td>Current: <span class='current-range pull-right'>0</span></td>
+							</tr>
+						</table>
+					</div>
+
+					<div id="messaging-container" class="well well-small">
+						<h4>Messaging</h4>
+
+						<form action="">
+							<div class="controls">
+								<input type="text" class="span12" id="msg-from" placeholder="From">
+
+								<select name="" id="msg-source" class="span6">
+									<option value="sms">SMS</option>
+									<option value="email">Email</option>
+									<option value="facebook">Facebook</option>
+									<option value="twitter">Twitter</option>
+								</select>
+
+								<select name="" id="msg-priority" class="span6">
+									<option value="1">Priority 1</option>
+									<option value="2">Priority 2</option>
+									<option value="3">Priority 3</option>
+								</select>
+
+								<textarea name="" id="msg-text" cols="30" class="span12" rows="2"></textarea>
+
+								<button id="msg-send" class="btn btn-primary btn-small">Send</button>
+
+								<div id="msg-progress" class="progress progress-striped active pull-right">
+								  <div class="bar" style="width: 100%;"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+				<div class="span4 well well-small">
+					<div id="gps-container">
+						<h4>GPS Simulator</h4>
+						<div id="map-canvas"></div>	
+
+						<form action="" class="form">
+							<input type="text" id='gps-origin-field' placeholder="Start">
+							<input type="text" id='gps-destination-field' placeholder="Destination">
+
+							<button id='gps-route-btn' class="btn btn-primary btn-small">Route</button>
+							<button id='gps-play-btn' class="btn btn-success btn-small pull-right"><i class="icon-play icon-white"></i></button>
+							<button id='gps-pause-btn' class="btn btn-inverse btn-small pull-right"><i class="icon-pause icon-white"></i></button>
+							<button id='gps-stop-btn' class="btn btn-danger btn-small pull-right"><i class="icon-stop icon-white"></i></button>
+						</form>
+
+					</div>
+				</div>
+
+				<div class="span4">
+					<div id="status-container" class="well well-small">
+						<h4>Status</h4>
+						<table class="table table-container">
+							<tr class='locked'>
+								<td>Doors <span class="pull-right">Locked</span></td>
+							</tr>
+							<tr class='ignition'>
+								<td>Ignition <span class="pull-right">Off</span></td>
+							</tr>
+							<tr>
+								<td>Driver Seat<span class="pull-right">Empty</span></td>
+							</tr>
+							<tr>
+								<td>Passenger Seat<span class="pull-right">Empty</span></td>
+							</tr>
+							<tr class='charging'>
+								<td>Phone Charger<span class="pull-right">Disconnected</span></td>
+							</tr>
+						</table>	
+					</div>
+
+					<div id="trauma-container" class='well well-small'>
+						<h4>Task Trauma Level: <span class='level'></span></h4>
+					</div>
+
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>
