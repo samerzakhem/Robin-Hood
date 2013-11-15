@@ -8,6 +8,7 @@ var Vehicle = (function() {
 			ignition: 		false,
 			charging: 		false,
 			traumaLevel: 	1,
+			user: 				undefined,
 			latitude: 		NaN,
 			longitude: 		NaN
 		};
@@ -96,6 +97,13 @@ var Vehicle = (function() {
 		});
 
 		// Trigger the status update
+		this.update();
+	};
+
+	//// [ USER INFORMATION ] ///////////////////////////////////////////////////
+
+	Vehicle.prototype.setUser = function(value) {
+		this.values.user 	= value;
 		this.update();
 	};
 

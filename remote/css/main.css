@@ -45,5 +45,13 @@
 }
 
 #messaging-container .progress {
-	width: 60px;
+	width: 		60px;
+}
+
+#username-container form {
+	margin: 	0px;
+}
+
+#username-container input {
+	width: 		110%;
 }

@@ -1,38 +1,47 @@
-var exec 		= require('child_process').exec;
+var formatter = require('./HMIFormatter'),
+		socket 		= require('../com/gm/socket')
 
-function HMI() {
+function HMI(options) {
+	this.options = options;
 
+	if(HMI.instance) {
+		throw new Error("HMI already instanciated, try HMI.getInstance()")
+	} else HMI.instance = this;
+
+	if(this.options.url === undefined)
+		throw new Error('HMI expects socketURL')
+
+	// Initialize the websocket connection
+	this.socket = new socket.WebSocket({
+		url:        this.options.url,
+		onOpen:     function(e) {
+			console.log(">> [HMI] Connected!");
+		},
+		onClose: 		function() {
+			console.log("!! [HMI] Disconnected!");
+		}
+	});
 }
 
 //// [ STATIC ] ///////////////////////////////////////////////////////////////
 
-HMI.getInstance = function() {
+HMI.getInstance = function(options) {
 	if(HMI.instance) {
 		return HMI.instance;
-	} else return HMI.instance = new HMI();
+	} else return HMI.instance = new HMI(options);
 }
 
-//// [ CHOME ] ////////////////////////////////////////////////////////////////
+//// [ CHIME ] ////////////////////////////////////////////////////////////////
 
 HMI.prototype.SetChime = function(type, count) {
-	return {
-		"chime.SetChime": {
-		  chime: 	type,
-		  count: 	count
-		}
-	}
+	this.socket.send( formatter.SetChime.apply(this, arguments) );
 };
 
 //// [ GAZE ] /////////////////////////////////////////////////////////////////
 //// [ GPS ] //////////////////////////////////////////////////////////////////
 
 HMI.prototype.LetPosition = function(latitude, longitude) {
-	return {
-		"gps.LetPosition": {
-		  longitude: 	longitude,
-		  latitude: 	latitude
-		}
-	}
+	this.socket.send( formatter.LetPosition.apply(this, arguments) );
 };
 
 //// [ HEAD ] /////////////////////////////////////////////////////////////////
@@ -41,238 +50,123 @@ HMI.prototype.LetPosition = function(latitude, longitude) {
 HMI.prototype.leap = {};
 
 HMI.prototype.leap.LetCursor = function(x, y, phase) {
-	return {
-		"leap.LetCursor": {
-		  phase: 	phase,
-		  x: 			x,
-		  y: 			y
-		}
-	}
+	this.socket.send( formatter.leap.LetCursor.apply(this, arguments) );
 };
 
 HMI.prototype.leap.LetScroll = function(deltaX, deltaY, velocityX, velocityY, phase, fingerCount) {
-	return {
-		"leap.LetScroll": {
-		  fingerCount: 	fingerCount,
-		  phase: 				phase,
-		  velocityX: 		velocityX,
-		  velocityY: 		velocityY,
-		  deltaY: 			deltaY,
-		  deltaX: 			deltaX
-		}
-	}
+	this.socket.send( formatter.leap.LetScroll.apply(this, arguments) );
 };
 
 HMI.prototype.leap.LetPoke = function(x, y, fingerCount, clickCount) {
-	return {
-		"leap.LetPoke": {
-			clickCount: 		clickCount,
-			fingerCount: 		fingerCount,
-			x: 							x,
-			y: 							y
-		}
-	}
+	this.socket.send( formatter.leap.LetPoke.apply(this, arguments) );
 };
 
 HMI.prototype.leap.LetRotate = function(deltaAngle, fingerCount) {
-	return {
-		"leap.LetRotate": {
-		  deltaAngle: 	deltaAngle,
-		  fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.leap.LetRotate.apply(this, arguments) );
 };
 
 HMI.prototype.leap.LetZoom = function(deltaZoom, fingerCount) {
-	return {
-		"leap.LetZoom": {
-		  deltaZoom: 		deltaZoom,
-		  fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.leap.LetZoom.apply(this, arguments) );
 };
 
 HMI.prototype.leap.LetGesture = function(gesture) {
-	return {
-		"leap.LetGesture": {
-		  gesture: 	gesture
-		}
-	}
+	this.socket.send( formatter.leap.LetGesture.apply(this, arguments) );
 };
 
 //// [ NAVIGATION ] ///////////////////////////////////////////////////////////
 
 HMI.prototype.GetWaypoints = function() {
-	return {
-		"navigation.GetWaypoints": {}
-	}
+	this.socket.send( formatter.GetWaypoints.apply(this, arguments) );
 };
 
 HMI.prototype.SetWaypoints = function(waypoints) {
-	return {
-		"navigation.SetWaypoints": {
-		  waypoints: 	waypoints
-		}
-	}
+	this.socket.send( formatter.SetWaypoints.apply(this, arguments) );
 };
 
 HMI.prototype.LetWaypoints = function(waypoints) {
-	return {
-		"navigation.LetWaypoints": {
-		  waypoints: 	waypoints
-		}
-	}
+	this.socket.send( formatter.LetWaypoints.apply(this, arguments) );
 };
 
 //// [ NOTICE ] ///////////////////////////////////////////////////////////////
 
 HMI.prototype.SetAddNotice = function(notice) {
-	return {
-		"notice.SetAddNotice": {
-		  notice: 	notice
-		}
-	}
+	this.socket.send( formatter.SetAddNotice.apply(this, arguments) );
 };
 
 HMI.prototype.GetStatus = function(notice) {
-	return {
-		"notice.GetStatus": {}
-	}
+	this.socket.send( formatter.GetStatus.apply(this, arguments) );
 };
 
 HMI.prototype.LetStatus = function(count) {
-	return {
-		"notice.LetStatus": {
-		  count: 	count
-		}
-	}
+	this.socket.send( formatter.LetStatus.apply(this, arguments) );
 };
 
 HMI.prototype.GetNotices = function(start, end) {
-	return {
-		"notice.GetNotices": {
-		  start: 	start,
-		  end: 		end
-		}
-	}
+	this.socket.send( formatter.GetNotices.apply(this, arguments) );
 };
 
 HMI.prototype.LetNotices = function(start, notices) {
-	return {
-		"notice.LetNotices": {
-		  start: 		start,
-		  notices: 	notices
-		}
-	}
+	this.socket.send( formatter.LetNotices.apply(this, arguments) );
 };
 
 HMI.prototype.SetDeleteNotice = function(id) {
-	return {
-		"notice.SetDeleteNotice": {
-		  id: 	id
-		}
-	}
+	this.socket.send( formatter.SetDeleteNotice.apply(this, arguments) );
 };
 
 //// [ PHONE ] ////////////////////////////////////////////////////////////////
 
 HMI.prototype.GetCharging = function() {
-	return {
-		"phone.GetCharging": {}
-	}
+	this.socket.send( formatter.GetCharging.apply(this, arguments) );
 };
 
 HMI.prototype.LetCharging = function(charging) {
-	return {
-		"phone.LetCharging": {
-		  value: 	charging
-		}
-	}
+	this.socket.send( formatter.LetCharging.apply(this, arguments) );
 };
 
 HMI.prototype.GetHandsFree = function() {
-	return {
-		"phone.GetHandsFree": {}
-	}
+	this.socket.send( formatter.GetHandsFree.apply(this, arguments) );
 };
 
 HMI.prototype.SetHandsFree = function(handsfree) {
-	return {
-		"phone.SetHandsFree": {
-		  value: 	handsfree
-		}
-	}
+	this.socket.send( formatter.SetHandsFree.apply(this, arguments) );
 };
 
 HMI.prototype.LetHandsFree = function(handsfree) {
-	return {
-		"phone.LetHandsFree": {
-		  value: 	handsfree
-		}
-	}
+	this.socket.send( formatter.LetHandsFree.apply(this, arguments) );
 };
 
 HMI.prototype.SetAction = function(action, number) {
-	return {
-		"phone.SetAction": {
-		  number: 		number,
-		  action: 		action
-		}
-	}
+	this.socket.send( formatter.SetAction.apply(this, arguments) );
 };
 
 HMI.prototype.GetCallDuration = function() {
-	return {
-		"phone.GetCallDuration": {}
-	}
+	this.socket.send( formatter.GetCallDuration.apply(this, arguments) );
 };
 
 HMI.prototype.LetCallDuration = function(duration) {
-	return {
-		"phone.LetCallDuration": {
-		  value: 	duration
-		}
-	}
+	this.socket.send( formatter.LetCallDuration.apply(this, arguments) );
 };
 
 HMI.prototype.GetStatus = function() {
-	return {
-		"phone.GetStatus": {}
-	}
+	this.socket.send( formatter.GetStatus.apply(this, arguments) );
 };
 
 HMI.prototype.LetStatus = function(status) {
-	return {
-		"phone.LetStatus": {
-		  value: 	status
-		}
-	}
+	this.socket.send( formatter.LetStatus.apply(this, arguments) );
 };
 
 HMI.prototype.SetText = function(recipient, text) {
-	return {
-		"phone.SetText": {
-			recipient: 		recipient,
-			text: 				text
-		}
-	}
+	this.socket.send( formatter.SetText.apply(this, arguments) );
 };
 
 //// [ PROXIMITY ] ////////////////////////////////////////////////////////////
 
 HMI.prototype.GetProximity = function() {
-	return {
-		"proximity.GetProximity": {}
-	}
+	this.socket.send( formatter.GetProximity.apply(this, arguments) );
 };
 
 HMI.prototype.LetProximity = function(name, proximity) {
-	return {
-		"proximity.LetProximity": {
-			name: 			name,
-			proximity: 	proximity
-		}
-	}
+	this.socket.send( formatter.LetProximity.apply(this, arguments) );
 };
 
 //// [ SWC ] //////////////////////////////////////////////////////////////////
@@ -280,63 +174,27 @@ HMI.prototype.LetProximity = function(name, proximity) {
 HMI.prototype.swc = {};
 
 HMI.prototype.swc.LetCursor = function(x, y, phase) {
-	return {
-		"swc.LetCursor": {
-			phase: 		phase,
-			x: 				x,
-			y: 				y
-		}
-	}
+	this.socket.send( formatter.swc.LetCursor.apply(this, arguments) );
 };
 
 HMI.prototype.swc.LetScroll = function(deltaX, deltaY, velocityX, velocityY, phase, fingerCount) {
-	return {
-		"swc.LetScroll": {
-			deltaX: 			deltaX,
-			deltaY: 			deltaY,
-			velocityX: 		velocityX,
-			velocityY: 		velocityY,
-			phase: 				phase,
-			fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.swc.LetScroll.apply(this, arguments) );
 };
 
 HMI.prototype.swc.LetTap = function(x, y, fingerCount, clickCount) {
-	return {
-		"swc.LetTap": {
-		  fingerCount: 		fingerCount,
-		  clickCount: 		clickCount,
-		  x: 							x,
-		  y: 							y
-		}
-	}
+	this.socket.send( formatter.swc.LetTap.apply(this, arguments) );
 };
 
 HMI.prototype.swc.LetRotate = function(deltaAngle, fingerCount) {
-	return {
-		"swc.LetRotate": {
-			deltaAngle: 		deltaAngle,
-			fingerCount: 		fingerCount
-		}
-	}
+	this.socket.send( formatter.swc.LetRotate.apply(this, arguments) );
 };
 
 HMI.prototype.swc.LetZoom = function(deltaZoom, fingerCount) {
-	return {
-		"swc.LetZoom": {
-			deltaZoom: 		deltaZoom,
-			fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.swc.LetZoom.apply(this, arguments) );
 };
 
 HMI.prototype.swc.LetGesture = function(gesture) {
-	return {
-		"swc.LetGesture": {
-			gesture: 		gesture
-		}
-	}
+	this.socket.send( formatter.swc.LetGesture.apply(this, arguments) );
 };
 
 //// [ TOUCH ] ////////////////////////////////////////////////////////////////
@@ -344,143 +202,71 @@ HMI.prototype.swc.LetGesture = function(gesture) {
 HMI.prototype.touch = {};
 
 HMI.prototype.touch.LetCursor = function(x, y, phase) {
-	return {
-		"touch.LetCursor": {
-			phase: 		phase,
-			x: 				x,
-			y: 				y
-		}
-	}
+	this.socket.send( formatter.touch.LetCursor.apply(this, arguments) );
 };
 
 HMI.prototype.touch.LetScroll = function(deltaX, deltaY, velocityX, velocityY, phase, fingerCount) {
-	return {
-		"touch.LetScroll": {
-			deltaX: 			deltaX,
-			deltaY: 			deltaY,
-			velocityX: 		velocityX,
-			velocityY: 		velocityY,
-			phase: 				phase,
-			fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.touch.LetScroll.apply(this, arguments) );
 };
 
 HMI.prototype.touch.LetTap = function(x, y, fingerCount, clickCount) {
-	return {
-		"touch.LetTap": {
-		  fingerCount: 		fingerCount,
-		  clickCount: 		clickCount,
-		  x: 							x,
-		  y: 							y
-		}
-	}
+	this.socket.send( formatter.touch.LetTap.apply(this, arguments) );
 };
 
 HMI.prototype.touch.LetRotate = function(deltaAngle, fingerCount) {
-	return {
-		"touch.LetRotate": {
-			deltaAngle: 		deltaAngle,
-			fingerCount: 		fingerCount
-		}
-	}
+	this.socket.send( formatter.touch.LetRotate.apply(this, arguments) );
 };
 
 HMI.prototype.touch.LetZoom = function(deltaZoom, fingerCount) {
-	return {
-		"touch.LetZoom": {
-			deltaZoom: 		deltaZoom,
-			fingerCount: 	fingerCount
-		}
-	}
+	this.socket.send( formatter.touch.LetZoom.apply(this, arguments) );
 };
 
 HMI.prototype.touch.LetGesture = function(gesture) {
-	return {
-		"touch.LetGesture": {
-			gesture: 		gesture
-		}
-	}
+	this.socket.send( formatter.touch.LetGesture.apply(this, arguments) );
 };
 
 //// [ TRAUMA ] ///////////////////////////////////////////////////////////////
 
 HMI.prototype.GetLevel = function() {
-	return {
-		"trauma.GetLevel": {}
-	}
+	this.socket.send( formatter.GetLevel.apply(this, arguments) );
 };
 
 HMI.prototype.LetLevel = function(level) {
-	return {
-		"trauma.LetLevel": {
-			level: 		level
-		}
-	}
+	this.socket.send( formatter.LetLevel.apply(this, arguments) );
 };
 
 //// [ VEHICLE ] //////////////////////////////////////////////////////////////
 
 HMI.prototype.GetLocked = function() {
-	return {
-		"vehicle.GetLocked": {}
-	}
+	this.socket.send( formatter.GetLocked.apply(this, arguments) );
 };
 
 HMI.prototype.SetLocked = function(locked) {
-	return {
-		"vehicle.SetLocked": {
-			value: 	locked
-		}
-	}
+	this.socket.send( formatter.SetLocked.apply(this, arguments) );
 };
 
 HMI.prototype.LetLocked = function(locked) {
-	return {
-		"vehicle.LetLocked": {
-			value: 	locked
-		}
-	}
+	this.socket.send( formatter.LetLocked.apply(this, arguments) );
 };
 
 HMI.prototype.SetHonk = function(time) {
-	return {
-		"vehicle.SetHonk": {
-			value: 	time
-		}
-	}
+	this.socket.send( formatter.SetHonk.apply(this, arguments) );
 };
 
 HMI.prototype.LetDriverDoorOpen = function(value) {
-	return {
-		"vehicle.LetDriverDoorOpen": {
-			value: 	value
-		}
-	}
+	this.socket.send( formatter.LetDriverDoorOpen.apply(this, arguments) );
 };
 
 HMI.prototype.LetStarted = function(value) {
-	return {
-		"vehicle.LetStarted": {
-			value: 	value
-		}
-	}
+	this.socket.send( formatter.LetStarted.apply(this, arguments) );
 };
 
 HMI.prototype.LetDriverSeated = function(value) {
-	return {
-		"vehicle.LetDriverSeated": {
-			value: 	value
-		}
-	}
+	this.socket.send( formatter.LetDriverSeated.apply(this, arguments) );
 };
 
 HMI.prototype.LetSpeed = function(value) {
-	return {
-		"vehicle.LetSpeed": {
-			value: 	value
-		}
-	}
+	this.socket.send( formatter.LetSpeed.apply(this, arguments) );
 };
 
-module.exports = HMI.getInstance();
+module.exports = HMI;

@@ -1,16 +1,27 @@
-var exec 		= require('child_process').exec;
+var exec 					= require('child_process').exec,
+		StatusMonitor = require('./StatusMonitor');
 
-function Vehicle() {
+function Vehicle(options) {
+	this.options = options;
+
+	if(this.options.server === undefined)
+		throw new Error('Vehicle requires server')
+
+	// Convenience 
+	this.server 	= this.options.server;
+
+	// Create a monitor that watches car status updates, 
+	// and triggers change events where appropriate
+	this.statusMonitor = new StatusMonitor({
+	  url:      this.options.server.url,
+	  channel:  '/car/status/update'
+	});
 
 }
 
 //// [ STATIC ] ///////////////////////////////////////////////////////////////
 
-Vehicle.getInstance = function() {
-	if(Vehicle.instance) {
-		return Vehicle.instance;
-	} else return Vehicle.instance = new Vehicle();
-}
+//// [ GETTER/SETTER ] ////////////////////////////////////////////////////////
 
 //// [ SECURITY ] /////////////////////////////////////////////////////////////
 
@@ -25,8 +36,17 @@ Vehicle.prototype.unlock = function() {
 };
 
 //// [ IGNITION ] /////////////////////////////////////////////////////////////
+
+Vehicle.prototype.setIgnition = function(value) {
+	exec('say ignition ' + (value ? 'on' : 'off'));
+};
+
 //// [ CHARGING ] /////////////////////////////////////////////////////////////
 //// [ TRAUMA LEVEL ] /////////////////////////////////////////////////////////
 //// [ GPS ] //////////////////////////////////////////////////////////////////
 
-module.exports = Vehicle.getInstance();
+Vehicle.prototype.setLocation = function(latitude, longitude) {
+	// body...
+};
+
+module.exports = Vehicle;

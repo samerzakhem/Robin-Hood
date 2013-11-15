@@ -8,10 +8,10 @@ function Relay(options) {
 	this.options 		= options || {};
 
 	if(this.options.from === undefined)
-		throw new Error('FayeChannel requires from');
+		throw new Error('Relay requires from');
 
 	if(this.options.to === undefined)
-		throw new Error('FayeChannel requires to');
+		throw new Error('Relay requires to');
 
 	// Set some default options
 	this.interval 	= options.interval 	|| 0;

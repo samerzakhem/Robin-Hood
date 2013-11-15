@@ -10,6 +10,8 @@ function StatusMonitor(options) {
 		ignition: 		undefined,
 		charging: 		undefined,
 		traumaLevel: 	undefined,
+		user: 				undefined,
+		
 		// latitude: 		undefined,
 		// longitude: 		undefined,
 		seatbelt: 		undefined

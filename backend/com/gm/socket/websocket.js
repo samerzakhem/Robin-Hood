@@ -43,15 +43,19 @@ WebSocket.prototype._onOpen = function(e) {
 };
 
 WebSocket.prototype._onClose = function(e) {
-	console.log("!! [%s] DISCONNECTED", this.options.url);
-
 	this._reconnectInterval = setTimeout(this._initClient.bind(this), 5000);
 	this._connected = false;
 	this.onClose.call(this, e);
 };
 
 WebSocket.prototype._onMessage = function(e) {
-	this.emit('message', JSON.parse(e.data));
+	var value = e.data;
+
+	try {
+		value = JSON.parse(value);
+	} catch(e) {
+		// Guess it wasn't json...
+	} finally { this.emit('message', value); }
 };
 
 WebSocket.prototype.isConnected = function() {

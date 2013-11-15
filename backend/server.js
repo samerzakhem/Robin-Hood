@@ -2,18 +2,24 @@
  * Server.js - Main GM Backend server script
  */
 
-var socket        = require('./com/gm/socket'),
+var needle        = require('needle'),
+    socket        = require('./com/gm/socket'),
     server        = new socket.Server('/gm', 8000),
-    StatusMonitor = require('./services/StatusMonitor'),
     Vehicle       = require('./services/Vehicle'),
+    IntentEngine  = require('./services/IntentEngine'),
+    HMI           = require('./services/HMI'),
+
     config        = {
       intentEngine: {
-        URL:            'ws://smartgrid.asd.novaconcepts.net:9090/EmergingServices/websocket/RobinHoodWS',
+        url:            'ws://smartgrid.asd.novaconcepts.net:9090/EmergingServices/websocket/RobinHoodWS',
         VIN:            '1G1RA6E43CU123168',
         ACCESS_TOKEN:   '5c49870ac65101f32affcf0e0e1d0800'
       },
       nFuzion: {
         url:            'ws://localhost:4412'
+      },
+      userData: {
+        url:            'http://smartgrid.asd.novaconcepts.net:9090/EmergingServices/rest/userData'
       }
     };
 
@@ -23,32 +29,53 @@ server.faye.bind('subscribe', function(client, channel) {
   console.log("[%s] subscribed to: %s", client, channel);
 });
 
+//// [ HMI ] //////////////////////////////////////////////////////////////////
+var HMI = new HMI({
+  url:    config.nFuzion.url
+});
+
 //// [ INTENT ENGINE ] ////////////////////////////////////////////////////////
 
 // Create a connetion to the intent engine, and send the 
 // access token along the first thing after we're connected
-var intentSocket = new socket.WebSocket({
-  url:        config.intentEngine.URL,
-  onOpen:     function(e) {
-    console.log(">> [INTENT] Connected!")
-    this.send( config.intentEngine.ACCESS_TOKEN );
-  }
+var IntentEngine = new IntentEngine({
+  socketURL:      config.intentEngine.url,
+  dataURL:        config.userData.url,
+  access_token:   config.intentEngine.ACCESS_TOKEN,
+  vin:            config.intentEngine.VIN
 });
 
 // DEBUG: Listen to any responses from the intent engine
-intentSocket.on('message', function(msg) {
+IntentEngine.socket.on('message', function(msg) {
   console.log(">> [INTENT]", JSON.stringify(msg));
 });
 
+//// [ VEHICLE CONFIGURATION ] ////////////////////////////////////////////////
+
+var Vehicle = new Vehicle({
+  server:     server,
+  vin:        config.intentEngine.VIN
+})
+
 //// [ GPS RELAYS ] ///////////////////////////////////////////////////////////
+
+var GPSChannel = new socket.FayeChannel({
+  url:        server.url,
+  channel:    '/car/location',
+  onMessage:  function(msg) {
+    // Update the vehicle
+    Vehicle.setLocation(msg.latitude, msg.longitude); 
+
+    // Update the HMI
+    // TODO: HMI.LetPosition?
+    HMI.LetPosition(msg.latitude, msg.longitude);
+  }
+});
 
 // Relay the /car/location information to the intent engine every 5 seconds
 new socket.Relay({
-  to:         intentSocket,
-  from:       new socket.FayeChannel({
-    url:       server.url,
-    channel:  '/car/location'
-  }),
+  to:         IntentEngine.socket,
+  from:       GPSChannel,
   interval:   5,
   translate:      function(message) {
     return {
@@ -64,13 +91,6 @@ new socket.Relay({
 
 //// [ CAR STATUS ] ///////////////////////////////////////////////////////////
 
-// Create a monitor that watches car status updates, 
-// and triggers change events where appropriate
-new StatusMonitor({
-  url:      server.url,
-  channel:  '/car/status/update'
-});
-
 // Listen for when the locked status is changed, 
 // and manipulate the Vehicle object as appropriate
 new socket.PropertyWatcher({
@@ -82,56 +102,59 @@ new socket.PropertyWatcher({
   }
 });
 
-/*
-// Relay location data to the HMI websocket
-server.addResponder( new socket.RelayResponder({
-  channel:    '/car/location',
-  url:        config.nFuzion.url,
-  onConnect:   function() {
-    console.log(">> nfuzion relay connected")
-  },
-
-  translate:  function(message) {
-    return {
-      "gps.LetPosition": {
-        latitude:   message.latitude,
-        longitude:  message.longitude
-      }
-    }
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:   'ignition',
+  onChange:   function(oldValue, newValue) {
+    Vehicle.setIgnition( newValue );        // Update the vehicle
+    IntentEngine.setIgnition( newValue );   // Update the intent engine
   }
-}));
-*/
+});
 
-/*
-// Relay the location data to the intent engine
-server.addResponder( new socket.RelayResponder({
-  channel:        '/car/location', 
-  interval:       5,
-  url:            config.intentEngine.URL,
-  vin:            config.intentEngine.VIN,
-  access_token:   config.intentEngine.ACCESS_TOKEN,
+//// [ MISCELLANEOUS ] ////////////////////////////////////////////////////////
 
-  onConnect:   function() {
-    console.log(">> Intent GPS relay is connected")
-    this.client.send( this.options.access_token );
-  },
-
-  translate:      function(message) {
-    return {
-      command:    'pushLocationData',
-      timestamp:  new Date().getTime(),
-      params:     {
-        vin:        this.options.vin,
-        location:   message.latitude + "," + message.longitude
-      }
-    }
-  },
-
-  wsMessage:  function(e) {
-    console.log(">> Intent GOT:", e.data);
+// Listen to pushNextDestination commands
+// {"timestamp":1384470725966,"category":"NextDestination","data":{"freeTime":false,"nextDestination":{"Name":"Appt2","location":"42.4973839,-83.3756"}},"command":"pushNextDestination"}
+new socket.PropertyRecognizer({
+  socket:       IntentEngine.socket,
+  property:     'command',
+  value:        'pushNextDestination',
+  onRecognized:  function(msg) {
+    console.log("Got destination:", msg.data.nextDestination)
+    // TODO: HMI.LetWaypoints? HMI.LetNotices?
   }
-}));
-*/
+});
+
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:    'user',
+  onChange:   function(oldValue, newValue) {
+    IntentEngine.setUser(newValue, 'UNUSED', '11152013')
+  }
+});
+
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:   'traumaLevel',
+  onChange:   function(oldValue, newValue) {
+    HMI.LetLevel( newValue );
+  }
+});
+
+//// [ MESSAGING ] ////////////////////////////////////////////////////////////
+
+new socket.FayeChannel({
+  url:       server.url,
+  channel:   '/messaging',
+  onMessage: function(msg) {
+    console.log("Send message:", msg);
+    // TODO: HMI.LetNotices?
+  }
+});
+
 
 // Start the server!
 server.start();
