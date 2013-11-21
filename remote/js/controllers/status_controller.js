@@ -11,7 +11,8 @@ var StatusController = (function() {
 		this.readouts = {
 			locked: 		this.element.find('.locked span'),
 			ignition: 	this.element.find('.ignition span'),
-			charging: 	this.element.find('.charging span')
+			charging: 	this.element.find('.charging span'),
+			battery: 		this.element.find('.battery span')
 		};
 
 		// Listen to when the vehicle values change
@@ -28,6 +29,8 @@ var StatusController = (function() {
 
 		this.readouts.charging.text( 
 			Vehicle.values.charging ? 'Connected' : 'Disconnected' );
+
+		this.readouts.battery.text( Vehicle.values.batteryLevel + '%' );
 	};
 
 	return StatusController;

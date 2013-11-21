@@ -12,7 +12,7 @@ var MapController = (function() {
 		// Initialize the map
 		this.map = new google.maps.Map(document.getElementById(this.options.map), {
 			center: 		this.options.center,
-      zoom: 			13,
+			zoom: 			13,
 			mapTypeId: 	google.maps.MapTypeId.ROADMAP
 		});
 
@@ -23,14 +23,17 @@ var MapController = (function() {
 		this.simulator = new DrivingSimulator({
 			scope: 		this,
 			onReady: 	this._onRouteReady,
-			onUpdate: this._onRouteUpdate
+			onUpdate: 	this._onRouteUpdate
 		});
 
+		// Listen to location messages from the HMI for location changes
+		HMI.bind('location', 	this._onLocationUpdate.bind(this));
+
 		// Add some elements and listeners
-		this.element 						= $('#' + this.options.element);
-		this.originField 				= this.element.find('#gps-origin-field');
+		this.element 			= $('#' + this.options.element);
+		this.originField 		= this.element.find('#gps-origin-field');
 		this.destinationField 	= this.element.find('#gps-destination-field');
-		this.buttons 						= {
+		this.buttons 			= {
 			routeButton: 	this.element.find('#gps-route-btn'),
 			stopButton: 	this.element.find('#gps-stop-btn'),
 			pauseButton: 	this.element.find('#gps-pause-btn'),
@@ -90,6 +93,24 @@ var MapController = (function() {
 
 	MapController.prototype._onPlay = function() {
 		this.simulator.resume();
+	};
+
+	MapController.prototype._onLocationUpdate = function(msg) {
+		if(this.simulator.point) {
+			// Create a string for the lat/lon value
+			var point 		= this.simulator.point,
+				origin 		= point.lat() + "," + point.lng(),
+				destination = unescape(msg.destination);
+
+			// Update the form field
+			this.destinationField.val( destination );
+			
+			// Update the route
+			this.simulator.reset(); 
+
+			// Reroute
+			this.simulator.setRoute( origin, destination );
+		}
 	};
 
 	return MapController;

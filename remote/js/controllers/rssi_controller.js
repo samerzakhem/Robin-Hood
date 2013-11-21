@@ -78,6 +78,9 @@ var RSSIController = (function() {
 			entered: 	function() {
 				// Unlock the car
 				Vehicle.unlock();
+
+				// Let the HMI know where we are
+				HMI.send( HMI.LetProximi('name', 'arrived') );
 			}
 		});
 
@@ -87,8 +90,21 @@ var RSSIController = (function() {
 			entered: 	function() {
 				// Lock the car
 				Vehicle.lock();
+
+				// Let the HMI know where we are
+				HMI.send( HMI.LetProximi('name', 'close') );
 			}
-		})
+		});
+
+		this.nowhereRange = this.broadcaster.addRange({
+			min: 			this.min,
+			max: 			this.max,
+			exited: 	function() {
+				// Let the HMI know where we are
+				HMI.send( HMI.LetProximi('name', 'none') );
+			}
+		});
+		
 	};
 
 	RSSIController.prototype._updateStops = function() {

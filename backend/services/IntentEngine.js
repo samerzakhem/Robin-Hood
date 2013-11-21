@@ -28,8 +28,8 @@ IntentEngine.prototype.setIgnition = function(state) {
 		command: 		"pushIgnitionData",
 		timestamp: 	new Date().getTime(),
 		params: {
-			type: 			(state) ? "IGN_ON" : "IGN_OFF",
-			vin:  			this.options.vin,
+			type: 		(state) ? "IGN_ON" : "IGN_OFF",
+			vin:  		this.options.vin,
 			location: 	"42.3290,83.0397"
 		}
 	});

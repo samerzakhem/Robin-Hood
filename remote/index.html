@@ -6,6 +6,8 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIdhzKhqsejGhHtPZbb8LR80W60GJgEkg&sensor=true"></script>
+
+		<script type="text/javascript" src="js/jquery.terminal-0.7.8.min.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.punch-0.2.2.js"></script>
 
 		<script src="bootstrap/js/bootstrap.js"></script>
@@ -23,6 +25,8 @@
 		<script src="js/controllers/messaging_controller.js"></script>
 		<script src="js/controllers/navbar_controller.js"></script>
 		<script src="js/controllers/status_controller.js"></script>
+		<script src="js/controllers/intent_controller.js"></script>
+		<script src="js/controllers/console_controller.js"></script>
 
 		<script src="js/models/HMI.js"></script>
 		<script src="js/models/Vehicle.js"></script>
@@ -31,15 +35,17 @@
 		<script src="js/models/rssi/DistanceBroadcaster.js"></script>
 		<script src="js/models/map/DrivingSimulator.js"></script>
 
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
+		<link rel="stylesheet" href="css/jquery.terminal.css" />
 		<link rel="stylesheet" href="css/main.css" />
 
 		<script src="js/main.js" type="text/javascript"></script>
 
 	</head>
 	<body>
+
+		<div id="console"></div>
 
 		<div class='navbar navbar-static-top'>
 			<div class='navbar-inner'>
@@ -97,16 +103,16 @@
 								<input type="text" class="span12" id="msg-from" placeholder="From">
 
 								<select name="" id="msg-source" class="span6">
-									<option value="sms">SMS</option>
-									<option value="email">Email</option>
-									<option value="facebook">Facebook</option>
-									<option value="twitter">Twitter</option>
+									<option value="text">SMS</option>
+									<option value="mail">Email</option>
+									<option value="socialMedia">Facebook</option>
+									<option value="socialMedia">Twitter</option>
 								</select>
 
 								<select name="" id="msg-priority" class="span6">
-									<option value="1">Priority 1</option>
-									<option value="2">Priority 2</option>
-									<option value="3">Priority 3</option>
+									<option value="low">Low</option>
+									<option value="medium">Medium</option>
+									<option value="high">High</option>
 								</select>
 
 								<textarea name="" id="msg-text" cols="30" class="span12" rows="2"></textarea>
@@ -122,8 +128,9 @@
 
 				</div>
 
-				<div class="span4 well well-small">
-					<div id="gps-container">
+				<div class="span4">
+
+					<div id="gps-container" class="well well-small">
 						<h4>GPS Simulator</h4>
 						<div id="map-canvas"></div>	
 
@@ -136,8 +143,19 @@
 							<button id='gps-pause-btn' class="btn btn-inverse btn-small pull-right"><i class="icon-pause icon-white"></i></button>
 							<button id='gps-stop-btn' class="btn btn-danger btn-small pull-right"><i class="icon-stop icon-white"></i></button>
 						</form>
-
 					</div>
+
+					<div id="intent-container" class="well well-small">
+						<h4>Miscellaneous </h4>
+
+						<form action="" class="form">
+							<button id="intent-btn" class="btn btn-primary btn-small">Simulate Intent</button>
+
+							<button id="hfp-on-btn" class="btn btn-primary btn-small">HFP On</button>
+							<button id="hfp-off-btn" class="btn btn-primary btn-small">HFP Off</button>
+
+						</form>
+					</div>					
 				</div>
 
 				<div class="span4">
@@ -153,8 +171,8 @@
 							<tr>
 								<td>Driver Seat<span class="pull-right">Empty</span></td>
 							</tr>
-							<tr>
-								<td>Passenger Seat<span class="pull-right">Empty</span></td>
+							<tr class='battery'>
+								<td>Battery Level<span class="pull-right">0%</span></td>
 							</tr>
 							<tr class='charging'>
 								<td>Phone Charger<span class="pull-right">Disconnected</span></td>

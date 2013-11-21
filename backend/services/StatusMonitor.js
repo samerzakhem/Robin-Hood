@@ -6,15 +6,14 @@ function StatusMonitor(options) {
 	StatusMonitor.super_.call(this, options);
 
 	this.values = {
-		locked: 			undefined,
-		ignition: 		undefined,
-		charging: 		undefined,
-		traumaLevel: 	undefined,
-		user: 				undefined,
-		
-		// latitude: 		undefined,
-		// longitude: 		undefined,
-		seatbelt: 		undefined
+		locked: 				undefined,
+		ignition: 			undefined,
+		charging: 			undefined,
+		batteryLevel: 	undefined,
+		traumaLevel: 		undefined,
+		handsfree: 			undefined,
+		user: 					undefined,
+		seatbelt: 			undefined
 	};
 
 	this._dirty = false;

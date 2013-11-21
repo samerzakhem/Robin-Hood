@@ -1,5 +1,5 @@
-var formatter = require('./HMIFormatter'),
-		socket 		= require('../com/gm/socket')
+var formatter 	= require('./HMIFormatter'),
+		socket 			= require('../com/gm/socket')
 
 function HMI(options) {
 	this.options = options;
@@ -14,13 +14,16 @@ function HMI(options) {
 	// Initialize the websocket connection
 	this.socket = new socket.WebSocket({
 		url:        this.options.url,
+		scope: 			this,
 		onOpen:     function(e) {
 			console.log(">> [HMI] Connected!");
+			this.identifyClient('GM Backend');
 		},
 		onClose: 		function() {
 			console.log("!! [HMI] Disconnected!");
 		}
 	});
+
 }
 
 //// [ STATIC ] ///////////////////////////////////////////////////////////////
@@ -30,6 +33,54 @@ HMI.getInstance = function(options) {
 		return HMI.instance;
 	} else return HMI.instance = new HMI(options);
 }
+
+//// [ DEBUG HELPERS ] ////////////////////////////////////////////////////////
+
+HMI.prototype.sendRaw = function(message) {
+	this.socket.send( message );
+};
+
+HMI.prototype.identify = function(name) {
+	this.socket.send({
+		"span.LetClientMetadata": {
+		  name:  						name,
+		  clientCategory: 	"Service",
+		  echo: 						false
+		}
+	});
+};
+
+//// [ MESSAGING ] ////////////////////////////////////////////////////////////
+
+HMI.prototype.sendMessage = function(msg) {
+
+	var options = {
+		text: 	[
+			{
+		        data: 		msg.text,
+		        action: 	"tts",
+		        name: 		"Listen"
+			},
+		    {
+		        action: 	"sendMessage",
+		        name: 		"Reply"
+		    }
+		],
+
+		mail: 	[],
+
+		socialMedia: 	[]
+	}
+
+	// MSG: { from: 'From', type: 'sms', priority: 'low', text: 'text' }
+	this.SetAddNotice({
+	    priority: 	msg.priority,
+	    type: 			msg.type,
+	    options: 		options[ msg.type ],
+	    text: 			msg.text,
+	    title: 			msg.from
+	});
+};
 
 //// [ CHIME ] ////////////////////////////////////////////////////////////////
 
@@ -42,6 +93,10 @@ HMI.prototype.SetChime = function(type, count) {
 
 HMI.prototype.LetPosition = function(latitude, longitude) {
 	this.socket.send( formatter.LetPosition.apply(this, arguments) );
+};
+
+HMI.prototype.SetEndByAddress = function(address) {
+	this.socket.send( formatter.SendEndByAddress.apply(this, arguments) );
 };
 
 //// [ HEAD ] /////////////////////////////////////////////////////////////////

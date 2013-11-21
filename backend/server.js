@@ -15,8 +15,10 @@ var needle        = require('needle'),
         VIN:            '1G1RA6E43CU123168',
         ACCESS_TOKEN:   '5c49870ac65101f32affcf0e0e1d0800'
       },
-      nFuzion: {
-        url:            'ws://localhost:4412'
+      hmi: {
+        // url:            'ws://localhost:4412'
+        // url:                'ws://192.168.0.106:4412'
+        url:                'ws://192.168.0.99:4412'
       },
       userData: {
         url:            'http://smartgrid.asd.novaconcepts.net:9090/EmergingServices/rest/userData'
@@ -31,7 +33,13 @@ server.faye.bind('subscribe', function(client, channel) {
 
 //// [ HMI ] //////////////////////////////////////////////////////////////////
 var HMI = new HMI({
-  url:    config.nFuzion.url
+  server:   server,
+  url:      config.hmi.url
+});
+
+// DEBUG: Listen to any responses from the intent engine
+HMI.socket.on('message', function(msg) {
+  // console.log(">> [HMI] (%s)", new Date().getTime(), JSON.stringify(msg));
 });
 
 //// [ INTENT ENGINE ] ////////////////////////////////////////////////////////
@@ -62,12 +70,17 @@ var Vehicle = new Vehicle({
 var GPSChannel = new socket.FayeChannel({
   url:        server.url,
   channel:    '/car/location',
+  buffer:     .25,
   onMessage:  function(msg) {
     // Update the vehicle
-    Vehicle.setLocation(msg.latitude, msg.longitude); 
+    // Vehicle.setLocation(msg.latitude, msg.longitude); 
 
     // Update the HMI
     // TODO: HMI.LetPosition?
+    // HMI.LetPosition(msg.latitude, msg.longitude);
+  },
+
+  onTimer:  function(msg) {
     HMI.LetPosition(msg.latitude, msg.longitude);
   }
 });
@@ -76,7 +89,7 @@ var GPSChannel = new socket.FayeChannel({
 new socket.Relay({
   to:         IntentEngine.socket,
   from:       GPSChannel,
-  interval:   5,
+  interval:   15,
   translate:      function(message) {
     return {
       command:    'pushLocationData',
@@ -115,6 +128,7 @@ new socket.PropertyWatcher({
 //// [ MISCELLANEOUS ] ////////////////////////////////////////////////////////
 
 // Listen to pushNextDestination commands
+// Forward the next destination data from the intent engine to the HMI
 // {"timestamp":1384470725966,"category":"NextDestination","data":{"freeTime":false,"nextDestination":{"Name":"Appt2","location":"42.4973839,-83.3756"}},"command":"pushNextDestination"}
 new socket.PropertyRecognizer({
   socket:       IntentEngine.socket,
@@ -126,6 +140,7 @@ new socket.PropertyRecognizer({
   }
 });
 
+// Forward the username to the intent engine
 new socket.PropertyWatcher({
   url:        server.url,
   channel:    '/car/status',
@@ -135,6 +150,7 @@ new socket.PropertyWatcher({
   }
 });
 
+// Forward the trauma level from the front-end to the HMI
 new socket.PropertyWatcher({
   url:        server.url,
   channel:    '/car/status',
@@ -144,6 +160,43 @@ new socket.PropertyWatcher({
   }
 });
 
+// Handsfree
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:   'handsfree',
+  onChange:   function(oldValue, newValue) {
+    console.log(">> Handsfree set to %s", newValue);
+    HMI.LetHandsFree( newValue );
+  }
+});
+
+// Send the destination to the front-end
+new socket.CommandRecognizer({
+  socket:         HMI.socket,
+  property:      'navigation.SetEndByAddress',
+  onRecognized:  function(msg) {
+    Vehicle.setDestination( msg.value );
+  }
+});
+
+// Send any /hmi/command messages straight to the socket
+new socket.Relay({
+  to:         HMI.socket,
+  from:       new socket.FayeChannel({
+    url:        server.url,
+    channel:    '/hmi/command'
+  }),
+
+  translate:      function(message) {
+    console.log("Sending:", message.command);
+    return message.command;
+  }
+});
+
+
+//// [ TEMPORARY ] ////////////////////////////////////////////////////////////
+
 //// [ MESSAGING ] ////////////////////////////////////////////////////////////
 
 new socket.FayeChannel({
@@ -152,6 +205,7 @@ new socket.FayeChannel({
   onMessage: function(msg) {
     console.log("Send message:", msg);
     // TODO: HMI.LetNotices?
+    HMI.sendMessage( msg );
   }
 });
 

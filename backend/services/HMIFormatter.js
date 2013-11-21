@@ -33,6 +33,14 @@ HMIFormatter.prototype.LetPosition = function(latitude, longitude) {
 	}
 };
 
+HMIFormatter.prototype.SetEndByAddress = function(address) {
+	return {
+		"gps.SetEndByAddress": {
+			value: address
+		}
+	}
+};
+
 //// [ HEAD ] /////////////////////////////////////////////////////////////////
 //// [ LEAP ] /////////////////////////////////////////////////////////////////
 
@@ -412,7 +420,7 @@ HMIFormatter.prototype.GetLevel = function() {
 HMIFormatter.prototype.LetLevel = function(level) {
 	return {
 		"trauma.LetLevel": {
-			level: 		level
+			level: 		['', 'none', 'low', 'high'][level]
 		}
 	}
 };

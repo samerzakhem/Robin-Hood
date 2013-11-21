@@ -1,6 +1,10 @@
 var HMI = (function() {
 
 	function HMI() {
+		this._events = {};
+
+		this.faye = new Faye.Client(constants.SOCKET_URL);
+		this.faye.subscribe('/hmi/location/update', this._onLocationUpdate.bind(this));
 	}
 
 	//// [ STATIC ] ///////////////////////////////////////////////////////////////
@@ -10,6 +14,33 @@ var HMI = (function() {
 			return HMI.instance;
 		} else return HMI.instance = new HMI();
 	}
+
+	//// [ MISCELLANEOUS ] //////////////////////////////////////////////////////
+
+	HMI.prototype.send = function(command) {
+		this.faye.publish('/hmi/command', { command: command });
+	};
+
+	//// [ EVENT BROADCASTER ] //////////////////////////////////////////////////
+	
+	HMI.prototype.bind = function(eventName, callback) {
+		var events 		= this._events,
+			callbacks 	= events[eventName] = events[eventName] || [];
+
+		callbacks.push(callback)
+	};
+
+	HMI.prototype.fire = function(eventName, args) {
+		var callbacks 	= this._events[eventName] || [];
+		for(var i = 0, l = callbacks.length ; i < l ; i++)
+			callbacks[i].apply(this.scope, args)
+	};
+
+	//// [ EVENT LISTENERS ] //////////////////////////////////////////////////////
+
+	HMI.prototype._onLocationUpdate = function(msg) {
+		this.fire('location', [msg]);	
+	};
 
 	//// [ CHIME ] ////////////////////////////////////////////////////////////////
 
@@ -478,6 +509,14 @@ var HMI = (function() {
 		return {
 			"vehicle.LetSpeed": {
 				value: 	value
+			}
+		}
+	};
+
+	HMI.prototype.SetVolume = function(value) {
+		return { 
+			"amp.SetVolume": { 
+				value: value 
 			}
 		}
 	};

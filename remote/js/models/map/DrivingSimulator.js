@@ -189,9 +189,10 @@ var DrivingSimulator = (function() {
 	 * Resets the simulation
 	 */
 	DrivingSimulator.prototype.reset = function() {
-		TweenLite.killTweensOf(this); 	// Kill all the tweens
-		this.onReset.call(this.scope);	// Trigger the callback
-		_initialize.call(this); 				// Reset our variables
+		this.pathPolyline.setMap(null); 	// Remove the polyline from the map
+		TweenLite.killTweensOf(this); 		// Kill all the tweens
+		this.onReset.call(this.scope);		// Trigger the callback
+		_initialize.call(this); 					// Reset our variables
 		
 	}
 

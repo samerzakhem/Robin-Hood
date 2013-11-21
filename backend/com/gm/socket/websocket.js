@@ -18,6 +18,7 @@ function WebSocket(options) {
 	this._initClient();
 
 	// Some defaults for message events
+	this.scope 			= this.options.scope 			|| this;
 	this.onOpen 		= this.options.onOpen 		|| function() {};
 	this.onClose 		= this.options.onClose 		|| function() {};
 }
@@ -39,13 +40,13 @@ WebSocket.prototype._initClient = function() {
 WebSocket.prototype._onOpen = function(e) {
 	clearTimeout(this._reconnectInterval);
 	this._connected = true;
-	this.onOpen.call(this, e);
+	this.onOpen.call(this.scope, e);
 };
 
 WebSocket.prototype._onClose = function(e) {
 	this._reconnectInterval = setTimeout(this._initClient.bind(this), 5000);
 	this._connected = false;
-	this.onClose.call(this, e);
+	this.onClose.call(this.scope, e);
 };
 
 WebSocket.prototype._onMessage = function(e) {

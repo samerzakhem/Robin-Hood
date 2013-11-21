@@ -8,7 +8,8 @@ Socket.WebSocket 								= require('./websocket.js');
 Socket.FayeChannel 							= require('./faye_channel.js');
 Socket.Relay 										= require('./relay.js');
 
+Socket.CommandRecognizer 				= require('./command_recognizer.js');
 Socket.PropertyWatcher 					= require('./property_watcher.js');
-Socket.PropertyRecognizer				= require('./property_recognizer.js')
+Socket.PropertyRecognizer				= require('./property_recognizer.js');
 
 module.exports = Socket;

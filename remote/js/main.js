@@ -27,6 +27,16 @@ $(document).ready(function() {
 		element: 		'status-container'
 	});
 
+	var intentController = new IntentController({
+		element: 		'intent-container'
+	});
+
+	if(!/(iPhone|iPad|iPod)\sOS\s6/.test(navigator.userAgent)) {
+		var consoleController = new ConsoleController({
+			element: 		'console'
+		});
+	}
+
 	$('#username-container button').click(function(e) {
 		e.preventDefault();
 		Vehicle.setUser( $('#username-container input').val() );

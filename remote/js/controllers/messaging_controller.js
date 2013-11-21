@@ -30,20 +30,18 @@ var MessagingController = (function() {
 	MessagingController.prototype.onSend = function(e) {
 		// e.preventDefault();
 
-		console.log("Messaging:", Messaging)
-		
 		Messaging.sendMessage( 
 			this.get('from'), 
 			this.get('source'), 
 			this.get('priority'), 
 			this.get('body') );
 
-		this.resetForm();
+		// this.resetForm();
 		this.progress.show()
 		
 		setTimeout(function() {
 			this.progress.hide();
-		}.bind(this), 1000)
+		}.bind(this), 1000);
 	};
 
 	MessagingController.prototype.get = function(name) {

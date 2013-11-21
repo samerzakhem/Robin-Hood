@@ -24,6 +24,7 @@
 	height: 			100%;
 	background: 	red;
 }
+
 #gps-container form {
 	margin: 		10px auto 0px auto;
 }
@@ -54,4 +55,8 @@
 
 #username-container input {
 	width: 		110%;
+}
+
+#intent-container form {
+	margin: 		10px auto 0px auto;
 }

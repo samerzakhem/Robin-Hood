@@ -1,5 +1,6 @@
-var exec 					= require('child_process').exec,
-		StatusMonitor = require('./StatusMonitor');
+var exec 			= require('child_process').exec,
+	socket 			= require('../com/gm/socket'),
+	StatusMonitor 	= require('./StatusMonitor');
 
 function Vehicle(options) {
 	this.options = options;
@@ -15,6 +16,12 @@ function Vehicle(options) {
 	this.statusMonitor = new StatusMonitor({
 	  url:      this.options.server.url,
 	  channel:  '/car/status/update'
+	});
+
+	// Create a channel to send destination updates to the front-end
+	this.HMIClient = new socket.FayeChannel({
+		url: 		this.options.server.url,
+		channel: 	'/hmi/location/update'
 	});
 
 }
@@ -47,6 +54,12 @@ Vehicle.prototype.setIgnition = function(value) {
 
 Vehicle.prototype.setLocation = function(latitude, longitude) {
 	// body...
+};
+
+Vehicle.prototype.setDestination = function(msg) {
+	this.HMIClient.send({
+		destination: 	msg
+	});
 };
 
 module.exports = Vehicle;

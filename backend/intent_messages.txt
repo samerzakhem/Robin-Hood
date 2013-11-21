@@ -1,0 +1,14 @@
+>> [INTENT] {"command":"pushIgnitionData","timestamp":1384979502566,"params":{"type":"IGN_ON","vin":"1G1RA6E43CU123168","location":"42.3290,83.0397"}}
+>> [INTENT] {"command":"pushGreetings","msg":"Good afternoon Alice Raul."}
+>> [INTENT] {"timestamp":1384979430269,"category":"NextDestination","data":{"freeTime":false,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"command":"pushLocationData","timestamp":1384979600979,"params":{"vin":"1G1RA6E43CU123168","location":"42.56125190740077,-83.18132757418704"}}
+>> [INTENT] {"timestamp":1384979531996,"category":"CalendarChange","data":{"minutes":213,"nearbyPlaces":[{"Name":"Starbucks","Type":"Coffee Shop","Location":"42.560054,-83.183888"}],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"timestamp":1384979532806,"category":"CalendarChange","data":{"minutes":213,"nearbyPlaces":[{"Name":"Starbucks","Type":"Coffee Shop","Location":"42.560054,-83.183888"}],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"command":"pushLocationData","timestamp":1384979735998,"params":{"vin":"1G1RA6E43CU123168","location":"42.5588651598598,-83.15005392532782"}}
+>> [INTENT] {"timestamp":1384979664457,"category":"CalendarChange","data":{"minutes":211,"nearbyPlaces":[],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"command":"pushLocationData","timestamp":1384979796004,"params":{"vin":"1G1RA6E43CU123168","location":"42.55922516334788,-83.13532109157751"}}
+>> [INTENT] {"timestamp":1384979725786,"category":"CalendarChange","data":{"minutes":210,"nearbyPlaces":[],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"command":"pushLocationData","timestamp":1384979886006,"params":{"vin":"1G1RA6E43CU123168","location":"42.554240793706064,-83.11729458938879"}}
+>> [INTENT] {"timestamp":1384979815053,"category":"CalendarChange","data":{"minutes":209,"nearbyPlaces":[],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}
+>> [INTENT] {"command":"pushLocationData","timestamp":1384979946005,"params":{"vin":"1G1RA6E43CU123168","location":"42.54340672176518,-83.11663442662166"}}
+>> [INTENT] {"timestamp":1384979875171,"category":"CalendarChange","data":{"minutes":208,"nearbyPlaces":[],"freeTime":true,"nextDestination":{"Name":"Meet robinhood team","location":"42.258252,-82.9453683"}},"command":"pushNextDestination"}

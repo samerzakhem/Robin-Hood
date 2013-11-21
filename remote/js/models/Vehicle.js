@@ -4,18 +4,20 @@ var Vehicle = (function() {
 		this._events = {};
 
 		this.values = {
-			locked: 			false,
-			ignition: 		false,
-			charging: 		false,
-			traumaLevel: 	1,
-			user: 				undefined,
-			latitude: 		NaN,
-			longitude: 		NaN
+			locked: 				false,
+			ignition: 			false,
+			charging: 			false,
+			traumaLevel: 		1,
+			batteryLevel: 	0,
+			handsfree: 			false,
+			user: 					undefined,
+			latitude: 			NaN,
+			longitude: 			NaN
 		};
 
 		// Setup a Faye listner on /car/status.  This will be the authority
 		// for the car's current status, as returned by the backend
-		this.faye 					= new Faye.Client(constants.SOCKET_URL);
+		this.faye = new Faye.Client(constants.SOCKET_URL);
 		this.faye.subscribe('/car/status', this._onStatus.bind(this));
 	}
 
@@ -24,6 +26,10 @@ var Vehicle = (function() {
 	Vehicle.prototype._onStatus = function(msg) {
 		this.values = msg;
 		this.fire('changed');
+	};
+
+	Vehicle.prototype._onLocationUpdate = function(msg) {
+		this.fire('location', msg);
 	};
 
 	//// [ GENERAL ] ////////////////////////////////////////////////////////////
@@ -36,8 +42,8 @@ var Vehicle = (function() {
 	//// [ EVENT BROADCASTER ] //////////////////////////////////////////////////
 	
 	Vehicle.prototype.bind = function(eventName, callback) {
-		var events 			= this._events,
-				callbacks 	= events[eventName] = events[eventName] || [];
+		var events 		= this._events,
+			callbacks 	= events[eventName] = events[eventName] || [];
 
 		callbacks.push(callback)
 	};
@@ -84,10 +90,17 @@ var Vehicle = (function() {
 		this.update();
 	};
 
+	//// [ HANDSFREE ] //////////////////////////////////////////////////////////
+
+	Vehicle.prototype.setHandsfree = function(value) {
+		this.values.handsfree = value;
+		this.update();
+	};
+
 	//// [ GPS ] ////////////////////////////////////////////////////////////////
 	
 	Vehicle.prototype.setPosition = function(lat, lon) {
-		this.values.latitude 		= lat;
+		this.values.latitude 	= lat;
 		this.values.longitude 	= lon;
 
 		// Also publish the lat/lon values on /car/location
@@ -106,6 +119,8 @@ var Vehicle = (function() {
 		this.values.user 	= value;
 		this.update();
 	};
+
+	//// [ MISCELLANEOUS ] //////////////////////////////////////////////////////
 
 	return new Vehicle();
 
