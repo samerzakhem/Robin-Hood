@@ -16,9 +16,8 @@ var needle        = require('needle'),
         ACCESS_TOKEN:   '5c49870ac65101f32affcf0e0e1d0800'
       },
       hmi: {
-        // url:            'ws://localhost:4412'
-        // url:                'ws://192.168.0.106:4412'
-        url:                'ws://192.168.0.99:4412'
+        url:            'ws://localhost:4412'
+        // url:             'ws://192.168.0.106:4412'
       },
       userData: {
         url:            'http://smartgrid.asd.novaconcepts.net:9090/EmergingServices/rest/userData'

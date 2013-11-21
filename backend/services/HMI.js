@@ -17,7 +17,7 @@ function HMI(options) {
 		scope: 			this,
 		onOpen:     function(e) {
 			console.log(">> [HMI] Connected!");
-			this.identifyClient('GM Backend');
+			this.identify('GM Backend');
 		},
 		onClose: 		function() {
 			console.log("!! [HMI] Disconnected!");
