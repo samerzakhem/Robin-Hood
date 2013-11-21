@@ -165,8 +165,7 @@ new socket.PropertyWatcher({
   channel:    '/car/status',
   property:   'handsfree',
   onChange:   function(oldValue, newValue) {
-    console.log(">> Handsfree set to %s", newValue);
-    HMI.LetHandsFree( newValue );
+    HMI.SetHandsFree( newValue );
   }
 });
 

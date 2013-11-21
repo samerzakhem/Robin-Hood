@@ -23,7 +23,7 @@ if __name__ == "__main__":
     arg_parser.add_argument('--url',    type=str,   default='ws://localhost:6437',
                             help='The websocket URL: (default: ws://localhost:6437)')
 
-    arg_parser.add_argument('--hmi',    type=str,   default='ws://192.168.0.99:4412',
+    arg_parser.add_argument('--hmi',    type=str,   default='ws://localhost:4412',
                             help='The websocket URL for the HMI (default: ws://localhost:4412)')
 
     arg_parser.add_argument('--fingers', type=int,  default=5, 

@@ -31,7 +31,7 @@ $(document).ready(function() {
 		element: 		'intent-container'
 	});
 
-	if(!/(iPhone|iPad|iPod)\sOS\s6/.test(navigator.userAgent)) {
+	if(!/(iPhone|iPad|iPod)/.test(navigator.userAgent)) {
 		var consoleController = new ConsoleController({
 			element: 		'console'
 		});
