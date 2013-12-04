@@ -1,0 +1,14 @@
+<ntactic>
+   <viewport width="768" height="768" color="0xa7a7a7" />
+   
+   <model id="default" defaultDepth="3">
+      <screen id="Services"/>  
+      <screen id="Settings"/>  
+      <screen id="Console"/>  
+   </model>
+   
+   <model id="menu" initialBranch="Main" defaultDepth="2">
+      <screen id="Main"/>  
+   </model>
+ 
+</ntactic>

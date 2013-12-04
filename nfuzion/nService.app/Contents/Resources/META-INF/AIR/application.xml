@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://ns.adobe.com/air/application/3.4">
+  <id>com.nfuzion.nService</id>
+  <versionNumber>0.3.5</versionNumber>
+  <filename>nService</filename>
+  <name>nService</name>
+  <initialWindow>
+    <title>nService</title>
+    <content>hmi.swf</content>
+    <systemChrome>standard</systemChrome>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <minimizable>true</minimizable>
+    <width>784</width>
+    <height>784</height>
+    <minSize>784 500</minSize>
+    <resizable>true</resizable>
+    <maximizable>false</maximizable>
+    <maxSize>800 10000</maxSize>
+  </initialWindow>
+  <!-- 
+	More options:
+	http://livedocs.adobe.com/flex/3/html/File_formats_1.html#1043413
+	-->
+  <icon>
+    <image48x48>icon/icon48.png</image48x48>
+    <image16x16>icon/icon16.png</image16x16>
+    <image32x32>icon/icon32.png</image32x32>
+    <image128x128>icon/icon128.png</image128x128>
+  </icon>
+</application>

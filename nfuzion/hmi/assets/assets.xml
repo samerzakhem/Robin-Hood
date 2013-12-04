@@ -1,0 +1,1242 @@
+<Assets>
+
+   <Paint name="paint1" color="#FFFFFF"/>
+   <Paint name="paint2" color="#CACACA"/>
+   <Paint name="paint3" color="#CCCCCC"/>
+   <Paint name="paint4" color="#CBCBCB"/>
+   <Paint name="paint5" color="#9F9F9F"/>
+   <Paint name="paint6" color="#888888"/>
+
+
+   <Font
+      name="FrutigerLTStd-Cn" source="./fonts/FrutigerLTStd.ttf"
+      size="34" style="normal" weight="normal"
+   />
+   <Font
+      name="FrutigerLTRH" source="./fonts/FrutigerLTRH.ttf"
+      size="34" style="normal" weight="normal"
+   />
+   <Font
+      name="font1" source="./fonts/FrutigerLTRH.ttf"
+      size="43.3" style="normal" weight="normal"
+   />
+   <Font
+      name="font2" source="./fonts/FrutigerLTRH.ttf"
+      size="51.2" style="normal" weight="normal"
+   />
+   <Font
+      name="font3" source="./fonts/FrutigerLTStd.ttf"
+      size="35.4" style="normal" weight="normal"
+   />
+   <Font
+      name="font4" source="./fonts/FrutigerLTRH.ttf"
+      size="86.6" style="normal" weight="normal"
+   />
+   <Font
+      name="font5" source="./fonts/FrutigerLTRH.ttf"
+      size="63" style="normal" weight="normal"
+   />
+   <Font
+      name="font6" source="./fonts/FrutigerLTRH.ttf"
+      size="35.4" style="normal" weight="normal"
+   />
+   <Font
+      name="font7" source="./fonts/FrutigerLTRH.ttf"
+      size="39.4" style="normal" weight="normal"
+   />
+   <Font
+      name="font8" source="./fonts/FrutigerLTRH.ttf"
+      size="50" style="normal" weight="normal"
+   />
+   <Font
+      name="font9" source="./fonts/FrutigerLTRH.ttf"
+      size="27.6" style="normal" weight="normal"
+   />
+
+
+   <Class name="Background" width="1920" height="1080">
+      <Frame name="black" x="1298" y="132" width="1" height="1" source="./textures/#common.png"/>
+   </Class>
+
+   <Class name="Main" width="1894" height="899">
+      <Container name="appPanel_group" x="992" y="0" width="902" height="899">
+         <Container name="background_slice" x="0" y="0" width="902" height="899" scale="true">
+            <Container name="bottomRight" x="836" y="833" width="66" height="66">
+               <Frame name="default" x="66" y="486" width="66" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="bottom" x="66" y="833" width="770" height="66">
+               <Frame name="default" x="146" y="137" width="1" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="bottomLeft" x="0" y="833" width="66" height="66">
+               <Frame name="default" x="132" y="486" width="66" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="right" x="836" y="163" width="66" height="670">
+               <Frame name="default" x="66" y="323" width="66" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="middle" x="66" y="163" width="770" height="670">
+               <Frame name="default" x="19" y="322" width="1" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="left" x="0" y="163" width="66" height="670">
+               <Frame name="default" x="132" y="426" width="66" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="topRight" x="836" y="0" width="66" height="163">
+               <Frame name="default" x="0" y="0" width="66" height="163" source="./textures/Main.png"/>
+            </Container>
+            <Container name="top" x="66" y="0" width="770" height="163">
+               <Frame name="default" x="0" y="163" width="1" height="163" source="./textures/Main.png"/>
+            </Container>
+            <Container name="topLeft" x="0" y="0" width="66" height="163">
+               <Frame name="default" x="66" y="0" width="66" height="163" source="./textures/Main.png"/>
+            </Container>
+         </Container>
+         <Container name="content_group" x="7" y="1" width="888" height="891"/>
+         <Guise name="active">
+            <Container name="background_slice" x="0" y="0" width="902" height="899" scale="true">
+               <Container name="bottomRight" x="836" y="833" width="66" height="66">
+                  <Frame name="default" x="0" y="612" width="66" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottom" x="66" y="833" width="770" height="66">
+                  <Frame name="default" x="40" y="163" width="1" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottomLeft" x="0" y="833" width="66" height="66">
+                  <Frame name="default" x="66" y="612" width="66" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="right" x="836" y="126" width="66" height="707">
+                  <Frame name="default" x="66" y="552" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="middle" x="66" y="126" width="770" height="707">
+                  <Frame name="default" x="1298" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="left" x="0" y="126" width="66" height="707">
+                  <Frame name="default" x="132" y="552" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topRight" x="836" y="0" width="66" height="126">
+                  <Frame name="default" x="132" y="300" width="66" height="126" source="./textures/Main.png"/>
+               </Container>
+               <Container name="top" x="66" y="0" width="770" height="126">
+                  <Frame name="default" x="39" y="163" width="1" height="126" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topLeft" x="0" y="0" width="66" height="126">
+                  <Frame name="default" x="0" y="486" width="66" height="126" source="./textures/Main.png"/>
+               </Container>
+            </Container>
+            <Container name="content_group" x="7" y="1" width="888" height="891"/>
+         </Guise>
+      </Container>
+      <Container name="eventPanel_group" x="28" y="0" width="902" height="899">
+         <Container name="background_slice" x="0" y="0" width="902" height="899" scale="true">
+            <Container name="bottomRight" x="836" y="833" width="66" height="66">
+               <Frame name="default" x="66" y="486" width="66" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="bottom" x="66" y="833" width="770" height="66">
+               <Frame name="default" x="146" y="137" width="1" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="bottomLeft" x="0" y="833" width="66" height="66">
+               <Frame name="default" x="132" y="612" width="66" height="66" source="./textures/Main.png"/>
+            </Container>
+            <Container name="right" x="836" y="163" width="66" height="670">
+               <Frame name="default" x="66" y="323" width="66" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="middle" x="66" y="163" width="770" height="670">
+               <Frame name="default" x="19" y="322" width="1" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="left" x="0" y="163" width="66" height="670">
+               <Frame name="default" x="132" y="426" width="66" height="1" source="./textures/Main.png"/>
+            </Container>
+            <Container name="topRight" x="836" y="0" width="66" height="163">
+               <Frame name="default" x="0" y="0" width="66" height="163" source="./textures/Main.png"/>
+            </Container>
+            <Container name="top" x="66" y="0" width="770" height="163">
+               <Frame name="default" x="0" y="163" width="1" height="163" source="./textures/Main.png"/>
+            </Container>
+            <Container name="topLeft" x="0" y="0" width="66" height="163">
+               <Frame name="default" x="66" y="0" width="66" height="163" source="./textures/Main.png"/>
+            </Container>
+         </Container>
+         <Container name="content_group" x="7" y="1" width="888" height="891"/>
+         <Guise name="active">
+            <Container name="background_slice" x="0" y="0" width="902" height="899" scale="true">
+               <Container name="bottomRight" x="836" y="833" width="66" height="66">
+                  <Frame name="default" x="0" y="612" width="66" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottom" x="66" y="833" width="770" height="66">
+                  <Frame name="default" x="40" y="163" width="1" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottomLeft" x="0" y="833" width="66" height="66">
+                  <Frame name="default" x="146" y="203" width="66" height="66" source="./textures/Main.png"/>
+               </Container>
+               <Container name="right" x="836" y="126" width="66" height="707">
+                  <Frame name="default" x="66" y="552" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="middle" x="66" y="126" width="770" height="707">
+                  <Frame name="default" x="1298" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="left" x="0" y="126" width="66" height="707">
+                  <Frame name="default" x="132" y="552" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topRight" x="836" y="0" width="66" height="126">
+                  <Frame name="default" x="132" y="300" width="66" height="126" source="./textures/Main.png"/>
+               </Container>
+               <Container name="top" x="66" y="0" width="770" height="126">
+                  <Frame name="default" x="39" y="163" width="1" height="126" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topLeft" x="0" y="0" width="66" height="126">
+                  <Frame name="default" x="0" y="486" width="66" height="126" source="./textures/Main.png"/>
+               </Container>
+            </Container>
+            <Container name="content_group" x="7" y="1" width="888" height="891"/>
+         </Guise>
+      </Container>
+      <Container name="mapPanel_group" x="28" y="0" width="902" height="644">
+         <Container name="content_group" x="7" y="48" width="888" height="589"/>
+         <Container name="overlay_slice" x="1" y="1" width="900" height="636" scale="true">
+            <Container name="bottomRight" x="894" y="506" width="6" height="130">
+               <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+            </Container>
+            <Container name="bottom" x="6" y="506" width="888" height="130">
+               <Frame name="default" x="38" y="163" width="1" height="130" source="./textures/Main.png"/>
+            </Container>
+            <Container name="bottomLeft" x="0" y="506" width="6" height="130">
+               <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+            </Container>
+            <Container name="right" x="894" y="159" width="6" height="347">
+               <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+            </Container>
+            <Container name="middle" x="6" y="159" width="888" height="347">
+               <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+            </Container>
+            <Container name="left" x="0" y="159" width="6" height="347">
+               <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+            </Container>
+            <Container name="topRight" x="894" y="0" width="6" height="159">
+               <Frame name="default" x="67" y="163" width="6" height="159" source="./textures/Main.png"/>
+            </Container>
+            <Container name="top" x="6" y="0" width="888" height="159">
+               <Frame name="default" x="19" y="163" width="1" height="159" source="./textures/Main.png"/>
+            </Container>
+            <Container name="topLeft" x="0" y="0" width="6" height="159">
+               <Frame name="default" x="73" y="163" width="6" height="159" source="./textures/Main.png"/>
+            </Container>
+         </Container>
+         <Guise name="active">
+            <Container name="content_group" x="7" y="48" width="888" height="589"/>
+            <Container name="overlay_slice" x="0" y="0" width="902" height="644" scale="true">
+               <Container name="bottomRight" x="893" y="507" width="9" height="137">
+                  <Frame name="default" x="20" y="163" width="9" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottom" x="9" y="507" width="884" height="137">
+                  <Frame name="default" x="79" y="163" width="1" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottomLeft" x="0" y="507" width="9" height="137">
+                  <Frame name="default" x="29" y="163" width="9" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="right" x="893" y="160" width="9" height="347">
+                  <Frame name="default" x="1" y="323" width="9" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="middle" x="9" y="160" width="884" height="347">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="left" x="0" y="160" width="9" height="347">
+                  <Frame name="default" x="10" y="323" width="9" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topRight" x="893" y="0" width="9" height="160">
+                  <Frame name="default" x="1" y="163" width="9" height="160" source="./textures/Main.png"/>
+               </Container>
+               <Container name="top" x="9" y="0" width="884" height="160">
+                  <Frame name="default" x="66" y="163" width="1" height="160" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topLeft" x="0" y="0" width="9" height="160">
+                  <Frame name="default" x="10" y="163" width="9" height="160" source="./textures/Main.png"/>
+               </Container>
+            </Container>
+         </Guise>
+         <Guise name="activeRounded">
+            <Container name="content_group" x="7" y="48" width="888" height="589"/>
+            <Container name="overlay_slice" x="0" y="0" width="902" height="644" scale="true">
+               <Container name="bottomRight" x="836" y="507" width="66" height="137">
+                  <Frame name="default" x="80" y="163" width="66" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottom" x="66" y="507" width="770" height="137">
+                  <Frame name="default" x="79" y="163" width="1" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottomLeft" x="0" y="507" width="66" height="137">
+                  <Frame name="default" x="132" y="0" width="66" height="137" source="./textures/Main.png"/>
+               </Container>
+               <Container name="right" x="836" y="160" width="66" height="347">
+                  <Frame name="default" x="66" y="324" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="middle" x="66" y="160" width="770" height="347">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="left" x="0" y="160" width="66" height="347">
+                  <Frame name="default" x="132" y="427" width="66" height="1" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topRight" x="836" y="0" width="66" height="160">
+                  <Frame name="default" x="0" y="326" width="66" height="160" source="./textures/Main.png"/>
+               </Container>
+               <Container name="top" x="66" y="0" width="770" height="160">
+                  <Frame name="default" x="66" y="163" width="1" height="160" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topLeft" x="0" y="0" width="66" height="160">
+                  <Frame name="default" x="66" y="326" width="66" height="160" source="./textures/Main.png"/>
+               </Container>
+            </Container>
+         </Guise>
+         <Guise name="eventsActive">
+            <Container name="content_group" x="7" y="48" width="888" height="589"/>
+            <Container name="overlay_slice" x="1" y="1" width="900" height="636" scale="true">
+               <Container name="bottomRight" x="894" y="506" width="6" height="130">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="bottom" x="6" y="506" width="888" height="130">
+                  <Frame name="default" x="38" y="163" width="1" height="130" source="./textures/Main.png"/>
+               </Container>
+               <Container name="bottomLeft" x="0" y="506" width="6" height="130">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="right" x="894" y="159" width="6" height="347">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="middle" x="6" y="159" width="888" height="347">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="left" x="0" y="159" width="6" height="347">
+                  <Frame name="default" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="topRight" x="894" y="0" width="6" height="159">
+                  <Frame name="default" x="67" y="163" width="6" height="159" source="./textures/Main.png"/>
+               </Container>
+               <Container name="top" x="6" y="0" width="888" height="159">
+                  <Frame name="default" x="19" y="163" width="1" height="159" source="./textures/Main.png"/>
+               </Container>
+               <Container name="topLeft" x="0" y="0" width="6" height="159">
+                  <Frame name="default" x="73" y="163" width="6" height="159" source="./textures/Main.png"/>
+               </Container>
+            </Container>
+         </Guise>
+      </Container>
+   </Class>
+
+   <Class name="Status" width="1882" height="971">
+      <Container name="time" x="109" y="24" width="212" height="57">
+         <Text name="time_label" x="0" y="0" width="212" height="57" text="12:06Ù" font="font8" paint="paint4" alignment="left"/>
+      </Container>
+      <Container name="destination_group" x="612" y="18" width="231" height="65">
+         <Container name="destinationFlag" x="0" y="0" width="42" height="47">
+            <Frame name="destinationFlagImg" x="288" y="53" width="42" height="47" source="./textures/Status.png"/>
+         </Container>
+         <Text name="destinationTime_label" x="19" y="6" width="212" height="59" text="12:31Ú" font="font8" paint="paint4" alignment="right"/>
+      </Container>
+      <Container name="temperature" x="1785" y="931" width="97" height="40">
+         <Text name="outsideTemp_label" x="0" y="0" width="97" height="40" text="72º" font="FrutigerLTRH" paint="paint4" alignment="left"/>
+      </Container>
+      <Container name="btLogo" x="1720" y="916" width="40" height="53">
+         <Frame name="btImg" x="288" y="0" width="40" height="53" source="./textures/Status.png"/>
+      </Container>
+      <Container name="batteryGroup" x="1511" y="917" width="180" height="54">
+         <Container name="battery_simple" x="108" y="0" width="72" height="54">
+            <Frame name="level2" x="0" y="0" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="charging1" x="0" y="54" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="level1" x="72" y="0" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="charging3" x="72" y="54" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="charging0" x="144" y="0" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="level3" x="144" y="54" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="charging2" x="216" y="0" width="72" height="54" source="./textures/Status.png"/>
+            <Frame name="level0" x="216" y="54" width="72" height="54" source="./textures/Status.png"/>
+         </Container>
+         <Text name="batteryLevel_label" x="0" y="14" width="94" height="40" text="20%" font="FrutigerLTRH" paint="paint4" alignment="right"/>
+      </Container>
+   </Class>
+
+   <Class name="MapPanel" width="0" height="0">
+      <Container name="nav_map" x="0" y="0" width="0" height="0">
+         <Container name="tertiary_mapGrid" x="0" y="0" width="0" height="0"/>
+         <Container name="secondary_mapGrid" x="0" y="0" width="0" height="0"/>
+         <Container name="primary_mapGrid" x="0" y="0" width="0" height="0"/>
+      </Container>
+   </Class>
+
+   <Class name="AppPanel" width="902" height="899">
+      <Container name="divider_simple" x="7" y="251" width="888" height="2">
+         <Container name="divider" x="0" y="0" width="888" height="2">
+            <Frame name="lineImg" x="0" y="0" width="888" height="1" source="./textures/AppPanel.png"/>
+         </Container>
+      </Container>
+      <Container name="bottom_group" x="7" y="253" width="888" height="639"/>
+      <Container name="top_group" x="7" y="1" width="888" height="891"/>
+   </Class>
+
+   <Class name="EventPanel" width="888" height="891">
+      <Container name="active_chain" x="58" y="650" width="768" height="232">
+         <Container name="item_3_group" x="0" y="160" class="EventPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="EventPanelRow"/>
+         <Container name="item_1_group" x="0" y="0" class="EventPanelRow"/>
+      </Container>
+      <Container name="inactive_group" x="135" y="660" width="692" height="183">
+         <Container name="icon_simple" x="291" y="0" class="IconImage"/>
+         <Text name="contactAndNumber_label" x="16" y="130" width="676" height="53" text="Contact Number" font="font7" paint="paint4" alignment="right"/>
+         <Text name="timeAndLocation_label" x="16" y="76" width="676" height="55" text="Time @ Location" font="font7" paint="paint4" alignment="right"/>
+         <Text name="title_label" x="0" y="11" width="692" height="67" text="Event Location" font="font2" paint="paint6" alignment="right"/>
+      </Container>
+   </Class>
+
+   <Class name="CommList" width="888" height="891">
+      <Container name="next_button" x="60" y="810" class="FooterButton"/>
+      <Container name="panel_chain" x="60" y="10" width="768" height="792">
+         <Container name="item_10_group" x="0" y="720" class="CommPanelRow"/>
+         <Container name="item_9_group" x="0" y="640" class="CommPanelRow"/>
+         <Container name="item_8_group" x="0" y="560" class="CommPanelRow"/>
+         <Container name="item_7_group" x="0" y="480" class="CommPanelRow"/>
+         <Container name="item_6_group" x="0" y="400" class="CommPanelRow"/>
+         <Container name="item_5_group" x="0" y="320" class="CommPanelRow"/>
+         <Container name="item_4_group" x="0" y="240" class="CommPanelRow"/>
+         <Container name="item_3_group" x="0" y="160" class="CommPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="CommPanelRow"/>
+         <Container name="item_1_group" x="0" y="0" class="CommPanelRow"/>
+      </Container>
+      <Container name="phoneInfo_group" x="82" y="15" width="580" height="142">
+         <Text name="time_label" x="127" y="83" width="317" height="51" text="88:88pm" font="font3" paint="paint4" alignment="left"/>
+         <Text name="contact_label" x="127" y="25" width="453" height="54" text="Photo Shoot" font="font2" paint="paint1" alignment="left"/>
+         <Container name="photo_simple" x="0" y="0" width="103" height="142">
+            <Frame name="default" x="0" y="0" width="103" height="142" source="./textures/CommList.png"/>
+         </Container>
+      </Container>
+   </Class>
+
+   <Class name="MusicPlayer" width="888" height="639">
+      <Container name="control_chain" x="718" y="44" width="110" height="552">
+         <Container name="item_6_button" x="0" y="480" class="ControlButton"/>
+         <Container name="item_5_button" x="0" y="400" class="ControlButton"/>
+         <Container name="item_4_button" x="0" y="320" class="ControlButton"/>
+         <Container name="item_3_button" x="0" y="240" class="ControlButton"/>
+         <Container name="item_2_button" x="0" y="160" class="ControlButton"/>
+         <Container name="item_1_button" x="0" y="80" class="ControlButton"/>
+         <Container name="item_0_button" x="0" y="0" class="ControlButton"/>
+      </Container>
+      <Container name="art_simple" x="82" y="312" width="250" height="250">
+         <Frame name="default" x="0" y="0" width="250" height="250" source="./textures/MusicPlayer.png"/>
+      </Container>
+      <Text name="subtitle_label" x="79" y="227" width="631" height="82" text="Nothing In My Way" font="font6" paint="paint4" alignment="left"/>
+      <Text name="title_label" x="76" y="164" width="634" height="67" text="Keane" font="font5" paint="paint1" alignment="left"/>
+      <Text name="source_label" x="75" y="55" width="598" height="110" text="Media Player" font="font4" paint="paint6" alignment="left"/>
+   </Class>
+
+   <Class name="ControlButton" width="110" height="72">
+      <Container name="bg" x="0" y="0" width="110" height="72">
+         <Frame name="btnbg" x="0" y="0" width="110" height="72" source="./textures/ControlButton.png"/>
+      </Container>
+      <Container name="icon" x="23" y="5" width="65" height="62">
+         <Frame name="next" x="0" y="144" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="note" x="65" y="144" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="pandora" x="110" y="0" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="random" x="110" y="62" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="list" x="130" y="124" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="plus" x="0" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="pause" x="65" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="repeat" x="130" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="dislike" x="175" y="0" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="stations" x="175" y="62" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="prev" x="195" y="124" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="play" x="195" y="186" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="like" x="0" y="268" width="65" height="62" source="./textures/ControlButton.png"/>
+         <Frame name="ipod" x="65" y="268" width="65" height="62" source="./textures/ControlButton.png"/>
+      </Container>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="110" height="72">
+            <Frame name="btnbg" x="0" y="72" width="110" height="72" source="./textures/ControlButton.png"/>
+         </Container>
+         <Container name="icon" x="23" y="5" width="65" height="62">
+            <Frame name="next" x="0" y="144" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="note" x="65" y="144" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="pandora" x="110" y="0" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="random" x="110" y="62" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="list" x="130" y="124" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="plus" x="0" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="pause" x="65" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="repeat" x="130" y="206" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="dislike" x="175" y="0" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="stations" x="175" y="62" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="prev" x="195" y="124" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="play" x="195" y="186" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="like" x="0" y="268" width="65" height="62" source="./textures/ControlButton.png"/>
+            <Frame name="ipod" x="65" y="268" width="65" height="62" source="./textures/ControlButton.png"/>
+         </Container>
+      </Guise>
+   </Class>
+
+   <Class name="CommPanelRow" width="768" height="73">
+      <Container name="bg" x="0" y="1" width="1" height="1">
+         <Frame name="bgImage" x="669" y="72" width="1" height="1" source="./textures/CommPanelRow.png"/>
+      </Container>
+      <Container name="iconBg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+      <Text name="text_label" x="103" y="19" width="453" height="54" text="Photo Shoot" font="font1" paint="paint4" alignment="left"/>
+      <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      <Guise name="activePhone">
+         <Container name="bg" x="545" y="0" width="223" height="72">
+            <Frame name="bgImage" x="0" y="72" width="223" height="72" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="551" y="19" width="213" height="54" text="Answer" font="font1" paint="paint1" alignment="center"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="0" width="768" height="72" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint4" alignment="right"/>
+         <Text name="text_label" x="103" y="19" width="453" height="54" text="Photo Shoot" font="font1" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="1" width="1" height="1">
+            <Frame name="bgImage" x="669" y="72" width="1" height="1" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="102" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="selectedPhone">
+         <Container name="bg" x="545" y="0" width="223" height="72">
+            <Frame name="bgImage" x="223" y="72" width="223" height="72" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="551" y="16" width="213" height="54" text="Answer" font="font2" paint="paint4" alignment="center"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="0" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="22" y="6" width="63" height="60">
+            <Frame name="bgImg" x="1298" y="72" width="63" height="60" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint4" alignment="right"/>
+         <Text name="text_label" x="102" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="defaultPhone">
+         <Container name="bg" x="0" y="1" width="1" height="1">
+            <Frame name="bgImage" x="669" y="72" width="1" height="1" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="551" y="19" width="213" height="54" text="Answer" font="font1" paint="paint4" alignment="center"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="72" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="102" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="activeSelectedPhone">
+         <Container name="bg" x="545" y="0" width="223" height="72">
+            <Frame name="bgImage" x="446" y="72" width="223" height="72" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="551" y="16" width="213" height="54" text="Answer" font="font2" paint="paint1" alignment="center"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="disabledSelectedPhone">
+         <Container name="bg" x="0" y="1" width="1" height="1">
+            <Frame name="bgImage" x="669" y="72" width="1" height="1" source="./textures/CommPanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="613" y="21" width="135" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="551" y="16" width="213" height="54" text="Answer" font="font2" paint="paint4" alignment="center"/>
+         <Container name="icon_simple" x="22" y="6" class="IconImage"/>
+      </Guise>
+   </Class>
+
+   <Class name="EventPanelRow" width="768" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Container name="iconBg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="time_label" x="161" y="21" width="587" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+      <Text name="text_label" x="88" y="19" width="587" height="54" text="Photo Shoot" font="font1" paint="paint4" alignment="left"/>
+      <Container name="icon_simple" x="12" y="6" class="IconImage"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="768" y="0" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="161" y="21" width="587" height="51" text="88:88pm" font="font3" paint="paint4" alignment="right"/>
+         <Text name="text_label" x="88" y="19" width="587" height="54" text="Photo Shoot" font="font1" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="161" y="21" width="587" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="87" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="0" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="12" y="6" width="63" height="60">
+            <Frame name="bgImg" x="1298" y="72" width="63" height="60" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="203" y="21" width="545" height="52" text="88:88pm" font="font3" paint="paint4" alignment="right"/>
+         <Text name="text_label" x="87" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="IconImage"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="72" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="time_label" x="161" y="21" width="587" height="51" text="88:88pm" font="font3" paint="paint5" alignment="right"/>
+         <Text name="text_label" x="87" y="16" width="453" height="54" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="IconImage"/>
+      </Guise>
+   </Class>
+
+   <Class name="FooterButton" width="768" height="77">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Container name="iconBg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="356" y="20" width="266" height="57" text="More..." font="font1" paint="paint1" alignment="left"/>
+      <Container name="icon_simple" x="277" y="7" class="IconImage"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="768" y="0" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="356" y="20" width="266" height="57" text="More..." font="font1" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="277" y="7" class="IconImage"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="355" y="17" width="266" height="57" text="More..." font="font2" paint="paint3" alignment="left"/>
+         <Container name="icon_simple" x="277" y="7" class="IconImage"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="0" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="277" y="7" width="63" height="60">
+            <Frame name="bgImg" x="1298" y="72" width="63" height="60" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="355" y="17" width="266" height="57" text="More..." font="font2" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="277" y="7" class="IconImage"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="768" height="72">
+            <Frame name="bgImage" x="0" y="72" width="768" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="355" y="17" width="266" height="57" text="More..." font="font2" paint="paint2" alignment="left"/>
+         <Container name="icon_simple" x="277" y="7" class="IconImage"/>
+      </Guise>
+   </Class>
+
+   <Class name="IconImage" width="63" height="60">
+      <Frame name="contact" x="0" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="more" x="0" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="facebook" x="1361" y="72" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="sirius" x="63" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="sms" x="63" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="twitter" x="126" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="phone" x="1424" y="72" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="pandora" x="1536" y="0" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="media" x="126" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="radio" x="189" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="mail" x="189" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="time" x="252" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="stitcher" x="252" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="destination" x="315" y="0" width="63" height="60" source="./textures/IconImage.png"/>
+      <Frame name="intentEngine" x="315" y="60" width="63" height="60" source="./textures/IconImage.png"/>
+   </Class>
+
+   <Class name="ContactsPopupPanel" width="1468" height="899">
+      <Container name="background" x="771" y="0" width="697" height="899">
+         <Container name="bg" x="0" y="0" width="697" height="899">
+            <Frame name="slicableBgContacts" x="0" y="0" width="697" height="899" source="./textures/ContactsPopupPanel.png"/>
+         </Container>
+         <Container name="highlight" x="57" y="410" width="530" height="72">
+            <Frame name="bgImage" x="768" y="72" width="530" height="72" source="./textures/#common.png"/>
+         </Container>
+      </Container>
+      <Container name="list_chain" x="828" y="10" width="531" height="872">
+         <Container name="item_1_group" x="0" y="0" class="ContactPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="ContactPanelRow"/>
+         <Container name="item_3_group" x="0" y="160" class="ContactPanelRow"/>
+         <Container name="item_4_group" x="0" y="240" class="ContactPanelRow"/>
+         <Container name="item_5_group" x="0" y="320" class="ContactPanelRow"/>
+         <Container name="item_6_group" x="0" y="400" class="ContactPanelRow"/>
+         <Container name="item_7_group" x="0" y="480" class="ContactPanelRow"/>
+         <Container name="item_8_group" x="0" y="560" class="ContactPanelRow"/>
+         <Container name="item_9_group" x="0" y="640" class="ContactPanelRow"/>
+         <Container name="item_10_group" x="0" y="720" class="ContactPanelRow"/>
+         <Container name="item_11_group" x="0" y="800" class="ContactPanelRow"/>
+      </Container>
+      <Container name="sideBar" x="1380" y="10" width="60" height="870">
+         <Container name="bg" x="0" y="0" width="60" height="870">
+            <Frame name="bgImg" x="697" y="0" width="60" height="870" source="./textures/ContactsPopupPanel.png"/>
+         </Container>
+         <Container name="letters_simple" x="11" y="15" width="40" height="833">
+            <Container name="Z" x="11" y="816" width="17" height="17">
+               <Frame name="Z" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="Z" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="Z" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="Y" x="5" y="774" width="30" height="37">
+               <Frame name="Y" x="757" y="84" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="Y" x="120" y="912" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="Y" x="757" y="121" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="X" x="11" y="751" width="17" height="17">
+               <Frame name="X" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="X" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="X" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="W" x="0" y="710" width="40" height="37">
+               <Frame name="W" x="0" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="W" x="40" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="W" x="80" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="V" x="11" y="687" width="17" height="17">
+               <Frame name="V" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="V" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="V" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="U" x="5" y="645" width="29" height="37">
+               <Frame name="U" x="150" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="U" x="757" y="158" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="U" x="179" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="T" x="11" y="622" width="17" height="17">
+               <Frame name="T" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="T" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="T" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="S" x="7" y="581" width="26" height="37">
+               <Frame name="S" x="729" y="870" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="S" x="757" y="195" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="S" x="208" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="R" x="11" y="558" width="17" height="17">
+               <Frame name="R" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="R" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="R" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="Q" x="4" y="514" width="32" height="42">
+               <Frame name="Q" x="697" y="870" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="Q" x="757" y="0" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="Q" x="757" y="42" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="P" x="11" y="493" width="17" height="17">
+               <Frame name="P" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="P" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="P" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="O" x="4" y="452" width="32" height="37">
+               <Frame name="O" x="757" y="232" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="O" x="234" y="912" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="O" x="757" y="269" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="N" x="11" y="429" width="17" height="17">
+               <Frame name="N" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="N" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="N" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="M" x="3" y="387" width="35" height="37">
+               <Frame name="M" x="266" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="M" x="301" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="M" x="336" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="L" x="11" y="364" width="17" height="17">
+               <Frame name="L" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="L" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="L" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="K" x="6" y="323" width="30" height="37">
+               <Frame name="K" x="757" y="306" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="K" x="371" y="912" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="K" x="757" y="343" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="J" x="11" y="300" width="17" height="17">
+               <Frame name="J" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="J" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="J" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="I" x="11" y="258" width="17" height="37">
+               <Frame name="I" x="401" y="912" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="I" x="757" y="380" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="I" x="418" y="912" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="H" x="11" y="235" width="17" height="17">
+               <Frame name="H" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="H" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="H" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="G" x="5" y="194" width="31" height="37">
+               <Frame name="G" x="757" y="417" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="G" x="435" y="912" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="G" x="757" y="454" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="F" x="11" y="171" width="17" height="17">
+               <Frame name="F" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="F" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="F" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="E" x="7" y="129" width="26" height="37">
+               <Frame name="E" x="466" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="E" x="757" y="491" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="E" x="492" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="D" x="11" y="106" width="17" height="17">
+               <Frame name="D" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="D" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="D" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="C" x="6" y="65" width="29" height="37">
+               <Frame name="C" x="757" y="528" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="C" x="518" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="C" x="757" y="565" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="B" x="11" y="42" width="17" height="17">
+               <Frame name="B" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="disabled">
+                  <Frame name="B" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="B" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+            <Container name="A" x="3" y="0" width="33" height="37">
+               <Frame name="A " x="547" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+               <Guise name="active">
+                  <Frame name="A " x="580" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+               <Guise name="disabled">
+                  <Frame name="A " x="613" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+               </Guise>
+            </Container>
+         </Container>
+      </Container>
+   </Class>
+
+   <Class name="SourcePanel" width="767" height="419">
+      <Container name="bg" x="319" y="0" width="448" height="419">
+         <Frame name="slicableBgIntent" x="0" y="0" width="448" height="419" source="./textures/SourcePanel.png"/>
+      </Container>
+      <Container name="list_chain" x="366" y="10" width="350" height="392">
+         <Container name="item_1_group" x="0" y="0" class="SourcePanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="SourcePanelRow"/>
+         <Container name="item_3_group" x="0" y="160" class="SourcePanelRow"/>
+         <Container name="item_4_group" x="0" y="240" class="SourcePanelRow"/>
+         <Container name="item_5_group" x="0" y="320" class="SourcePanelRow"/>
+      </Container>
+   </Class>
+
+   <Class name="SmsPanel" width="1891" height="179">
+      <Container name="bg" x="1472" y="0" width="419" height="179">
+         <Frame name="slicableBgIntent" x="0" y="0" width="419" height="179" source="./textures/SmsPanel.png"/>
+      </Container>
+      <Container name="list_chain" x="1519" y="10" width="325" height="152">
+         <Container name="item_1_group" x="0" y="0" class="SmsPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="SmsPanelRow"/>
+      </Container>
+   </Class>
+
+   <Class name="AppTray" width="315" height="339">
+      <Container name="bg" x="29" y="0" width="286" height="339">
+         <Frame name="slicableBgIntent" x="0" y="0" width="286" height="339" source="./textures/AppTray.png"/>
+      </Container>
+      <Container name="list_chain" x="76" y="10" width="192" height="312">
+         <Container name="item_1_group" x="0" y="0" class="AppTrayRow"/>
+         <Container name="item_2_group" x="0" y="80" class="AppTrayRow"/>
+         <Container name="item_3_group" x="0" y="160" class="AppTrayRow"/>
+         <Container name="item_4_group" x="0" y="240" class="AppTrayRow"/>
+      </Container>
+   </Class>
+
+   <Class name="IntentPopup" width="871" height="499">
+      <Container name="bg" x="89" y="0" width="782" height="499">
+         <Frame name="slicableBgIntent" x="0" y="0" width="782" height="499" source="./textures/IntentPopup.png"/>
+      </Container>
+      <Container name="list_chain" x="136" y="170" width="685" height="312">
+         <Container name="item_1_group" x="0" y="0" class="PopupPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="PopupPanelRow"/>
+         <Container name="item_3_group" x="0" y="160" class="PopupPanelRow"/>
+         <Container name="item_4_group" x="0" y="240" class="PopupPanelRow"/>
+      </Container>
+      <Text name="text_label" x="136" y="41" width="685" height="131" text="Do you want me to send 
+Cindy new location info?" font="font1" paint="paint1" alignment="center"/>
+   </Class>
+
+   <Class name="VrPopup" width="871" height="340">
+      <Container name="bg" x="89" y="0" width="782" height="340">
+         <Frame name="slicableBgIntent" x="0" y="0" width="782" height="340" source="./textures/VrPopup.png"/>
+      </Container>
+      <Container name="list_chain" x="136" y="170" width="685" height="152">
+         <Container name="item_1_group" x="0" y="0" class="PopupPanelRow"/>
+         <Container name="item_2_group" x="0" y="80" class="PopupPanelRow"/>
+      </Container>
+      <Container name="signalLevel" x="138" y="2" width="652" height="161">
+         <Container name="levels_scroller" x="174" y="6" width="477" height="133">
+            <Container name="track" x="0" y="0" width="477" height="133">
+               <Frame name="trackBack" x="485" y="340" width="1" height="133" source="./textures/VrPopup.png"/>
+            </Container>
+            <Container name="progress" x="0" y="0" width="477" height="133">
+               <Frame name="progressImg" x="486" y="340" width="1" height="133" source="./textures/VrPopup.png"/>
+            </Container>
+         </Container>
+         <Container name="blocker" x="167" y="0" width="485" height="139">
+            <Frame name="blockerImg" x="0" y="340" width="485" height="139" source="./textures/VrPopup.png"/>
+         </Container>
+         <Text name="status_label" x="0" y="111" width="157" height="50" text="Test" font="font9" paint="paint3" alignment="center"/>
+      </Container>
+      <Container name="recordIcon_simple" x="163" y="16" width="104" height="101">
+         <Frame name="disabled" x="487" y="340" width="104" height="101" source="./textures/VrPopup.png"/>
+         <Frame name="recording" x="591" y="340" width="104" height="101" source="./textures/VrPopup.png"/>
+         <Frame name="ready" x="782" y="0" width="104" height="101" source="./textures/VrPopup.png"/>
+      </Container>
+   </Class>
+
+   <Class name="MapLabel" width="871" height="133">
+      <Container name="bg" x="89" y="0" width="782" height="133">
+         <Frame name="bgImg" x="0" y="0" width="782" height="133" source="./textures/MapLabel.png"/>
+      </Container>
+      <Text name="text_label" x="136" y="48" width="685" height="72" text="Some Line of text" font="font1" paint="paint1" alignment="center"/>
+   </Class>
+
+   <Class name="PopupPanelRow" width="687" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="23" y="19" width="664" height="54" text="Photo Shoot" font="font1" paint="paint4" alignment="left"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="685" height="72">
+            <Frame name="bgImage" x="0" y="0" width="685" height="72" source="./textures/PopupPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="23" y="19" width="664" height="54" text="Photo Shoot" font="font1" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="disabledSelected"> 
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="22" y="16" width="664" height="57" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="685" height="72">
+            <Frame name="bgImage" x="0" y="72" width="685" height="72" source="./textures/PopupPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="22" y="16" width="664" height="57" text="Photo Shoot" font="font2" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="685" height="72">
+            <Frame name="bgImage" x="685" y="0" width="685" height="72" source="./textures/PopupPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="22" y="16" width="664" height="57" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+   </Class>
+
+   <Class name="SourcePanelRow" width="351" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Container name="iconBg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="88" y="19" width="263" height="54" text="XM Radio" font="font1" paint="paint4" alignment="left"/>
+      <Container name="icon_simple" x="12" y="6" class="SourceIcons"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="350" height="72">
+            <Frame name="bgImage" x="0" y="0" width="350" height="72" source="./textures/SourcePanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="88" y="19" width="263" height="54" text="XM Radio" font="font1" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="SourceIcons"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="87" y="16" width="264" height="57" text="XM Radio" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="SourceIcons"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="350" height="72">
+            <Frame name="bgImage" x="0" y="72" width="350" height="72" source="./textures/SourcePanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="12" y="6" width="63" height="60">
+            <Frame name="bgImg" x="1298" y="72" width="63" height="60" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="87" y="16" width="264" height="57" text="XM Radio" font="font2" paint="paint1" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="SourceIcons"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="350" height="72">
+            <Frame name="bgImage" x="350" y="0" width="350" height="72" source="./textures/SourcePanelRow.png"/>
+         </Container>
+         <Container name="iconBg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImg" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="87" y="16" width="264" height="57" text="XM Radio" font="font2" paint="paint4" alignment="left"/>
+         <Container name="icon_simple" x="12" y="6" class="SourceIcons"/>
+      </Guise>
+   </Class>
+
+   <Class name="SmsPanelRow" width="346" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="27" y="19" width="319" height="54" text="XM Radio" font="font1" paint="paint4" alignment="left"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="325" height="72">
+            <Frame name="bgImage" x="0" y="0" width="325" height="72" source="./textures/SmsPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="27" y="19" width="319" height="54" text="XM Radio" font="font1" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="320" height="57" text="XM Radio" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="325" height="72">
+            <Frame name="bgImage" x="0" y="72" width="325" height="72" source="./textures/SmsPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="320" height="57" text="Add Contact" font="font2" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="325" height="72">
+            <Frame name="bgImage" x="325" y="0" width="325" height="72" source="./textures/SmsPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="320" height="57" text="XM Radio" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+   </Class>
+
+   <Class name="AppTrayRow" width="193" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="27" y="19" width="166" height="54" text="Events" font="font1" paint="paint4" alignment="left"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="192" height="72">
+            <Frame name="bgImage" x="0" y="0" width="192" height="72" source="./textures/AppTrayRow.png"/>
+         </Container>
+         <Text name="text_label" x="27" y="19" width="166" height="54" text="Events" font="font1" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="167" height="57" text="Event
+" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="192" height="72">
+            <Frame name="bgImage" x="0" y="72" width="192" height="72" source="./textures/AppTrayRow.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="167" height="57" text="Events" font="font2" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="192" height="72">
+            <Frame name="bgImage" x="192" y="0" width="192" height="72" source="./textures/AppTrayRow.png"/>
+         </Container>
+         <Text name="text_label" x="26" y="16" width="167" height="57" text="Events" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+   </Class>
+
+   <Class name="ContactPanelRow" width="532" height="73">
+      <Container name="bg" x="0" y="0" width="1" height="1">
+         <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+      </Container>
+      <Text name="text_label" x="88" y="19" width="444" height="54" text="Photo Shoot" font="font1" paint="paint4" alignment="left"/>
+      <Guise name="active">
+         <Container name="bg" x="0" y="0" width="531" height="72">
+            <Frame name="bgImage" x="0" y="0" width="531" height="72" source="./textures/ContactPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="18" y="19" width="513" height="54" text="Photo Shoot" font="font1" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="disabledSelected">
+         <Container name="bg" x="0" y="0" width="1" height="1">
+            <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="17" y="16" width="514" height="57" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+      <Guise name="activeSelected">
+         <Container name="bg" x="0" y="0" width="530" height="72">
+            <Frame name="bgImage" x="768" y="72" width="530" height="72" source="./textures/#common.png"/>
+         </Container>
+         <Text name="text_label" x="17" y="16" width="514" height="57" text="Photo Shoot" font="font2" paint="paint1" alignment="left"/>
+      </Guise>
+      <Guise name="selected">
+         <Container name="bg" x="0" y="0" width="530" height="72">
+            <Frame name="bgImage" x="0" y="72" width="530" height="72" source="./textures/ContactPanelRow.png"/>
+         </Container>
+         <Text name="text_label" x="17" y="16" width="514" height="57" text="Photo Shoot" font="font2" paint="paint4" alignment="left"/>
+      </Guise>
+   </Class>
+
+   <Class name="SourceIcons" width="63" height="60">
+      <Frame name="phone" x="1424" y="72" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="pandora" x="1536" y="0" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="media" x="0" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="radio" x="0" y="60" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="facebook" x="1361" y="72" width="63" height="60" source="./textures/#common.png"/>
+      <Frame name="mail" x="63" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="sirius" x="63" y="60" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="stitcher" x="126" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="sms" x="126" y="60" width="63" height="60" source="./textures/SourceIcons.png"/>
+      <Frame name="twitter" x="189" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
+   </Class>
+
+</Assets>
