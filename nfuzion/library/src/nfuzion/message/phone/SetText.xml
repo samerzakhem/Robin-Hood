@@ -1,0 +1,4 @@
+<phone.SetText>
+  <text type="string">This is only a text; this is only a text.</text>
+  <recipient type="string">123-456-7890</recipient>
+</phone.SetText>

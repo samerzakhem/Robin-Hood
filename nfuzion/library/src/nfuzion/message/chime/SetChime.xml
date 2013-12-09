@@ -1,0 +1,4 @@
+<chime.SetChime>
+  <chime type="string">uiConfirm</chime>
+  <playCount type="number">1</playCount>
+</chime.SetChime>

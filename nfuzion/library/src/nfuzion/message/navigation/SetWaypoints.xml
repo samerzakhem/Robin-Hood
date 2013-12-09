@@ -1,0 +1,12 @@
+<navigation.SetWaypoints>
+  <waypoints type="array">
+    <item type="structure">
+      <address type="string">123 Gas Drive, Fuelville, TX</address>
+      <name type="string">Gas</name>
+    </item>
+    <item type="structure">
+      <address type="string">321 Home Court, Turfington, AL</address>
+      <name type="string">Home</name>
+    </item>
+  </waypoints>
+</navigation.SetWaypoints>

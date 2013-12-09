@@ -1,0 +1,31 @@
+{"notice.SetAddNotice":
+{
+  "notice":
+  {
+    "eventData":
+    {
+      "contactName":"Anne%20Geddis",
+      "contactNumber":"555-555-5555",
+      "locationName":"Union%20Station",
+      "name":"Photoshoot",
+      "time":"2%3A45"
+    },
+    "id":0,
+    "options":
+    [
+      {
+        "action":"setDestination",
+        "data":"42.258252%2C-82.9453683",
+        "name":"Set%20as%20Destination"
+      },
+      {
+        "action":"delete",
+        "name":"Dismiss"
+      }
+    ],
+    "priority":"high",
+    "text":"Meet%20Robinhood%20Team",
+    "title":"Robinhood%20Meeting",
+    "type":"destination"
+  }
+}}

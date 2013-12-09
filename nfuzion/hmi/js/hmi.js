@@ -112,6 +112,12 @@ DateTools.__format = function(d,f) {
 DateTools.format = function(d,f) {
 	return DateTools.__format(d,f);
 }
+DateTools.parse = function(t) {
+	var s = t / 1000;
+	var m = s / 60;
+	var h = m / 60;
+	return { ms : t % 1000, seconds : s % 60 | 0, minutes : m % 60 | 0, hours : h % 24 | 0, days : h / 24 | 0};
+}
 var nfuzion = {}
 nfuzion.application = {}
 nfuzion.application.Application = function(name) {
@@ -119,7 +125,7 @@ nfuzion.application.Application = function(name) {
 	if(nfuzion.application.Application.appName != null) throw "Cannot create more than one instance of Application.";
 	nfuzion.application.Application.appName = name;
 	haxe.Log.trace("Starting " + name + ".",{ fileName : "Application.hx", lineNumber : 53, className : "nfuzion.application.Application", methodName : "new"});
-	haxe.Log.trace("Built: " + "2013-12-04 10:51:58",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
+	haxe.Log.trace("Built: " + "2013-12-06 15:46:01",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
 };
 $hxClasses["nfuzion.application.Application"] = nfuzion.application.Application;
 nfuzion.application.Application.__name__ = ["nfuzion","application","Application"];
@@ -6704,6 +6710,139 @@ nfuzion.message.gps.LetPosition.prototype = $extend(nfuzion.message.generic.temp
 	,latitude: null
 	,__class__: nfuzion.message.gps.LetPosition
 });
+nfuzion.message.leap = {}
+nfuzion.message.leap.type = {}
+nfuzion.message.leap.type.Phase = $hxClasses["nfuzion.message.leap.type.Phase"] = { __ename__ : ["nfuzion","message","leap","type","Phase"], __constructs__ : ["start","change","end"] }
+nfuzion.message.leap.type.Phase.start = ["start",0];
+nfuzion.message.leap.type.Phase.start.toString = $estr;
+nfuzion.message.leap.type.Phase.start.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.type.Phase.change = ["change",1];
+nfuzion.message.leap.type.Phase.change.toString = $estr;
+nfuzion.message.leap.type.Phase.change.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.type.Phase.end = ["end",2];
+nfuzion.message.leap.type.Phase.end.toString = $estr;
+nfuzion.message.leap.type.Phase.end.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.LetCursor = function(x,y,phase) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.x = x;
+	this.y = y;
+	this.phase = phase;
+};
+$hxClasses["nfuzion.message.leap.LetCursor"] = nfuzion.message.leap.LetCursor;
+nfuzion.message.leap.LetCursor.__name__ = ["nfuzion","message","leap","LetCursor"];
+nfuzion.message.leap.LetCursor.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetCursor.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	phase: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.message.leap.LetCursor
+});
+nfuzion.message.leap.type.Gesture = $hxClasses["nfuzion.message.leap.type.Gesture"] = { __ename__ : ["nfuzion","message","leap","type","Gesture"], __constructs__ : ["oneFingerSwipeLeft","oneFingerSwipeRight","oneFingerSwipeUp","oneFingerSwipeDown","twoFingerSwipeLeft","twofingerSwipeRight","twoFingerSwipeUp","twoFingerSwipeDown","dismiss","beckon"] }
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft = ["oneFingerSwipeLeft",0];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight = ["oneFingerSwipeRight",1];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp = ["oneFingerSwipeUp",2];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown = ["oneFingerSwipeDown",3];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft = ["twoFingerSwipeLeft",4];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight = ["twofingerSwipeRight",5];
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight.toString = $estr;
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp = ["twoFingerSwipeUp",6];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown = ["twoFingerSwipeDown",7];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.dismiss = ["dismiss",8];
+nfuzion.message.leap.type.Gesture.dismiss.toString = $estr;
+nfuzion.message.leap.type.Gesture.dismiss.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.beckon = ["beckon",9];
+nfuzion.message.leap.type.Gesture.beckon.toString = $estr;
+nfuzion.message.leap.type.Gesture.beckon.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.LetGesture = function(gesture) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.gesture = gesture;
+};
+$hxClasses["nfuzion.message.leap.LetGesture"] = nfuzion.message.leap.LetGesture;
+nfuzion.message.leap.LetGesture.__name__ = ["nfuzion","message","leap","LetGesture"];
+nfuzion.message.leap.LetGesture.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetGesture.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	gesture: null
+	,__class__: nfuzion.message.leap.LetGesture
+});
+nfuzion.message.leap.LetPoke = function(x,y,fingerCount,clickCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.x = x;
+	this.y = y;
+	this.fingerCount = fingerCount;
+	this.clickCount = clickCount;
+};
+$hxClasses["nfuzion.message.leap.LetPoke"] = nfuzion.message.leap.LetPoke;
+nfuzion.message.leap.LetPoke.__name__ = ["nfuzion","message","leap","LetPoke"];
+nfuzion.message.leap.LetPoke.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetPoke.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	clickCount: null
+	,fingerCount: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.message.leap.LetPoke
+});
+nfuzion.message.leap.LetRotate = function(deltaAngle,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaAngle = deltaAngle;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetRotate"] = nfuzion.message.leap.LetRotate;
+nfuzion.message.leap.LetRotate.__name__ = ["nfuzion","message","leap","LetRotate"];
+nfuzion.message.leap.LetRotate.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetRotate.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,deltaAngle: null
+	,__class__: nfuzion.message.leap.LetRotate
+});
+nfuzion.message.leap.LetScroll = function(deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaX = deltaX;
+	this.deltaY = deltaY;
+	this.velocityX = velocityX;
+	this.velocityY = velocityY;
+	this.phase = phase;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetScroll"] = nfuzion.message.leap.LetScroll;
+nfuzion.message.leap.LetScroll.__name__ = ["nfuzion","message","leap","LetScroll"];
+nfuzion.message.leap.LetScroll.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetScroll.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,phase: null
+	,velocityY: null
+	,velocityX: null
+	,deltaY: null
+	,deltaX: null
+	,__class__: nfuzion.message.leap.LetScroll
+});
+nfuzion.message.leap.LetZoom = function(deltaZoom,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaZoom = deltaZoom;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetZoom"] = nfuzion.message.leap.LetZoom;
+nfuzion.message.leap.LetZoom.__name__ = ["nfuzion","message","leap","LetZoom"];
+nfuzion.message.leap.LetZoom.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetZoom.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,deltaZoom: null
+	,__class__: nfuzion.message.leap.LetZoom
+});
 nfuzion.message.magic = {}
 nfuzion.message.magic.type = {}
 nfuzion.message.magic.type.Phase = $hxClasses["nfuzion.message.magic.type.Phase"] = { __ename__ : ["nfuzion","message","magic","type","Phase"], __constructs__ : ["start","change","end"] }
@@ -7319,6 +7458,15 @@ nfuzion.message.navigation.GetWaypoints.__super__ = nfuzion.message.generic.temp
 nfuzion.message.navigation.GetWaypoints.prototype = $extend(nfuzion.message.generic.templates.Get.prototype,{
 	__class__: nfuzion.message.navigation.GetWaypoints
 });
+nfuzion.message.navigation.LetCancel = function() {
+	nfuzion.message.generic.templates.Let.call(this);
+};
+$hxClasses["nfuzion.message.navigation.LetCancel"] = nfuzion.message.navigation.LetCancel;
+nfuzion.message.navigation.LetCancel.__name__ = ["nfuzion","message","navigation","LetCancel"];
+nfuzion.message.navigation.LetCancel.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.navigation.LetCancel.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	__class__: nfuzion.message.navigation.LetCancel
+});
 nfuzion.message.navigation.LetDestination = function() {
 	nfuzion.message.generic.templates.Let.call(this);
 };
@@ -7699,6 +7847,25 @@ nfuzion.message.notice.LetCount.prototype = $extend(nfuzion.message.generic.temp
 	__class__: nfuzion.message.notice.LetCount
 });
 nfuzion.message.notice.type = {}
+nfuzion.message.notice.type.EventData = function(name,locationName,time,contactName,contactNumber) {
+	nfuzion.message.generic.type.TypeClass.call(this);
+	this.name = name;
+	this.locationName = locationName;
+	this.time = time;
+	this.contactName = contactName;
+	this.contactNumber = contactNumber;
+};
+$hxClasses["nfuzion.message.notice.type.EventData"] = nfuzion.message.notice.type.EventData;
+nfuzion.message.notice.type.EventData.__name__ = ["nfuzion","message","notice","type","EventData"];
+nfuzion.message.notice.type.EventData.__super__ = nfuzion.message.generic.type.TypeClass;
+nfuzion.message.notice.type.EventData.prototype = $extend(nfuzion.message.generic.type.TypeClass.prototype,{
+	contactNumber: null
+	,contactName: null
+	,time: null
+	,locationName: null
+	,name: null
+	,__class__: nfuzion.message.notice.type.EventData
+});
 nfuzion.message.notice.type.ActionType = $hxClasses["nfuzion.message.notice.type.ActionType"] = { __ename__ : ["nfuzion","message","notice","type","ActionType"], __constructs__ : ["addWaypoint","setDestination","delete","sendMessage","dialNumber","tts"] }
 nfuzion.message.notice.type.ActionType.addWaypoint = ["addWaypoint",0];
 nfuzion.message.notice.type.ActionType.addWaypoint.toString = $estr;
@@ -7762,13 +7929,14 @@ nfuzion.message.notice.type.NoticeType.socialMedia.__enum__ = nfuzion.message.no
 nfuzion.message.notice.type.NoticeType.calendar = ["calendar",5];
 nfuzion.message.notice.type.NoticeType.calendar.toString = $estr;
 nfuzion.message.notice.type.NoticeType.calendar.__enum__ = nfuzion.message.notice.type.NoticeType;
-nfuzion.message.notice.type.Notice = function(title,text,type,priority,options) {
+nfuzion.message.notice.type.Notice = function(title,text,type,priority,options,eventData) {
 	nfuzion.message.generic.type.TypeClass.call(this);
 	this.title = title;
 	this.text = text;
 	this.type = type;
 	this.priority = priority;
 	this.options = options;
+	this.eventData = eventData;
 	if(this.options == null) this.options = new Array();
 	this.id = 0;
 };
@@ -7777,6 +7945,7 @@ nfuzion.message.notice.type.Notice.__name__ = ["nfuzion","message","notice","typ
 nfuzion.message.notice.type.Notice.__super__ = nfuzion.message.generic.type.TypeClass;
 nfuzion.message.notice.type.Notice.prototype = $extend(nfuzion.message.generic.type.TypeClass.prototype,{
 	id: null
+	,eventData: null
 	,priority: null
 	,type: null
 	,options: null
@@ -8213,6 +8382,43 @@ nfuzion.message.span.LetClientMetadata.prototype = $extend(nfuzion.message.gener
 	,name: null
 	,__class__: nfuzion.message.span.LetClientMetadata
 });
+nfuzion.message.swc = {}
+nfuzion.message.swc.type = {}
+nfuzion.message.swc.type.Gesture = $hxClasses["nfuzion.message.swc.type.Gesture"] = { __ename__ : ["nfuzion","message","swc","type","Gesture"], __constructs__ : ["oneFingerSwipeLeft","oneFingerSwipeRight","oneFingerSwipeUp","oneFingerSwipeDown","twoFingerSwipeLeft","twofingerSwipeRight","twoFingerSwipeUp","twoFingerSwipeDown"] }
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft = ["oneFingerSwipeLeft",0];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight = ["oneFingerSwipeRight",1];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp = ["oneFingerSwipeUp",2];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown = ["oneFingerSwipeDown",3];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft = ["twoFingerSwipeLeft",4];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight = ["twofingerSwipeRight",5];
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight.toString = $estr;
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp = ["twoFingerSwipeUp",6];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown = ["twoFingerSwipeDown",7];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Phase = $hxClasses["nfuzion.message.swc.type.Phase"] = { __ename__ : ["nfuzion","message","swc","type","Phase"], __constructs__ : ["start","change","end"] }
+nfuzion.message.swc.type.Phase.start = ["start",0];
+nfuzion.message.swc.type.Phase.start.toString = $estr;
+nfuzion.message.swc.type.Phase.start.__enum__ = nfuzion.message.swc.type.Phase;
+nfuzion.message.swc.type.Phase.change = ["change",1];
+nfuzion.message.swc.type.Phase.change.toString = $estr;
+nfuzion.message.swc.type.Phase.change.__enum__ = nfuzion.message.swc.type.Phase;
+nfuzion.message.swc.type.Phase.end = ["end",2];
+nfuzion.message.swc.type.Phase.end.toString = $estr;
+nfuzion.message.swc.type.Phase.end.__enum__ = nfuzion.message.swc.type.Phase;
 nfuzion.message.test = {}
 nfuzion.message.test.type = {}
 nfuzion.message.test.type.Type = function(test) {
@@ -8724,6 +8930,15 @@ nfuzion.message.vehicle.LetFuel.__super__ = nfuzion.message.generic.templates.Le
 nfuzion.message.vehicle.LetFuel.prototype = $extend(nfuzion.message.generic.templates.LetFloat.prototype,{
 	__class__: nfuzion.message.vehicle.LetFuel
 });
+nfuzion.message.vehicle.LetGoodbye = function() {
+	nfuzion.message.generic.templates.Let.call(this);
+};
+$hxClasses["nfuzion.message.vehicle.LetGoodbye"] = nfuzion.message.vehicle.LetGoodbye;
+nfuzion.message.vehicle.LetGoodbye.__name__ = ["nfuzion","message","vehicle","LetGoodbye"];
+nfuzion.message.vehicle.LetGoodbye.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.vehicle.LetGoodbye.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	__class__: nfuzion.message.vehicle.LetGoodbye
+});
 nfuzion.message.vehicle.LetHighBeam = function(value) {
 	nfuzion.message.generic.templates.LetBool.call(this,value);
 };
@@ -8862,6 +9077,19 @@ nfuzion.message.vehicle.LetWaterTemperature.__name__ = ["nfuzion","message","veh
 nfuzion.message.vehicle.LetWaterTemperature.__super__ = nfuzion.message.generic.templates.LetFloat;
 nfuzion.message.vehicle.LetWaterTemperature.prototype = $extend(nfuzion.message.generic.templates.LetFloat.prototype,{
 	__class__: nfuzion.message.vehicle.LetWaterTemperature
+});
+nfuzion.message.vehicle.LetWelcome = function(title,subtitle) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.title = title;
+	this.subtitle = subtitle;
+};
+$hxClasses["nfuzion.message.vehicle.LetWelcome"] = nfuzion.message.vehicle.LetWelcome;
+nfuzion.message.vehicle.LetWelcome.__name__ = ["nfuzion","message","vehicle","LetWelcome"];
+nfuzion.message.vehicle.LetWelcome.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.vehicle.LetWelcome.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	subtitle: null
+	,title: null
+	,__class__: nfuzion.message.vehicle.LetWelcome
 });
 nfuzion.message.vehicle.SetHonk = function(value) {
 	nfuzion.message.generic.templates.SetFloat.call(this,value);
@@ -9150,6 +9378,19 @@ nfuzion.moduleLink.GoogleVRProxy.prototype = $extend(nfuzion.moduleLink.ClientMo
 	,capture: null
 	,__class__: nfuzion.moduleLink.GoogleVRProxy
 });
+nfuzion.moduleLink.ILeap = function() { }
+$hxClasses["nfuzion.moduleLink.ILeap"] = nfuzion.moduleLink.ILeap;
+nfuzion.moduleLink.ILeap.__name__ = ["nfuzion","moduleLink","ILeap"];
+nfuzion.moduleLink.ILeap.__interfaces__ = [nfuzion.event.IEventDispatcher];
+nfuzion.moduleLink.ILeap.prototype = {
+	onLetZoom: null
+	,onLetPoke: null
+	,onLetScroll: null
+	,onLetRotate: null
+	,onLetGesture: null
+	,onLetCursor: null
+	,__class__: nfuzion.moduleLink.ILeap
+}
 nfuzion.moduleLink.IMediaPlayer = function() { }
 $hxClasses["nfuzion.moduleLink.IMediaPlayer"] = nfuzion.moduleLink.IMediaPlayer;
 nfuzion.moduleLink.IMediaPlayer.__name__ = ["nfuzion","moduleLink","IMediaPlayer"];
@@ -9336,8 +9577,38 @@ nfuzion.moduleLink.IVehicle.prototype = {
 	,driverSeated: null
 	,getDriverDoorOpen: null
 	,driverDoorOpen: null
+	,welcomeSubtitle: null
+	,welcomeTitle: null
 	,__class__: nfuzion.moduleLink.IVehicle
 }
+nfuzion.moduleLink.LeapProxy = function(client) {
+	nfuzion.moduleLink.ClientModuleLink.call(this,client,"leap");
+};
+$hxClasses["nfuzion.moduleLink.LeapProxy"] = nfuzion.moduleLink.LeapProxy;
+nfuzion.moduleLink.LeapProxy.__name__ = ["nfuzion","moduleLink","LeapProxy"];
+nfuzion.moduleLink.LeapProxy.__interfaces__ = [nfuzion.moduleLink.ILeap];
+nfuzion.moduleLink.LeapProxy.__super__ = nfuzion.moduleLink.ClientModuleLink;
+nfuzion.moduleLink.LeapProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleLink.prototype,{
+	onLetZoom: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createZoomEvent(message.deltaZoom,message.fingerCount));
+	}
+	,onLetPoke: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createPokeEvent(message.x,message.y,message.fingerCount,message.clickCount));
+	}
+	,onLetScroll: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createScrollEvent(message.deltaX,message.deltaY,message.velocityX,message.velocityY,message.phase,message.fingerCount));
+	}
+	,onLetRotate: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createRotateEvent(message.deltaAngle,message.fingerCount));
+	}
+	,onLetGesture: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createGestureEvent(message.gesture));
+	}
+	,onLetCursor: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createCursorEvent(message.x,message.y,message.phase));
+	}
+	,__class__: nfuzion.moduleLink.LeapProxy
+});
 nfuzion.moduleLink.MediaPlayer = function(client) {
 	nfuzion.moduleLink.ClientModuleLink.call(this,client,"media");
 	this.dataStates = new haxe.ds.StringMap();
@@ -9579,6 +9850,10 @@ nfuzion.moduleLink.NavigationProxy.prototype = $extend(nfuzion.moduleLink.Client
 		this.sendMessage(new nfuzion.message.navigation.GetDistance());
 	}
 	,distance: null
+	,onLetCancel: function(message) {
+		haxe.Log.trace("CANCEL!",{ fileName : "NavigationProxy.hx", lineNumber : 115, className : "nfuzion.moduleLink.NavigationProxy", methodName : "onLetCancel"});
+		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationCancel"));
+	}
 	,onLetDistancePercentage: function(message) {
 		this.distancePercentage = message.value;
 		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationDistancePercentage"));
@@ -9616,6 +9891,7 @@ nfuzion.moduleLink.NoticeProxy.prototype = $extend(nfuzion.moduleLink.ClientModu
 		this.dispatchEvent(new nfuzion.moduleLink.event.NoticeEvent("noticeNotices",message.start,message.notices));
 	}
 	,onLetCount: function(message) {
+		this.count = message.value;
 		this.dispatchEvent(new nfuzion.moduleLink.event.NoticeEvent("count"));
 	}
 	,setDeleteNotice: function(id) {
@@ -9881,7 +10157,15 @@ nfuzion.moduleLink.VehicleProxy.__name__ = ["nfuzion","moduleLink","VehicleProxy
 nfuzion.moduleLink.VehicleProxy.__interfaces__ = [nfuzion.moduleLink.IVehicle];
 nfuzion.moduleLink.VehicleProxy.__super__ = nfuzion.moduleLink.ClientModuleLink;
 nfuzion.moduleLink.VehicleProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleLink.prototype,{
-	onLetWaterTemperature: function(message) {
+	onLetGoodbye: function(message) {
+		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("goodbye"));
+	}
+	,onLetWelcome: function(message) {
+		this.welcomeTitle = message.title;
+		this.welcomeSubtitle = message.subtitle;
+		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("welcome"));
+	}
+	,onLetWaterTemperature: function(message) {
 		this.waterTemperature = message.value;
 		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("waterTemperature"));
 	}
@@ -10039,6 +10323,8 @@ nfuzion.moduleLink.VehicleProxy.prototype = $extend(nfuzion.moduleLink.ClientMod
 		this.sendMessage(new nfuzion.message.vehicle.GetABS());
 	}
 	,abs: null
+	,welcomeSubtitle: null
+	,welcomeTitle: null
 	,__class__: nfuzion.moduleLink.VehicleProxy
 });
 nfuzion.moduleLink.event = {}
@@ -10050,6 +10336,81 @@ nfuzion.moduleLink.event.GPSEvent.__name__ = ["nfuzion","moduleLink","event","GP
 nfuzion.moduleLink.event.GPSEvent.__super__ = nfuzion.event.Event;
 nfuzion.moduleLink.event.GPSEvent.prototype = $extend(nfuzion.event.Event.prototype,{
 	__class__: nfuzion.moduleLink.event.GPSEvent
+});
+nfuzion.moduleLink.event.LeapEvent = function(type) {
+	nfuzion.event.Event.call(this,type);
+	this.x = 0;
+	this.y = 0;
+	this.phase = null;
+	this.gesture = null;
+	this.deltaX = 0;
+	this.deltaY = 0;
+	this.deltaAngle = 0;
+	this.fingerCount = 0;
+	this.velocityX = 0;
+	this.velocityY = 0;
+	this.clickCount = 0;
+	this.deltaZoom = 0;
+};
+$hxClasses["nfuzion.moduleLink.event.LeapEvent"] = nfuzion.moduleLink.event.LeapEvent;
+nfuzion.moduleLink.event.LeapEvent.__name__ = ["nfuzion","moduleLink","event","LeapEvent"];
+nfuzion.moduleLink.event.LeapEvent.createCursorEvent = function(x,y,phase) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.x = x;
+	event.y = y;
+	event.phase = phase;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createGestureEvent = function(gesture) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapGesture");
+	event.gesture = gesture;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createRotateEvent = function(deltaAngle,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapRotate");
+	event.deltaAngle = deltaAngle;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createScrollEvent = function(deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.deltaX = deltaX;
+	event.deltaY = deltaY;
+	event.velocityX = velocityX;
+	event.velocityY = velocityY;
+	event.phase = phase;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createPokeEvent = function(x,y,fingerCount,clickCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.x = x;
+	event.y = y;
+	event.fingerCount = fingerCount;
+	event.clickCount = clickCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createZoomEvent = function(deltaZoom,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.deltaZoom = deltaZoom;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.__super__ = nfuzion.event.Event;
+nfuzion.moduleLink.event.LeapEvent.prototype = $extend(nfuzion.event.Event.prototype,{
+	deltaZoom: null
+	,clickCount: null
+	,velocityY: null
+	,velocityX: null
+	,deltaY: null
+	,deltaX: null
+	,fingerCount: null
+	,deltaAngle: null
+	,gesture: null
+	,phase: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.moduleLink.event.LeapEvent
 });
 nfuzion.moduleLink.event.MagicScrollEvent = function(type,deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
 	nfuzion.event.Event.call(this,type);
@@ -10522,7 +10883,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 		this.imageRecords = new haxe.ds.StringMap();
 	}
 	,onReady: function() {
-		haxe.Log.trace(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ",{ fileName : "Screen.hx", lineNumber : 404, className : "nfuzion.nTactic.core.Screen", methodName : "onReady"});
+		haxe.Log.trace(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ",{ fileName : "Screen.hx", lineNumber : 402, className : "nfuzion.nTactic.core.Screen", methodName : "onReady"});
 		this.initalGraphicsLoaded = true;
 		this.dispatchEvent(new nfuzion.nTactic.event.ScreenEvent("ready",this));
 	}
@@ -10570,7 +10931,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 					}
 				} else {
 				}
-			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 357, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
+			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 355, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
 		}
 	}
 	,attachImage: function(url,wait) {
@@ -10689,7 +11050,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 	}
 	,initializeScreen: function() {
 		if(this.useBuilder) {
-			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) haxe.Log.trace("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.",{ fileName : "Screen.hx", lineNumber : 106, className : "nfuzion.nTactic.core.Screen", methodName : "initializeScreen"});
+			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) haxe.Log.trace("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.",{ fileName : "Screen.hx", lineNumber : 104, className : "nfuzion.nTactic.core.Screen", methodName : "initializeScreen"});
 		}
 		this.group = new nfuzion.widget.Group(this.graphicsClassName,this);
 	}
@@ -10698,7 +11059,6 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 		this.group = null;
 		this.orphan();
 		nfuzion.graphics.Container.prototype.destroy.call(this);
-		this.detatchAllImages();
 		this.detatchAllImages();
 		var $it0 = this.imageLoaders.keys();
 		while( $it0.hasNext() ) {
@@ -10836,12 +11196,12 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 	,destroy: function(branch) {
 		var record = this.screenRecords.get(branch);
 		if(record != null && record.destroyScreen()) return true;
-		haxe.Log.trace("NOTE: Could not destroy screen " + branch,{ fileName : "ScreenCache.hx", lineNumber : 103, className : "nfuzion.nTactic.core.ScreenCache", methodName : "destroy"});
+		haxe.Log.trace("NOTE: Could not destroy screen " + branch,{ fileName : "ScreenCache.hx", lineNumber : 102, className : "nfuzion.nTactic.core.ScreenCache", methodName : "destroy"});
 		return false;
 	}
 	,release: function(branch) {
 		if(this.screenRecords.exists(branch)) {
-			haxe.Log.trace(" [ - ] Releasing screen: " + branch,{ fileName : "ScreenCache.hx", lineNumber : 88, className : "nfuzion.nTactic.core.ScreenCache", methodName : "release"});
+			haxe.Log.trace(" [ - ] Releasing screen: " + branch,{ fileName : "ScreenCache.hx", lineNumber : 87, className : "nfuzion.nTactic.core.ScreenCache", methodName : "release"});
 			this.screenRecords.get(branch).inUse = false;
 			nfuzion.nTactic.NTactic.cacheManager.release(branch);
 		}
@@ -10863,7 +11223,6 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 		screen.depth = screenRecord.depth;
 		screen.branch = screenRecord.branch;
 		screen.model = model;
-		haxe.Log.trace("Attempting to call initializeScreen()",{ fileName : "ScreenCache.hx", lineNumber : 77, className : "nfuzion.nTactic.core.ScreenCache", methodName : "createScreen"});
 		screen.initializeScreen();
 		screen.screenInitialized = true;
 		screenRecord.screen = screen;
@@ -14245,7 +14604,7 @@ nfuzion.widget.Map.__super__ = nfuzion.widget.Group;
 nfuzion.widget.Map.prototype = $extend(nfuzion.widget.Group.prototype,{
 	update: function() {
 		nfuzion.widget.Group.prototype.update.call(this);
-		if(this.latitude == null || this.longitude == null || this.zoom == null) return;
+		if(this.latitude == null || this.longitude == null || this.zoom == null || this.canvas == null) return;
 		this.canvas.clear();
 		this.canvas.set_lineThickness(5);
 		this.canvas.set_linePaint(nfuzion.nTactic.NTactic.paintManager.get("primary"));
@@ -14302,8 +14661,8 @@ nfuzion.widget.Map.prototype = $extend(nfuzion.widget.Group.prototype,{
 			}
 		}
 	}
-	,setPosition: function(latitude,longitude) {
-		this.center = new nfuzion.geography.SphericalMercatorPosition(latitude,longitude);
+	,applyPosition: function() {
+		this.center = new nfuzion.geography.SphericalMercatorPosition(this.latitude,this.longitude);
 		var _g = 0, _g1 = this.mapGrids;
 		while(_g < _g1.length) {
 			var mapGrid = _g1[_g];
@@ -14311,6 +14670,34 @@ nfuzion.widget.Map.prototype = $extend(nfuzion.widget.Group.prototype,{
 			mapGrid.setPosition(this.center);
 		}
 		this.update();
+	}
+	,set_longitude: function(longitude) {
+		if(this.longitude != longitude) {
+			this.longitude = longitude;
+			this.applyPosition();
+		}
+		return this.longitude;
+	}
+	,longitude: null
+	,set_latitude: function(latitude) {
+		if(this.latitude != latitude) {
+			this.latitude = latitude;
+			this.applyPosition();
+		}
+		return this.latitude;
+	}
+	,latitude: null
+	,setPosition: function(latitude,longitude) {
+		if(this.positionTweenTime <= 0 && this.positionTweenType == null || this.latitude == null || this.longitude == null) {
+			this.set_latitude(latitude);
+			this.set_longitude(longitude);
+			this.applyPosition();
+		} else {
+			if(this.latitudeTween != null) this.latitudeTween.destroy();
+			this.latitudeTween = new nfuzion.tween.Tween(this.positionTweenTime,[new nfuzion.tween.type.TweenProperty(this,"latitude",latitude,this.positionTweenType)]);
+			if(this.longitudeTween != null) this.longitudeTween.destroy();
+			this.longitudeTween = new nfuzion.tween.Tween(this.positionTweenTime,[new nfuzion.tween.type.TweenProperty(this,"longitude",longitude,this.positionTweenType)]);
+		}
 	}
 	,set_bufferRadius: function(bufferRadius) {
 		this.bufferRadius = bufferRadius;
@@ -14340,11 +14727,12 @@ nfuzion.widget.Map.prototype = $extend(nfuzion.widget.Group.prototype,{
 	,center: null
 	,canvas: null
 	,mapGrids: null
-	,tween: null
-	,longitude: null
-	,latitude: null
+	,longitudeTween: null
+	,latitudeTween: null
+	,positionTweenType: null
+	,positionTweenTime: null
 	,__class__: nfuzion.widget.Map
-	,__properties__: $extend(nfuzion.widget.Group.prototype.__properties__,{set_bufferRadius:"set_bufferRadius",set_zoom:"set_zoom"})
+	,__properties__: $extend(nfuzion.widget.Group.prototype.__properties__,{set_bufferRadius:"set_bufferRadius",set_latitude:"set_latitude",set_longitude:"set_longitude",set_zoom:"set_zoom"})
 });
 nfuzion.widget.MapGrid = function(name,component) {
 	this.scale = 1;
@@ -15474,7 +15862,7 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				nfuzion.nTactic.NTactic["goto"](action.data);
 				break;
 			case 5:
-				if(action.data.branch != null) nfuzion.nTactic.NTactic["goto"](action.data.branch,action.data.screenVars); else haxe.Log.trace("ERROR: Branch not specified.",{ fileName : "ActionManager.hx", lineNumber : 98, className : "peripheral.ActionManager", methodName : "performLocalAction"});
+				if(action.data.branch != null) nfuzion.nTactic.NTactic["goto"](action.data.branch,action.data.screenVars); else haxe.Log.trace("ERROR: Branch not specified.",{ fileName : "ActionManager.hx", lineNumber : 104, className : "peripheral.ActionManager", methodName : "performLocalAction"});
 				break;
 			case 6:
 				peripheral.Peripheral.tts.speak(action.data);
@@ -15483,13 +15871,14 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				this.performIntentAction(action.data);
 				break;
 			case 8:
+				peripheral.Peripheral.navigation.cancelNavigation();
 				break;
 			case 9:
 				if(action.data) peripheral.Peripheral.chime.setChime(nfuzion.message.chime.type.Chime.uiConfirm); else peripheral.Peripheral.chime.setChime(nfuzion.message.chime.type.Chime.uiCancel);
 				peripheral.Peripheral.vr.setCapture(action.data);
 				break;
 			}
-		} else haxe.Log.trace("NOTICE: Action is null.",{ fileName : "ActionManager.hx", lineNumber : 120, className : "peripheral.ActionManager", methodName : "performLocalAction"});
+		} else haxe.Log.trace("NOTICE: Action is null.",{ fileName : "ActionManager.hx", lineNumber : 126, className : "peripheral.ActionManager", methodName : "performLocalAction"});
 	}
 	,performIntentAction: function(action) {
 		switch( (action.action)[1] ) {
@@ -15501,20 +15890,22 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				haxe.Log.trace("adding new waypoint " + waypointX + ", " + waypointY,{ fileName : "ActionManager.hx", lineNumber : 37, className : "peripheral.ActionManager", methodName : "performIntentAction"});
 				peripheral.Peripheral.navigation.addWaypoint(new nfuzion.message.navigation.type.Waypoint("Waypoint","",waypointX,waypointY));
 				peripheral.Peripheral.navigation.requestNewRoute(nfuzion.message.navigation.type.TransitType.driving);
+				peripheral.Peripheral.backlog.getCurrentEventData();
 			}
 			break;
 		case 1:
-			haxe.Log.trace("SetDestination",{ fileName : "ActionManager.hx", lineNumber : 43, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+			haxe.Log.trace("SetDestination",{ fileName : "ActionManager.hx", lineNumber : 46, className : "peripheral.ActionManager", methodName : "performIntentAction"});
 			var pointArray = action.data.split(",");
 			if(pointArray.length == 2) {
 				var pointX = Std.parseFloat(pointArray[0]);
 				var pointY = Std.parseFloat(pointArray[1]);
-				haxe.Log.trace("Setting new destination " + pointX + ", " + pointY,{ fileName : "ActionManager.hx", lineNumber : 49, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+				haxe.Log.trace("Setting new destination " + pointX + ", " + pointY,{ fileName : "ActionManager.hx", lineNumber : 52, className : "peripheral.ActionManager", methodName : "performIntentAction"});
 				peripheral.Peripheral.navigation.clearRoute();
 				peripheral.Peripheral.navigation.setStartByPoint(new nfuzion.message.navigation.type.SerializablePoint(peripheral.Peripheral.gps.latitide,peripheral.Peripheral.gps.longitude));
 				peripheral.Peripheral.navigation.setEndByPoint(new nfuzion.message.navigation.type.SerializablePoint(pointX,pointY));
 				peripheral.Peripheral.navigation.requestNewRoute(nfuzion.message.navigation.type.TransitType.driving);
-			} else haxe.Log.trace("WARNING: Unable to set destination. Coordinates are invalid",{ fileName : "ActionManager.hx", lineNumber : 57, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+				peripheral.Peripheral.backlog.getCurrentEventData();
+			} else haxe.Log.trace("WARNING: Unable to set destination. Coordinates are invalid",{ fileName : "ActionManager.hx", lineNumber : 63, className : "peripheral.ActionManager", methodName : "performIntentAction"});
 			break;
 		case 2:
 			var id = peripheral.Peripheral.backlog.popupNotice.id;
@@ -15536,7 +15927,7 @@ peripheral.CommBacklog = function() {
 	nfuzion.event.EventDispatcher.call(this);
 	this.popupModel = nfuzion.nTactic.NTactic.screens.getModel("popup");
 	this.items = new Array();
-	this.items = [new peripheral.type.CommItem("Roger Hamilton",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Adam Williams",peripheral.type.CommIcon.twitter),new peripheral.type.CommItem("Donuts?",peripheral.type.CommIcon.intentEngine),new peripheral.type.CommItem("Test",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test1",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test2",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test3",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test4",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test5",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test6",peripheral.type.CommIcon.phone),new peripheral.type.CommItem("Test7",peripheral.type.CommIcon.phone)];
+	this.items = [new peripheral.type.CommItem("Roger Hamilton",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(14)),new peripheral.type.CommItem("Nate Williams",peripheral.type.CommIcon.twitter,null,this.generateRelativeTime(38)),new peripheral.type.CommItem("Donuts?",peripheral.type.CommIcon.intentEngine,null,this.generateRelativeTime(53)),new peripheral.type.CommItem("Steve Henly",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(58)),new peripheral.type.CommItem("Micah Jones ",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(72)),new peripheral.type.CommItem("Mint",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(80)),new peripheral.type.CommItem("Jen",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(92)),new peripheral.type.CommItem("Yi Glasser",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(100)),new peripheral.type.CommItem("Mom",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(112)),new peripheral.type.CommItem("Tricia Morrow",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(123))];
 	peripheral.Peripheral.notice.addEventListener("ready",$bind(this,this.onReady));
 	peripheral.Peripheral.notice.addEventListener("count",$bind(this,this.onCount));
 	peripheral.Peripheral.notice.addEventListener("noticeNotices",$bind(this,this.onNotices));
@@ -15566,6 +15957,7 @@ peripheral.CommBacklog.prototype = $extend(nfuzion.event.EventDispatcher.prototy
 	,showIntentItem: function(item) {
 		if(this.popupModel.currentBranch == "") {
 			this.set_popupNotice(item.associatedNotice);
+			if(this.popupNotice.eventData != null) this.set_currentEvent(this.popupNotice.eventData);
 			item.shown = true;
 			this.popupModel["goto"]("IntentPopup");
 		}
@@ -15614,6 +16006,7 @@ peripheral.CommBacklog.prototype = $extend(nfuzion.event.EventDispatcher.prototy
 		}
 	}
 	,onCount: function(e) {
+		haxe.Log.trace("onCount " + peripheral.Peripheral.notice.get_count(),{ fileName : "CommBacklog.hx", lineNumber : 115, className : "peripheral.CommBacklog", methodName : "onCount"});
 		if(peripheral.Peripheral.notice.get_count() > 0) peripheral.Peripheral.notice.getNotices(0,peripheral.Peripheral.notice.get_count() - 1);
 	}
 	,onReady: function(e) {
@@ -15626,11 +16019,25 @@ peripheral.CommBacklog.prototype = $extend(nfuzion.event.EventDispatcher.prototy
 			this.dispatchEvent(new peripheral.event.CommBacklogEvent("change"));
 		}
 	}
-	,set_currentEvent: function(currentEvent) {
-		if(this.currentEvent != currentEvent) {
-			this.currentEvent = currentEvent;
+	,getCurrentEventData: function() {
+		if(this.currentEvent != null) {
+			haxe.Log.trace("dispatching event",{ fileName : "CommBacklog.hx", lineNumber : 91, className : "peripheral.CommBacklog", methodName : "getCurrentEventData"});
 			this.dispatchEvent(new peripheral.event.CommBacklogEvent("currentEventChanged"));
 		}
+	}
+	,generateRelativeTime: function(minutesAgo) {
+		var now = new Date();
+		var then = (function($this) {
+			var $r;
+			var d = new Date();
+			d.setTime(now.getTime() - minutesAgo * 60000);
+			$r = d;
+			return $r;
+		}(this));
+		return DateTools.format(then,"%I:%M%p");
+	}
+	,set_currentEvent: function(currentEvent) {
+		if(this.currentEvent != currentEvent) this.currentEvent = currentEvent;
 		return this.currentEvent;
 	}
 	,currentEvent: null
@@ -15700,12 +16107,27 @@ peripheral.HumanInput = function() {
 	this.registration = peripheral.type.Registration.none;
 	js.Browser.document.onkeydown = $bind(this,this.onKeyDown);
 	this.attachTouch();
+	this.attachLeap();
 };
 $hxClasses["peripheral.HumanInput"] = peripheral.HumanInput;
 peripheral.HumanInput.__name__ = ["peripheral","HumanInput"];
 peripheral.HumanInput.__super__ = nfuzion.event.EventDispatcher;
 peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototype,{
-	onTouchZoom: function(e) {
+	onLeapGesture: function(e) {
+		switch( (e.gesture)[1] ) {
+		case 8:
+			this.dismiss();
+			break;
+		case 9:
+			this.beckon();
+			break;
+		default:
+		}
+	}
+	,attachLeap: function() {
+		if(peripheral.Peripheral.leap != null) peripheral.Peripheral.leap.addEventListener("leapGesture",$bind(this,this.onLeapGesture));
+	}
+	,onTouchZoom: function(e) {
 	}
 	,onTouchTap: function(e) {
 		switch(e.fingerCount) {
@@ -15852,6 +16274,12 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 		}
 		this.startRegistrationDelay();
 	}
+	,beckon: function() {
+		this.dispatchEvent(new peripheral.event.HumanInputEvent(peripheral.event.HumanInputEvent.BECKON));
+	}
+	,dismiss: function() {
+		this.dispatchEvent(new peripheral.event.HumanInputEvent(peripheral.event.HumanInputEvent.DISMISS));
+	}
 	,back: function() {
 		this.dispatchEvent(new peripheral.event.HumanInputEvent(peripheral.event.HumanInputEvent.BACK));
 		this.touchRegistrationDelay();
@@ -15896,11 +16324,11 @@ peripheral.Peripheral.initialize = function() {
 	peripheral.Peripheral.urlRecord = nfuzion.nTactic.NTactic.storage.getRecord("url");
 	if(peripheral.Peripheral.urlRecord.value == null) peripheral.Peripheral.useDefault();
 	try {
-		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value,null,"Robin Hood HMI","hmi");
+		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value,null,"HMI","hmi");
 		peripheral.Peripheral.spanClient.addEventListener("SpanClientEvent.disconnect",peripheral.Peripheral.onClientDisconnect);
 	} catch( e ) {
 		peripheral.Peripheral.spanClient = null;
-		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 87, className : "peripheral.Peripheral", methodName : "initialize"});
+		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 90, className : "peripheral.Peripheral", methodName : "initialize"});
 		peripheral.Peripheral.useDefault();
 		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value);
 	}
@@ -15919,6 +16347,7 @@ peripheral.Peripheral.initialize = function() {
 		peripheral.Peripheral.tts = new nfuzion.moduleLink.GoogleTTSProxy(peripheral.Peripheral.spanClient);
 		peripheral.Peripheral.phone = new nfuzion.moduleLink.PhoneProxy(peripheral.Peripheral.spanClient);
 		peripheral.Peripheral.vr = new nfuzion.moduleLink.GoogleVRProxy(peripheral.Peripheral.spanClient);
+		peripheral.Peripheral.leap = new nfuzion.moduleLink.LeapProxy(peripheral.Peripheral.spanClient);
 	}
 	peripheral.Peripheral.humanInput = new peripheral.HumanInput();
 	peripheral.Peripheral.actionManager = new peripheral.ActionManager();
@@ -15941,6 +16370,7 @@ peripheral.SourceManager = function() {
 	this.set_source(peripheral.type.MediaSource.pandora);
 	peripheral.Peripheral.router.addEventListener("selector",$bind(this,this.onSelector));
 	peripheral.Peripheral.router.addEventListener("ready",$bind(this,this.onReady));
+	this.onReady();
 };
 $hxClasses["peripheral.SourceManager"] = peripheral.SourceManager;
 peripheral.SourceManager.__name__ = ["peripheral","SourceManager"];
@@ -15951,9 +16381,11 @@ peripheral.SourceManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 			this.source = source;
 			switch( (source)[1] ) {
 			case 0:
+				haxe.Log.trace("setSelector media",{ fileName : "SourceManager.hx", lineNumber : 62, className : "peripheral.SourceManager", methodName : "set_source"});
 				peripheral.Peripheral.router.setSelector("source","media");
 				break;
 			case 1:
+				haxe.Log.trace("setSelector pandora",{ fileName : "SourceManager.hx", lineNumber : 65, className : "peripheral.SourceManager", methodName : "set_source"});
 				peripheral.Peripheral.router.setSelector("source","pandora");
 				break;
 			}
@@ -15963,6 +16395,7 @@ peripheral.SourceManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 	}
 	,source: null
 	,onSelector: function(e) {
+		haxe.Log.trace("onSelector: " + Std.string(e.value),{ fileName : "SourceManager.hx", lineNumber : 35, className : "peripheral.SourceManager", methodName : "onSelector"});
 		switch(e.name) {
 		case "source":
 			switch(e.value) {
@@ -16462,7 +16895,9 @@ screen.CommList.prototype = $extend(screen.FocusPanel.prototype,{
 	,visibleNotices: null
 	,onSelect: function(e) {
 		var item = this.panelChain.data[this.focusIndex];
-		if(item.associatedNotice != null) peripheral.Peripheral.backlog.showIntentItem(item);
+		if(item != null) {
+			if(this.localPhoneStatus == nfuzion.message.phone.type.PhoneStatus.inCall && this.focusIndex == 0) peripheral.Peripheral.phone.setAction(nfuzion.message.phone.type.PhoneAction.hangup,peripheral.Peripheral.phone.activeNumber); else if(item.associatedNotice != null) peripheral.Peripheral.backlog.showIntentItem(item);
+		}
 	}
 	,onDown: function(e) {
 		this.focusIndex++;
@@ -16627,6 +17062,11 @@ screen.CommList.prototype = $extend(screen.FocusPanel.prototype,{
 		this.attachListener(peripheral.Peripheral.phone,"status",$bind(this,this.onPhoneStatus));
 		this.attachListener(peripheral.Peripheral.phone,"duration",$bind(this,this.onPhoneDuration));
 	}
+	,enterScreen: function() {
+		screen.FocusPanel.prototype.enterScreen.call(this);
+		this.onPhoneStatus();
+		this.onBacklogChange();
+	}
 	,initializeScreen: function() {
 		screen.FocusPanel.prototype.initializeScreen.call(this);
 		this.moreButton = this.getWidget("next_button");
@@ -16642,9 +17082,6 @@ screen.CommList.prototype = $extend(screen.FocusPanel.prototype,{
 		this.highestMoreButtonPosition = this.panelChain.links[3].widget.implementation.get_globalPosition().y;
 		this.lowestMoreButtonPosition = this.panelChain.links[9].widget.implementation.get_globalPosition().y + this.buttonSize - 1;
 		this.distanceFromBottom = this._height - this.moreButton.implementation._y;
-		if(peripheral.Peripheral.phone.status != null) this.localPhoneStatus = peripheral.Peripheral.phone.status; else this.localPhoneStatus = nfuzion.message.phone.type.PhoneStatus.idle;
-		this.onPhoneStatus();
-		this.onBacklogChange();
 	}
 	,localPhoneStatus: null
 	,activeCommItem: null
@@ -16711,6 +17148,7 @@ screen.ConfirmationPopup.prototype = $extend(screen.ChainPopup.prototype,{
 		var contact = this.get_modelData().number;
 		var message = this.get_modelData().text;
 		this.menuItems = [new screen.type.MenuItem("Send Message",null,new peripheral.type.LocalAction(peripheral.type.LocalActionType.text,{ number : contact, text : message}),null,true),new screen.type.MenuItem("Revise Message",null,new peripheral.type.LocalAction(peripheral.type.LocalActionType.gotoScreenVars,{ branch : "popup:VrPopup", screenVars : this.get_modelData()}))];
+		this.textLabel.set_text(message);
 		screen.ChainPopup.prototype.enterScreen.call(this);
 		peripheral.Peripheral.tts.speak(message);
 	}
@@ -16845,6 +17283,8 @@ screen.EventPanel.prototype = $extend(screen.FocusPanel.prototype,{
 		this.controlChain.update();
 	}
 	,onSelect: function(e) {
+		var menuItem = this.controlChain.data[this.focusIndex];
+		if(menuItem != null) peripheral.Peripheral.actionManager.performLocalAction(menuItem.action);
 	}
 	,onDown: function(e) {
 		this.focusIndex++;
@@ -16887,23 +17327,66 @@ screen.EventPanel.prototype = $extend(screen.FocusPanel.prototype,{
 		return this.leftActive;
 	}
 	,leftActive: null
+	,formatTime: function(time) {
+		var dateTime = DateTools.parse(time);
+		return Std.string(dateTime.hours) + ":" + Std.string(dateTime.minutes);
+	}
+	,onEventChange: function(e) {
+		var eventData = peripheral.Peripheral.backlog.currentEvent;
+		if(eventData != null) {
+			this.titleLabel.set_text(eventData.name);
+			if(eventData.time != null && eventData.locationName != null) this.timeAndLocationLabel.set_text(eventData.time + " @ " + eventData.locationName); else if(eventData.locationName != null) this.timeAndLocationLabel.set_text(eventData.locationName);
+			this.data = [new screen.type.MenuItem(eventData.name,"@ " + eventData.locationName,new peripheral.type.LocalAction(peripheral.type.LocalActionType.cancelNavigation,null),"destination")];
+			if(eventData.time != null && eventData.locationName != null) {
+				this.timeAndLocationLabel.set_text(eventData.time + " @ " + eventData.locationName);
+				this.data.push(new screen.type.MenuItem(eventData.time,"",null,"time"));
+			} else if(eventData.locationName != null) this.timeAndLocationLabel.set_text(eventData.locationName);
+			if(eventData.contactName != null && eventData.contactNumber != null) {
+				this.data.push(new screen.type.MenuItem(eventData.contactName,eventData.contactNumber,null,"contact"));
+				this.contactAndNumberLabel.set_text(eventData.contactName + ", " + eventData.contactNumber);
+			} else this.contactAndNumberLabel.set_text("");
+		} else {
+			this.data = [];
+			this.titleLabel.set_text("");
+			this.timeAndLocationLabel.set_text("");
+			this.contactAndNumberLabel.set_text("");
+		}
+		this.controlChain.set_data(this.data);
+	}
+	,onCancel: function(e) {
+		haxe.Log.trace("onCancel",{ fileName : "EventPanel.hx", lineNumber : 68, className : "screen.EventPanel", methodName : "onCancel"});
+		this.data = [];
+		this.controlChain.set_data(this.data);
+		this.titleLabel.set_text("");
+		this.timeAndLocationLabel.set_text("");
+		this.contactAndNumberLabel.set_text("");
+	}
+	,addListeners: function() {
+		screen.FocusPanel.prototype.addListeners.call(this);
+		this.attachListener(peripheral.Peripheral.backlog,"currentEventChanged",$bind(this,this.onEventChange));
+		this.attachListener(peripheral.Peripheral.navigation,"navigationCancel",$bind(this,this.onCancel));
+	}
 	,initializeScreen: function() {
 		screen.FocusPanel.prototype.initializeScreen.call(this);
 		this.inactiveGroup = this.getWidget("inactive_group");
 		this.inactiveGroup.implementation.set_layout(new nfuzion.layout.SnapParentEdgesOffset(false,true,false,false));
 		this.controlChain = this.getWidget("active_chain");
 		this.controlChain.set_itemUpdater($bind(this,this.updateItem));
-		this.data = [new screen.type.MenuItem("Photoshoot","@ Union Square",new peripheral.type.LocalAction(peripheral.type.LocalActionType.cancelNavigation,null),"destination"),new screen.type.MenuItem("2:00pm","in 24 mins",new peripheral.type.LocalAction(peripheral.type.LocalActionType.cancelNavigation,null),"time"),new screen.type.MenuItem("Annie Leibovitz","(800) 555-1212",new peripheral.type.LocalAction(peripheral.type.LocalActionType.cancelNavigation,null),"contact")];
-		var iconSimple = this.inactiveGroup.getWidget("icon_simple");
-		var contactAndNumberLabel = this.inactiveGroup.getWidget("contactAndNumber_label");
-		var timeAndLocationLabel = this.inactiveGroup.getWidget("timeAndLocation_label");
-		var titleLabel = this.inactiveGroup.getWidget("title_label");
-		iconSimple.implementation.set_visible(false);
-		titleLabel.set_text("Photoshoot");
-		timeAndLocationLabel.set_text("2:00pm @ Union Square");
-		contactAndNumberLabel.set_text("Annie Leibovitz, (800) 555-1212");
+		this.data = [];
+		this.iconSimple = this.inactiveGroup.getWidget("icon_simple");
+		this.contactAndNumberLabel = this.inactiveGroup.getWidget("contactAndNumber_label");
+		this.timeAndLocationLabel = this.inactiveGroup.getWidget("timeAndLocation_label");
+		this.titleLabel = this.inactiveGroup.getWidget("title_label");
+		this.iconSimple.implementation.set_visible(false);
+		this.titleLabel.set_text("");
+		this.timeAndLocationLabel.set_text("");
+		this.contactAndNumberLabel.set_text("");
 		this.controlChain.set_data(this.data);
 	}
+	,titleLabel: null
+	,timeAndLocationLabel: null
+	,contactAndNumberLabel: null
+	,iconSimple: null
 	,data: null
 	,focusIndex: null
 	,controlChain: null
@@ -16987,21 +17470,43 @@ $hxClasses["screen.Main"] = screen.Main;
 screen.Main.__name__ = ["screen","Main"];
 screen.Main.__super__ = screen.FocusScreen;
 screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
-	tweenToAlpha: function(alpha) {
-		if(this.alphaTween != null) this.alphaTween.destroy();
-		this.alphaTween = new nfuzion.tween.Tween(0.75,[new nfuzion.tween.type.TweenProperty(this,"alpha",alpha,nfuzion.tween.type.TweenType.fast)]);
+	stageTweenToAlpha: function(alpha) {
+		if(this.stageAlphaTween != null) this.stageAlphaTween.destroy();
+		this.stageAlphaTween = new nfuzion.tween.Tween(0.75,[new nfuzion.tween.type.TweenProperty(this.get_stage(),"alpha",alpha,nfuzion.tween.type.TweenType.fast)]);
 	}
+	,rightTweenToAlpha: function(alpha) {
+		if(this.rightAlphaTween != null) this.rightAlphaTween.destroy();
+		this.rightAlphaTween = new nfuzion.tween.Tween(0.75,[new nfuzion.tween.type.TweenProperty(this,"rightAlpha",alpha,nfuzion.tween.type.TweenType.fast)]);
+	}
+	,set_rightAlpha: function(rightAlpha) {
+		if(this.rightAlpha != rightAlpha) {
+			this.rightAlpha = rightAlpha;
+			this.appPanelGroup.implementation.set_alpha(rightAlpha);
+		}
+		return this.rightAlpha;
+	}
+	,rightAlpha: null
+	,leftTweenToAlpha: function(alpha) {
+		if(this.leftAlphaTween != null) this.leftAlphaTween.destroy();
+		this.leftAlphaTween = new nfuzion.tween.Tween(0.75,[new nfuzion.tween.type.TweenProperty(this,"leftAlpha",alpha,nfuzion.tween.type.TweenType.fast)]);
+	}
+	,set_leftAlpha: function(leftAlpha) {
+		if(this.leftAlpha != leftAlpha) {
+			this.leftAlpha = leftAlpha;
+			this.eventPanelGroup.implementation.set_alpha(leftAlpha);
+		}
+		return this.leftAlpha;
+	}
+	,leftAlpha: null
 	,focusChanged: function() {
 		if(this.focus) {
 			this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.SWITCH_PANELS,$bind(this,this.onSwitchPanels));
 			this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.EXPAND,$bind(this,this.onExpand));
 			this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.CONTRACT,$bind(this,this.onContract));
-			this.tweenToAlpha(1);
 		} else {
 			this.detachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.SWITCH_PANELS,$bind(this,this.onSwitchPanels));
 			this.detachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.EXPAND,$bind(this,this.onExpand));
 			this.detachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.CONTRACT,$bind(this,this.onContract));
-			this.tweenToAlpha(0.5);
 		}
 		this.updatePanels();
 		screen.FocusScreen.prototype.focusChanged.call(this);
@@ -17029,6 +17534,8 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 	,updatePanels: function() {
 		if(this.focus) {
 			if(this.leftPanelActive) {
+				this.leftTweenToAlpha(1);
+				this.rightTweenToAlpha(0.5);
 				this.appPanel.set_focus(false);
 				this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.UP,$bind(this,this.onUp));
 				this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.DOWN,$bind(this,this.onDown));
@@ -17046,6 +17553,8 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 					this.mapPanel.set_focus(true);
 				}
 			} else {
+				this.leftTweenToAlpha(0.5);
+				this.rightTweenToAlpha(1);
 				this.mapPanel.set_focus(false);
 				this.eventPanel.set_focus(false);
 				this.detachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.UP,$bind(this,this.onUp));
@@ -17057,6 +17566,8 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 				this.appPanel.set_focus(true);
 			}
 		} else {
+			this.leftTweenToAlpha(0.5);
+			this.rightTweenToAlpha(0.5);
 			this.mapPanel.set_focus(false);
 			this.eventPanel.set_focus(false);
 			this.appPanel.set_focus(false);
@@ -17111,10 +17622,30 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 	,onTrayAfterGoto: function(e) {
 		if(nfuzion.nTactic.NTactic.screens.getModel("popup").currentBranch == "") this.set_focus(true); else this.set_focus(false);
 	}
+	,onGoodbye: function(e) {
+		nfuzion.nTactic.NTactic.screens["goto"]("welcome:Welcome");
+	}
+	,onBeckon: function(e) {
+		this.stageTweenToAlpha(1);
+	}
+	,onDismiss: function(e) {
+		this.stageTweenToAlpha(0);
+	}
+	,enterScreen: function() {
+		screen.FocusScreen.prototype.enterScreen.call(this);
+		this.appPanelGroup.implementation.set_guise("active");
+		this.set_focus(true);
+		this.set_openRight(false);
+		this.onSwitchPanels();
+		this.get_stage().set_alpha(1);
+	}
 	,addListeners: function() {
 		screen.FocusScreen.prototype.addListeners.call(this);
 		this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.REGISTER_LEFT,$bind(this,this.onRegisterLeft));
 		this.attachListener(nfuzion.nTactic.NTactic.screens.getModel("popup"),"afterGoto",$bind(this,this.onTrayAfterGoto));
+		this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.DISMISS,$bind(this,this.onDismiss));
+		this.attachListener(peripheral.Peripheral.humanInput,peripheral.event.HumanInputEvent.BECKON,$bind(this,this.onBeckon));
+		this.attachListener(peripheral.Peripheral.vehicle,"goodbye",$bind(this,this.onGoodbye));
 	}
 	,initializeScreen: function() {
 		screen.FocusScreen.prototype.initializeScreen.call(this);
@@ -17140,12 +17671,10 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 		overlaySlice.implementation.set_layout(new nfuzion.layout.SnapParentEdges(false,true,false,false));
 		this.mapPanel = new screen.MapPanel(this.mapContentGroup,true);
 		this.addSubScreen(this.mapPanel);
-		this.appPanelGroup.implementation.set_guise("active");
-		this.set_focus(true);
-		this.set_openRight(false);
-		this.onSwitchPanels();
 	}
-	,alphaTween: null
+	,stageAlphaTween: null
+	,rightAlphaTween: null
+	,leftAlphaTween: null
 	,normalPanelWidth: null
 	,eventPanel: null
 	,mapPanel: null
@@ -17161,7 +17690,7 @@ screen.Main.prototype = $extend(screen.FocusScreen.prototype,{
 	,appPanelGroup: null
 	,FRAME_COUNT: null
 	,__class__: screen.Main
-	,__properties__: $extend(screen.FocusScreen.prototype.__properties__,{set_openRight:"set_openRight",set_rightPosition:"set_rightPosition"})
+	,__properties__: $extend(screen.FocusScreen.prototype.__properties__,{set_openRight:"set_openRight",set_rightPosition:"set_rightPosition",set_leftAlpha:"set_leftAlpha",set_rightAlpha:"set_rightAlpha"})
 });
 screen.MapPanel = function(parentGroup,fillParent,graphicsClassName) {
 	screen.FocusPanel.call(this,parentGroup,fillParent,graphicsClassName);
@@ -17187,8 +17716,8 @@ screen.MapPanel.prototype = $extend(screen.FocusPanel.prototype,{
 		peripheral.Peripheral.gps.getPosition();
 	}
 	,zoomMapTo: function(zoom) {
-		if(this.mapTween != null) this.mapTween.destroy();
-		this.mapTween = new nfuzion.tween.Tween(0.5,[new nfuzion.tween.type.TweenProperty(this.navMap,"zoom",zoom,nfuzion.tween.type.TweenType.slow)]);
+		if(this.mapZoomTween != null) this.mapZoomTween.destroy();
+		this.mapZoomTween = new nfuzion.tween.Tween(0.5,[new nfuzion.tween.type.TweenProperty(this.navMap,"zoom",zoom,nfuzion.tween.type.TweenType.slow)]);
 	}
 	,onContract: function(e) {
 		this.zoom--;
@@ -17203,7 +17732,6 @@ screen.MapPanel.prototype = $extend(screen.FocusPanel.prototype,{
 	,addListeners: function() {
 		screen.FocusPanel.prototype.addListeners.call(this);
 		this.attachListener(peripheral.Peripheral.gps,"ready",$bind(this,this.onGpsReady));
-		this.onGpsReady();
 		this.attachListener(peripheral.Peripheral.gps,"GPSPosition",$bind(this,this.onPosition));
 	}
 	,enterScreen: function() {
@@ -17212,13 +17740,17 @@ screen.MapPanel.prototype = $extend(screen.FocusPanel.prototype,{
 		this.navMap.set_zoom(14);
 		this.zoom = this.navMap.zoom;
 		this.standardWidth = this.parent.parent._width;
+		this.onGpsReady();
 	}
 	,initializeScreen: function() {
 		screen.FocusPanel.prototype.initializeScreen.call(this);
 		this.navMap = this.getWidget("nav_map");
+		this.navMap.positionTweenTime = 0.5;
+		this.navMap.positionTweenType = nfuzion.tween.type.TweenType.fast;
 		this.navMap.implementation.set_layout(new nfuzion.layout.SnapParentEdges());
 	}
-	,mapTween: null
+	,mapPositionTween: null
+	,mapZoomTween: null
 	,zoom: null
 	,standardWidth: null
 	,navMap: null
@@ -17263,7 +17795,7 @@ screen.MusicPlayer.prototype = $extend(screen.FocusPanel.prototype,{
 				if(peripheral.Peripheral.media.repeatMode == nfuzion.message.media.type.RepeatModeType.off) peripheral.Peripheral.media.setRepeatMode(nfuzion.message.media.type.RepeatModeType.song); else peripheral.Peripheral.media.setRepeatMode(nfuzion.message.media.type.RepeatModeType.off);
 				break;
 			default:
-				haxe.Log.trace("WARNING: Unhandled music player control '" + action + "'.",{ fileName : "MusicPlayer.hx", lineNumber : 362, className : "screen.MusicPlayer", methodName : "onSelect"});
+				haxe.Log.trace("WARNING: Unhandled music player control '" + action + "'.",{ fileName : "MusicPlayer.hx", lineNumber : 359, className : "screen.MusicPlayer", methodName : "onSelect"});
 			}
 		}
 	}
@@ -17312,6 +17844,7 @@ screen.MusicPlayer.prototype = $extend(screen.FocusPanel.prototype,{
 	}
 	,onPandoraCurrentItem: function(e) {
 		this.artSimple.implementation.set_backgroundUrl(peripheral.Peripheral.pandora.currentItem.artUrl);
+		this.artSimple.implementation.set_backgroundFit(nfuzion.graphics.type.Fit.coverAll);
 		this.titleLabel.set_text(peripheral.Peripheral.pandora.currentItem.artist);
 		this.subtitleLabel.set_text(peripheral.Peripheral.pandora.currentItem.title);
 	}
@@ -17341,21 +17874,13 @@ screen.MusicPlayer.prototype = $extend(screen.FocusPanel.prototype,{
 				this.attachListener(peripheral.Peripheral.media,"currentItem",$bind(this,this.onMediaCurrentItem));
 				this.attachListener(peripheral.Peripheral.media,"transportAction",$bind(this,this.onTransportAction));
 				this.attachListener(peripheral.Peripheral.media,"ready",$bind(this,this.onMediaReady));
-				if(peripheral.Peripheral.media.ready) {
-					this.onMediaCurrentItem();
-					this.onTransportAction();
-					this.onMediaReady();
-				}
+				if(peripheral.Peripheral.media.ready) this.onMediaReady();
 				break;
 			case 1:
 				this.attachListener(peripheral.Peripheral.pandora,"currentItem",$bind(this,this.onPandoraCurrentItem));
 				this.attachListener(peripheral.Peripheral.pandora,"transportAction",$bind(this,this.onTransportAction));
 				this.attachListener(peripheral.Peripheral.pandora,"ready",$bind(this,this.onPandoraReady));
-				if(peripheral.Peripheral.pandora.ready) {
-					this.onPandoraCurrentItem();
-					this.onTransportAction();
-					this.onPandoraReady();
-				}
+				if(peripheral.Peripheral.pandora.ready) this.onPandoraReady();
 				break;
 			}
 		}
@@ -17924,7 +18449,14 @@ screen.Status.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		if(peripheral.Peripheral.phone.ready) {
 			peripheral.Peripheral.phone.getChargeLevel();
 			peripheral.Peripheral.phone.getCharging();
+			peripheral.Peripheral.navigation.getRoute();
 		}
+	}
+	,onNavRoute: function(e) {
+		if(peripheral.Peripheral.navigation.nextTurn != null) this.destinationGroup.set_visible(true);
+	}
+	,onNavCancel: function(e) {
+		this.destinationGroup.set_visible(false);
 	}
 	,addListeners: function() {
 		nfuzion.nTactic.core.Screen.prototype.addListeners.call(this);
@@ -17932,6 +18464,8 @@ screen.Status.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.attachListener(peripheral.Peripheral.phone,"ready",$bind(this,this.onPhoneReady));
 		this.attachListener(peripheral.Peripheral.phone,"charging",$bind(this,this.onCharging));
 		this.attachListener(peripheral.Peripheral.phone,"chargeLevel",$bind(this,this.onCharging));
+		this.attachListener(peripheral.Peripheral.navigation,"navigationTurn",$bind(this,this.onNavRoute));
+		this.attachListener(peripheral.Peripheral.navigation,"navigationCancel",$bind(this,this.onNavCancel));
 		this.onReady();
 		this.onTimer();
 		this.clockTimer.start();
@@ -17940,8 +18474,14 @@ screen.Status.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		nfuzion.nTactic.core.Screen.prototype.initializeScreen.call(this);
 		this.timeLabel = this.getWidget("time_label");
 		this.batterySimple = this.getWidget("battery_simple");
+		this.destinationTimeLabel = this.getWidget("destination_group.destinationTime_label");
+		this.destinationGroup = this.getWidget("destination_group");
+		this.destinationTimeLabel.set_text("2:45 ˚");
+		this.destinationGroup.set_visible(false);
 		this.clockTimer = new nfuzion.timer.Timer(1);
 	}
+	,destinationGroup: null
+	,destinationTimeLabel: null
 	,batterySimple: null
 	,clockTimer: null
 	,timeLabel: null
@@ -17962,7 +18502,6 @@ screen.VrPopup.prototype = $extend(screen.ChainPopup.prototype,{
 		label.set_text(menuItem.title);
 	}
 	,onMicLevel: function(e) {
-		haxe.Log.trace(peripheral.Peripheral.vr.micLevel,{ fileName : "VrPopup.hx", lineNumber : 134, className : "screen.VrPopup", methodName : "onMicLevel"});
 		this.levelScroller.set_value(peripheral.Peripheral.vr.micLevel);
 	}
 	,onCapture: function(e) {
@@ -17990,6 +18529,7 @@ screen.VrPopup.prototype = $extend(screen.ChainPopup.prototype,{
 		this.statusLabel.set_text("Processing");
 	}
 	,onError: function(e) {
+		haxe.Log.trace("ERROR capturing VR",{ fileName : "VrPopup.hx", lineNumber : 89, className : "screen.VrPopup", methodName : "onError"});
 		this.recordIcon.implementation["goto"]("disabled");
 		this.statusLabel.set_text("Error");
 		this.levelScroller.set_value(0);
@@ -18032,6 +18572,54 @@ screen.VrPopup.prototype = $extend(screen.ChainPopup.prototype,{
 	,levelScroller: null
 	,recordIcon: null
 	,__class__: screen.VrPopup
+});
+screen.Welcome = function(graphicsClassName,fillParent) {
+	nfuzion.nTactic.core.Screen.call(this,graphicsClassName,fillParent);
+};
+$hxClasses["screen.Welcome"] = screen.Welcome;
+screen.Welcome.__name__ = ["screen","Welcome"];
+screen.Welcome.__super__ = nfuzion.nTactic.core.Screen;
+screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
+	animationComplete: function() {
+		haxe.Log.trace("Complete",{ fileName : "Welcome.hx", lineNumber : 71, className : "screen.Welcome", methodName : "animationComplete"});
+		nfuzion.nTactic.NTactic.screens["goto"]("Main");
+		nfuzion.nTactic.NTactic.screens["goto"]("status:Status");
+		nfuzion.nTactic.NTactic.screens["goto"]("welcome:");
+	}
+	,animate: function() {
+		haxe.Log.trace("Animating!",{ fileName : "Welcome.hx", lineNumber : 65, className : "screen.Welcome", methodName : "animate"});
+		this.animationTween = new nfuzion.tween.Tween(2,[new nfuzion.tween.type.TweenProperty(this.lines,"x",0,nfuzion.tween.type.TweenType.linear)],$bind(this,this.animationComplete));
+	}
+	,onWelcome: function(e) {
+		new nfuzion.timer.Delay($bind(this,this.animate),1.8);
+	}
+	,unloadMain: function() {
+		nfuzion.nTactic.NTactic.screens["goto"]("default:");
+		nfuzion.nTactic.NTactic.screens["goto"]("status:");
+		nfuzion.nTactic.NTactic.screens["goto"]("popup:");
+	}
+	,fadeIn: function() {
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this,"alpha",1,nfuzion.tween.type.TweenType.fast)],$bind(this,this.unloadMain));
+	}
+	,addListeners: function() {
+		nfuzion.nTactic.core.Screen.prototype.addListeners.call(this);
+		this.attachListener(peripheral.Peripheral.vehicle,"welcome",$bind(this,this.onWelcome));
+	}
+	,enterScreen: function() {
+		nfuzion.nTactic.core.Screen.prototype.enterScreen.call(this);
+		this.lines.set_x(-3888);
+		this.set_alpha(0);
+		new nfuzion.timer.Delay($bind(this,this.fadeIn),.5);
+	}
+	,initializeScreen: function() {
+		nfuzion.nTactic.core.Screen.prototype.initializeScreen.call(this);
+		this.animationSimple = this.getWidget("animatedMask_simple");
+		this.lines = this.animationSimple.implementation;
+	}
+	,animationTween: null
+	,lines: null
+	,animationSimple: null
+	,__class__: screen.Welcome
 });
 screen.type = {}
 screen.type.ConfirmationType = $hxClasses["screen.type.ConfirmationType"] = { __ename__ : ["screen","type","ConfirmationType"], __constructs__ : ["sms","email"] }
@@ -18203,6 +18791,24 @@ nfuzion.message.generic.templates.SetInt32.valueType = [Int];
 nfuzion.message.generic.templates.SetString.valueType = [String];
 nfuzion.message.gps.LetPosition.latitudeType = [Float];
 nfuzion.message.gps.LetPosition.longitudeType = [Float];
+nfuzion.message.leap.LetCursor.xType = [Float];
+nfuzion.message.leap.LetCursor.yType = [Float];
+nfuzion.message.leap.LetCursor.phaseType = [nfuzion.message.leap.type.Phase];
+nfuzion.message.leap.LetGesture.gestureType = [nfuzion.message.leap.type.Gesture];
+nfuzion.message.leap.LetPoke.xType = [Float];
+nfuzion.message.leap.LetPoke.yType = [Float];
+nfuzion.message.leap.LetPoke.fingerCountType = [Int];
+nfuzion.message.leap.LetPoke.clickCountType = [Int];
+nfuzion.message.leap.LetRotate.deltaAngleType = [Float];
+nfuzion.message.leap.LetRotate.fingerCountType = [Int];
+nfuzion.message.leap.LetScroll.deltaXType = [Float];
+nfuzion.message.leap.LetScroll.deltaYType = [Float];
+nfuzion.message.leap.LetScroll.velocityXType = [Float];
+nfuzion.message.leap.LetScroll.velocityYType = [Float];
+nfuzion.message.leap.LetScroll.phaseType = [nfuzion.message.leap.type.Phase];
+nfuzion.message.leap.LetScroll.fingerCountType = [Int];
+nfuzion.message.leap.LetZoom.deltaZoomType = [Float];
+nfuzion.message.leap.LetZoom.fingerCountType = [Int];
 nfuzion.message.media.type.AlphaIndex.titleType = [String];
 nfuzion.message.media.type.AlphaIndex.indexType = [Int];
 nfuzion.message.media.LetBrowseAlphaIndex.alphaIndexType = [Array,nfuzion.message.media.type.AlphaIndex];
@@ -18289,6 +18895,11 @@ nfuzion.message.navigation.SetStartByPoint.yType = [Float];
 nfuzion.message.navigation.SetWaypoints.waypointsType = [Array,nfuzion.message.navigation.type.Waypoint];
 nfuzion.message.notice.GetNotices.startType = [Int];
 nfuzion.message.notice.GetNotices.endType = [Int];
+nfuzion.message.notice.type.EventData.nameType = [String];
+nfuzion.message.notice.type.EventData.locationNameType = [String];
+nfuzion.message.notice.type.EventData.timeType = [String];
+nfuzion.message.notice.type.EventData.contactNameType = [String];
+nfuzion.message.notice.type.EventData.contactNumberType = [String];
 nfuzion.message.notice.type.Action.nameType = [String];
 nfuzion.message.notice.type.Action.actionType = [nfuzion.message.notice.type.ActionType];
 nfuzion.message.notice.type.Action.dataType = [String];
@@ -18297,6 +18908,7 @@ nfuzion.message.notice.type.Notice.textType = [String];
 nfuzion.message.notice.type.Notice.optionsType = [Array,nfuzion.message.notice.type.Action];
 nfuzion.message.notice.type.Notice.typeType = [nfuzion.message.notice.type.NoticeType];
 nfuzion.message.notice.type.Notice.priorityType = [nfuzion.message.notice.type.NoticePriority];
+nfuzion.message.notice.type.Notice.eventDataType = [nfuzion.message.notice.type.EventData];
 nfuzion.message.notice.type.Notice.idType = [Int];
 nfuzion.message.notice.LetNotices.startType = [Int];
 nfuzion.message.notice.LetNotices.noticesType = [Array,nfuzion.message.notice.type.Notice];
@@ -18356,8 +18968,16 @@ nfuzion.message.touch.LetZoom.phaseType = [nfuzion.message.touch.type.Phase];
 nfuzion.message.tts.SetClearCache.cacheType = [nfuzion.message.tts.type.CacheTypes];
 nfuzion.message.vehicle.LetTransmission.stateType = [nfuzion.message.vehicle.type.TransmissionState];
 nfuzion.message.vehicle.LetTurnSignal.stateType = [nfuzion.message.vehicle.type.TurnSignalState];
+nfuzion.message.vehicle.LetWelcome.titleType = [String];
+nfuzion.message.vehicle.LetWelcome.subtitleType = [String];
 nfuzion.message.vr.LetText.confidenceType = [Float];
 nfuzion.moduleLink.event.GPSEvent.GPS_POSITION = "GPSPosition";
+nfuzion.moduleLink.event.LeapEvent.CURSOR = "leapCursor";
+nfuzion.moduleLink.event.LeapEvent.GESTURE = "leapGesture";
+nfuzion.moduleLink.event.LeapEvent.ROTATE = "leapRotate";
+nfuzion.moduleLink.event.LeapEvent.SCROLL = "leapScroll";
+nfuzion.moduleLink.event.LeapEvent.POKE = "leapPoke";
+nfuzion.moduleLink.event.LeapEvent.ZOOM = "leapZoom";
 nfuzion.moduleLink.event.MagicScrollEvent.SCROLL = "scroll";
 nfuzion.moduleLink.event.MediaPlayerEvent.AUDITION_PERIOD = "auditionPeriod";
 nfuzion.moduleLink.event.MediaPlayerEvent.BROWSE_ITEMS = "browseItems";
@@ -18407,6 +19027,8 @@ nfuzion.moduleLink.event.VehicleEvent.DRIVER_DOOR_OPEN = "driverDoorOpen";
 nfuzion.moduleLink.event.VehicleEvent.DRIVER_SEATED = "driverSeated";
 nfuzion.moduleLink.event.VehicleEvent.DOORS_LOCKED = "doorsLocked";
 nfuzion.moduleLink.event.VehicleEvent.STARTED = "started";
+nfuzion.moduleLink.event.VehicleEvent.WELCOME = "welcome";
+nfuzion.moduleLink.event.VehicleEvent.GOODBYE = "goodbye";
 nfuzion.moduleLink.event.VehicleEvent.ABS = "abs";
 nfuzion.moduleLink.event.VehicleEvent.AIR_BAG = "airBag";
 nfuzion.moduleLink.event.VehicleEvent.BATTERY = "battery";
@@ -18520,6 +19142,8 @@ peripheral.event.HumanInputEvent.REGISTER_LEFT = "registerLeft";
 peripheral.event.HumanInputEvent.REGISTER_CENTER = "registerCenter";
 peripheral.event.HumanInputEvent.REGISTER_RIGHT = "registerRight";
 peripheral.event.HumanInputEvent.REGISTER_END = "registerEnd";
+peripheral.event.HumanInputEvent.DISMISS = "dismiss";
+peripheral.event.HumanInputEvent.BECKON = "beckon";
 peripheral.event.SourceEvent.SOURCE = "source";
 screen.AppPanel.SMALL_MUSIC_PLAYER_SIZE = 325;
 screen.AppPanel.TWEEN_TIME = .5;
@@ -18539,7 +19163,8 @@ screen.MapPanel.BUFFER_RADIUS = 1500;
 screen.MapPanel.MAX_ZOOM = 16;
 screen.MapPanel.MIN_ZOOM = 5;
 screen.MapPanel.DEFAULT_ZOOM = 14;
-screen.MapPanel.TWEEN_TIME = 0.5;
+screen.MapPanel.MAP_TWEEN_TIME = 0.5;
+screen.MapPanel.POSITION_TWEEN_TIME = 0.5;
 screen.MusicPlayer.TWEEN_TIME = 0.25;
 screen.MusicPlayer.ALPHA_PER_PIXEL_Y = 0.003;
 screen.SpanConfigPopup.FILL_PERCENT = .9;

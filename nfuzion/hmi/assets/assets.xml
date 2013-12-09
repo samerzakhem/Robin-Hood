@@ -726,239 +726,242 @@
          <Container name="bg" x="0" y="0" width="60" height="870">
             <Frame name="bgImg" x="697" y="0" width="60" height="870" source="./textures/ContactsPopupPanel.png"/>
          </Container>
-         <Container name="letters_simple" x="11" y="15" width="40" height="833">
-            <Container name="Z" x="11" y="816" width="17" height="17">
-               <Frame name="Z" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+         <Container name="letters_simple" x="30" y="42" width="16" height="784">
+            <Container name="Z" x="0" y="0" width="0" height="0">
+               <Text name="Z" x="-1" y="806" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="Z" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Z" x="1409" y="858" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="Z" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Z" x="1409" y="858" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="Y" x="5" y="774" width="30" height="37">
-               <Frame name="Y" x="757" y="84" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="Y" x="0" y="774" width="11" height="10">
+               <Text name="Y" x="0" y="0" width="10" height="10" text="Y" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="Y" x="120" y="912" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Y" x="0" y="0" width="10" height="10" text="Y" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="Y" x="757" y="121" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Y" x="0" y="0" width="11" height="10" text="Y" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="X" x="11" y="751" width="17" height="17">
-               <Frame name="X" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="X" x="0" y="0" width="0" height="0">
+               <Text name="X" x="-1" y="741" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="X" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="X" x="1409" y="793" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="X" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="X" x="1409" y="793" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="W" x="0" y="710" width="40" height="37">
-               <Frame name="W" x="0" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="W" x="0" y="710" width="16" height="10">
+               <Text name="W" x="0" y="0" width="15" height="10" text="W" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="W" x="40" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="W" x="0" y="0" width="15" height="10" text="W" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="W" x="80" y="912" width="40" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="W" x="0" y="0" width="16" height="10" text="W" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="V" x="11" y="687" width="17" height="17">
-               <Frame name="V" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="V" x="0" y="0" width="0" height="0">
+               <Text name="V" x="-1" y="677" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="V" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="V" x="1409" y="729" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="V" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="V" x="1409" y="729" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="U" x="5" y="645" width="29" height="37">
-               <Frame name="U" x="150" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="U" x="0" y="645" width="12" height="10">
+               <Text name="U" x="0" y="0" width="11" height="10" text="U" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="U" x="757" y="158" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="U" x="0" y="0" width="11" height="10" text="U" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="U" x="179" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="U" x="0" y="0" width="12" height="10" text="U" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="T" x="11" y="622" width="17" height="17">
-               <Frame name="T" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="T" x="0" y="0" width="0" height="0">
+               <Text name="T" x="-1" y="612" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="T" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="T" x="1409" y="664" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="T" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="T" x="1409" y="664" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="S" x="7" y="581" width="26" height="37">
-               <Frame name="S" x="729" y="870" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="S" x="0" y="581" width="10" height="10">
+               <Text name="S" x="0" y="0" width="9" height="10" text="S" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="S" x="757" y="195" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="S" x="0" y="0" width="9" height="10" text="S" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="S" x="208" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="S" x="0" y="0" width="10" height="10" text="S" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="R" x="11" y="558" width="17" height="17">
-               <Frame name="R" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="R" x="0" y="0" width="0" height="0">
+               <Text name="R" x="-1" y="548" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="R" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="R" x="1409" y="600" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="R" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="R" x="1409" y="600" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="Q" x="4" y="514" width="32" height="42">
-               <Frame name="Q" x="697" y="870" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="Q" x="0" y="514" width="12" height="10">
+               <Text name="Q" x="0" y="0" width="12" height="10" text="Q" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="Q" x="757" y="0" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Q" x="0" y="0" width="12" height="10" text="Q" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="Q" x="757" y="42" width="32" height="42" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="Q" x="0" y="0" width="12" height="10" text="Q" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="P" x="11" y="493" width="17" height="17">
-               <Frame name="P" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="P" x="0" y="0" width="0" height="0">
+               <Text name="P" x="-1" y="483" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="P" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="P" x="1409" y="535" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="P" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="P" x="1409" y="535" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="O" x="4" y="452" width="32" height="37">
-               <Frame name="O" x="757" y="232" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="O" x="0" y="452" width="12" height="10">
+               <Text name="O" x="0" y="0" width="12" height="10" text="O" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="O" x="234" y="912" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="O" x="0" y="0" width="12" height="10" text="O" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="O" x="757" y="269" width="32" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="O" x="0" y="0" width="12" height="10" text="O" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="N" x="11" y="429" width="17" height="17">
-               <Frame name="N" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="N" x="0" y="0" width="0" height="0">
+               <Text name="N" x="-1" y="419" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="N" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="N" x="1409" y="471" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="N" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="N" x="1409" y="471" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="M" x="3" y="387" width="35" height="37">
-               <Frame name="M" x="266" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="M" x="0" y="387" width="15" height="10">
+               <Text name="M" x="0" y="0" width="14" height="10" text="M" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="M" x="301" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="M" x="0" y="0" width="14" height="10" text="M" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="M" x="336" y="912" width="35" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="M" x="0" y="0" width="15" height="10" text="M" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="L" x="11" y="364" width="17" height="17">
-               <Frame name="L" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="L" x="0" y="0" width="0" height="0">
+               <Text name="L" x="-1" y="354" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="L" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="L" x="1409" y="406" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="L" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="L" x="1409" y="406" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="K" x="6" y="323" width="30" height="37">
-               <Frame name="K" x="757" y="306" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="K" x="0" y="323" width="11" height="10">
+               <Text name="K" x="0" y="0" width="10" height="10" text="K" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="K" x="371" y="912" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="K" x="0" y="0" width="10" height="10" text="K" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="K" x="757" y="343" width="30" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="K" x="0" y="0" width="11" height="10" text="K" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="J" x="11" y="300" width="17" height="17">
-               <Frame name="J" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="J" x="0" y="0" width="0" height="0">
+               <Text name="J" x="-1" y="290" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="J" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="J" x="1409" y="342" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="J" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="J" x="1409" y="342" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="I" x="11" y="258" width="17" height="37">
-               <Frame name="I" x="401" y="912" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="I" x="0" y="258" width="6" height="10">
+               <Text name="I" x="0" y="0" width="5" height="10" text="I" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="I" x="757" y="380" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="I" x="0" y="0" width="5" height="10" text="I" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="I" x="418" y="912" width="17" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="I" x="0" y="0" width="6" height="10" text="I" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="H" x="11" y="235" width="17" height="17">
-               <Frame name="H" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="H" x="0" y="0" width="0" height="0">
+               <Text name="H" x="-1" y="225" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="H" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="H" x="1409" y="277" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="H" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="H" x="1409" y="277" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="G" x="5" y="194" width="31" height="37">
-               <Frame name="G" x="757" y="417" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="G" x="0" y="194" width="12" height="10">
+               <Text name="G" x="0" y="0" width="12" height="10" text="G" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="G" x="435" y="912" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="G" x="0" y="0" width="12" height="10" text="G" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="G" x="757" y="454" width="31" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="G" x="0" y="0" width="12" height="10" text="G" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="F" x="11" y="171" width="17" height="17">
-               <Frame name="F" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="F" x="0" y="0" width="0" height="0">
+               <Text name="F" x="-1" y="161" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="F" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="F" x="1409" y="213" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="F" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="F" x="1409" y="213" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="E" x="7" y="129" width="26" height="37">
-               <Frame name="E" x="466" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="E" x="0" y="129" width="10" height="10">
+               <Text name="E" x="0" y="0" width="9" height="10" text="E" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="E" x="757" y="491" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="E" x="0" y="0" width="9" height="10" text="E" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="E" x="492" y="912" width="26" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="E" x="0" y="0" width="10" height="10" text="E" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="D" x="11" y="106" width="17" height="17">
-               <Frame name="D" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="D" x="0" y="0" width="0" height="0">
+               <Text name="D" x="-1" y="96" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="D" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="D" x="1409" y="148" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="D" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="D" x="1409" y="148" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="C" x="6" y="65" width="29" height="37">
-               <Frame name="C" x="757" y="528" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="C" x="0" y="65" width="11" height="10">
+               <Text name="C" x="0" y="0" width="11" height="10" text="C" font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="C" x="518" y="912" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="C" x="0" y="0" width="11" height="10" text="C" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="C" x="757" y="565" width="29" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="C" x="0" y="0" width="11" height="10" text="C" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="B" x="11" y="42" width="17" height="17">
-               <Frame name="B" x="757" y="602" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="B" x="0" y="0" width="0" height="0">
+               <Text name="B" x="-1" y="32" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                <Guise name="disabled">
-                  <Frame name="B" x="646" y="912" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="B" x="1409" y="84" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="active">
-                  <Frame name="B" x="757" y="619" width="17" height="17" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="B" x="1409" y="84" width="5" height="0" text="." font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="A" x="3" y="0" width="33" height="37">
-               <Frame name="A " x="547" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+            <Container name="A" x="0" y="0" width="12" height="40">
+               <Text name="A " x="0" y="0" width="11" height="40" text="A
+" font="font3" paint="paint6" alignment="center"/>
                <Guise name="active">
-                  <Frame name="A " x="580" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="A " x="0" y="0" width="12" height="40" text="A
+" font="font3" paint="paint6" alignment="center"/>
                </Guise>
                <Guise name="disabled">
-                  <Frame name="A " x="613" y="912" width="33" height="37" source="./textures/ContactsPopupPanel.png"/>
+                  <Text name="A " x="0" y="0" width="11" height="40" text="A
+" font="font3" paint="paint6" alignment="center"/>
                </Guise>
             </Container>
          </Container>
@@ -1061,7 +1064,7 @@ Cindy new location info?" font="font1" paint="paint1" alignment="center"/>
          </Container>
          <Text name="text_label" x="23" y="19" width="664" height="54" text="Photo Shoot" font="font1" paint="paint1" alignment="left"/>
       </Guise>
-      <Guise name="disabledSelected"> 
+      <Guise name="disabledSelected">
          <Container name="bg" x="0" y="0" width="1" height="1">
             <Frame name="bgImage" x="1361" y="132" width="1" height="1" source="./textures/#common.png"/>
          </Container>
@@ -1237,6 +1240,29 @@ Cindy new location info?" font="font1" paint="paint1" alignment="center"/>
       <Frame name="stitcher" x="126" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
       <Frame name="sms" x="126" y="60" width="63" height="60" source="./textures/SourceIcons.png"/>
       <Frame name="twitter" x="189" y="0" width="63" height="60" source="./textures/SourceIcons.png"/>
+   </Class>
+
+   <Class name="Welcome" width="5808" height="1081">
+      <Container name="lines" x="0" y="67" width="1920" height="833">
+         <Frame name="linesImg" x="0" y="0" width="1920" height="833" source="./textures/Welcome.png"/>
+      </Container>
+      <Container name="animatedMask_simple" x="0" y="0" width="5808" height="987">
+         <Container name="frontClip" x="3520" y="1" width="368" height="986">
+            <Frame name="frontClipImg" x="0" y="833" width="368" height="986" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="frontBox" x="3888" y="0" width="1920" height="986">
+            <Frame name="frontImage" x="1298" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Container name="backBox" x="0" y="1" width="1921" height="986">
+            <Frame name="backImg" x="1298" y="132" width="1" height="1" source="./textures/#common.png"/>
+         </Container>
+         <Container name="fade" x="1920" y="1" width="1758" height="986">
+            <Frame name="fadeImg" x="1920" y="1" width="1758" height="1" source="./textures/Welcome.png"/>
+         </Container>
+      </Container>
+      <Container name="overlay" x="0" y="1" width="1920" height="1080">
+         <Frame name="overlayImg" x="1920" y="0" width="1920" height="1" source="./textures/Welcome.png"/>
+      </Container>
    </Class>
 
 </Assets>

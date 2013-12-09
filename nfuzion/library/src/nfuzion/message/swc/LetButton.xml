@@ -1,0 +1,4 @@
+<swc.LetButton>
+  <phase type="string">start</phase>
+  <name type="string">volumeUp</name>
+</swc.LetCursor>

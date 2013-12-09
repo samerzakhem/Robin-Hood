@@ -1,0 +1,12 @@
+<ntactic>
+   <viewport width="768" height="768" color="white" />
+   
+   <model id="default" initialBranch="Span" defaultDepth="3" historyLength="50">
+      <screen id="Span"/>  
+   </model>
+ 
+   <model id="menu" initialBranch="Main" defaultDepth="2">
+      <screen id="Main"/>  
+   </model>
+   
+</ntactic>

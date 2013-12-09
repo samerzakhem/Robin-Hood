@@ -24,6 +24,10 @@
       name="font4" source="./fonts/FrutigerLTRH.ttf"
       size="56.1" style="normal" weight="normal"
    />
+   <Font
+      name="font5" source="./fonts/FrutigerLTRH.ttf"
+      size="118.1" style="normal" weight="normal"
+   />
 
 
    <Class name="Background" width="1920" height="1080">
@@ -129,7 +133,7 @@
          <Container name="waterTemp_scroller" x="3" y="2" width="49" height="414">
             <Mask x="64" y="0" source="./textures/Cluster.png"/>
             <Container name="track" x="0" y="0" width="49" height="414"/>
-            <Container name="progress" x="0" y="414" width="49" height="-414">
+            <Container name="progress" x="0" y="413" width="49" height="-414">
                <Frame name="progressImage" x="113" y="1314" width="1" height="1" source="./textures/Cluster.png"/>
             </Container>
             <Container name="indicators" x="10" y="4" width="28" height="406">
@@ -146,7 +150,7 @@
             <Container name="track" x="0" y="0" width="65" height="414"/>
             <Container name="maskGroup" x="0" y="0" width="65" height="414">
                <Mask x="69" y="900" source="./textures/Cluster.png"/>
-               <Container name="progress_simple" x="0" y="414" width="65" height="-414">
+               <Container name="progress_simple" x="0" y="413" width="65" height="-414">
                   <Container name="prgressImage" x="0" y="0" width="65" height="414">
                      <Frame name="progressImage" x="0" y="1318" width="65" height="414" source="./textures/Cluster.png"/>
                   </Container>
@@ -156,6 +160,35 @@
                <Frame name="tic" x="89" y="414" width="28" height="406" source="./textures/Cluster.png"/>
             </Container>
          </Container>
+      </Container>
+   </Class>
+
+   <Class name="Welcome" width="5808" height="1080">
+      <Frame name="Layer 1" x="0" y="0" width="5808" height="1" source="./textures/Welcome.png"/>
+      <Container name="lines" x="0" y="67" width="1919" height="464">
+         <Frame name="linesImg" x="2136" y="2" width="1919" height="464" source="./textures/Welcome.png"/>
+      </Container>
+      <Container name="animatedMask_simple" x="0" y="0" width="5808" height="986">
+         <Container name="frontClip" x="3520" y="0" width="368" height="986">
+            <Frame name="frontClipImg" x="0" y="622" width="368" height="986" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="frontBox" x="3888" y="0" width="1920" height="986">
+            <Frame name="frontImage" x="368" y="622" width="1" height="1" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="backBox" x="0" y="0" width="1921" height="986">
+            <Frame name="backImg" x="368" y="622" width="1" height="1" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="fade" x="1920" y="0" width="1758" height="986">
+            <Frame name="fadeImg" x="2136" y="466" width="1758" height="1" source="./textures/Welcome.png"/>
+         </Container>
+      </Container>
+      <Container name="glow_simple" x="17" y="0" width="2136" height="621">
+         <Frame name="glowImg" x="0" y="1" width="2136" height="621" source="./textures/Welcome.png"/>
+      </Container>
+      <Text name="text_label" x="0" y="120" width="1921" height="467" text="welcome" font="font3" paint="paint2" alignment="center"/>
+      <Text name="subtext_label" x="648" y="325" width="1272" height="420" text="Tom Sedars" font="font5" paint="paint2" alignment="center"/>
+      <Container name="overlay" x="0" y="0" width="1920" height="1080">
+         <Frame name="overlayImg" x="2136" y="1" width="1920" height="1" source="./textures/Welcome.png"/>
       </Container>
    </Class>
 

@@ -13,7 +13,7 @@ nfuzion.application.Application = function(name) {
 	if(nfuzion.application.Application.appName != null) throw "Cannot create more than one instance of Application.";
 	nfuzion.application.Application.appName = name;
 	haxe.Log.trace("Starting " + name + ".",{ fileName : "Application.hx", lineNumber : 53, className : "nfuzion.application.Application", methodName : "new"});
-	haxe.Log.trace("Built: " + "2013-12-04 11:01:20",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
+	haxe.Log.trace("Built: " + "2013-12-06 15:50:29",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
 };
 $hxClasses["nfuzion.application.Application"] = nfuzion.application.Application;
 nfuzion.application.Application.__name__ = ["nfuzion","application","Application"];
@@ -6362,6 +6362,139 @@ nfuzion.message.generic.type.TypeClass.__super__ = nfuzion.message.generic.base.
 nfuzion.message.generic.type.TypeClass.prototype = $extend(nfuzion.message.generic.base.Base.prototype,{
 	__class__: nfuzion.message.generic.type.TypeClass
 });
+nfuzion.message.leap = {}
+nfuzion.message.leap.type = {}
+nfuzion.message.leap.type.Phase = $hxClasses["nfuzion.message.leap.type.Phase"] = { __ename__ : ["nfuzion","message","leap","type","Phase"], __constructs__ : ["start","change","end"] }
+nfuzion.message.leap.type.Phase.start = ["start",0];
+nfuzion.message.leap.type.Phase.start.toString = $estr;
+nfuzion.message.leap.type.Phase.start.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.type.Phase.change = ["change",1];
+nfuzion.message.leap.type.Phase.change.toString = $estr;
+nfuzion.message.leap.type.Phase.change.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.type.Phase.end = ["end",2];
+nfuzion.message.leap.type.Phase.end.toString = $estr;
+nfuzion.message.leap.type.Phase.end.__enum__ = nfuzion.message.leap.type.Phase;
+nfuzion.message.leap.LetCursor = function(x,y,phase) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.x = x;
+	this.y = y;
+	this.phase = phase;
+};
+$hxClasses["nfuzion.message.leap.LetCursor"] = nfuzion.message.leap.LetCursor;
+nfuzion.message.leap.LetCursor.__name__ = ["nfuzion","message","leap","LetCursor"];
+nfuzion.message.leap.LetCursor.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetCursor.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	phase: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.message.leap.LetCursor
+});
+nfuzion.message.leap.type.Gesture = $hxClasses["nfuzion.message.leap.type.Gesture"] = { __ename__ : ["nfuzion","message","leap","type","Gesture"], __constructs__ : ["oneFingerSwipeLeft","oneFingerSwipeRight","oneFingerSwipeUp","oneFingerSwipeDown","twoFingerSwipeLeft","twofingerSwipeRight","twoFingerSwipeUp","twoFingerSwipeDown","dismiss","beckon"] }
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft = ["oneFingerSwipeLeft",0];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeLeft.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight = ["oneFingerSwipeRight",1];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeRight.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp = ["oneFingerSwipeUp",2];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeUp.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown = ["oneFingerSwipeDown",3];
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown.toString = $estr;
+nfuzion.message.leap.type.Gesture.oneFingerSwipeDown.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft = ["twoFingerSwipeLeft",4];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeLeft.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight = ["twofingerSwipeRight",5];
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight.toString = $estr;
+nfuzion.message.leap.type.Gesture.twofingerSwipeRight.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp = ["twoFingerSwipeUp",6];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeUp.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown = ["twoFingerSwipeDown",7];
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown.toString = $estr;
+nfuzion.message.leap.type.Gesture.twoFingerSwipeDown.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.dismiss = ["dismiss",8];
+nfuzion.message.leap.type.Gesture.dismiss.toString = $estr;
+nfuzion.message.leap.type.Gesture.dismiss.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.type.Gesture.beckon = ["beckon",9];
+nfuzion.message.leap.type.Gesture.beckon.toString = $estr;
+nfuzion.message.leap.type.Gesture.beckon.__enum__ = nfuzion.message.leap.type.Gesture;
+nfuzion.message.leap.LetGesture = function(gesture) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.gesture = gesture;
+};
+$hxClasses["nfuzion.message.leap.LetGesture"] = nfuzion.message.leap.LetGesture;
+nfuzion.message.leap.LetGesture.__name__ = ["nfuzion","message","leap","LetGesture"];
+nfuzion.message.leap.LetGesture.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetGesture.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	gesture: null
+	,__class__: nfuzion.message.leap.LetGesture
+});
+nfuzion.message.leap.LetPoke = function(x,y,fingerCount,clickCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.x = x;
+	this.y = y;
+	this.fingerCount = fingerCount;
+	this.clickCount = clickCount;
+};
+$hxClasses["nfuzion.message.leap.LetPoke"] = nfuzion.message.leap.LetPoke;
+nfuzion.message.leap.LetPoke.__name__ = ["nfuzion","message","leap","LetPoke"];
+nfuzion.message.leap.LetPoke.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetPoke.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	clickCount: null
+	,fingerCount: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.message.leap.LetPoke
+});
+nfuzion.message.leap.LetRotate = function(deltaAngle,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaAngle = deltaAngle;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetRotate"] = nfuzion.message.leap.LetRotate;
+nfuzion.message.leap.LetRotate.__name__ = ["nfuzion","message","leap","LetRotate"];
+nfuzion.message.leap.LetRotate.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetRotate.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,deltaAngle: null
+	,__class__: nfuzion.message.leap.LetRotate
+});
+nfuzion.message.leap.LetScroll = function(deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaX = deltaX;
+	this.deltaY = deltaY;
+	this.velocityX = velocityX;
+	this.velocityY = velocityY;
+	this.phase = phase;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetScroll"] = nfuzion.message.leap.LetScroll;
+nfuzion.message.leap.LetScroll.__name__ = ["nfuzion","message","leap","LetScroll"];
+nfuzion.message.leap.LetScroll.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetScroll.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,phase: null
+	,velocityY: null
+	,velocityX: null
+	,deltaY: null
+	,deltaX: null
+	,__class__: nfuzion.message.leap.LetScroll
+});
+nfuzion.message.leap.LetZoom = function(deltaZoom,fingerCount) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.deltaZoom = deltaZoom;
+	this.fingerCount = fingerCount;
+};
+$hxClasses["nfuzion.message.leap.LetZoom"] = nfuzion.message.leap.LetZoom;
+nfuzion.message.leap.LetZoom.__name__ = ["nfuzion","message","leap","LetZoom"];
+nfuzion.message.leap.LetZoom.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.leap.LetZoom.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	fingerCount: null
+	,deltaZoom: null
+	,__class__: nfuzion.message.leap.LetZoom
+});
 nfuzion.message.magic = {}
 nfuzion.message.magic.type = {}
 nfuzion.message.magic.type.Phase = $hxClasses["nfuzion.message.magic.type.Phase"] = { __ename__ : ["nfuzion","message","magic","type","Phase"], __constructs__ : ["start","change","end"] }
@@ -6511,6 +6644,15 @@ nfuzion.message.navigation.GetWaypoints.__name__ = ["nfuzion","message","navigat
 nfuzion.message.navigation.GetWaypoints.__super__ = nfuzion.message.generic.templates.Get;
 nfuzion.message.navigation.GetWaypoints.prototype = $extend(nfuzion.message.generic.templates.Get.prototype,{
 	__class__: nfuzion.message.navigation.GetWaypoints
+});
+nfuzion.message.navigation.LetCancel = function() {
+	nfuzion.message.generic.templates.Let.call(this);
+};
+$hxClasses["nfuzion.message.navigation.LetCancel"] = nfuzion.message.navigation.LetCancel;
+nfuzion.message.navigation.LetCancel.__name__ = ["nfuzion","message","navigation","LetCancel"];
+nfuzion.message.navigation.LetCancel.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.navigation.LetCancel.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	__class__: nfuzion.message.navigation.LetCancel
 });
 nfuzion.message.navigation.LetDestination = function() {
 	nfuzion.message.generic.templates.Let.call(this);
@@ -6876,6 +7018,43 @@ nfuzion.message.span.LetClientMetadata.prototype = $extend(nfuzion.message.gener
 	,name: null
 	,__class__: nfuzion.message.span.LetClientMetadata
 });
+nfuzion.message.swc = {}
+nfuzion.message.swc.type = {}
+nfuzion.message.swc.type.Gesture = $hxClasses["nfuzion.message.swc.type.Gesture"] = { __ename__ : ["nfuzion","message","swc","type","Gesture"], __constructs__ : ["oneFingerSwipeLeft","oneFingerSwipeRight","oneFingerSwipeUp","oneFingerSwipeDown","twoFingerSwipeLeft","twofingerSwipeRight","twoFingerSwipeUp","twoFingerSwipeDown"] }
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft = ["oneFingerSwipeLeft",0];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeLeft.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight = ["oneFingerSwipeRight",1];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeRight.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp = ["oneFingerSwipeUp",2];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeUp.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown = ["oneFingerSwipeDown",3];
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown.toString = $estr;
+nfuzion.message.swc.type.Gesture.oneFingerSwipeDown.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft = ["twoFingerSwipeLeft",4];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeLeft.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight = ["twofingerSwipeRight",5];
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight.toString = $estr;
+nfuzion.message.swc.type.Gesture.twofingerSwipeRight.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp = ["twoFingerSwipeUp",6];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeUp.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown = ["twoFingerSwipeDown",7];
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown.toString = $estr;
+nfuzion.message.swc.type.Gesture.twoFingerSwipeDown.__enum__ = nfuzion.message.swc.type.Gesture;
+nfuzion.message.swc.type.Phase = $hxClasses["nfuzion.message.swc.type.Phase"] = { __ename__ : ["nfuzion","message","swc","type","Phase"], __constructs__ : ["start","change","end"] }
+nfuzion.message.swc.type.Phase.start = ["start",0];
+nfuzion.message.swc.type.Phase.start.toString = $estr;
+nfuzion.message.swc.type.Phase.start.__enum__ = nfuzion.message.swc.type.Phase;
+nfuzion.message.swc.type.Phase.change = ["change",1];
+nfuzion.message.swc.type.Phase.change.toString = $estr;
+nfuzion.message.swc.type.Phase.change.__enum__ = nfuzion.message.swc.type.Phase;
+nfuzion.message.swc.type.Phase.end = ["end",2];
+nfuzion.message.swc.type.Phase.end.toString = $estr;
+nfuzion.message.swc.type.Phase.end.__enum__ = nfuzion.message.swc.type.Phase;
 nfuzion.message.test = {}
 nfuzion.message.test.type = {}
 nfuzion.message.test.type.Type = function(test) {
@@ -7169,6 +7348,15 @@ nfuzion.message.vehicle.LetFuel.__super__ = nfuzion.message.generic.templates.Le
 nfuzion.message.vehicle.LetFuel.prototype = $extend(nfuzion.message.generic.templates.LetFloat.prototype,{
 	__class__: nfuzion.message.vehicle.LetFuel
 });
+nfuzion.message.vehicle.LetGoodbye = function() {
+	nfuzion.message.generic.templates.Let.call(this);
+};
+$hxClasses["nfuzion.message.vehicle.LetGoodbye"] = nfuzion.message.vehicle.LetGoodbye;
+nfuzion.message.vehicle.LetGoodbye.__name__ = ["nfuzion","message","vehicle","LetGoodbye"];
+nfuzion.message.vehicle.LetGoodbye.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.vehicle.LetGoodbye.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	__class__: nfuzion.message.vehicle.LetGoodbye
+});
 nfuzion.message.vehicle.LetHighBeam = function(value) {
 	nfuzion.message.generic.templates.LetBool.call(this,value);
 };
@@ -7308,6 +7496,19 @@ nfuzion.message.vehicle.LetWaterTemperature.__super__ = nfuzion.message.generic.
 nfuzion.message.vehicle.LetWaterTemperature.prototype = $extend(nfuzion.message.generic.templates.LetFloat.prototype,{
 	__class__: nfuzion.message.vehicle.LetWaterTemperature
 });
+nfuzion.message.vehicle.LetWelcome = function(title,subtitle) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.title = title;
+	this.subtitle = subtitle;
+};
+$hxClasses["nfuzion.message.vehicle.LetWelcome"] = nfuzion.message.vehicle.LetWelcome;
+nfuzion.message.vehicle.LetWelcome.__name__ = ["nfuzion","message","vehicle","LetWelcome"];
+nfuzion.message.vehicle.LetWelcome.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.vehicle.LetWelcome.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	subtitle: null
+	,title: null
+	,__class__: nfuzion.message.vehicle.LetWelcome
+});
 nfuzion.message.vehicle.SetHonk = function(value) {
 	nfuzion.message.generic.templates.SetFloat.call(this,value);
 };
@@ -7413,6 +7614,19 @@ nfuzion.moduleLink.ChimeProxy.prototype = $extend(nfuzion.moduleLink.ClientModul
 	}
 	,__class__: nfuzion.moduleLink.ChimeProxy
 });
+nfuzion.moduleLink.ILeap = function() { }
+$hxClasses["nfuzion.moduleLink.ILeap"] = nfuzion.moduleLink.ILeap;
+nfuzion.moduleLink.ILeap.__name__ = ["nfuzion","moduleLink","ILeap"];
+nfuzion.moduleLink.ILeap.__interfaces__ = [nfuzion.event.IEventDispatcher];
+nfuzion.moduleLink.ILeap.prototype = {
+	onLetZoom: null
+	,onLetPoke: null
+	,onLetScroll: null
+	,onLetRotate: null
+	,onLetGesture: null
+	,onLetCursor: null
+	,__class__: nfuzion.moduleLink.ILeap
+}
 nfuzion.moduleLink.INavigation = function() { }
 $hxClasses["nfuzion.moduleLink.INavigation"] = nfuzion.moduleLink.INavigation;
 nfuzion.moduleLink.INavigation.__name__ = ["nfuzion","moduleLink","INavigation"];
@@ -7485,6 +7699,8 @@ nfuzion.moduleLink.IVehicle.prototype = {
 	,driverSeated: null
 	,getDriverDoorOpen: null
 	,driverDoorOpen: null
+	,welcomeSubtitle: null
+	,welcomeTitle: null
 	,__class__: nfuzion.moduleLink.IVehicle
 }
 nfuzion.moduleLink.IWindow = function() { }
@@ -7495,6 +7711,34 @@ nfuzion.moduleLink.IWindow.prototype = {
 	BringToFront: null
 	,__class__: nfuzion.moduleLink.IWindow
 }
+nfuzion.moduleLink.LeapProxy = function(client) {
+	nfuzion.moduleLink.ClientModuleLink.call(this,client,"leap");
+};
+$hxClasses["nfuzion.moduleLink.LeapProxy"] = nfuzion.moduleLink.LeapProxy;
+nfuzion.moduleLink.LeapProxy.__name__ = ["nfuzion","moduleLink","LeapProxy"];
+nfuzion.moduleLink.LeapProxy.__interfaces__ = [nfuzion.moduleLink.ILeap];
+nfuzion.moduleLink.LeapProxy.__super__ = nfuzion.moduleLink.ClientModuleLink;
+nfuzion.moduleLink.LeapProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleLink.prototype,{
+	onLetZoom: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createZoomEvent(message.deltaZoom,message.fingerCount));
+	}
+	,onLetPoke: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createPokeEvent(message.x,message.y,message.fingerCount,message.clickCount));
+	}
+	,onLetScroll: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createScrollEvent(message.deltaX,message.deltaY,message.velocityX,message.velocityY,message.phase,message.fingerCount));
+	}
+	,onLetRotate: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createRotateEvent(message.deltaAngle,message.fingerCount));
+	}
+	,onLetGesture: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createGestureEvent(message.gesture));
+	}
+	,onLetCursor: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.LeapEvent.createCursorEvent(message.x,message.y,message.phase));
+	}
+	,__class__: nfuzion.moduleLink.LeapProxy
+});
 nfuzion.moduleLink.NavigationProxy = function(client) {
 	nfuzion.moduleLink.ClientModuleLink.call(this,client,"navigation");
 };
@@ -7553,6 +7797,10 @@ nfuzion.moduleLink.NavigationProxy.prototype = $extend(nfuzion.moduleLink.Client
 		this.sendMessage(new nfuzion.message.navigation.GetDistance());
 	}
 	,distance: null
+	,onLetCancel: function(message) {
+		haxe.Log.trace("CANCEL!",{ fileName : "NavigationProxy.hx", lineNumber : 115, className : "nfuzion.moduleLink.NavigationProxy", methodName : "onLetCancel"});
+		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationCancel"));
+	}
 	,onLetDistancePercentage: function(message) {
 		this.distancePercentage = message.value;
 		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationDistancePercentage"));
@@ -7586,7 +7834,15 @@ nfuzion.moduleLink.VehicleProxy.__name__ = ["nfuzion","moduleLink","VehicleProxy
 nfuzion.moduleLink.VehicleProxy.__interfaces__ = [nfuzion.moduleLink.IVehicle];
 nfuzion.moduleLink.VehicleProxy.__super__ = nfuzion.moduleLink.ClientModuleLink;
 nfuzion.moduleLink.VehicleProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleLink.prototype,{
-	onLetWaterTemperature: function(message) {
+	onLetGoodbye: function(message) {
+		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("goodbye"));
+	}
+	,onLetWelcome: function(message) {
+		this.welcomeTitle = message.title;
+		this.welcomeSubtitle = message.subtitle;
+		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("welcome"));
+	}
+	,onLetWaterTemperature: function(message) {
 		this.waterTemperature = message.value;
 		this.dispatchEvent(new nfuzion.moduleLink.event.VehicleEvent("waterTemperature"));
 	}
@@ -7744,9 +8000,86 @@ nfuzion.moduleLink.VehicleProxy.prototype = $extend(nfuzion.moduleLink.ClientMod
 		this.sendMessage(new nfuzion.message.vehicle.GetABS());
 	}
 	,abs: null
+	,welcomeSubtitle: null
+	,welcomeTitle: null
 	,__class__: nfuzion.moduleLink.VehicleProxy
 });
 nfuzion.moduleLink.event = {}
+nfuzion.moduleLink.event.LeapEvent = function(type) {
+	nfuzion.event.Event.call(this,type);
+	this.x = 0;
+	this.y = 0;
+	this.phase = null;
+	this.gesture = null;
+	this.deltaX = 0;
+	this.deltaY = 0;
+	this.deltaAngle = 0;
+	this.fingerCount = 0;
+	this.velocityX = 0;
+	this.velocityY = 0;
+	this.clickCount = 0;
+	this.deltaZoom = 0;
+};
+$hxClasses["nfuzion.moduleLink.event.LeapEvent"] = nfuzion.moduleLink.event.LeapEvent;
+nfuzion.moduleLink.event.LeapEvent.__name__ = ["nfuzion","moduleLink","event","LeapEvent"];
+nfuzion.moduleLink.event.LeapEvent.createCursorEvent = function(x,y,phase) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.x = x;
+	event.y = y;
+	event.phase = phase;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createGestureEvent = function(gesture) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapGesture");
+	event.gesture = gesture;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createRotateEvent = function(deltaAngle,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapRotate");
+	event.deltaAngle = deltaAngle;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createScrollEvent = function(deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.deltaX = deltaX;
+	event.deltaY = deltaY;
+	event.velocityX = velocityX;
+	event.velocityY = velocityY;
+	event.phase = phase;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createPokeEvent = function(x,y,fingerCount,clickCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.x = x;
+	event.y = y;
+	event.fingerCount = fingerCount;
+	event.clickCount = clickCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.createZoomEvent = function(deltaZoom,fingerCount) {
+	var event = new nfuzion.moduleLink.event.LeapEvent("leapCursor");
+	event.deltaZoom = deltaZoom;
+	event.fingerCount = fingerCount;
+	return event;
+}
+nfuzion.moduleLink.event.LeapEvent.__super__ = nfuzion.event.Event;
+nfuzion.moduleLink.event.LeapEvent.prototype = $extend(nfuzion.event.Event.prototype,{
+	deltaZoom: null
+	,clickCount: null
+	,velocityY: null
+	,velocityX: null
+	,deltaY: null
+	,deltaX: null
+	,fingerCount: null
+	,deltaAngle: null
+	,gesture: null
+	,phase: null
+	,y: null
+	,x: null
+	,__class__: nfuzion.moduleLink.event.LeapEvent
+});
 nfuzion.moduleLink.event.MagicScrollEvent = function(type,deltaX,deltaY,velocityX,velocityY,phase,fingerCount) {
 	nfuzion.event.Event.call(this,type);
 	this.deltaX = deltaX;
@@ -8070,7 +8403,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 		this.imageRecords = new haxe.ds.StringMap();
 	}
 	,onReady: function() {
-		haxe.Log.trace(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ",{ fileName : "Screen.hx", lineNumber : 404, className : "nfuzion.nTactic.core.Screen", methodName : "onReady"});
+		haxe.Log.trace(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ",{ fileName : "Screen.hx", lineNumber : 402, className : "nfuzion.nTactic.core.Screen", methodName : "onReady"});
 		this.initalGraphicsLoaded = true;
 		this.dispatchEvent(new nfuzion.nTactic.event.ScreenEvent("ready",this));
 	}
@@ -8118,7 +8451,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 					}
 				} else {
 				}
-			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 357, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
+			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 355, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
 		}
 	}
 	,attachImage: function(url,wait) {
@@ -8237,7 +8570,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 	}
 	,initializeScreen: function() {
 		if(this.useBuilder) {
-			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) haxe.Log.trace("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.",{ fileName : "Screen.hx", lineNumber : 106, className : "nfuzion.nTactic.core.Screen", methodName : "initializeScreen"});
+			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) haxe.Log.trace("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.",{ fileName : "Screen.hx", lineNumber : 104, className : "nfuzion.nTactic.core.Screen", methodName : "initializeScreen"});
 		}
 		this.group = new nfuzion.widget.Group(this.graphicsClassName,this);
 	}
@@ -8246,7 +8579,6 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 		this.group = null;
 		this.orphan();
 		nfuzion.graphics.Container.prototype.destroy.call(this);
-		this.detatchAllImages();
 		this.detatchAllImages();
 		var $it0 = this.imageLoaders.keys();
 		while( $it0.hasNext() ) {
@@ -8384,12 +8716,12 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 	,destroy: function(branch) {
 		var record = this.screenRecords.get(branch);
 		if(record != null && record.destroyScreen()) return true;
-		haxe.Log.trace("NOTE: Could not destroy screen " + branch,{ fileName : "ScreenCache.hx", lineNumber : 103, className : "nfuzion.nTactic.core.ScreenCache", methodName : "destroy"});
+		haxe.Log.trace("NOTE: Could not destroy screen " + branch,{ fileName : "ScreenCache.hx", lineNumber : 102, className : "nfuzion.nTactic.core.ScreenCache", methodName : "destroy"});
 		return false;
 	}
 	,release: function(branch) {
 		if(this.screenRecords.exists(branch)) {
-			haxe.Log.trace(" [ - ] Releasing screen: " + branch,{ fileName : "ScreenCache.hx", lineNumber : 88, className : "nfuzion.nTactic.core.ScreenCache", methodName : "release"});
+			haxe.Log.trace(" [ - ] Releasing screen: " + branch,{ fileName : "ScreenCache.hx", lineNumber : 87, className : "nfuzion.nTactic.core.ScreenCache", methodName : "release"});
 			this.screenRecords.get(branch).inUse = false;
 			nfuzion.nTactic.NTactic.cacheManager.release(branch);
 		}
@@ -8411,7 +8743,6 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 		screen.depth = screenRecord.depth;
 		screen.branch = screenRecord.branch;
 		screen.model = model;
-		haxe.Log.trace("Attempting to call initializeScreen()",{ fileName : "ScreenCache.hx", lineNumber : 77, className : "nfuzion.nTactic.core.ScreenCache", methodName : "createScreen"});
 		screen.initializeScreen();
 		screen.screenInitialized = true;
 		screenRecord.screen = screen;
@@ -12712,11 +13043,11 @@ peripheral.Peripheral.initialize = function() {
 	peripheral.Peripheral.urlRecord = nfuzion.nTactic.NTactic.storage.getRecord("url");
 	if(peripheral.Peripheral.urlRecord.value == null) peripheral.Peripheral.useDefault();
 	try {
-		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value,null,"Robin Hood HMI","hmi");
+		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value,null,"Cluster","hmi");
 		peripheral.Peripheral.spanClient.addEventListener("SpanClientEvent.disconnect",peripheral.Peripheral.onClientDisconnect);
 	} catch( e ) {
 		peripheral.Peripheral.spanClient = null;
-		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 54, className : "peripheral.Peripheral", methodName : "initialize"});
+		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 57, className : "peripheral.Peripheral", methodName : "initialize"});
 		peripheral.Peripheral.useDefault();
 		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value);
 	}
@@ -12726,6 +13057,7 @@ peripheral.Peripheral.initialize = function() {
 		peripheral.Peripheral.chime = new nfuzion.moduleLink.ChimeProxy(peripheral.Peripheral.spanClient);
 		peripheral.Peripheral.navigation = new nfuzion.moduleLink.NavigationProxy(peripheral.Peripheral.spanClient);
 		peripheral.Peripheral.vehicle = new nfuzion.moduleLink.VehicleProxy(peripheral.Peripheral.spanClient);
+		peripheral.Peripheral.leap = new nfuzion.moduleLink.LeapProxy(peripheral.Peripheral.spanClient);
 	}
 	peripheral.Peripheral.urlRecord.addEventListener("RecordEvent.change",peripheral.Peripheral.onUrlChange);
 }
@@ -12746,7 +13078,19 @@ $hxClasses["screen.Cluster"] = screen.Cluster;
 screen.Cluster.__name__ = ["screen","Cluster"];
 screen.Cluster.__super__ = nfuzion.nTactic.core.Screen;
 screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
-	updateFuelLevelPopup: function(widget) {
+	navTweenToAlpha: function(alpha) {
+		if(this.navAlphaTween != null) this.navAlphaTween.destroy();
+		this.navAlphaTween = new nfuzion.tween.Tween(0.75,[new nfuzion.tween.type.TweenProperty(this,"navAlpha",alpha,nfuzion.tween.type.TweenType.fast)]);
+	}
+	,set_navAlpha: function(navAlpha) {
+		if(this.navAlpha != navAlpha) {
+			this.navAlpha = navAlpha;
+			this.navGroup.implementation.set_alpha(navAlpha);
+		}
+		return this.navAlpha;
+	}
+	,navAlpha: null
+	,updateFuelLevelPopup: function(widget) {
 		var popup = widget;
 		popup.implementation.set_y(this.fuelLevel.progressIndicator.get_bottom() - 13);
 	}
@@ -12827,10 +13171,7 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 			}
 			this.navigationLabel.set_text(peripheral.Peripheral.navigation.nextTurn.street);
 			this.navArrows.implementation.set_visible(true);
-		} else {
-			this.navigationLabel.set_text("");
-			this.navArrows.implementation.set_visible(false);
-		}
+		} else this.navGroup.set_visible(false);
 		this.updateDistanceScroller();
 		this.distanceToTargetLabel.set_text(Std.string(Math.round(peripheral.Peripheral.navigation.distance / 160.9) / 10) + "˘");
 	}
@@ -12958,6 +13299,23 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 			peripheral.Peripheral.vehicle.getWaterTemperature();
 		}
 	}
+	,onGoodbye: function(e) {
+		nfuzion.nTactic.NTactic.screens["goto"]("welcome:Welcome");
+	}
+	,onStarted: function(e) {
+		if(!peripheral.Peripheral.vehicle.started) nfuzion.nTactic.NTactic.screens["goto"]("welcome:Welcome");
+	}
+	,onLeapGesture: function(e) {
+		switch( (e.gesture)[1] ) {
+		case 8:
+			this.navTweenToAlpha(0);
+			break;
+		case 9:
+			this.navTweenToAlpha(1);
+			break;
+		default:
+		}
+	}
 	,addListeners: function() {
 		nfuzion.nTactic.core.Screen.prototype.addListeners.call(this);
 		this.attachListener(peripheral.Peripheral.vehicle,"abs",$bind(this,this.onABS));
@@ -12986,6 +13344,13 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.attachListener(peripheral.Peripheral.navigation,"ready",$bind(this,this.onNavigationReady));
 		if(peripheral.Peripheral.vehicle.ready) this.onVehicleReady();
 		if(peripheral.Peripheral.navigation.ready) this.onNavigationReady();
+		this.attachListener(peripheral.Peripheral.vehicle,"goodbye",$bind(this,this.onGoodbye));
+		this.attachListener(peripheral.Peripheral.vehicle,"started",$bind(this,this.onStarted));
+		this.attachListener(peripheral.Peripheral.leap,"leapGesture",$bind(this,this.onLeapGesture));
+	}
+	,enterScreen: function() {
+		nfuzion.nTactic.core.Screen.prototype.enterScreen.call(this);
+		this.set_navAlpha(1);
 	}
 	,initializeScreen: function() {
 		nfuzion.nTactic.core.Screen.prototype.initializeScreen.call(this);
@@ -13044,6 +13409,7 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.navGroup.set_visible(false);
 	}
 	,blinkTimer: null
+	,navAlphaTween: null
 	,prndSimple: null
 	,navArrows: null
 	,navigationLabel: null
@@ -13066,6 +13432,7 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 	,odometerLabel: null
 	,distanceToEmptyLabel: null
 	,__class__: screen.Cluster
+	,__properties__: $extend(nfuzion.nTactic.core.Screen.prototype.__properties__,{set_navAlpha:"set_navAlpha"})
 });
 screen.SpanConfigPopup = function(name) {
 	this.entry = "";
@@ -13455,6 +13822,93 @@ screen.SpanConfigPopup.prototype = $extend(nfuzion.nTactic.core.DynamicScreen.pr
 	,alphaPaint: null
 	,__class__: screen.SpanConfigPopup
 });
+screen.Welcome = function(graphicsClassName,fillParent) {
+	nfuzion.nTactic.core.Screen.call(this,graphicsClassName,fillParent);
+};
+$hxClasses["screen.Welcome"] = screen.Welcome;
+screen.Welcome.__name__ = ["screen","Welcome"];
+screen.Welcome.__super__ = nfuzion.nTactic.core.Screen;
+screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
+	fadeTextOut: function() {
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this.welcomeText,"alpha",0,nfuzion.tween.type.TweenType.slow)],$bind(this,this.animationComplete));
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this.nameText,"alpha",0,nfuzion.tween.type.TweenType.slow)]);
+	}
+	,endGlow: function() {
+		new nfuzion.tween.Tween(.5,[new nfuzion.tween.type.TweenProperty(this.glow,"alpha",0,nfuzion.tween.type.TweenType.slow)]);
+	}
+	,enterLines: function() {
+		new nfuzion.tween.Tween(2,[new nfuzion.tween.type.TweenProperty(this.lines,"x",0,nfuzion.tween.type.TweenType.linear)],$bind(this,this.fadeTextOut));
+		new nfuzion.tween.Tween(.5,[new nfuzion.tween.type.TweenProperty(this.glow,"alpha",1,nfuzion.tween.type.TweenType.fast)],$bind(this,this.endGlow));
+		new nfuzion.tween.Tween(1.2,[new nfuzion.tween.type.TweenProperty(this.nameText,"alpha",1,nfuzion.tween.type.TweenType.slow)]);
+	}
+	,animationComplete: function() {
+		haxe.Log.trace("Complete",{ fileName : "Welcome.hx", lineNumber : 118, className : "screen.Welcome", methodName : "animationComplete"});
+		this.setInitialState();
+	}
+	,animate: function() {
+		haxe.Log.trace("Animating!",{ fileName : "Welcome.hx", lineNumber : 110, className : "screen.Welcome", methodName : "animate"});
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this.welcomeText,"y",120,nfuzion.tween.type.TweenType.linear)]);
+		new nfuzion.tween.Tween(.5,[new nfuzion.tween.type.TweenProperty(this.welcomeText,"alpha",1,nfuzion.tween.type.TweenType.slow)]);
+		new nfuzion.timer.Delay($bind(this,this.enterLines),.75);
+	}
+	,onWelcome: function(e) {
+		if(peripheral.Peripheral.vehicle.welcomeSubtitle != null) this.nameLabel.set_text(peripheral.Peripheral.vehicle.welcomeSubtitle); else this.nameLabel.set_text("");
+		this.welcomeLabel.set_text(peripheral.Peripheral.vehicle.welcomeTitle);
+		this.animate();
+	}
+	,unloadCluster: function() {
+		nfuzion.nTactic.NTactic.screens["goto"]("default:");
+	}
+	,close: function() {
+		nfuzion.nTactic.NTactic.screens["goto"]("welcome:");
+	}
+	,fadeOut: function() {
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this,"alpha",0,nfuzion.tween.type.TweenType.slow)],$bind(this,this.close));
+	}
+	,fadeIn: function() {
+		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this,"alpha",1,nfuzion.tween.type.TweenType.fast)],$bind(this,this.unloadCluster));
+	}
+	,onIgnition: function(e) {
+		nfuzion.nTactic.NTactic.screens["goto"]("Cluster");
+		new nfuzion.timer.Delay($bind(this,this.fadeOut),.1);
+	}
+	,addListeners: function() {
+		nfuzion.nTactic.core.Screen.prototype.addListeners.call(this);
+		this.attachListener(peripheral.Peripheral.vehicle,"welcome",$bind(this,this.onWelcome));
+		this.attachListener(peripheral.Peripheral.vehicle,"started",$bind(this,this.onIgnition));
+	}
+	,setInitialState: function() {
+		this.nameText.set_alpha(0);
+		this.lines.set_x(-3888);
+		this.welcomeText.set_y(500);
+		this.welcomeText.set_alpha(0);
+		this.glow.set_alpha(0);
+	}
+	,enterScreen: function() {
+		nfuzion.nTactic.core.Screen.prototype.enterScreen.call(this);
+		this.setInitialState();
+		this.set_alpha(0);
+		new nfuzion.timer.Delay($bind(this,this.fadeIn),.5);
+	}
+	,initializeScreen: function() {
+		nfuzion.nTactic.core.Screen.prototype.initializeScreen.call(this);
+		var animationSimple = this.getWidget("animatedMask_simple");
+		this.welcomeLabel = this.getWidget("text_label");
+		this.nameLabel = this.getWidget("subtext_label");
+		var glowSimple = this.getWidget("glow_simple");
+		this.glow = glowSimple.implementation;
+		this.lines = animationSimple.implementation;
+		this.welcomeText = this.welcomeLabel.implementation;
+		this.nameText = this.nameLabel.implementation;
+	}
+	,glow: null
+	,lines: null
+	,nameText: null
+	,welcomeText: null
+	,welcomeLabel: null
+	,nameLabel: null
+	,__class__: screen.Welcome
+});
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; };
@@ -13573,6 +14027,24 @@ nfuzion.message.generic.templates.LetFloat.valueType = [Float];
 nfuzion.message.generic.templates.SetBool.valueType = [Bool];
 nfuzion.message.generic.templates.SetFloat.valueType = [Float];
 nfuzion.message.generic.templates.SetString.valueType = [String];
+nfuzion.message.leap.LetCursor.xType = [Float];
+nfuzion.message.leap.LetCursor.yType = [Float];
+nfuzion.message.leap.LetCursor.phaseType = [nfuzion.message.leap.type.Phase];
+nfuzion.message.leap.LetGesture.gestureType = [nfuzion.message.leap.type.Gesture];
+nfuzion.message.leap.LetPoke.xType = [Float];
+nfuzion.message.leap.LetPoke.yType = [Float];
+nfuzion.message.leap.LetPoke.fingerCountType = [Int];
+nfuzion.message.leap.LetPoke.clickCountType = [Int];
+nfuzion.message.leap.LetRotate.deltaAngleType = [Float];
+nfuzion.message.leap.LetRotate.fingerCountType = [Int];
+nfuzion.message.leap.LetScroll.deltaXType = [Float];
+nfuzion.message.leap.LetScroll.deltaYType = [Float];
+nfuzion.message.leap.LetScroll.velocityXType = [Float];
+nfuzion.message.leap.LetScroll.velocityYType = [Float];
+nfuzion.message.leap.LetScroll.phaseType = [nfuzion.message.leap.type.Phase];
+nfuzion.message.leap.LetScroll.fingerCountType = [Int];
+nfuzion.message.leap.LetZoom.deltaZoomType = [Float];
+nfuzion.message.leap.LetZoom.fingerCountType = [Int];
 nfuzion.message.media.type.Item.titleType = [String];
 nfuzion.message.media.type.Item.typeType = [nfuzion.message.media.type.ItemType];
 nfuzion.message.media.type.Item.idType = [Int];
@@ -13639,6 +14111,14 @@ nfuzion.message.test.LetTest.fType = [Float];
 nfuzion.message.test.LetTest.gType = [Array,Array,Int];
 nfuzion.message.vehicle.LetTransmission.stateType = [nfuzion.message.vehicle.type.TransmissionState];
 nfuzion.message.vehicle.LetTurnSignal.stateType = [nfuzion.message.vehicle.type.TurnSignalState];
+nfuzion.message.vehicle.LetWelcome.titleType = [String];
+nfuzion.message.vehicle.LetWelcome.subtitleType = [String];
+nfuzion.moduleLink.event.LeapEvent.CURSOR = "leapCursor";
+nfuzion.moduleLink.event.LeapEvent.GESTURE = "leapGesture";
+nfuzion.moduleLink.event.LeapEvent.ROTATE = "leapRotate";
+nfuzion.moduleLink.event.LeapEvent.SCROLL = "leapScroll";
+nfuzion.moduleLink.event.LeapEvent.POKE = "leapPoke";
+nfuzion.moduleLink.event.LeapEvent.ZOOM = "leapZoom";
 nfuzion.moduleLink.event.MagicScrollEvent.SCROLL = "scroll";
 nfuzion.moduleLink.event.MediaPlayerEvent.AUDITION_PERIOD = "auditionPeriod";
 nfuzion.moduleLink.event.MediaPlayerEvent.BROWSE_ITEMS = "browseItems";
@@ -13667,6 +14147,8 @@ nfuzion.moduleLink.event.VehicleEvent.DRIVER_DOOR_OPEN = "driverDoorOpen";
 nfuzion.moduleLink.event.VehicleEvent.DRIVER_SEATED = "driverSeated";
 nfuzion.moduleLink.event.VehicleEvent.DOORS_LOCKED = "doorsLocked";
 nfuzion.moduleLink.event.VehicleEvent.STARTED = "started";
+nfuzion.moduleLink.event.VehicleEvent.WELCOME = "welcome";
+nfuzion.moduleLink.event.VehicleEvent.GOODBYE = "goodbye";
 nfuzion.moduleLink.event.VehicleEvent.ABS = "abs";
 nfuzion.moduleLink.event.VehicleEvent.AIR_BAG = "airBag";
 nfuzion.moduleLink.event.VehicleEvent.BATTERY = "battery";
@@ -13751,6 +14233,7 @@ nfuzion.widget.event.WidgetEvent.SELECT = "WidgetEvent.select";
 nfuzion.widget.type.ItemWidget.NULL_DATA_INDEX = -35535;
 nfuzion.widget.type.ItemWidget.INVALID_DATA_INDEX = -35534;
 peripheral.Peripheral.initialized = false;
+screen.Cluster.ALPHA_TWEEN_PERIOD = 0.75;
 screen.SpanConfigPopup.FILL_PERCENT = .9;
 screen.SpanConfigPopup.PRIMARY_FONT_PATH = "./fonts/GillSansLight.ttf";
 screen.SpanConfigPopup.SYMBOL_FONT_PATH = "./fonts/Symbols.ttf";
