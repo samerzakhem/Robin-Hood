@@ -1,0 +1,3 @@
+http://processors.wiki.ti.com/index.php/Display_Subsystem
+http://processors.wiki.ti.com/index.php/DSS2_SYSFS_Examples
+

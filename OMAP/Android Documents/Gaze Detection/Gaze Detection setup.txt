@@ -1,0 +1,16 @@
+I think the power adapters might have been mixed up with the rest of the gaze detection samples we delivered to GM. I will check with Cem tomorrow to see if they have the power adapter that you need.
+
+ 
+
+I have attached the setup software. Please follow the instructions below, which were sent by Alps Japan.
+
+I changed the attachment extension from .zip to .piz so that it won't get caught by the filters.
+
+ 
+There are 2 files I attached.
+Please install to PC like following.
+ 
+1, Decompress "Release.zip" and execute "setup.exe"
+2, After install, copy "DispPOG32_131206.ex" to folder "C:\Program Files\ISS\"
+3, Rename "DispPOG32_131206.ex" to "DispPOG32_131206.exe"
+4, Run "DispPOG32_131206.exe"

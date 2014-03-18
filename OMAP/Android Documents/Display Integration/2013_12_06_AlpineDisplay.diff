@@ -1,0 +1,97 @@
+diff --git a/drivers/video/modedb.c b/drivers/video/modedb.c
+index 86431ef..30edfd8 100644
+--- a/drivers/video/modedb.c
++++ b/drivers/video/modedb.c
+@@ -799,13 +799,23 @@ const struct fb_videomode cea_modes[CEA_MODEDB_SIZE] = {
+ 	 .flag = FB_FLAG_RATIO_16_9,
+ 	 .vmode = FB_VMODE_NONINTERLACED},
+ 	/* 64: 1920x1080p @ 100Hz */
+-	{.refresh = 100, .xres = 1920, .yres = 1080, .pixclock = 3367,
++	{.refresh = 60, .xres = 1920, .yres = 1080, .pixclock = 6734,
++	 .left_margin = 80, .right_margin = 48,
++	 .upper_margin = 23, .lower_margin = 3,
++	 .hsync_len = 32, .vsync_len = 5,
++	 .sync = FB_SYNC_HOR_HIGH_ACT | FB_SYNC_VERT_HIGH_ACT,
++	 .flag = FB_FLAG_RATIO_16_9,
++	 .vmode = FB_VMODE_NONINTERLACED},
++
++	/* 64: 1920x1080p @ 100Hz */
++/*	{.refresh = 100, .xres = 1920, .yres = 1080, .pixclock = 3367,
+ 	 .left_margin = 148, .right_margin = 528,
+ 	 .upper_margin = 36, .lower_margin = 4,
+ 	 .hsync_len = 44, .vsync_len = 5,
+ 	 .sync = FB_SYNC_HOR_HIGH_ACT | FB_SYNC_VERT_HIGH_ACT,
+ 	 .flag = FB_FLAG_RATIO_16_9,
+ 	 .vmode = FB_VMODE_NONINTERLACED},
++*/
+ };
+ EXPORT_SYMBOL(cea_modes);
+ 
+diff --git a/drivers/video/omap2/displays/panel-generic-dpi.c b/drivers/video/omap2/displays/panel-generic-dpi.c
+index 96f8612..6dfc672 100644
+--- a/drivers/video/omap2/displays/panel-generic-dpi.c
++++ b/drivers/video/omap2/displays/panel-generic-dpi.c
+@@ -61,6 +61,27 @@ static struct panel_config generic_dpi_panels[] = {
+ 
+ 	/* lp101_panel */
+ 	{
++
++		{
++			/* 1280 x 800 @ 60 Hz  Reduced blanking VESA CVT 0.31M3-R */
++			.x_res		= 1920,
++			.y_res		= 1080,
++			.pixel_clock	= 148000,
++			.hfp		= 48,
++			.hsw		= 32,
++			.hbp		= 80,
++			.vfp		= 3,
++			.vsw		= 5,
++			.vbp		= 23,
++		},
++		.acbi			= 0x0,
++		.acb			= 0x0,
++		.config			= OMAP_DSS_LCD_TFT | OMAP_DSS_LCD_IPC,
++		.power_on_delay		= 0,
++		.power_off_delay	= 0,
++		.name			= "generic_lp101",
++#if 0
++
+ 		{
+ 			/* 1280 x 800 @ 60 Hz  Reduced blanking VESA CVT 0.31M3-R */
+ 			.x_res		= 1280,
+@@ -79,6 +100,7 @@ static struct panel_config generic_dpi_panels[] = {
+ 		.power_on_delay		= 0,
+ 		.power_off_delay	= 0,
+ 		.name			= "generic_lp101",
++#endif
+ 	},
+ 
+ 	/* generic 720p */
+diff --git a/drivers/video/omap2/dss/hdmi.c b/drivers/video/omap2/dss/hdmi.c
+index 78b39ec..fa90844 100644
+--- a/drivers/video/omap2/dss/hdmi.c
++++ b/drivers/video/omap2/dss/hdmi.c
+@@ -148,6 +148,15 @@ static int hdmi_set_timings(struct fb_videomode *vm, bool check_only)
+ 	int r = 0;
+ 	DSSDBG("hdmi_set_timings\n");
+ 
++	i = 64;
++
++	hdmi.ip_data.cfg.cm.code = i;
++
++	hdmi.ip_data.cfg.cm.mode = HDMI_HDMI;
++	hdmi.ip_data.cfg.timings =
++	cea_modes[hdmi.ip_data.cfg.cm.code];
++	goto done;
++
+ 	if (!vm->xres || !vm->yres || !vm->pixclock)
+ 		goto fail;
+ 
+@@ -157,6 +166,7 @@ static int hdmi_set_timings(struct fb_videomode *vm, bool check_only)
+ 			if (check_only)
+ 				return 1;
+ 			hdmi.ip_data.cfg.cm.code = i;
++
+ 			hdmi.ip_data.cfg.cm.mode = HDMI_HDMI;
+ 			hdmi.ip_data.cfg.timings =
+ 			cea_modes[hdmi.ip_data.cfg.cm.code];
