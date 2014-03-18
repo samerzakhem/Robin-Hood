@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) Texas Instruments - http://www.ti.com/
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/photo_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="128dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/general_margin" />
+
+    <Button
+        android:id="@+id/photo_button_show"
+        style="@style/PhotoDetailsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/show" />
+
+    <Button
+        android:id="@+id/photo_button_previous"
+        style="@style/PhotoDetailsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photo_button_show"
+        android:text="@string/previous" />
+
+    <Button
+        android:id="@+id/photo_button_next"
+        style="@style/PhotoDetailsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photo_button_previous"
+        android:text="@string/next" />
+
+    <Button
+        android:id="@+id/photo_button_start"
+        style="@style/PhotoDetailsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photo_button_next"
+        android:text="@string/start" />
+
+    <Button
+        android:id="@+id/photo_button_stop"
+        style="@style/PhotoDetailsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photo_button_start"
+        android:text="@string/stop" />
+
+    <ImageView
+        android:id="@+id/photo_preview_image"
+        android:layout_width="512dp"
+        android:layout_height="512dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/white"
+        android:padding="@dimen/general_margin"
+        android:scaleType="centerInside"
+        android:src="@drawable/dd_icon" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/photo_button_stop"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="30dp"
+        layout="@layout/photo_details" />
+
+</RelativeLayout>
