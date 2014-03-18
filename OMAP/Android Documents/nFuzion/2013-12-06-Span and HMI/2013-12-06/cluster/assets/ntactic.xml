@@ -1,0 +1,16 @@
+<ntactic>
+   <viewport width="1920" height="1080" color="black" />
+ 
+   <model id="default" initialBranch="" defaultDepth="0">
+      <screen id="Cluster"/>  
+   </model>
+   
+   <model id="config" initialBranch="" defaultDepth="20">
+      <screen id="SpanConfigPopup"/>  
+   </model>
+   
+   <model id="welcome" initialBranch="Welcome" defaultDepth="18">
+      <screen id="Welcome"/>
+   </model>
+   
+</ntactic>

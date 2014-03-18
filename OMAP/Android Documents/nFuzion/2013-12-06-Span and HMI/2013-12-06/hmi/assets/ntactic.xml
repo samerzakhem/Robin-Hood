@@ -1,0 +1,36 @@
+<ntactic>
+   <viewport width="1920" height="1080" color="black" />
+   
+   <model id="default" defaultDepth="0">
+      <screen id="Main"/>  
+   </model>
+
+   <model id="status" defaultDepth="10">
+      <screen id="Status"/>  
+   </model>
+   
+   <model id="popup" defaultDepth="11" historyLength="50">
+      <screen id="AppTray">
+         <screen id="CommSourcePanel">
+            <screen id="ContactsPopupPanel">
+               <screen id="SmsPanel"/>
+            </screen>
+         </screen>
+         <screen id="MusicSourcePanel"/>
+      </screen>  
+      <screen id="MusicSourcePanel"/>
+      <screen id="ContactsPopupPanel"/>
+      <screen id="IntentPopup"/>
+      <screen id="VrPopup"/>
+      <screen id="ConfirmationPopup"/>
+   </model>
+   
+   <model id="config" initialBranch="" defaultDepth="20">
+      <screen id="SpanConfigPopup"/>  
+   </model>
+   
+   <model id="welcome" initialBranch="Welcome" defaultDepth="18">
+      <screen id="Welcome"/>
+   </model>
+   
+</ntactic>

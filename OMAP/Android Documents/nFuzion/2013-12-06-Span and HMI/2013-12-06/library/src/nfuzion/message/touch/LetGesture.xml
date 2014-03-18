@@ -1,0 +1,3 @@
+<touch.LetGesture>
+  <gesture type="string">twoFingerSwipeDown</gesture>
+</touch.LetGesture>

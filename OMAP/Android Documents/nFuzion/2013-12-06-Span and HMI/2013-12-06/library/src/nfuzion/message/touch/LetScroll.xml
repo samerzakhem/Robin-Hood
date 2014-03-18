@@ -1,0 +1,8 @@
+<touch.LetScroll>
+  <fingerCount type="number">3</fingerCount>
+  <phase type="string">end</phase>
+  <velocityY type="number">0</velocityY>
+  <velocityX type="number">17</velocityX>
+  <deltaY type="number">0</deltaY>
+  <deltaX type="number">29</deltaX>
+</touch.LetScroll>

@@ -1,0 +1,32 @@
+<notice.LetNotices>
+  <notices type="array">
+    <item type="structure">
+      <id type="number">1</id>
+      <priority type="string">low</priority>
+      <type type="string">text</type>
+      <options type="array">
+      </options>
+      <text type="string">Are you driving?</text>
+      <title type="string">Text from Jim</title>
+    </item>
+    <item type="structure">
+      <id type="number">2</id>
+      <priority type="string">medium</priority>
+      <type type="string">waypointSuggestion</type>
+      <options type="array">
+        <item type="structure">
+          <data type="string">10 Donut Circle, Girth, KY</data>
+          <action type="string">addWaypoint</action>
+          <name type="string">Go</name>
+        </item>
+        <item type="structure">
+          <action type="string">dismiss</action>
+          <name type="string">No thanks</name>
+        </item>
+      </options>
+      <text type="string">Would you like to stop for donuts?</text>
+      <title type="string">Donuts?</title>
+    </item>
+  </notices>
+  <start type="number">0</start>
+</notice.LetNotices>

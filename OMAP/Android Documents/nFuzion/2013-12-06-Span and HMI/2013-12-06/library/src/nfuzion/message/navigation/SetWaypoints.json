@@ -1,0 +1,14 @@
+"navigation.SetWaypoints":
+{
+  "waypoints":
+  [
+    {
+      "address":"123%20Gas%20Drive%2C%20Fuelville%2C%20TX",
+      "name":"Gas"
+    },
+    {
+      "address":"321%20Home%20Court%2C%20Turfington%2C%20AL",
+      "name":"Home"
+    }
+  ]
+}
