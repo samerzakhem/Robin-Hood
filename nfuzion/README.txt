@@ -25,7 +25,7 @@ preinstalled on the Raspberry Pi, and automatically starts on boot.
 
 
 SETUP
------
+-----/Users/onstar/Projects/Robin-Hood/nfuzion/messageSender/js/index.html
 The following steps outline the configuration of these tools and applications.
 The audience is assumed to be a technical person already familiar with the
 Robin Hood project, Mac OS, and Raspberry Pi, etc.:

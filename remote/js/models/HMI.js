@@ -521,6 +521,15 @@ var HMI = (function() {
 		}
 	};
 
+	HMI.prototype.LetWelcome = function(title, subtitle) {
+		return {
+			"vehicle.LetWelcome": {
+				title: 		title,
+				subtitle: 	subtitle
+			}
+		}
+	};
+
 	return HMI.getInstance();
 
 })();

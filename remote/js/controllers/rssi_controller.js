@@ -81,6 +81,9 @@ var RSSIController = (function() {
 
                 // Let the HMI know where we are
                 HMI.send(HMI.LetProximity('name', 'arrived'));
+
+                // Welcome the user..
+                HMI.send(HMI.LetWelcome('Welcome', Vehicle.getUser() ));
             }
         });
 

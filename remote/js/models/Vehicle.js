@@ -120,6 +120,10 @@ var Vehicle = (function() {
 		this.update();
 	};
 
+	Vehicle.prototype.getUser = function() {
+		return this.values.user;
+	};
+
 	//// [ MISCELLANEOUS ] //////////////////////////////////////////////////////
 
 	return new Vehicle();
