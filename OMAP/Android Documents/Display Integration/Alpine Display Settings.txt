@@ -1,0 +1,11 @@
+This is our LCD timing is below.
+Our Japan team confirmed below timing is no noise and flickering.
+Could check and change to the Video timing?
+
+VESA standard
+ ·1920 x 1080  CEA-861 format
+
+ ·Horizontal Sync             67.5kHz
+   ·Vertical sync                   60.0Hz
+   ·Video  Clock                  148.5MHz
+   ·Sync Pol  H=Positive?V=Positive

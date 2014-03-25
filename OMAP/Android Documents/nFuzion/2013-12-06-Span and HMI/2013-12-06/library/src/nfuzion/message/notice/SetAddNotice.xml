@@ -1,0 +1,20 @@
+<notice.SetAddNotice>
+  <notice type="structure">
+    <id type="number">0</id>
+    <priority type="string">medium</priority>
+    <type type="string">waypointSuggestion</type>
+    <options type="array">
+      <item type="structure">
+        <data type="string">10 Donut Circle, Girth, KY</data>
+        <action type="string">addWaypoint</action>
+        <name type="string">Go</name>
+      </item>
+      <item type="structure">
+        <action type="string">dismiss</action>
+        <name type="string">No thanks</name>
+      </item>
+    </options>
+    <text type="string">Would you like to stop for donuts?</text>
+    <title type="string">Donuts?</title>
+  </notice>
+</notice.SetAddNotice>

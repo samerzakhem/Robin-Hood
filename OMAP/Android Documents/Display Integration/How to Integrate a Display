@@ -1,0 +1,161 @@
+
+
+1) Get the EDID information
+
+
+
+
+2) Use the information to calculate the frame buffer settings
+
+
+
+
+3) Update the modedb array
+
+kernel/android-3.4/drivers/video/
+modedb.c
+
+const struct fb_videomode cea_modes[CEA_MODEDB_SIZE] = {
+	{},
+	/* 1: 640x480p @ 59.94Hz/60Hz */
+	{.refresh = 59, .xres = 640, .yres = 480, .pixclock = 39721,
+	 .left_margin = 48, .right_margin = 16,
+	 .upper_margin = 33, .lower_margin = 10,
+	 .hsync_len = 96, .vsync_len = 2,
+	 .sync = 0,
+	 .flag = FB_FLAG_RATIO_4_3,
+	 .vmode = FB_VMODE_NONINTERLACED},
+
+.
+.
+.
+.
+.
+
+	/* 64: 1920x1080p @ 100Hz */
+	{.refresh = 60, .xres = 1920, .yres = 1080, .pixclock = 7210,
+	 .left_margin = 80, .right_margin = 48,
+	 .upper_margin = 23, .lower_margin = 3,
+	 .hsync_len = 32, .vsync_len = 5,
+	 .sync = FB_SYNC_HOR_HIGH_ACT | FB_SYNC_VERT_HIGH_ACT,
+	 .flag = FB_FLAG_RATIO_16_9,
+	 .vmode = FB_VMODE_NONINTERLACED},
+};
+
+
+
+4) Update HDMI to force the mode
+
+//search for hdmi.c in the kernel
+//board specific
+hdmi.c
+static int hdmi_set_timings(struct fb_videomode *vm, bool check_only)
+{
+	int i = 0;
+	int r = 0;
+	DSSDBG("hdmi_set_timings\n");
+
+	i = 64;
+
+	hdmi.ip_data.cfg.cm.code = i;
+
+	hdmi.ip_data.cfg.cm.mode = HDMI_HDMI;
+	hdmi.ip_data.cfg.timings =
+	cea_modes[hdmi.ip_data.cfg.cm.code];
+	goto done;
+
+	if (!vm->xres || !vm->yres || !vm->pixclock)
+		goto fail;
+
+	for (i = 0; i < CEA_MODEDB_SIZE; i++) {
+		if (relaxed_fb_mode_is_equal(cea_modes + i, vm)) {
+			*vm = cea_modes[i];
+			if (check_only)
+				return 1;
+			hdmi.ip_data.cfg.cm.code = i;
+
+			hdmi.ip_data.cfg.cm.mode = HDMI_HDMI;
+			hdmi.ip_data.cfg.timings =
+			cea_modes[hdmi.ip_data.cfg.cm.code];
+			goto done;
+		}
+	}
+.
+.
+.
+.
+.
+}
+
+
+5) Adding a DPI Display
+
+/* Panel configurations */
+static struct panel_config generic_dpi_panels[] = {
+
+	/* lp101_panel */
+	{
+
+		{
+			/* 1280 x 800 @ 60 Hz  Reduced blanking VESA CVT 0.31M3-R */
+			.x_res		= 1920,
+			.y_res		= 1080,
+			.pixel_clock	= 148500,
+			.hfp		= 32,
+			.hsw		= 48,
+			.hbp		= 80,
+			.vfp		= 5,
+			.vsw		= 3,
+			.vbp		= 23,
+		},
+		.acbi			= 0x0,
+		.acb			= 0x0,
+		.config			= OMAP_DSS_LCD_TFT,
+		.power_on_delay		= 0,
+		.power_off_delay	= 0,
+		.name			= "generic_lp101",
+#if 0
+
+		{
+			/* 1280 x 800 @ 60 Hz  Reduced blanking VESA CVT 0.31M3-R */
+			.x_res		= 1280,
+			.y_res		= 800,
+			.pixel_clock	= 85333,
+			.hfp		= 32,
+			.hsw		= 48,
+			.hbp		= 80,
+			.vfp		= 4,
+			.vsw		= 3,
+			.vbp		= 7,
+		},
+		.acbi			= 0x0,
+		.acb			= 0x0,
+		.config			= OMAP_DSS_LCD_TFT,
+		.power_on_delay		= 0,
+		.power_off_delay	= 0,
+		.name			= "generic_lp101",
+#endif
+	},
+
+
+
+
+
+
+6) Troubleshooting Techniques
+
+- use printf's and watch log output
+- verify that the clock is not outside of the pll range
+- DPI is in MHz while framebuffer is picoseconds
+- check android shell cat /sys/devices/omapdss/displayx/timings for the selected display resolution
+- displays have to be driven at the same resolution
+
+
+
+
+
+
+
+
+
+

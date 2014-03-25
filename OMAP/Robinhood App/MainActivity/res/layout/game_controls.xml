@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) Texas Instruments - http://www.ti.com/
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:id="@+id/game_control_touch1"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border_rounded" />
+
+    <TextView
+        android:id="@+id/game_control_sensitivity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/general_margin"
+        android:text="@string/sensitivity"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_medium" />
+
+    <SeekBar
+        android:id="@+id/game_control_sensitivity_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/game_control_sensitivity_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:max="256" />
+
+    <TextView
+        android:id="@+id/game_control_sensitivity_clear"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/game_control_sensitivity_text"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text="@string/clear"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/game_control_touch1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/general_margin"
+        android:text="@string/camera_rotation"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_large" />
+
+    <include
+        android:layout_width="@dimen/scroller_layout_size"
+        android:layout_height="@dimen/scroller_layout_size"
+        android:layout_below="@+id/game_control_sensitivity_seekbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        layout="@layout/scroll_control" />
+
+</RelativeLayout>

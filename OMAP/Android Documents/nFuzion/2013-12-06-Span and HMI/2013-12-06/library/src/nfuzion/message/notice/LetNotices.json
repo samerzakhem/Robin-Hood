@@ -1,0 +1,36 @@
+"notice.LetNotices":
+{
+  "notices":
+  [
+    {
+      "id":1,
+      "priority":"low",
+      "type":"text",
+      "options":
+      [
+      ],
+      "text":"Are%20you%20driving%3F",
+      "title":"Text%20from%20Jim"
+    },
+    {
+      "id":2,
+      "priority":"medium",
+      "type":"waypointSuggestion",
+      "options":
+      [
+        {
+          "data":"10%20Donut%20Circle%2C%20Girth%2C%20KY",
+          "action":"addWaypoint",
+          "name":"Go"
+        },
+        {
+          "action":"dismiss",
+          "name":"No%20thanks"
+        }
+      ],
+      "text":"Would%20you%20like%20to%20stop%20for%20donuts%3F",
+      "title":"Donuts%3F"
+    }
+  ],
+  "start":0
+}

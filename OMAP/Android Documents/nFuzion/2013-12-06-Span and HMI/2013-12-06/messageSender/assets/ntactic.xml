@@ -1,0 +1,27 @@
+<ntactic>
+   <viewport width="800" height="500" color="black" />
+   
+   <model id="default" initialBranch="Home" defaultDepth="5" historyLength="50">
+      <screen id="Home"/>
+      <screen id="NServiceTestScreen"/>
+      <screen id="HmiClusterTestScreen"/>
+      <screen id="RobinhoodHmi"/>
+   </model>
+   
+   <model id="splash" defaultDepth="9">
+
+   </model>
+   
+   <model id="statusbar"  defaultDepth="7">
+
+   </model>
+   
+   <model id="background" defaultDepth="0">
+
+   </model>
+   
+   <model id="popup" defaultDepth="10">
+      <screen id="SpanConfigPopup"/>
+   </model>
+ 
+</ntactic>

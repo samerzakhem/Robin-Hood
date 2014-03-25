@@ -1,0 +1,4 @@
+<phone.SetAction>
+  <number type="string">123-456-7890</number>
+  <action type="string">dial</action>
+</phone.SetAction>
