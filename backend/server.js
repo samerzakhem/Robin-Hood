@@ -69,7 +69,7 @@ var Vehicle = new Vehicle({
 var GPSChannel = new socket.FayeChannel({
   url:        server.url,
   channel:    '/car/location',
-  buffer:     .25,
+  buffer:     5,
   onMessage:  function(msg) {
     // Update the vehicle
     // Vehicle.setLocation(msg.latitude, msg.longitude); 
@@ -121,6 +121,7 @@ new socket.PropertyWatcher({
   onChange:   function(oldValue, newValue) {
     Vehicle.setIgnition( newValue );        // Update the vehicle
     IntentEngine.setIgnition( newValue );   // Update the intent engine
+    HMI.LetStarted( newValue );             // Update the HMI interface
   }
 });
 

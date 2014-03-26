@@ -25,6 +25,14 @@ var NavbarController = (function() {
 			Vehicle.lock();
 		});
 
+		this.element.find('.welcome').click(function(e) {
+			HMI.send(HMI.LetWelcome('Welcome', Vehicle.getUser() ));
+		});
+
+		this.element.find('.goodbye').click(function(e) {
+			HMI.send(HMI.LetGoodbye());
+		});
+
 	};
 
 	return NavbarController;

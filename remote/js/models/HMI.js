@@ -530,6 +530,12 @@ var HMI = (function() {
 		}
 	};
 
+	HMI.prototype.LetGoodbye = function() {
+		return {
+			"vehicle.LetGoodbye": {}
+		}
+	};
+
 	return HMI.getInstance();
 
 })();
