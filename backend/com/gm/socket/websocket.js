@@ -10,6 +10,8 @@ function WebSocket(options) {
 	if(this.options.url === undefined)
 		throw new Error('WebSocket expects url');
 
+	this._reconnectWait 				= this.options.reconnectWait || 15 * 1000;
+
 	// Set some internal vars
 	this._reconnectInterval 		= undefined;
 	this._connected 						= false;
@@ -31,10 +33,16 @@ WebSocket.prototype._initClient = function() {
 	// Create the client
 	this.client	= new websocket.Client( this.options.url );
 
+	console.log(">> [Connecting]", this.options.url);
+
 	// Bind some listeners
 	this.client.on('open', 			this._onOpen.bind(this));
 	this.client.on('close', 		this._onClose.bind(this));
 	this.client.on('message', 	this._onMessage.bind(this));
+
+	this.client.on('error', function(e) {
+		// console.log(">> [ERROR]:", e.message);
+	})
 };
 
 WebSocket.prototype._onOpen = function(e) {
@@ -44,7 +52,7 @@ WebSocket.prototype._onOpen = function(e) {
 };
 
 WebSocket.prototype._onClose = function(e) {
-	this._reconnectInterval = setTimeout(this._initClient.bind(this), 5000);
+	this._reconnectInterval = setTimeout(this._initClient.bind(this), this._reconnectWait);
 	this._connected = false;
 	this.onClose.call(this.scope, e);
 };

@@ -12,7 +12,9 @@ function IntentEngine(options) {
 
 	// Initialize the websocket connection
 	this.socket = new socket.WebSocket({
-		url:        this.options.socketURL,
+		url:        		this.options.socketURL,
+		reconnectWait: 	60 * 1000,
+
 		onOpen:     function(e) {
 			console.log(">> [INTENT] Connected!")
 			this.send( options.access_token );

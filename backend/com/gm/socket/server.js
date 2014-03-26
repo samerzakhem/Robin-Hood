@@ -8,16 +8,21 @@ function Server(mount, port) {
 	this.port 		= port;
 	this.url 			= "ws://localhost:" + this.port + this.mount;
 
+	// Create the http server
+	this.server 	= new http.createServer();
+
 	// Create the Faye instance
 	this.faye 		= new faye.NodeAdapter( {
 		mount: 		mount,
 		timeout: 	45
 	});
 
+	this.faye.attach(this.server);
+
 }
 
 Server.prototype.start = function() {
-	this.faye.listen( this.port );		// Start listening on the specified port
+	this.server.listen( this.port );		// Start listening on the specified port
 }
 
 

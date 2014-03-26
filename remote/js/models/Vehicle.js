@@ -73,6 +73,11 @@ var Vehicle = (function() {
 	
 	Vehicle.prototype.setIgnition = function(value) {
 		this.values.ignition = value;
+
+		// Send the message to the API
+		HMI.send(HMI.LetStarted(value));
+
+		// Update internally
 		this.update();
 	};
 	
