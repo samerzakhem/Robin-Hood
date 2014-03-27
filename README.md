@@ -33,6 +33,15 @@ Once those requirements have been verified, you can exit nano (Ctrl + W) and run
 
 		sudo python rssi.py
 
+RSSI and the Remote Application
+-------------------------------
+
+With the RSSI proximity script configured, and the phone discoverable, it should be sending RSSI data across the websocket to the backend.  The backened then distributes this information over a websocket channel.  Therefore, the Remote Application needs to be made aware which bluetooth hardware address to focus on, otherwise the "Bluetooth Distance" section of the remote will be unusable.
+
+To configure the Remote Application, simply navigate to the /path/to/remote and edit the js/constants.js file.  The RSSI_DEVICE constant should be modified to reflect the hardware address of the phone.
+
+You'll know this is working when the red line within the slider control fluctuates with the physical distance of the phone from the Raspberry Pi running the RSSI proximity script.  The handles of the slider control are used to modify the bounds of the "approaching" and "arrived" ranges and should be used to fine-tune these ranges for demonstration.
+
 Starting the Leap Volume sensor
 -------------------------------
 
