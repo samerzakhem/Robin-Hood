@@ -30,6 +30,10 @@ server.faye.bind('subscribe', function(client, channel) {
   console.log("[%s] subscribed to: %s", client, channel);
 });
 
+server.faye.bind('publish', function(client, channel, data) {
+  // console.log("[%s] published to %s", client, channel, data);
+});
+
 //// [ HMI ] //////////////////////////////////////////////////////////////////
 var HMI = new HMI({
   server:   server,
@@ -54,7 +58,7 @@ var IntentEngine = new IntentEngine({
 
 // DEBUG: Listen to any responses from the intent engine
 IntentEngine.socket.on('message', function(msg) {
-  console.log(">> [INTENT]", JSON.stringify(msg));
+  // console.log(">> [INTENT]", JSON.stringify(msg));
 });
 
 //// [ VEHICLE CONFIGURATION ] ////////////////////////////////////////////////
@@ -188,7 +192,6 @@ new socket.Relay({
   }),
 
   translate:      function(message) {
-    console.log("Sending:", message.command);
     return message.command;
   }
 });
