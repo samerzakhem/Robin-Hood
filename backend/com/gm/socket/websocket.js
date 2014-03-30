@@ -1,4 +1,5 @@
-var	websocket = require('faye-websocket'),
+var	//websocket = require('faye-websocket'),
+		websocket = require('ws'),
 		events 		= require('events'),
 		util 			= require('util');
 
@@ -31,7 +32,8 @@ util.inherits(WebSocket, events.EventEmitter);
 
 WebSocket.prototype._initClient = function() {
 	// Create the client
-	this.client	= new websocket.Client( this.options.url );
+	// this.client	= new websocket.Client( this.options.url );
+	this.client = new websocket( this.options.url );
 
 	console.log(">> [Connecting]", this.options.url);
 
