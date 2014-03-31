@@ -1,0 +1,11 @@
+kernel1 - IEO
+kernel2 - IHS
+kernel3 - IVS
+kernel4 - IVS and IHS
+kernel5 - vertical front and back porch reversed
+kernel6 - vertical front and back porch reversed /  IEO
+kernel7 - vertical front and back porch reversed /  IHS
+kernel8 - vertical front and back porch reversed /  IVS
+kernel9 - vertical front and back porch reversed /  IVS and IHS
+kernel10 - RF
+kernel11 - vertical front and back porch reversed /  RF
