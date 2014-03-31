@@ -10,7 +10,7 @@ function PropertyRecognizer(options) {
 util.inherits(PropertyRecognizer, CommandRecognizer);
 
 PropertyRecognizer.prototype.onMessage = function(msg) {
-	if(msg.hasOwnProperty(this.property) && msg[this.property] == this.value) {
+	if(msg && msg.hasOwnProperty(this.property) && msg[this.property] == this.value) {
 		this.onRecognized.call(this, msg);
 	}
 }

@@ -58,7 +58,12 @@ var IntentEngine = new IntentEngine({
 
 // DEBUG: Listen to any responses from the intent engine
 IntentEngine.socket.on('message', function(msg) {
-  // console.log(">> [INTENT]", JSON.stringify(msg));
+  console.log(">> [INTENT]", JSON.stringify(msg));
+});
+
+// DEBUG: More listening for any errors
+IntentEngine.socket.on('error', function(msg) {
+  console.log("!! [INTENT]", JSON.stringify(msg));
 });
 
 //// [ VEHICLE CONFIGURATION ] ////////////////////////////////////////////////

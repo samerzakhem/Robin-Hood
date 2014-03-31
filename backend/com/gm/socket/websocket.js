@@ -60,7 +60,7 @@ WebSocket.prototype._onClose = function(e) {
 };
 
 WebSocket.prototype._onMessage = function(e) {
-	var value = e.data;
+	var value = e; 		// e.value for websocket.Client vs ws
 
 	try {
 		value = JSON.parse(value);
