@@ -58,7 +58,9 @@ Vehicle.prototype.setLocation = function(latitude, longitude) {
 
 Vehicle.prototype.setDestination = function(msg) {
 	this.HMIClient.send({
-		destination: 	msg
+		destination: 	msg,
+		lat: 			msg.x,
+		lon: 			msg.y
 	});
 };
 

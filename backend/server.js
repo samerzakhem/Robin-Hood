@@ -35,6 +35,7 @@ server.faye.bind('publish', function(client, channel, data) {
 });
 
 //// [ HMI ] //////////////////////////////////////////////////////////////////
+
 var HMI = new HMI({
   server:   server,
   url:      config.hmi.url
@@ -78,7 +79,7 @@ var Vehicle = new Vehicle({
 var GPSChannel = new socket.FayeChannel({
   url:        server.url,
   channel:    '/car/location',
-  buffer:     5,
+  buffer:     1,
   onMessage:  function(msg) {
     // Update the vehicle
     // Vehicle.setLocation(msg.latitude, msg.longitude); 
@@ -146,6 +147,46 @@ new socket.PropertyRecognizer({
   onRecognized:  function(msg) {
     console.log("Got destination:", msg.data.nextDestination)
     // TODO: HMI.LetWaypoints? HMI.LetNotices?
+
+    // {
+    // "timestamp": 1399390540973,
+    // "category": "CalendarChange",
+    // "data": {
+    //     "minutes": 91,
+    //     "nearbyPlaces": [
+    //         {
+    //             "Name": "GM Engineering South",
+    //             "Type": "Coffee Shop",
+    //             "Location": "42.5086802219817,-83.0398165327722"
+    //         }
+    //     ],
+    //     "freeTime": true,
+    //     "nextDestination": {
+    //         "Name": "Test in detroit",
+    //         "location": "42.331427,-83.0457538"
+    //     }
+    // },
+    // "command": "pushNextDestination"
+    // }
+
+    if(msg.data.freeTime && msg.data.nearbyPlaces) {
+      console.log("[SUGGEST]:", msg.data.nearbyPlaces[0]);
+
+      HMI.SetAddNotice({
+        title:    "New Destination",
+        text:     msg.data.nearbyPlaces[0].Name,
+        type:     "waypointSuggestion",
+        priority: 'medium',
+        options:  [{
+          data:     msg.data.nearbyPlaces[0].Location,
+          action:   'setDestination',
+          name:     'Go'
+        }, {
+          action:   'delete',
+          name:     'Dismiss'
+        }]
+      })
+    }
   }
 });
 
@@ -182,9 +223,12 @@ new socket.PropertyWatcher({
 // Send the destination to the front-end
 new socket.CommandRecognizer({
   socket:         HMI.socket,
-  property:      'navigation.SetEndByAddress',
+  // property:      'navigation.SetEndByAddress',
+  property:      'navigation.SetEndByPoint',
   onRecognized:  function(msg) {
-    Vehicle.setDestination( msg.value );
+    console.log("SetEndByPoint:", msg); 
+    // Vehicle.setDestination( msg.value );
+    Vehicle.setDestination( msg );
   }
 });
 

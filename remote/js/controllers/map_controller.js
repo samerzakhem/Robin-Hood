@@ -100,7 +100,8 @@ var MapController = (function() {
 			// Create a string for the lat/lon value
 			var point 		= this.simulator.point,
 				origin 		= point.lat() + "," + point.lng(),
-				destination = unescape(msg.destination);
+				// destination = unescape(msg.destination),
+				destination	= msg.lat + "," + msg.lon;
 
 			// Update the form field
 			this.destinationField.val( destination );

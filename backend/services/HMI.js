@@ -75,10 +75,10 @@ HMI.prototype.sendMessage = function(msg) {
 	// MSG: { from: 'From', type: 'sms', priority: 'low', text: 'text' }
 	this.SetAddNotice({
 	    priority: 	msg.priority,
-	    type: 			msg.type,
-	    options: 		options[ msg.type ],
-	    text: 			msg.text,
-	    title: 			msg.from
+	    type: 		msg.type,
+	    options: 	options[ msg.type ],
+	    text: 		msg.text,
+	    title: 		msg.from
 	});
 };
 
@@ -145,6 +145,7 @@ HMI.prototype.LetWaypoints = function(waypoints) {
 //// [ NOTICE ] ///////////////////////////////////////////////////////////////
 
 HMI.prototype.SetAddNotice = function(notice) {
+	console.log("SetAddNotice:", formatter.SetAddNotice.apply(this, arguments));
 	this.socket.send( formatter.SetAddNotice.apply(this, arguments) );
 };
 

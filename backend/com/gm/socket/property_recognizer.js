@@ -5,6 +5,7 @@ function PropertyRecognizer(options) {
 	PropertyRecognizer.super_.call(this, options);
 
 	this.property 	= options.property;
+	this.value 		= options.value;
 }
 
 util.inherits(PropertyRecognizer, CommandRecognizer);
