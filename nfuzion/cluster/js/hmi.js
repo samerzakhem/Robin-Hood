@@ -13970,14 +13970,11 @@ screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 	,welcomeText: null
 	,nameText: null
 	,lines: null
-	,glow: null
 	,initializeScreen: function() {
 		nfuzion.nTactic.core.Screen.prototype.initializeScreen.call(this);
 		var animationSimple = this.getWidget("animatedMask_simple");
 		this.welcomeLabel = this.getWidget("text_label");
 		this.nameLabel = this.getWidget("subtext_label");
-		var glowSimple = this.getWidget("glow_simple");
-		this.glow = glowSimple.implementation;
 		this.lines = animationSimple.implementation;
 		this.welcomeText = this.welcomeLabel.implementation;
 		this.nameText = this.nameLabel.implementation;
@@ -13993,7 +13990,6 @@ screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.lines.set_x(-3888);
 		this.welcomeText.set_y(500);
 		this.welcomeText.set_alpha(0);
-		this.glow.set_alpha(0);
 	}
 	,addListeners: function() {
 		nfuzion.nTactic.core.Screen.prototype.addListeners.call(this);
@@ -14033,11 +14029,7 @@ screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 	}
 	,enterLines: function() {
 		new nfuzion.tween.Tween(2,[new nfuzion.tween.type.TweenProperty(this.lines,"x",0,nfuzion.tween.type.TweenType.linear)],$bind(this,this.fadeTextOut));
-		new nfuzion.tween.Tween(.5,[new nfuzion.tween.type.TweenProperty(this.glow,"alpha",1,nfuzion.tween.type.TweenType.fast)],$bind(this,this.endGlow));
 		new nfuzion.tween.Tween(1.2,[new nfuzion.tween.type.TweenProperty(this.nameText,"alpha",1,nfuzion.tween.type.TweenType.slow)]);
-	}
-	,endGlow: function() {
-		new nfuzion.tween.Tween(.5,[new nfuzion.tween.type.TweenProperty(this.glow,"alpha",0,nfuzion.tween.type.TweenType.slow)]);
 	}
 	,fadeTextOut: function() {
 		new nfuzion.tween.Tween(1,[new nfuzion.tween.type.TweenProperty(this.welcomeText,"alpha",0,nfuzion.tween.type.TweenType.slow)],$bind(this,this.animationComplete));

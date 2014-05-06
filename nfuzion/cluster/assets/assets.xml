@@ -5,24 +5,40 @@
 
 
    <Font
+      name="TitilliumWeb_ExtraLight_ExtraLight" source="./fonts/TitilliumWeb_ExtraLight_ExtraLight.ttf"
+      size="50" style="normal" weight="normal"
+   />
+   <Font
       name="FrutigerLTRH" source="./fonts/FrutigerLTRH.ttf"
       size="34" style="normal" weight="normal"
    />
    <Font
-      name="font1" source="./fonts/TitilliumWeb.ttf"
+      name="font1" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="50" style="normal" weight="normal"
    />
    <Font
-      name="font2" source="./fonts/TitilliumWeb.ttf"
+      name="font2" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="70" style="normal" weight="normal"
    />
    <Font
-      name="font3" source="./fonts/TitilliumWeb.ttf"
+      name="font3" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="60" style="normal" weight="normal"
    />
    <Font
-      name="font4" source="./fonts/TitilliumWeb.ttf"
+      name="font4" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="201.7" style="normal" weight="normal"
+   />
+   <Font
+      name="TitiliumWeb" source="./fonts/TitiliumWeb.ttf"
+      size="34" style="normal" weight="normal"
+   />
+   <Font
+      name="font5" source="./fonts/TitilliumWeb_ExtraLight.ttf"
+      size="118.1" style="normal" weight="normal"
+   />
+   <Font
+      name="font6" source="./fonts/TitilliumWeb_ExtraLight.ttf"
+      size="199.8" style="normal" weight="normal"
    />
 
 
@@ -154,6 +170,32 @@
                </Container>
             </Container>
          </Container>
+      </Container>
+   </Class>
+
+   <Class name="Welcome" width="5808" height="1080">
+      <Frame name="Layer" x="0" y="0" width="5808" height="1" source="./textures/Welcome.png"/>
+      <Container name="lines" x="0" y="141" width="1917" height="322">
+         <Frame name="linesImg" x="0" y="2" width="1917" height="322" source="./textures/Welcome.png"/>
+      </Container>
+      <Container name="animatedMask_simple" x="0" y="0" width="5808" height="986">
+         <Container name="frontClip" x="3520" y="0" width="368" height="986">
+            <Frame name="frontClipImg" x="0" y="324" width="368" height="986" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="frontBox" x="3888" y="0" width="1920" height="986">
+            <Frame name="frontImage" x="368" y="324" width="1" height="1" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="backBox" x="0" y="0" width="1921" height="986">
+            <Frame name="backImg" x="368" y="324" width="1" height="1" source="./textures/Welcome.png"/>
+         </Container>
+         <Container name="fade" x="1920" y="0" width="1758" height="986">
+            <Frame name="fadeImg" x="1920" y="1" width="1758" height="1" source="./textures/Welcome.png"/>
+         </Container>
+      </Container>
+      <Text name="text_label" x="0" y="120" width="1921" height="467" text="Welcome" font="font6" paint="paint2" alignment="center"/>
+      <Text name="subtext_label" x="648" y="325" width="1272" height="420" text="aaa" font="font5" paint="paint2" alignment="center"/>
+      <Container name="overlay" x="0" y="0" width="1920" height="1080">
+         <Frame name="overlayImg" x="0" y="1" width="1920" height="1" source="./textures/Welcome.png"/>
       </Container>
    </Class>
 
