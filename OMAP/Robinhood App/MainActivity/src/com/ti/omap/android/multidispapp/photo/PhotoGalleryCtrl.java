@@ -17,7 +17,6 @@ package com.ti.omap.android.multidispapp.photo;
 
 import java.lang.ref.WeakReference;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;

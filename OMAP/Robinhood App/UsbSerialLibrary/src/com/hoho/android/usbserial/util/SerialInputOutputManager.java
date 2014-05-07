@@ -20,6 +20,7 @@
 
 package com.hoho.android.usbserial.util;
 
+
 import android.hardware.usb.UsbRequest;
 import android.util.Log;
 
@@ -153,25 +154,48 @@ public class SerialInputOutputManager implements Runnable {
         }
     }
 
+    public static String byteToHex(byte b){
+        int i = b & 0xFF;
+        
+        if(i < 0)
+        {
+            i = (i * -1) + 128;
+        }
+        
+        return Integer.toHexString(i);
+      }
+    
     private void step() throws IOException {
         // Handle incoming data.
         int len = mDriver.read(mReadBuffer.array(), READ_WAIT_MILLIS);
         if (len > 0) {
-            if (DEBUG) 
-            {
-                Log.d(TAG, "Read data len=" + len);
-            }
+            if (DEBUG) Log.d(TAG, "Read data len=" + len);
             final Listener listener = getListener();
             if (listener != null) {
                 final byte[] data = new byte[len];
                 mReadBuffer.get(data, 0, len);
                 
-                if (DEBUG && len >= 4) 
+                if(DEBUG && len >= 4)
                 {
-                    Log.d(TAG, "Data=" + data[0] + " " + data[1] + " " + data[2] + " " + data[3]);
+                    String dataout;
+                    String[] datastr = new String[8];
+                    
+                    for(int i = 0; i < 8; i++)
+                    {
+                        datastr[i] = "00";
+                    }
+                    
+                    for(int i = 0; i < len; i++)
+                    {
+                        datastr[i] = byteToHex(data[i]);                        
+                    }
+
+                    dataout = "Data= " + datastr[0] + " " + datastr[1] + " " + datastr[2] + " "  + datastr[3] + " "  + datastr[4] + " "  + datastr[5] + " "  + datastr[6] + " "  + datastr[7];
+
+                    Log.d(TAG, dataout );
+                   
                 }
-                
-                
+                                     
                 listener.onNewData(data);
             }
             mReadBuffer.clear();

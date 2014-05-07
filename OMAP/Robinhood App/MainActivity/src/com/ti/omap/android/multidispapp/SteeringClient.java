@@ -3,6 +3,7 @@ package com.ti.omap.android.multidispapp; //com.example.nativetest;
 import java.net.URI;
 import java.util.TimerTask;
 
+import android.R.string;
 import android.os.Handler;
 import android.util.Log;
 
@@ -16,8 +17,8 @@ import com.codebutler.android_websockets.WebSocketClient;
 public class SteeringClient extends WebSocketClient {
 	public static final String TAG = "TouchClient";
 	
-    private static byte Button1Prev = 0x1F;
-    private static byte Button2Prev = 0x0F;
+    private static byte Button1Prev = 0x0;
+    private static byte Button2Prev = 0x0;
     private SteeringPhase StPhaseState = SteeringPhase.start;
 
     
@@ -155,7 +156,7 @@ public class SteeringClient extends WebSocketClient {
 	    
 	}
 	
-	public void LetButton(double name, double state){
+	public void LetButton(String name, String state){
         JSONObject msg      = new JSONObject();
         JSONObject params   = new JSONObject();
         
@@ -169,11 +170,6 @@ public class SteeringClient extends WebSocketClient {
 
         this.send( msg.toString() );	    
 	}
-	
-	
-	
-	
-	
 	
 	
 	public void LetCursor(double x, double y, double phase) {
@@ -198,14 +194,14 @@ public class SteeringClient extends WebSocketClient {
         // into smaller bytes.  If this happens and is broken into 4-4 then it could
         // be misinterpreted as the steering controller.  Check that the first byte
         // is valid and expected steering control data before proceeding.
-        if(data[0] > 0x17)
-        {    
+//        if(data[0] == 0x0)
+//        {    
             // Packaging of the JSON goes here for the steering control
 //            mDumpTextView.append("Steering\n");
         
             // Figure out which packet this actually is.  Is it gesture or is it
             // x,y data.
-            if((data[3] == -1) && (data[2] != -1))
+            if((data[3] == -1) )
             {
                 // A zero is no gesture and this information doesn't need to be passed on to the HMI
                 if((data[2] != 0) || (data[2] > 0))
@@ -254,8 +250,8 @@ public class SteeringClient extends WebSocketClient {
                 myHandlerSt.removeCallbacks(SteeringUpdateTimeTask);
                 
                 // normalize the x and y values
-                float x = data[2];
-                float y = data[3];
+                int x = data[2];
+                int y = data[3];
                 
                 // if the value is negative add 256 before normalizing it
                 if(x < 0)
@@ -269,24 +265,28 @@ public class SteeringClient extends WebSocketClient {
                     y += 256;
                 }
                 
+                // Variables to hold floating point scaling
+                float xf;
+                float yf;
+                
                 // Normalize the values
-                x = (float) (x / 256.0);
-                y = (float) (y / 256.0);
+                xf = (float) (x / 256.0);
+                yf = (float) (y / 256.0);
                 
                 if(StPhaseState == SteeringPhase.start)
                 {
-                    LetCursor(x, y, StPhaseState);
+                    LetCursor(xf, yf, StPhaseState);
                     StPhaseState = SteeringPhase.change;
                 }
                 else if(StPhaseState == SteeringPhase.change)
                 {
                     // if the data has changed then store the latest value and transmit to hmi
-                    if((x != SteeringX) || (y != SteeringY))
+                    if((xf != SteeringX) || (yf != SteeringY))
                     {
-                        SteeringX = x;
-                        SteeringY = y;
+                        SteeringX = xf;
+                        SteeringY = yf;
                         
-                        LetCursor(x, y, StPhaseState);
+                        LetCursor(xf, yf, StPhaseState);
                         StPhaseState = SteeringPhase.change;                            
                     }
                     
@@ -294,6 +294,10 @@ public class SteeringClient extends WebSocketClient {
                 }             
             }
             
+
+//        }	
+//        else
+//        {
             // Check to see if there have been any changes to the buttons.  If there has then
             // send the button update out to the HMI
             if(data[0] != Button1Prev)
@@ -305,12 +309,44 @@ public class SteeringClient extends WebSocketClient {
                     if((data[0] & 0x1) == 0x1)
                     {
                         // It has been released so transmit the release button press
-                        LetButton(0, 0);
+                        LetButton("up", "start");
                     }
                     else
                     {
                         // It has been pressed so transmit the button press
-                        LetButton(0, 1);
+                        LetButton("up", "end");
+                    }
+                }
+
+                // Has the up button changed?
+                if((data[0] & 0x2) != (Button1Prev & 0x2))
+                {
+                    // Check to see whether it has been pressed or released
+                    if((data[0] & 0x2) == 0x2)
+                    {
+                        // It has been released so transmit the release button press
+                        LetButton("right", "start");
+                    }
+                    else
+                    {
+                        // It has been pressed so transmit the button press
+                        LetButton("right", "end");
+                    }
+                }
+                
+                // Has the up button changed?
+                if((data[0] & 0x4) != (Button1Prev & 0x4))
+                {
+                    // Check to see whether it has been pressed or released
+                    if((data[0] & 0x4) == 0x4)
+                    {
+                        // It has been released so transmit the release button press
+                        LetButton("left", "start");
+                    }
+                    else
+                    {
+                        // It has been pressed so transmit the button press
+                        LetButton("left", "end");
                     }
                 }
                 
@@ -321,24 +357,71 @@ public class SteeringClient extends WebSocketClient {
                     if((data[0] & 0x8) == 0x8)
                     {
                         // It has been released so transmit the release button press
-                        LetButton(4, 0);
+                        LetButton("down", "start");
                     }
                     else
                     {
                         // It has been pressed so transmit the button press
-                        LetButton(4, 1);
+                        LetButton("down", "end");
                     }
                 }
-                
+
+                // Has the up button changed?
+                if((data[0] & 0x10) != (Button1Prev & 0x10))
+                {
+                    // Check to see whether it has been pressed or released
+                    if((data[0] & 0x10) == 0x10)
+                    {
+                        // It has been released so transmit the release button press
+                        LetButton("select", "start");
+                    }
+                    else
+                    {
+                        // It has been pressed so transmit the button press
+                        LetButton("select", "end");
+                    }
+                }
+
                 Button1Prev = data[0];
             }
             
             // Check the second button byte for changed button data
             if(data[1] != Button2Prev)
             {
+                // Has the up button changed?
+                if((data[1] & 0x4) != (Button2Prev & 0x4))
+                {
+                    // Check to see whether it has been pressed or released
+                    if((data[1] & 0x4) == 0x4)
+                    {
+                        // It has been released so transmit the release button press
+                        LetButton("ptt", "start");
+                    }
+                    else
+                    {
+                        // It has been pressed so transmit the button press
+                        LetButton("ptt", "end");
+                    }
+                }
+
+                // Has the up button changed?
+                if((data[1] & 0x8) != (Button2Prev & 0x8))
+                {
+                    // Check to see whether it has been pressed or released
+                    if((data[1] & 0x8) == 0x8)
+                    {
+                        // It has been released so transmit the release button press
+                        LetButton("mute", "start");
+                    }
+                    else
+                    {
+                        // It has been pressed so transmit the button press
+                        LetButton("mute", "end");
+                    }
+                }
                 
                 Button2Prev = data[1];
-            }
-        }	
+            }        	
+//        }
 	}
 }

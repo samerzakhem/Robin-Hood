@@ -222,6 +222,7 @@ public class TubeDrawer {
         float[] vertices = new float[VERTEX_COUNT * 3];
         private Buffer mIndexBuffer;
         static {
+        	
             if (VERTEX_COUNT % 8 != 0 || VERTEX_COUNT <= 0
                     || VERTEX_COUNT >= 128)
                 throw new IllegalArgumentException(

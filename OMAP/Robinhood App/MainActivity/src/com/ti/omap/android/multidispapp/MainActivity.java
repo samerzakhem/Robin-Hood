@@ -15,13 +15,12 @@
  */
 package com.ti.omap.android.multidispapp;
 
+import com.strumsoft.websocket.phonegap.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -79,7 +78,8 @@ import com.ti.omap.android.multidispapp.video.VideoPresentation;
 
 import com.ignite.androidsockets.AndroidSockets;
 
-
+import com.ti.omap.android.multidispapp.SteeringClient;
+import com.ti.omap.android.multidispapp.TouchClient;
 
 public class MainActivity extends Activity implements OnCheckedChangeListener,
         OnCommandListener {
@@ -97,15 +97,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
     final public static int OPERATION_PHOTO = 4;
     final public static int OPERATION_GAME = 5;
     final public static int OPERATION_TRIPLE_DISP_VIDEO = 6;
-    
-    // Software is setup to run the HDMI display with gaze detection
-    final public static int INPUT_DEVICE = 0;
-    final public static int GAZE_DEVICE = 1;
-    
-    // Software is setup to run the HDMI display with alps input devices
-//    final public static int INPUT_DEVICE = 1;
-  
-    private static int mDeviceConfiguration = INPUT_DEVICE;
 
     private static int mOperation;
     //UPDATED from true to false
@@ -148,22 +139,33 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
      */
     private static UsbSerialDriver sDriver = null;
     private static UsbSerialDriver sDriver2 = null;
-//    private static UsbSerialDriver sDriver3 = null;
-    
-
+    private static UsbSerialDriver sDriver3 = null;
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
     private final ExecutorService mExecutor2 = Executors.newSingleThreadExecutor();
- //   private final ExecutorService mExecutor3 = Executors.newSingleThreadExecutor();
+    private final ExecutorService mExecutor3 = Executors.newSingleThreadExecutor();
     
     private SerialInputOutputManager mSerialIoManager;
     private SerialInputOutputManager mSerialIoManager2;
-//    private SerialInputOutputManager mSerialIoManager3;
+    private SerialInputOutputManager mSerialIoManager3;
 
+//    private Timer timer;
+//    Handler myHandler = new Handler();    
+//    Handler myHandlerSt = new Handler();    
+    
+//    private float TouchX;
+//    private float TouchY;
+    
+//    private float SteeringX;
+//    private float SteeringY;
+    
+//    private int SteeringFlag = 0;
+//    private int TouchFlag = 0;
     private static boolean UsbConnected = false;
- //   private static boolean GazeUsbConnected = false;
-
-
+    private static boolean GazeUsbConnected = false;
+    
+//    private SteeringPhase StPhaseState = SteeringPhase.start;
+//    private TouchPhase ToPhaseState = TouchPhase.start;
     
    
     
@@ -227,11 +229,54 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
         }
     };    
     */
+  /*  
+    private TimerTask UpdateTimeTask = new TimerTask()
+    {
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+//            mDumpTextView.append("Timer Expired\n");
+
+            if(SteeringFlag == 1)
+            {
+                // Timer expired so this is the last data packet
+                StPhaseState = SteeringPhase.end;
+                steeringClient.LetCursor(TouchX, TouchY, StPhaseState);
+                StPhaseState = SteeringPhase.start;
+                
+                SteeringFlag = 0;
+            }
+            else if(TouchFlag == 1)
+            {
+                // Timer expired so this is the last data packet
+                ToPhaseState = TouchPhase.end;
+                touchClient.LetCursor(TouchX, TouchY, ToPhaseState);
+                ToPhaseState = TouchPhase.start;
+                
+                TouchFlag = 0;
+            }
+        }
+        
+    };
     
- 
-    
- 
-    
+    private TimerTask SteeringUpdateTimeTask = new TimerTask()
+    {
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+ //           mDumpTextView.append("Timer Expired\n");
+
+            // Timer expired so this is the last data packet
+            StPhaseState = SteeringPhase.end;
+            steeringClient.LetCursor(TouchX, TouchY, StPhaseState);
+            StPhaseState = SteeringPhase.start;
+            
+            SteeringFlag = 0;
+
+        }
+        
+    };
+*/    
     
     private final Handler mHandler = new Handler() {
         @Override
@@ -359,23 +404,15 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
         myWebViewDPI.getSettings().setAllowFileAccessFromFileURLs(true);        
         myWebViewDPI.getSettings().setDomStorageEnabled(true);
         
-        AndroidSockets socket = new AndroidSockets(myWebViewDPI, new android.os.Handler());
- 
+        //AndroidSockets socket = new AndroidSockets(myWebViewDPI, new android.os.Handler());
+        myWebViewDPI.addJavascriptInterface(new WebSocketFactory(myWebViewDPI), "WebSocketFactory");
+        
         // For testing web connectivity
 //        myWebViewDPI.loadUrl("http://www.google.com");
 
-        // Is this for the input device DPI Display?
-        if(mDeviceConfiguration == INPUT_DEVICE)
-        {	
-	        // For use on Robinhood Network
-	        myWebViewDPI.loadUrl("http://192.168.0.114/Robin-Hood/nfuzion/cluster/js/");
-        }
-        // Is this for the hdmi display with gaze detection?
-        else if (mDeviceConfiguration == GAZE_DEVICE)
-        {
-        	myWebViewDPI.loadUrl("http://192.168.0.114/Robin-Hood/nfuzion/hmi/js/");
-        }
-        
+        // For use on Robinhood Network
+        myWebViewDPI.loadUrl("http://192.168.0.114/Robin-Hood/nfuzion/cluster/js/");
+
 // For use on Beningo Engineering Network        
 //        myWebViewDPI.loadUrl("http://10.0.0.19/Robin-Hood/nfuzion/cluster/js/");
 
@@ -391,25 +428,17 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
         
 
  //       myHandler.postDelayed(ReloadTimeTask, 30);
-         
-      
-        // Is this for the input device DPI Display?
-        if(mDeviceConfiguration == INPUT_DEVICE)
-        {	
-//          touchClient = new TouchClient("ws://192.168.0.109:4412");
-            touchClient = new TouchClient("ws://192.168.0.114:4412");
-            touchClient.connect();
-            
-//            steeringClient = new SteeringClient("ws://192.168.0.109:4412");
-            steeringClient = new SteeringClient("ws://192.168.0.114:4412");
-            steeringClient.connect();
-        }
-        // Is this for the hdmi display with gaze detection?
-        else if (mDeviceConfiguration == GAZE_DEVICE)
-        {
-        	// No additional setup required
-        }
         
+        
+//        timer = new Timer();     
+        
+//      touchClient = new TouchClient("ws://192.168.0.109:4412");
+      touchClient = new TouchClient("ws://192.168.0.114:4412");
+      touchClient.connect();
+      
+//      steeringClient = new SteeringClient("ws://192.168.0.109:4412");
+      steeringClient = new SteeringClient("ws://192.168.0.114:4412");
+      steeringClient.connect();
       
       DisplayMetrics metrics = new DisplayMetrics();
       getWindow().getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -497,10 +526,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
                 }
 //                mTitleTextView.setText("Serial device: " + sDriver.getClass().getSimpleName());
             }
-
             
-            
-/*            
             if (sDriver3 == null) {
 //              mTitleTextView.setText("No serial device.");
           } else {
@@ -520,7 +546,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
               }
 //              mTitleTextView.setText("Serial device: " + sDriver.getClass().getSimpleName());
           }
-*/
             onDeviceStateChange();
             
 //            View decorView = getWindow().getDecorView();
@@ -568,8 +593,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
             }
             sDriver2 = null;
         }
-  
-        /*
+        
         if (sDriver3 != null) {
             try {
                 sDriver3.close();
@@ -578,7 +602,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
             }
             sDriver3 = null;
         }
-        */
         
         finish();
         
@@ -614,14 +637,9 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
                 final List<DeviceEntry> result = new ArrayList<DeviceEntry>();
                 for (final UsbDevice device : mUsbManager.getDeviceList().values()) {
                 	// Check to see if this is an ftdi device
-
                 	if(device.getVendorId() == 1027)
                 	{
-                		Log.d(TAG, "Found usb device: " + device);
-                        Log.d(TAG, "device: " + device.getDeviceName());
-                        Log.d(TAG, "vendor: " + device.getVendorId());
-                        
-                        final List<UsbSerialDriver> drivers =
+	                	final List<UsbSerialDriver> drivers =
 	                            UsbSerialProber.probeSingleDevice(mUsbManager, device);
 	                    Log.d(TAG, "Found usb device: " + device);
 	                    
@@ -635,8 +653,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
 	                        }
 	                    }
                     }
-
-
                 	if(device.getVendorId() == 5824)
                 	{
                 		Log.d(TAG, "Found usb device: " + device);
@@ -656,6 +672,8 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
 	                            result.add(new DeviceEntry(device, driver));
 	                        }
 	                    }
+                        GazeUsbConnected = true;
+                		
                 	}
          
                 }
@@ -672,7 +690,8 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
 //                hideProgressBar();
                 Log.d(TAG, "Done refreshing, " + mEntries.size() + " entries found.");
   
-                if(mEntries.size() == 2)
+                if((mEntries.size() == 2) && (GazeUsbConnected == false))
+ //               if((mEntries.size() == 3) && (GazeUsbConnected == true))
                 {
 	                // After the list update if there are two USB devices in the array then launch the serialconsole
 	                final DeviceEntry entry = mEntries.get(0);//position);
@@ -702,7 +721,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
                 	if(UsbConnected == false)
                 	{
                 		//StartUSB(driver, driver2, driver3);
-                		StartUSB(driver, driver2);
+                		StartUSB(driver, driver2, driver2);
                 		
                 	}
                 }
@@ -1258,6 +1277,11 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
             mSerialIoManager2 = null;
         }
         
+        if (mSerialIoManager3 != null) {
+            Log.i(TAG, "Stopping io manager ..");
+            mSerialIoManager3.stop();
+            mSerialIoManager3 = null;
+        }
     }
 
     private void startIoManager() {
@@ -1272,14 +1296,22 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
             mSerialIoManager2 = new SerialInputOutputManager(sDriver2, mListener2);
             mExecutor2.submit(mSerialIoManager2);
         }
-                
+
+        /*
+        if (sDriver3 != null) {
+            Log.i(TAG, "Starting io manager ..");
+            mSerialIoManager3 = new SerialInputOutputManager(sDriver3, mGazeListener3);
+            mExecutor3.submit(mSerialIoManager3);
+        }
+        */
     }
 
-    private void StartUSB(UsbSerialDriver driver,UsbSerialDriver driver2) {
+    private void StartUSB(UsbSerialDriver driver,UsbSerialDriver driver2, UsbSerialDriver driver3) {
    	UsbConnected = true;
    	
    	sDriver = driver;
        sDriver2 = driver2;
+       sDriver3 = driver3;
        
        Log.d(TAG, "Resumed, sDriver=" + sDriver);
        if (sDriver == null) {
@@ -1321,8 +1353,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
            }
 //           mTitleTextView.setText("Serial device: " + sDriver.getClass().getSimpleName());
        }
-
-/*       
+       
        if (sDriver3 == null) {
 //         mTitleTextView.setText("No serial device.");
      } else {
@@ -1342,7 +1373,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
          }
 //         mTitleTextView.setText("Serial device: " + sDriver.getClass().getSimpleName());
      }
-  */     
+       
        onDeviceStateChange();
        
        //Initialize the GazeDetection USB Channel
@@ -1357,125 +1388,68 @@ public class MainActivity extends Activity implements OnCheckedChangeListener,
     }
     
     
-/*    
+    
     private void parseGazeData(byte[] data) {
     	 
     	
     }
-*/
+
+    public static String byteToHex(byte b){
+        int i = b & 0xFF;
+        
+        if(i < 0)
+        {
+            i = (i * -1) + 127;
+        }
+        
+        return Integer.toHexString(i);
+      }
+    
     private void updateReceivedData(byte[] data) {
-
-    	byte[] PwmData = {5};
     	
-//        JSONObject TouchPad = new JSONObject();
+    	// The steering controlers sends uart data commands in increments of 4 data bytes
+    	// If four bytes are received then most likely it is from the steering wheel controller
+    	if(data.length == 4)
+    	{
+    		steeringClient.ProcessMessage(data);
+    	}
+    	else if(data.length == 8)
+    	{
+    		touchClient.ProcessMessage(data);
+    		
+    		
+    	}
+       
+        
 
-/* I Believe this was original test code.  Can probably be removed        
-        try {
-            TouchPad.put("Button", data[0]);
-          
-            
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }        
-*/
-        if(mDeviceConfiguration == INPUT_DEVICE)
-        {
-	        // The steering controller sends uart data commands in increments of 4 data bytes
-	        // If four bytes are received then most likely it is from the steering wheel controller
-	        if(data.length == 4)
-	        {
-	        	steeringClient.ProcessMessage(data);
-	        }
-	        
-	        else if(data.length == 8)
-	        {
-	        	touchClient.ProcessMessage(data);
-	        }
-        }
-        else if(mDeviceConfiguration == GAZE_DEVICE)
-        {
-        	if(data.length == 1)
-        	{
-        		
-        		switch(data[0])
-        		{
-        			case '1':
-        		
-        				PwmData[0] = 10;
-        				
-        			break;
-
-        			case '2':
-                		
-        				PwmData[0] = 20;
-        				
-        			break;
-
-        			case '3':
-                		
-        				PwmData[0] = 30;
-        				
-        			break;
-
-        			case '4':
-                		
-        				PwmData[0] = 40;
-        				
-        			break;
-
-        			case '5':
-                		
-        				PwmData[0] = 50;
-        				
-        			break;
-
-        			case '6':
-                		
-        				PwmData[0] = 60;
-        				
-        			break;
-
-        			case '7':
-                		
-        				PwmData[0] = 70;
-        				
-        			break;
-
-        			case '8':
-                		
-        				PwmData[0] = 80;
-        				
-        			break;
-
-        			case '9':
-                		
-        				PwmData[0] = 90;
-        				
-        			break;
-
-        			case '0':
-                		
-        				PwmData[0] = 0;
-        				
-        			break;
-
-        			default:
-        				
-        			break;
-        		}
-//        		PwmData[0] = data[0];
-        		
-        		try {
-					sDriver.write(PwmData, 1000);
-					sDriver2.write(PwmData, 1000);
-					
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        		
-        	}
-        }
+        
+        
     }
+
+    /**
+     * Starts the activity, using the supplied driver instance.
+     *
+     * @param context
+     * @param driver
+     */
+//    static void StartUSB(Context context, UsbSerialDriver driver,UsbSerialDriver driver2) {
+//      static void StartUSB(UsbSerialDriver driver,UsbSerialDriver driver2) {
+//    	UsbConnected = true;
+    	
+//    	sDriver = driver;
+//        sDriver2 = driver2;
+
+//        startIoManager();
+//        final Intent intent = new Intent(context, SerialActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+//        context.startActivity(intent);
+        
+ //        final Intent intent2 = new Intent(context, SerialActivity.class);
+//        intent2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+//        context.startActivity(intent2);
+        
+        
+        
+//    }
+
 }

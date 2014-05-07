@@ -18,6 +18,7 @@ package com.ti.omap.android.multidispapp;
 //import java.util.TimerTask;
 
 import com.ignite.androidsockets.AndroidSockets;
+import com.strumsoft.websocket.phonegap.WebSocketFactory;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -31,7 +32,7 @@ import android.webkit.WebViewClient;
 
 public class HelloPresentation extends DDPresentation {
 
-	protected static final String TAG = "That's Right";
+	protected static final String TAG = "Map Side Error";
 	
 	WebView myWebView;
 //    Handler myHandler = new Handler();   
@@ -51,6 +52,11 @@ public class HelloPresentation extends DDPresentation {
 		return false;
         }
         
+        @Override
+        public void onReceivedError(WebView view, int errorCode,
+                String description, String failingUrl) {
+        	Log.d(TAG,"Web Error");
+        }
         
         @Override
         public void onPageFinished(WebView view, String url)
@@ -81,7 +87,8 @@ public class HelloPresentation extends DDPresentation {
         myWebView.getSettings().setAllowFileAccessFromFileURLs(true);
         myWebView.getSettings().setDomStorageEnabled(true);
         
-        AndroidSockets socket = new AndroidSockets(myWebView, new android.os.Handler());
+//        AndroidSockets socket = new AndroidSockets(myWebView, new android.os.Handler());
+        myWebView.addJavascriptInterface(new WebSocketFactory(myWebView), "WebSocketFactory");
         
         // For web connectivity testing
 //        myWebView.loadUrl("http://www.yahoo.com");
