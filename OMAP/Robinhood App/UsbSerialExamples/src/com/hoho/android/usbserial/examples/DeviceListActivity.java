@@ -109,6 +109,7 @@ public class DeviceListActivity extends Activity {
             @Override
 
             public View getView(int position, View convertView, ViewGroup parent) {
+
                 final TwoLineListItem row;
                 if (convertView == null){
                     final LayoutInflater inflater =

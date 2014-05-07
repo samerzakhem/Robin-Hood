@@ -40,7 +40,11 @@ public class TouchClient extends WebSocketClient {
 	     twoFingerSwipeUp,
 	     twoFingerSwipeDown,
 	     pinch,
-	     spread
+	     spread,
+	     back,
+	     registerLeft,
+	     registerCenter,
+	     registerRight
 	 }
 	 
 	   private TimerTask UpdateTimeTask = new TimerTask()
@@ -179,25 +183,30 @@ public class TouchClient extends WebSocketClient {
 
 	    }
 	   
+	    public static String byteToHex(byte b){
+	        int i = b & 0xff;
+	        
+	        if(i<0)
+	        {
+	            i = (i * -1) + 128;
+	        }
+	        
+	        return Integer.toHexString(i);
+	    }
+	   
+	   
 	   public void ProcessMessage(byte[] data)
 	   {
            // Used to track the number of padding bytes
-           int padcount = 0;
+           int fingercount = data[1];
            
-           // Packaging of the JSON goes here for the touch pad
-//           mDumpTextView.append("TouchPad\n");
-           
-           for(int i = 0; i < 8; i++)
-           {
-               // Is the data a padding byte?  Count how many pad bytes are in the packet
-               if(data[i] == -1)
-               {
-                   padcount++;
-               }
-           }
+           	   if(data[0] == 1)
+           	   {
+           		   LetGesture(TouchGestures.back);
+           	   }
            
                // Determine what kind of packet this is
-               if(padcount == 3)
+               if(fingercount == 0)
                {
                    // This is a gesture packet
                    
@@ -205,12 +214,12 @@ public class TouchClient extends WebSocketClient {
                    if(data[2] == 0xF)
                    {
                        // Send a fixed zoom rate for now 
-                       LetZoom((float)0.3, 2, 0);
+                	   LetGesture(TouchGestures.spread);
                    }
                    // Is this a pinch gesture?
                    else if(data[2] == 0x10)
                    {
-                       LetZoom((float)-0.3,2, 0);
+                       LetGesture(TouchGestures.pinch);
                    }
                    // This is some other gesture so use LetGesture to send it
                    else 
@@ -222,7 +231,20 @@ public class TouchClient extends WebSocketClient {
                                
                                
                            break;
-                           
+
+                           case 1:
+                   
+                        	   LetTap((float)0.5, (float)0.5, 1, data[2]);
+                               
+                           break;
+
+                           case 2:
+
+                        	   LetTap((float)0.5, (float)0.5, 1, data[2]);
+                        	   
+                               
+                           break;
+
                            case 3:
                                
                                LetGesture(TouchGestures.oneFingerSwipeUp);
@@ -281,14 +303,14 @@ public class TouchClient extends WebSocketClient {
                    
                }
                // This is a single finger packet
-               else if(padcount == 4)
+               else if(fingercount == 1)
                {
                    myHandler.removeCallbacks(UpdateTimeTask);
                    
                 // normalize the x and y values
-                   float x = data[2];
-                   float y = data[3];
-                   
+                   int x = data[2];
+                   int y = data[3];
+                                      
                    // if the value is negative add 256 before normalizing it
                    if(x < 0)
                    {
@@ -301,40 +323,56 @@ public class TouchClient extends WebSocketClient {
                        y += 256;
                    }
                    
+                   // Check to see if the touch is in the top part of the touchpad
+                   // If it is, then this is a register gesture.
+                   if(y > 245)
+                   {
+                	   if(x < 85)
+                	   {
+                		   LetGesture(TouchGestures.registerLeft);   
+                	   }
+                	   else if ((x >= 85) && (x < 170))
+                	   {
+                		   LetGesture(TouchGestures.registerCenter);
+                	   }
+                	   else
+                	   {
+                		   LetGesture(TouchGestures.registerRight);
+                	   }
+                   }
+                   
+                   
+                   // Define variable to calculate floating point scaling
+                   float xf;
+                   float yf;
+                   
                    // Normalize the values
-                   x = (float) (x / 256.0);
-                   y = (float) (y / 256.0);
+                   xf = (float) (x / 256.0);
+                   yf = (float) (y / 256.0);
                                        
+                   // invert the signal
+                   xf = 1 - xf;
+                   yf = 1 - yf;
                    
                    if(ToPhaseState == TouchPhase.start)
                    {
-                       LetCursor(x, y, ToPhaseState);
+                       LetCursor(xf, yf, ToPhaseState);
                        ToPhaseState = TouchPhase.change;
                    }
                    else if(ToPhaseState == TouchPhase.change)
                    {
                        // if the data has changed then store the latest value and transmit to hmi
-                       if((x != TouchX) || (y != TouchY))
+                       if((xf != TouchX) || (yf != TouchY))
                        {
-                           TouchX = x;
-                           TouchY = y;
+                           TouchX = xf;
+                           TouchY = yf;
                            
-                           LetCursor(x, y, ToPhaseState);
+                           LetCursor(xf, yf, ToPhaseState);
                            ToPhaseState = TouchPhase.change;                            
                        }
                        
                        myHandler.postDelayed(UpdateTimeTask, 75);
                    }
                }
-               // This is a tap gesture packet
-               else if(padcount == 5)
-               {
-                   LetTap((float)0.5, (float)0.5, 1, data[2]);
-               }
-               // This is a multitouch scrolling gesture packet
-               else if(padcount == 2)
-               {
-                   
-               }            		   	   
 	   }	   
 }

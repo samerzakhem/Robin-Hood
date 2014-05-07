@@ -21,6 +21,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,10 +32,12 @@ public class FragmentStub extends PrimaryFragment {
         Context context = container.getContext();
         LinearLayout layout = new LinearLayout(context);
         layout.setGravity(Gravity.CENTER);
-        TextView textView = new TextView(context);
-        textView.setText("Stub");
-        layout.addView(textView);
+      //  TextView textView = new TextView(context);
+      //  textView.setText("Stub");
+      //  layout.addView(textView);
         
+        container.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
         return layout;
     }
 }
