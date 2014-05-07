@@ -12380,7 +12380,7 @@ screen.RobinhoodHmi.__super__ = screen.BaseScreen;
 screen.RobinhoodHmi.prototype = $extend(screen.BaseScreen.prototype,{
 	addButtons: function() {
 		screen.BaseScreen.prototype.addButtons.call(this);
-		this.addButton("Welcome",new nfuzion.message.vehicle.LetWelcome("Welcome","Tom Sedars"));
+		this.addButton("Welcome",new nfuzion.message.vehicle.LetWelcome("Welcome","Tom Seder"));
 		this.addButton("Goodbye",new nfuzion.message.vehicle.LetGoodbye());
 		this.addButton("Dismiss Gesture",new nfuzion.message.leap.LetGesture(nfuzion.message.leap.type.Gesture.dismiss));
 		this.addButton("Beckon Gesture",new nfuzion.message.leap.LetGesture(nfuzion.message.leap.type.Gesture.beckon));

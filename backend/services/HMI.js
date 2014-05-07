@@ -145,7 +145,6 @@ HMI.prototype.LetWaypoints = function(waypoints) {
 //// [ NOTICE ] ///////////////////////////////////////////////////////////////
 
 HMI.prototype.SetAddNotice = function(notice) {
-	console.log("SetAddNotice:", formatter.SetAddNotice.apply(this, arguments));
 	this.socket.send( formatter.SetAddNotice.apply(this, arguments) );
 };
 
@@ -177,6 +176,11 @@ HMI.prototype.GetCharging = function() {
 
 HMI.prototype.LetCharging = function(charging) {
 	this.socket.send( formatter.LetCharging.apply(this, arguments) );
+};
+
+HMI.prototype.LetChargeLevel = function(level) {
+	console.log(">> BATTERY", formatter.LetChargeLevel.apply(this, arguments))
+	this.socket.send( formatter.LetChargeLevel.apply(this, arguments) );
 };
 
 HMI.prototype.GetHandsFree = function() {

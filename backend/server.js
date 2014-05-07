@@ -136,6 +136,27 @@ new socket.PropertyWatcher({
   }
 });
 
+// Listen for charging
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:   'charging',
+  onChange:   function(oldValue, newValue) {
+    HMI.LetCharging( newValue );            // Update the charge status
+  }
+});
+
+// Listen for charge level
+new socket.PropertyWatcher({
+  url:        server.url,
+  channel:    '/car/status',
+  property:   'batteryLevel',
+  onChange:   function(oldValue, newValue) {
+    console.log("[BATTERY]", newValue);
+    HMI.LetChargeLevel( newValue / 100 );
+  }
+})
+
 //// [ MISCELLANEOUS ] ////////////////////////////////////////////////////////
 
 // Listen to pushNextDestination commands

@@ -196,6 +196,14 @@ HMIFormatter.prototype.LetCharging = function(charging) {
 	}
 };
 
+HMIFormatter.prototype.LetChargeLevel = function(level) {
+	return {
+		"phone.LetChargeLevel": {
+			value: 	level
+		}
+	}
+};
+
 HMIFormatter.prototype.GetHandsFree = function() {
 	return {
 		"phone.GetHandsFree": {}
