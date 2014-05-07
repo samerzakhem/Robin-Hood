@@ -1,13 +1,23 @@
 <Assets>
 
-   <Paint name="paint1" color="#777777"/>
-   <Paint name="paint2" color="#7C7C7C"/>
-   <Paint name="paint3" color="#606060"/>
-   <Paint name="paint4" color="#464646"/>
-   <Paint name="paint5" color="#7D7D7D"/>
-   <Paint name="paint6" color="#2F2F2F"/>
-   <Paint name="paint7" color="#A9A9A9"/>
-   <Paint name="paint8" color="#EBECED"/>
+   <Paint name="paint1" color="#444444"/>
+   <Paint name="paint2" color="#4E4E4E"/>
+   <Paint name="paint3" color="#7D7D7D"/>
+   <Paint name="paint4" color="#7C7C7C"/>
+   <Paint name="paint5" color="#606060"/>
+   <Paint name="paint6" color="#464646"/>
+   <Paint name="paint7" color="#FFFFFF"/>
+   <Paint name="paint8" color="#4D4D4D"/>
+   <Paint name="paint9" color="#383838"/>
+   <Paint name="paint10" color="#BBE3B1"/>
+   <Paint name="paint11" color="#5F5F5F"/>
+   <Paint name="paint12" color="#323232"/>
+   <Paint name="paint13" color="#383737"/>
+   <Paint name="paint14" color="#CDCDCD"/>
+   <Paint name="paint15" color="#232323"/>
+   <Paint name="paint16" color="#505050"/>
+   <Paint name="paint17" color="#949494"/>
+   <Paint name="paint18" color="#313131"/>
 
 
    <Font
@@ -20,1117 +30,1136 @@
    />
    <Font
       name="font1" source="./fonts/Gotham.ttf"
-      size="12.5" style="normal" weight="normal"
+      size="18" style="normal" weight="light"
    />
    <Font
       name="font2" source="./fonts/Gotham.ttf"
-      size="15" style="normal" weight="normal"
+      size="14" style="normal" weight="normal"
    />
    <Font
       name="font3" source="./fonts/Gotham.ttf"
-      size="14.1" style="normal" weight="normal"
+      size="15" style="normal" weight="normal"
    />
    <Font
       name="font4" source="./fonts/Gotham.ttf"
-      size="14" style="normal" weight="normal"
+      size="12.5" style="normal" weight="normal"
+   />
+   <Font
+      name="font5" source="./fonts/Gotham.ttf"
+      size="12" style="normal" weight="normal"
+   />
+   <Font
+      name="font6" source="./fonts/Gotham.ttf"
+      size="22" style="normal" weight="light"
+   />
+   <Font
+      name="font7" source="./fonts/Gotham.ttf"
+      size="18" style="normal" weight="normal"
+   />
+   <Font
+      name="font8" source="./fonts/Gotham.ttf"
+      size="16" style="normal" weight="normal"
+   />
+   <Font
+      name="font9" source="./fonts/Gotham.ttf"
+      size="10" style="normal" weight="normal"
+   />
+   <Font
+      name="font10" source="./fonts/Gotham.ttf"
+      size="16" style="normal" weight="light"
+   />
+   <Font
+      name="font11" source="./fonts/Gotham.ttf"
+      size="14.7" style="normal" weight="normal"
    />
 
 
    <Class name="Main" width="768" height="1024">
       <Container name="bgMain" x="0" y="0" width="768" height="1024">
-         <Frame name="white" x="44" y="198" width="1" height="1" source="./textures/#common.png"/>
+         <Frame name="bg" x="0" y="0" width="768" height="1024" source="./textures/Main.png"/>
       </Container>
-      <Container name="bgGradient" x="0" y="352" width="768" height="672">
-         <Frame name="bgImage" x="0" y="0" width="768" height="672" source="./textures/Main.png"/>
-      </Container>
-      <Container name="subheaderGroup" x="0" y="62" width="768" height="82">
-         <Container name="subheaderBackground" x="0" y="0" width="768" height="82">
-            <Frame name="sectionHeaderBackground" x="768" y="0" width="768" height="82" source="./textures/Main.png"/>
+      <Container name="subheaderGroup" x="0" y="60" width="768" height="91">
+         <Container name="subheaderBackground" x="0" y="0" width="768" height="91">
+            <Frame name="sectionHeaderBackground" x="768" y="0" width="768" height="91" source="./textures/Main.png"/>
          </Container>
-         <Container name="profileGroup" x="11" y="12" width="250" height="54">
-            <Container name="save_button" x="127" y="22" width="123" height="32">
-               <Container name="bg" x="1" y="1" width="121" height="30">
-                  <Frame name="buttonBackgroud" x="1170" y="263" width="121" height="30" source="./textures/Main.png"/>
+         <Container name="profileGroup" x="18" y="26" width="261" height="54">
+            <Container name="save_button" x="125" y="23" width="136" height="31">
+               <Container name="bg" x="0" y="0" width="117" height="31">
+                  <Frame name="buttonBackgroud" x="1093" y="311" width="117" height="31" source="./textures/Main.png"/>
                </Container>
-               <Container name="icon" x="15" y="8" width="17" height="17">
-                  <Frame name="save" x="1470" y="241" width="17" height="17" source="./textures/Main.png"/>
+               <Container name="icon" x="30" y="7" width="17" height="17">
+                  <Frame name="save" x="1047" y="264" width="17" height="17" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="42" y="9" width="32" height="13">
-                  <Frame name="textShape" x="1159" y="502" width="32" height="13" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="56" y="9" width="61" height="19" text="Save" font="font11" paint="paint14" alignment="left"/>
                <Guise name="disabled">
-                  <Container name="bg" x="0" y="0" width="123" height="32">
-                     <Frame name="buttonBackgroud" x="768" y="422" width="123" height="32" source="./textures/Main.png"/>
+                  <Container name="bg" x="0" y="0" width="117" height="31">
+                     <Frame name="buttonBackgroud" x="1210" y="311" width="117" height="31" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="15" y="8" width="17" height="17">
-                     <Frame name="save" x="1470" y="241" width="17" height="17" source="./textures/Main.png"/>
+                  <Container name="icon" x="30" y="7" width="17" height="17">
+                     <Frame name="save" x="1172" y="264" width="17" height="17" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="10" width="37" height="14">
-                     <Frame name="textShape" x="1349" y="321" width="37" height="14" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="56" y="9" width="80" height="20" text="Save" font="font11" paint="paint18" alignment="left"/>
                </Guise>
                <Guise name="down">
-                  <Container name="bg" x="0" y="0" width="123" height="32">
-                     <Frame name="buttonBackgroud" x="1036" y="502" width="123" height="32" source="./textures/Main.png"/>
+                  <Container name="bg" x="1" y="1" width="115" height="29">
+                     <Frame name="buttonBackgroud" x="1210" y="264" width="115" height="29" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="15" y="8" width="17" height="17">
-                     <Frame name="save" x="1470" y="241" width="17" height="17" source="./textures/Main.png"/>
+                  <Container name="icon" x="30" y="8" width="17" height="17">
+                     <Frame name="save" x="1047" y="264" width="17" height="17" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="42" y="9" width="32" height="13">
-                     <Frame name="textShape" x="1159" y="502" width="32" height="13" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="56" y="11" width="61" height="20" text="Save" font="font11" paint="paint14" alignment="left"/>
                </Guise>
             </Container>
-            <Container name="open_button" x="0" y="22" width="123" height="31">
-               <Container name="bg" x="1" y="1" width="121" height="29">
-                  <Frame name="buttonBackgroud" x="1291" y="263" width="121" height="29" source="./textures/Main.png"/>
+            <Container name="open_button" x="0" y="23" width="117" height="31">
+               <Container name="bg" x="0" y="0" width="117" height="31">
+                  <Frame name="buttonBackgroud" x="1327" y="293" width="117" height="31" source="./textures/Main.png"/>
                </Container>
-               <Container name="icon" x="20" y="7" width="23" height="19">
-                  <Frame name="open" x="1291" y="202" width="23" height="19" source="./textures/Main.png"/>
+               <Container name="icon" x="23" y="6" width="21" height="17">
+                  <Frame name="open" x="1210" y="293" width="21" height="17" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="51" y="9" width="37" height="14">
-                  <Frame name="textShape" x="1412" y="276" width="37" height="14" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="49" y="9" width="65" height="21" text="Open" font="font3" paint="paint14" alignment="left"/>
                <Guise name="disabled">
-                  <Container name="bg" x="0" y="0" width="123" height="31">
-                     <Frame name="buttonBackgroud" x="768" y="382" width="123" height="31" source="./textures/Main.png"/>
+                  <Container name="bg" x="0" y="0" width="117" height="31">
+                     <Frame name="buttonBackgroud" x="1145" y="342" width="117" height="31" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="21" y="7" width="21" height="17">
-                     <Frame name="open" x="1095" y="303" width="21" height="17" source="./textures/Main.png"/>
+                  <Container name="icon" x="23" y="6" width="21" height="17">
+                     <Frame name="open" x="1327" y="324" width="21" height="17" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="10" width="37" height="13">
-                     <Frame name="textShape" x="1170" y="462" width="37" height="13" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="49" y="9" width="66" height="20" text="Open" font="font3" paint="paint18" alignment="left"/>
                </Guise>
                <Guise name="down">
-                  <Container name="bg" x="0" y="0" width="123" height="31">
-                     <Frame name="buttonBackgroud" x="902" y="542" width="123" height="31" source="./textures/Main.png"/>
+                  <Container name="bg" x="1" y="1" width="115" height="29">
+                     <Frame name="buttonBackgroud" x="1262" y="342" width="115" height="29" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="21" y="7" width="21" height="17">
-                     <Frame name="open" x="1095" y="303" width="21" height="17" source="./textures/Main.png"/>
+                  <Container name="icon" x="23" y="7" width="21" height="17">
+                     <Frame name="open" x="1210" y="293" width="21" height="17" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="9" width="37" height="14">
-                     <Frame name="textShape" x="1412" y="276" width="37" height="14" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="49" y="11" width="65" height="19" text="Open" font="font3" paint="paint14" alignment="left"/>
                </Guise>
             </Container>
-            <Text name="group_label" x="9" y="0" width="232" height="22" text="Profile Name" font="font4" paint="paint8" alignment="left"/>
+            <Text name="group_label" x="1" y="0" width="241" height="28" text="Profile Name" font="font10" paint="paint17" alignment="center"/>
          </Container>
-         <Container name="chartGroup" x="264" y="0" width="354" height="79"/>
-         <Container name="layout_button" x="625" y="1" width="143" height="79">
-            <Frame name="bg" x="768" y="144" width="143" height="79" source="./textures/Main.png"/>
-            <Container name="Choice2textShape" x="30" y="50" width="71" height="13">
-               <Frame name="textShape" x="1412" y="263" width="71" height="13" source="./textures/Main.png"/>
+         <Container name="chartGroup" x="252" y="10" width="364" height="73">
+            <Container name="LargeChart" x="0" y="7" width="364" height="66">
+               <Container name="bg" x="39" y="0" width="325" height="58">
+                  <Frame name="bg" x="768" y="153" width="325" height="58" source="./textures/Main.png"/>
+               </Container>
+               <Container name="columns_group" x="39" y="0" width="325" height="58">
+                  <Container name="column_0_simple" x="0" y="0" class="ChartColumn"/>
+                  <Container name="column_1_simple" x="10" y="0" class="ChartColumn"/>
+                  <Container name="column_2_simple" x="20" y="0" class="ChartColumn"/>
+                  <Container name="column_3_simple" x="30" y="0" class="ChartColumn"/>
+                  <Container name="column_4_simple" x="40" y="0" class="ChartColumn"/>
+                  <Container name="column_5_simple" x="50" y="0" class="ChartColumn"/>
+                  <Container name="column_6_simple" x="60" y="0" class="ChartColumn"/>
+                  <Container name="column_7_simple" x="70" y="0" class="ChartColumn"/>
+                  <Container name="column_8_simple" x="80" y="0" class="ChartColumn"/>
+                  <Container name="column_9_simple" x="89" y="0" class="ChartColumn"/>
+                  <Container name="column_10_simple" x="99" y="0" class="ChartColumn"/>
+                  <Container name="column_11_simple" x="109" y="0" class="ChartColumn"/>
+                  <Container name="column_12_simple" x="119" y="0" class="ChartColumn"/>
+                  <Container name="column_13_simple" x="129" y="0" class="ChartColumn"/>
+                  <Container name="column_14_simple" x="139" y="0" class="ChartColumn"/>
+                  <Container name="column_15_simple" x="149" y="0" class="ChartColumn"/>
+                  <Container name="column_16_simple" x="159" y="0" class="ChartColumn"/>
+                  <Container name="column_17_simple" x="169" y="0" class="ChartColumn"/>
+                  <Container name="column_18_simple" x="179" y="0" class="ChartColumn"/>
+                  <Container name="column_19_simple" x="189" y="0" class="ChartColumn"/>
+                  <Container name="column_20_simple" x="199" y="0" class="ChartColumn"/>
+                  <Container name="column_21_simple" x="209" y="0" class="ChartColumn"/>
+                  <Container name="column_22_simple" x="219" y="0" class="ChartColumn"/>
+                  <Container name="column_23_simple" x="229" y="0" class="ChartColumn"/>
+                  <Container name="column_24_simple" x="239" y="0" class="ChartColumn"/>
+                  <Container name="column_25_simple" x="248" y="0" class="ChartColumn"/>
+                  <Container name="column_26_simple" x="258" y="0" class="ChartColumn"/>
+                  <Container name="column_27_simple" x="268" y="0" class="ChartColumn"/>
+                  <Container name="column_28_simple" x="278" y="0" class="ChartColumn"/>
+                  <Container name="column_29_simple" x="288" y="0" class="ChartColumn"/>
+                  <Container name="column_30_simple" x="298" y="0" class="ChartColumn"/>
+                  <Container name="column_31_simple" x="308" y="0" class="ChartColumn"/>
+                  <Container name="column_32_simple" x="318" y="0" class="ChartColumn"/>
+               </Container>
+               <Container name="info_group" x="0" y="0" width="34" height="66">
+                  <Text name="bottom_label" x="0" y="50" width="32" height="16" text="30" font="font9" paint="paint17" alignment="right"/>
+                  <Text name="top_label" x="2" y="0" width="32" height="16" text="60" font="font9" paint="paint17" alignment="right"/>
+               </Container>
             </Container>
-            <Container name="Choice1textShape" x="49" y="14" width="35" height="12">
-               <Frame name="textShape" x="1134" y="263" width="35" height="12" source="./textures/Main.png"/>
+         </Container>
+         <Container name="advanced_button" x="622" y="48" width="127" height="31">
+            <Container name="bg" x="0" y="0" width="127" height="31">
+               <Frame name="bg" x="768" y="251" width="127" height="31" source="./textures/Main.png"/>
             </Container>
+            <Text name="text_label" x="2" y="9" width="125" height="17" text="Advanced" font="font8" paint="paint14" alignment="center"/>
+            <Guise name="disabled">
+               <Container name="bg" x="0" y="0" width="127" height="31">
+                  <Frame name="bg" x="1093" y="233" width="127" height="31" source="./textures/Main.png"/>
+               </Container>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Advanced" font="font8" paint="paint16" alignment="center"/>
+            </Guise>
             <Guise name="active">
-               <Frame name="bg" x="768" y="223" width="143" height="79" source="./textures/Main.png"/>
-               <Container name="Choice2textShape" x="31" y="49" width="69" height="12">
-                  <Frame name="textShape" x="911" y="613" width="69" height="12" source="./textures/Main.png"/>
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="895" y="264" width="125" height="29" source="./textures/Main.png"/>
                </Container>
-               <Container name="Choice1textShape" x="49" y="15" width="35" height="12">
-                  <Frame name="textShape" x="1170" y="342" width="35" height="12" source="./textures/Main.png"/>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Advanced" font="font8" paint="paint14" alignment="center"/>
+            </Guise>
+            <Guise name="down">
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="1020" y="282" width="125" height="29" source="./textures/Main.png"/>
                </Container>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Advanced" font="font8" paint="paint15" alignment="center"/>
+            </Guise>
+         </Container>
+         <Container name="basic_button" x="622" y="13" width="127" height="31">
+            <Container name="bg" x="0" y="0" width="127" height="31">
+               <Frame name="bg" x="768" y="251" width="127" height="31" source="./textures/Main.png"/>
+            </Container>
+            <Text name="text_label" x="2" y="9" width="125" height="17" text="Basic" font="font8" paint="paint14" alignment="center"/>
+            <Guise name="disabled">
+               <Container name="bg" x="0" y="0" width="127" height="31">
+                  <Frame name="bg" x="1093" y="233" width="127" height="31" source="./textures/Main.png"/>
+               </Container>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Basic" font="font8" paint="paint16" alignment="center"/>
+            </Guise>
+            <Guise name="active">
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="895" y="264" width="125" height="29" source="./textures/Main.png"/>
+               </Container>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Basic" font="font8" paint="paint14" alignment="center"/>
+            </Guise>
+            <Guise name="down">
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="1020" y="282" width="125" height="29" source="./textures/Main.png"/>
+               </Container>
+               <Text name="text_label" x="2" y="11" width="125" height="17" text="Basic" font="font8" paint="paint15" alignment="center"/>
             </Guise>
          </Container>
       </Container>
       <Container name="headerGroup" x="0" y="0" width="768" height="62">
          <Container name="backgroundContain" x="0" y="0" width="768" height="62">
-            <Frame name="headerBackground" x="768" y="82" width="768" height="62" source="./textures/Main.png"/>
+            <Frame name="headerBackground" x="768" y="91" width="768" height="62" source="./textures/Main.png"/>
          </Container>
-         <Container name="logoArea" x="710" y="13" width="38" height="39">
-            <Frame name="logoGraphic" x="980" y="613" width="38" height="39" source="./textures/Main.png"/>
+         <Container name="logoArea" x="712" y="12" width="38" height="38">
+            <Frame name="logoGraphic" x="1036" y="311" width="38" height="38" source="./textures/Main.png"/>
          </Container>
-         <Container name="menuGroup" x="16" y="11" width="660" height="40">
+         <Container name="menuGroup" x="19" y="11" width="661" height="40">
             <Container name="section1_button" x="0" y="0" width="134" height="40">
-               <Frame name="textShape" x="768" y="302" width="134" height="40" source="./textures/Main.png"/>
                <Container name="bg" x="0" y="0" width="134" height="40">
-                  <Frame name="menubtnBack" x="768" y="342" width="134" height="40" source="./textures/Main.png"/>
+                  <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                </Container>
-               <Container name="icon" x="11" y="8" width="24" height="25">
-                  <Frame name="server" x="1291" y="308" width="24" height="25" source="./textures/Main.png"/>
+               <Container name="icon" x="19" y="7" width="26" height="26">
+                  <Frame name="server" x="1377" y="342" width="26" height="26" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="49" y="14" width="59" height="14" visible="false">
-                  <Frame name="textShape" x="1036" y="303" width="59" height="14" source="./textures/Main.png"/>
-               </Container>
-               <Guise name="disabled">
-                  <Frame name="textShape" x="768" y="302" width="134" height="40" source="./textures/Main.png"/>
-                  <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="911" y="223" width="134" height="40" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="icon" x="10" y="7" width="26" height="26">
-                     <Frame name="server" x="1170" y="382" width="26" height="26" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="textShape" x="49" y="14" width="59" height="14">
-                     <Frame name="textShape" x="1036" y="303" width="59" height="14" source="./textures/Main.png"/>
-                  </Container>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="textShape" x="768" y="302" width="134" height="40" source="./textures/Main.png"/>
-                  <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="911" y="144" width="134" height="40" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="icon" x="10" y="7" width="26" height="27">
-                     <Frame name="server" x="1268" y="422" width="26" height="27" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="textShape" x="56" y="14" width="44" height="18">
-                     <Frame name="textShape" x="1170" y="302" width="44" height="18" source="./textures/Main.png"/>
-                  </Container>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="textShape" x="768" y="302" width="134" height="40" source="./textures/Main.png"/>
-                  <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="902" y="342" width="134" height="40" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="icon" x="10" y="7" width="26" height="27">
-                     <Frame name="server" x="1470" y="276" width="26" height="27" source="./textures/Main.png"/>
-                  </Container>
-                  <Container name="textShape" x="56" y="14" width="44" height="18">
-                     <Frame name="textShape" x="1036" y="534" width="44" height="18" source="./textures/Main.png"/>
-                  </Container>
-               </Guise>
-            </Container>
-            <Container name="section2_button" x="141" y="0" width="134" height="40">
-               <Container name="bg" x="0" y="0" width="134" height="40">
-                  <Frame name="menubtnBack" x="902" y="302" width="134" height="40" source="./textures/Main.png"/>
-               </Container>
-               <Container name="icon" x="11" y="8" width="16" height="24">
-                  <Frame name="recorder" x="1291" y="144" width="16" height="24" source="./textures/Main.png"/>
-               </Container>
-               <Container name="textShape" x="37" y="13" width="81" height="15">
-                  <Frame name="textShape" x="911" y="184" width="81" height="15" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="52" y="13" width="71" height="22" text="Clients" font="font7" paint="paint12" alignment="left"/>
                <Guise name="disabled">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="1045" y="144" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="8" width="16" height="23">
-                     <Frame name="recorder" x="1243" y="240" width="16" height="23" source="./textures/Main.png"/>
+                  <Container name="icon" x="19" y="6" width="26" height="26">
+                     <Frame name="server" x="1471" y="282" width="26" height="26" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="81" height="14">
-                     <Frame name="textShape" x="1389" y="223" width="81" height="14" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="52" y="10" width="65" height="23" text="Clients" font="font7" paint="paint5" alignment="left"/>
                </Guise>
                <Guise name="active">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="902" y="382" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="768" y="211" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="8" width="16" height="24">
-                     <Frame name="recorder" x="1118" y="223" width="16" height="24" source="./textures/Main.png"/>
+                  <Container name="icon" x="19" y="9" width="26" height="26">
+                     <Frame name="server" x="1425" y="342" width="26" height="26" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="81" height="15">
-                     <Frame name="textShape" x="911" y="184" width="81" height="15" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="52" y="15" width="69" height="21" text="Clients" font="font7" paint="paint10" alignment="left"/>
                </Guise>
                <Guise name="down">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="1036" y="382" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1227" y="153" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="8" width="16" height="24">
-                     <Frame name="recorder" x="1045" y="184" width="16" height="24" source="./textures/Main.png"/>
+                  <Container name="icon" x="19" y="9" width="26" height="26">
+                     <Frame name="server" x="1227" y="373" width="26" height="26" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="81" height="15">
-                     <Frame name="textShape" x="1268" y="293" width="81" height="15" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="52" y="15" width="73" height="24" text="Clients" font="font7" paint="paint13" alignment="left"/>
                </Guise>
             </Container>
-            <Container name="section3_button" x="281" y="0" width="134" height="40">
+            <Container name="section2_button" x="139" y="0" width="134" height="40">
                <Container name="bg" x="0" y="0" width="134" height="40">
-                  <Frame name="menubtnBack" x="1036" y="422" width="134" height="40" source="./textures/Main.png"/>
+                  <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                </Container>
-               <Container name="icon" x="9" y="7" width="25" height="26">
-                  <Frame name="debug" x="1179" y="144" width="25" height="26" source="./textures/Main.png"/>
+               <Container name="icon" x="14" y="7" width="27" height="24">
+                  <Frame name="server" x="1020" y="251" width="27" height="24" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="51" y="13" width="58" height="18">
-                  <Frame name="textShape" x="768" y="582" width="58" height="18" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="45" y="13" width="71" height="23" text="Servers" font="font7" paint="paint12" alignment="center"/>
                <Guise name="disabled">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="902" y="422" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="9" y="7" width="25" height="25">
-                     <Frame name="debug" x="1243" y="184" width="25" height="25" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="7" width="27" height="24">
+                     <Frame name="server" x="1444" y="282" width="27" height="24" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="13" width="58" height="17">
-                     <Frame name="textShape" x="768" y="502" width="58" height="17" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="31" y="12" width="100" height="21" text="Servers" font="font7" paint="paint12" alignment="center"/>
                </Guise>
                <Guise name="active">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="768" y="462" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1093" y="193" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="9" y="7" width="25" height="26">
-                     <Frame name="debug" x="1407" y="308" width="25" height="26" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="9" width="27" height="24">
+                     <Frame name="server" x="1145" y="264" width="27" height="24" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="13" width="58" height="18">
-                     <Frame name="textShape" x="768" y="582" width="58" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="44" y="15" width="75" height="21" text="Servers" font="font7" paint="paint10" alignment="center"/>
                </Guise>
                <Guise name="down">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="902" y="462" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="902" y="211" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="9" y="7" width="25" height="26">
-                     <Frame name="debug" x="768" y="600" width="25" height="26" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="9" width="27" height="24">
+                     <Frame name="server" x="1210" y="411" width="27" height="24" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="51" y="13" width="58" height="18">
-                     <Frame name="textShape" x="1349" y="303" width="58" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="42" y="15" width="77" height="22" text="Servers" font="font7" paint="paint9" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="section4_button" x="422" y="0" width="134" height="40">
+            <Container name="section3_button" x="278" y="0" width="134" height="40">
                <Container name="bg" x="0" y="0" width="134" height="40">
-                  <Frame name="menubtnBack" x="902" y="502" width="134" height="40" source="./textures/Main.png"/>
+                  <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                </Container>
-               <Container name="icon" x="11" y="6" width="25" height="26">
-                  <Frame name="wrench" x="826" y="582" width="25" height="26" source="./textures/Main.png"/>
+               <Container name="icon" x="14" y="8" width="16" height="23">
+                  <Frame name="recorder" x="1423" y="264" width="16" height="23" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="40" y="13" width="73" height="18">
-                  <Frame name="textShape" x="1291" y="184" width="73" height="18" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="31" y="12" width="99" height="23" text="Recorder" font="font7" paint="paint12" alignment="center"/>
                <Guise name="disabled">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="768" y="542" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1093" y="153" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="6" width="25" height="25">
-                     <Frame name="wrench" x="911" y="263" width="25" height="25" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="8" width="16" height="23">
+                     <Frame name="recorder" x="1020" y="311" width="16" height="23" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="40" y="13" width="73" height="17">
-                     <Frame name="textShape" x="1045" y="223" width="73" height="17" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="31" y="12" width="100" height="21" text="Recorder" font="font7" paint="paint5" alignment="center"/>
                </Guise>
                <Guise name="active">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="768" y="462" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="768" y="211" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="6" width="25" height="26">
-                     <Frame name="wrench" x="826" y="582" width="25" height="26" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="11" width="16" height="23">
+                     <Frame name="recorder" x="1036" y="435" width="16" height="23" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="40" y="13" width="73" height="18">
-                     <Frame name="textShape" x="1291" y="184" width="73" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="31" y="14" width="99" height="20" text="Recorder" font="font7" paint="paint10" alignment="center"/>
                </Guise>
                <Guise name="down">
                   <Container name="bg" x="0" y="0" width="134" height="40">
-                     <Frame name="menubtnBack" x="902" y="462" width="134" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1227" y="153" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="11" y="6" width="25" height="26">
-                     <Frame name="wrench" x="826" y="502" width="25" height="26" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="11" width="16" height="23">
+                     <Frame name="recorder" x="1210" y="435" width="16" height="23" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="40" y="13" width="73" height="18">
-                     <Frame name="textShape" x="1170" y="223" width="73" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="31" y="14" width="99" height="23" text="Recorder" font="font7" paint="paint9" alignment="center"/>
                </Guise>
             </Container>
-            <Container name="section5_button" x="562" y="0" width="98" height="40">
-               <Container name="bg" x="0" y="0" width="98" height="40">
-                  <Frame name="menubtnBack" x="1291" y="223" width="98" height="40" source="./textures/Main.png"/>
+            <Container name="section4_button" x="417" y="0" width="134" height="40">
+               <Container name="bg" x="0" y="0" width="1" height="1">
+                  <Frame name="menubtnBack" x="255" y="29" width="1" height="1" source="./textures/#common.png"/>
                </Container>
-               <Container name="icon" x="14" y="10" width="13" height="19">
-                  <Frame name="help" x="1214" y="302" width="13" height="19" source="./textures/Main.png"/>
+               <Container name="icon" x="14" y="6" width="25" height="25">
+                  <Frame name="wrench" x="1497" y="264" width="25" height="25" source="./textures/Main.png"/>
                </Container>
-               <Container name="textShape" x="37" y="13" width="40" height="18">
-                  <Frame name="textShape" x="1036" y="462" width="40" height="18" source="./textures/Main.png"/>
-               </Container>
+               <Text name="text_label" x="33" y="12" width="99" height="23" text="Settings" font="font7" paint="paint9" alignment="center"/>
                <Guise name="disabled">
-                  <Container name="bg" x="0" y="0" width="98" height="40">
-                     <Frame name="menubtnBack" x="1170" y="422" width="98" height="40" source="./textures/Main.png"/>
+                  <Container name="bg" x="0" y="0" width="1" height="1">
+                     <Frame name="menubtnBack" x="255" y="29" width="1" height="1" source="./textures/#common.png"/>
                   </Container>
-                  <Container name="icon" x="14" y="10" width="13" height="18">
-                     <Frame name="help" x="1025" y="552" width="13" height="18" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="6" width="25" height="25">
+                     <Frame name="wrench" x="1262" y="371" width="25" height="25" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="40" height="17">
-                     <Frame name="textShape" x="1389" y="184" width="40" height="17" source="./textures/Main.png"/>
+                  <Text name="text_label" x="33" y="12" width="99" height="22" text="Settings" font="font7" paint="paint5" alignment="center"/>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="0" y="0" width="134" height="40">
+                     <Frame name="menubtnBack" x="768" y="211" width="134" height="40" source="./textures/Main.png"/>
                   </Container>
+                  <Container name="icon" x="14" y="9" width="25" height="25">
+                     <Frame name="wrench" x="1377" y="411" width="25" height="25" source="./textures/Main.png"/>
+                  </Container>
+                  <Text name="text_label" x="33" y="14" width="99" height="22" text="Settings" font="font7" paint="paint10" alignment="center"/>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="134" height="40">
+                     <Frame name="menubtnBack" x="1227" y="153" width="134" height="40" source="./textures/Main.png"/>
+                  </Container>
+                  <Container name="icon" x="14" y="9" width="25" height="25">
+                     <Frame name="wrench" x="1497" y="264" width="25" height="25" source="./textures/Main.png"/>
+                  </Container>
+                  <Text name="text_label" x="33" y="14" width="99" height="22" text="Settings" font="font7" paint="paint9" alignment="center"/>
+               </Guise>
+            </Container>
+            <Container name="section5_button" x="556" y="0" width="105" height="40">
+               <Container name="bg" x="0" y="0" width="1" height="1">
+                  <Frame name="menubtnBack" x="255" y="29" width="1" height="1" source="./textures/#common.png"/>
+               </Container>
+               <Container name="icon" x="14" y="9" width="13" height="18">
+                  <Frame name="help" x="1361" y="324" width="13" height="18" source="./textures/Main.png"/>
+               </Container>
+               <Text name="text_label" x="9" y="12" width="95" height="24" text="Help" font="font7" paint="paint9" alignment="center"/>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="1" height="1">
+                     <Frame name="menubtnBack" x="255" y="29" width="1" height="1" source="./textures/#common.png"/>
+                  </Container>
+                  <Container name="icon" x="14" y="9" width="13" height="18">
+                     <Frame name="help" x="1220" y="233" width="13" height="18" source="./textures/Main.png"/>
+                  </Container>
+                  <Text name="text_label" x="9" y="12" width="95" height="21" text="Help" font="font7" paint="paint11" alignment="center"/>
                </Guise>
                <Guise name="active">
                   <Container name="bg" x="0" y="0" width="98" height="40">
-                     <Frame name="menubtnBack" x="902" y="573" width="98" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1325" y="251" width="98" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="14" y="10" width="13" height="19">
-                     <Frame name="help" x="1134" y="293" width="13" height="19" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="12" width="13" height="18">
+                     <Frame name="help" x="1327" y="233" width="13" height="18" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="40" height="18">
-                     <Frame name="textShape" x="1470" y="223" width="40" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="9" y="14" width="96" height="21" text="Help" font="font7" paint="paint10" alignment="center"/>
                </Guise>
                <Guise name="down">
                   <Container name="bg" x="0" y="0" width="98" height="40">
-                     <Frame name="menubtnBack" x="1036" y="263" width="98" height="40" source="./textures/Main.png"/>
+                     <Frame name="menubtnBack" x="1327" y="371" width="98" height="40" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="icon" x="14" y="10" width="13" height="19">
-                     <Frame name="help" x="1036" y="480" width="13" height="19" source="./textures/Main.png"/>
+                  <Container name="icon" x="14" y="12" width="13" height="18">
+                     <Frame name="help" x="1361" y="324" width="13" height="18" source="./textures/Main.png"/>
                   </Container>
-                  <Container name="textShape" x="37" y="13" width="40" height="18">
-                     <Frame name="textShape" x="1179" y="202" width="40" height="18" source="./textures/Main.png"/>
-                  </Container>
+                  <Text name="text_label" x="9" y="14" width="96" height="21" text="Help" font="font7" paint="paint9" alignment="center"/>
                </Guise>
             </Container>
          </Container>
       </Container>
    </Class>
 
-   <Class name="Span" width="768" height="1024">
-      <Container name="span_view" x="0" y="143" width="768" height="881">
-         <Container name="content_vBox" x="0" y="0" width="768" height="881"/>
+   <Class name="ClientScreen" width="768" height="1024">
+      <Container name="client_view" x="0" y="196" width="768" height="828">
+         <Container name="content_vBox" x="0" y="0" width="768" height="828"/>
       </Container>
-      <Container name="full_scroller" x="750" y="144" class="ScrollerVert"/>
+      <Container name="client_scroller" x="746" y="158" class="ScrollerVert"/>
+      <Container name="header_group" x="0" y="151" width="768" height="45">
+         <Container name="headerBackground" x="0" y="0" width="768" height="45">
+            <Frame name="bgHeaderSolidGray" x="254" y="29" width="1" height="45" source="./textures/#common.png"/>
+         </Container>
+         <Container name="addClient_button" x="622" y="7" width="128" height="31">
+            <Container name="bg" x="0" y="0" width="127" height="31">
+               <Frame name="bg" x="0" y="66" width="127" height="31" source="./textures/#common.png"/>
+            </Container>
+            <Text name="text_label" x="1" y="9" width="127" height="18" text="Add Client" font="font3" paint="paint7" alignment="center"/>
+            <Guise name="disabled">
+               <Container name="bg" x="0" y="0" width="127" height="31">
+                  <Frame name="bg" x="127" y="66" width="127" height="31" source="./textures/#common.png"/>
+               </Container>
+               <Text name="text_label" x="1" y="9" width="127" height="18" text="Add Client" font="font3" paint="paint7" alignment="center"/>
+            </Guise>
+            <Guise name="down">
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="135" y="0" width="125" height="29" source="./textures/#common.png"/>
+               </Container>
+               <Text name="text_label" x="1" y="11" width="127" height="18" text="Add Client" font="font3" paint="paint8" alignment="center"/>
+            </Guise>
+         </Container>
+         <Text name="text_label" x="17" y="14" width="319" height="27" text="Clients" font="font6" paint="paint7" alignment="left"/>
+      </Container>
+   </Class>
+
+   <Class name="ServerScreen" width="768" height="1024">
+      <Container name="server_view" x="0" y="196" width="768" height="828">
+         <Container name="content_vBox" x="0" y="0" width="768" height="828"/>
+      </Container>
+      <Container name="server_scroller" x="746" y="158" class="ScrollerVert"/>
+      <Container name="header_group" x="0" y="151" width="768" height="45">
+         <Container name="headerBackground" x="0" y="0" width="768" height="45">
+            <Frame name="bgHeaderSolidGray" x="254" y="29" width="1" height="45" source="./textures/#common.png"/>
+         </Container>
+         <Container name="addServer_button" x="622" y="7" width="128" height="31">
+            <Container name="bg" x="0" y="0" width="127" height="31">
+               <Frame name="bg" x="0" y="66" width="127" height="31" source="./textures/#common.png"/>
+            </Container>
+            <Text name="text_label" x="1" y="9" width="127" height="18" text="Add Server" font="font3" paint="paint7" alignment="center"/>
+            <Guise name="disabled">
+               <Container name="bg" x="0" y="0" width="127" height="31">
+                  <Frame name="bg" x="127" y="66" width="127" height="31" source="./textures/#common.png"/>
+               </Container>
+               <Text name="text_label" x="1" y="9" width="127" height="18" text="Add Server" font="font3" paint="paint7" alignment="center"/>
+            </Guise>
+            <Guise name="down">
+               <Container name="bg" x="1" y="1" width="125" height="29">
+                  <Frame name="bg" x="135" y="0" width="125" height="29" source="./textures/#common.png"/>
+               </Container>
+               <Text name="text_label" x="1" y="11" width="127" height="18" text="Add Server" font="font3" paint="paint8" alignment="center"/>
+            </Guise>
+         </Container>
+         <Text name="text_label" x="17" y="14" width="319" height="27" text="Servers" font="font6" paint="paint7" alignment="left"/>
+      </Container>
    </Class>
 
    <Class name="Recorder" width="768" height="1024">
-      <Container name="record_group" x="0" y="143" width="768" height="881"/>
-      <Container name="full_scroller" x="750" y="144" class="ScrollerVert"/>
+      <Container name="record_group" x="0" y="151" width="768" height="873"/>
+      <Container name="full_scroller" x="746" y="158" class="ScrollerVert"/>
    </Class>
 
    <Class name="Debugger" width="768" height="1024">
-      <Container name="debug_group" x="0" y="143" width="768" height="881"/>
-      <Container name="full_scroller" x="750" y="144" class="ScrollerVert"/>
+      <Container name="debug_group" x="0" y="151" width="768" height="873"/>
+      <Container name="full_scroller" x="746" y="158" class="ScrollerVert"/>
    </Class>
 
    <Class name="Settings" width="768" height="1024">
-      <Container name="settings_group" x="0" y="143" width="768" height="881"/>
-      <Container name="full_scroller" x="750" y="144" class="ScrollerVert"/>
+      <Container name="settings_group" x="0" y="151" width="768" height="873"/>
+      <Container name="full_scroller" x="746" y="158" class="ScrollerVert"/>
    </Class>
 
    <Class name="Help" width="768" height="1024">
       <Container name="help_group" x="0" y="143" width="768" height="881"/>
-      <Container name="full_scroller" x="750" y="144" class="ScrollerVert"/>
+      <Container name="full_scroller" x="746" y="158" class="ScrollerVert"/>
    </Class>
 
-   <Class name="ClientsPanel" width="768" height="428">
-      <Container name="footer_simple" x="0" y="426" width="768" height="2">
-         <Frame name="bg" x="26" y="46" width="1" height="2" source="./textures/#common.png"/>
-      </Container>
-      <Container name="content_collapsable" x="0" y="44" width="768" height="383">
-         <Container name="backgroundImagesSubsection" x="0" y="0" width="768" height="382">
-            <Container name="backgroundStretchY" x="0" y="7" width="768" height="343">
-               <Frame name="BGSolidWhite" x="44" y="198" width="1" height="1" source="./textures/#common.png"/>
-            </Container>
-            <Container name="mainBack" x="0" y="0" width="768" height="382">
-               <Container name="GraphicMoveBottom" x="0" y="235" width="768" height="147">
-                  <Frame name="graphicPinBottom" x="0" y="0" width="768" height="147" source="./textures/ClientsPanel.png"/>
-               </Container>
-               <Container name="GraphicMoveTop" x="0" y="0" width="768" height="122">
-                  <Frame name="graphicPinTop" x="768" y="0" width="768" height="122" source="./textures/ClientsPanel.png"/>
-               </Container>
-            </Container>
+   <Class name="Client" width="178" height="300">
+      <Container name="content_group" x="0" y="0" width="170" height="175">
+         <Container name="chart" x="-1" y="66" class="SmallChart"/>
+         <Container name="icon" x="9" y="16" width="28" height="26">
+            <Frame name="desktop" x="371" y="108" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="html5" x="409" y="0" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="cloud" x="409" y="26" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="server" x="409" y="52" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="default" x="409" y="78" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="unknown" x="409" y="104" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="ipad" x="409" y="130" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="ipod" x="371" y="134" width="28" height="26" source="./textures/Client.png"/>
+            <Frame name="cloudup" x="152" y="135" width="28" height="26" source="./textures/Client.png"/>
          </Container>
-         <Container name="client_view" x="20" y="1" width="687" height="355">
-            <Container name="client_grid" x="0" y="0" width="687" height="355">
-               <Container name="item_vBox" x="2" y="3" class="Client"/>
+         <Container name="bottomButtonsGroup" x="4" y="231" width="162" height="58" visible="false">
+            <Container name="clientButtonBackgroundBox" x="0" y="0" width="162" height="58">
+               <Frame name="clientButtonBoxBackground" x="0" y="0" width="162" height="58" source="./textures/Client.png"/>
             </Container>
-         </Container>
-         <Container name="client_scroller" x="707" y="2" width="21" height="350">
-            <Container name="track" x="0" y="0" width="21" height="350">
-               <Container name="back" x="0" y="0" width="21" height="350">
-                  <Frame name="trackbg" x="0" y="46" width="21" height="350" source="./textures/#common.png"/>
+            <Container name="rx_button" x="13" y="3" width="39" height="48">
+               <Container name="bg" x="1" y="0" width="38" height="47">
+                  <Frame name="rx" x="254" y="48" width="38" height="47" source="./textures/Client.png"/>
                </Container>
-               <Container name="in" x="8" y="9" width="5" height="332">
-                  <Frame name="inside" x="0" y="147" width="5" height="332" source="./textures/ClientsPanel.png"/>
-               </Container>
-            </Container>
-            <Container name="thumb_button" x="1" y="1" width="18" height="99">
-               <Frame name="thumbImg" x="384" y="46" width="18" height="99" source="./textures/#common.png"/>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="39" height="48">
+                     <Frame name="rx" x="215" y="0" width="39" height="48" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="6" y="5" width="28" height="37">
+                     <Frame name="rx" x="124" y="109" width="28" height="37" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
                <Guise name="down">
-                  <Frame name="thumbImg" x="26" y="75" width="18" height="99" source="./textures/#common.png"/>
+                  <Container name="bg" x="1" y="0" width="38" height="47">
+                     <Frame name="rx" x="254" y="95" width="38" height="47" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+            </Container>
+            <Container name="tx_button" x="63" y="2" width="40" height="49">
+               <Container name="bg" x="1" y="1" width="38" height="48">
+                  <Frame name="tx" x="215" y="48" width="38" height="48" source="./textures/Client.png"/>
+               </Container>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="40" height="49">
+                     <Frame name="tx" x="214" y="97" width="40" height="49" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="6" y="6" width="28" height="38">
+                     <Frame name="tx" x="331" y="37" width="28" height="38" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="1" y="1" width="38" height="48">
+                     <Frame name="tx" x="254" y="0" width="38" height="48" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+            </Container>
+            <Container name="echo_button" x="115" y="3" width="39" height="48">
+               <Container name="bg" x="0" y="0" width="39" height="48">
+                  <Frame name="echo" x="292" y="0" width="39" height="48" source="./textures/Client.png"/>
+               </Container>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="39" height="48">
+                     <Frame name="echo" x="292" y="48" width="39" height="48" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="5" y="5" width="29" height="38">
+                     <Frame name="echo" x="331" y="75" width="29" height="38" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="39" height="48">
+                     <Frame name="echo" x="292" y="96" width="39" height="48" source="./textures/Client.png"/>
+                  </Container>
                </Guise>
             </Container>
          </Container>
-      </Container>
-      <Container name="header_group" x="0" y="0" width="768" height="44">
-         <Container name="headerBackground" x="0" y="0" width="768" height="44">
-            <Frame name="bgSolidGray" x="65" y="46" width="1" height="1" source="./textures/#common.png"/>
-         </Container>
-         <Container name="addClient_button" x="533" y="8" width="121" height="29">
-            <Container name="bg" x="0" y="0" width="121" height="29">
-               <Frame name="buttonBackgroud" x="21" y="281" width="121" height="29" source="./textures/#common.png"/>
+         <Container name="topButtons_group" x="4" y="83" width="161" height="51" visible="false">
+            <Container name="backgroundBox" x="0" y="0" width="161" height="51">
+               <Frame name="btnBack" x="0" y="58" width="161" height="51" source="./textures/Client.png"/>
             </Container>
-            <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Client" font="font3" paint="paint6" alignment="center"/>
-            <Guise name="disabled">
-               <Container name="bg" x="0" y="0" width="121" height="29">
-                  <Frame name="buttonBackgroud" x="142" y="46" width="121" height="29" source="./textures/#common.png"/>
+            <Container name="reset_button" x="112" y="8" width="41" height="37">
+               <Container name="bg" x="1" y="0" width="40" height="37">
+                  <Frame name="reset" x="84" y="109" width="40" height="37" source="./textures/Client.png"/>
                </Container>
-               <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Client" font="font3" paint="paint7" alignment="center"/>
-            </Guise>
-            <Guise name="down">
-               <Container name="bg" x="0" y="0" width="121" height="29">
-                  <Frame name="buttonBackgroud" x="263" y="46" width="121" height="29" source="./textures/#common.png"/>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="41" height="37">
+                     <Frame name="reset" x="43" y="109" width="41" height="37" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="6" y="5" width="30" height="27">
+                     <Frame name="reset" x="331" y="113" width="30" height="27" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="1" y="0" width="40" height="37">
+                     <Frame name="reset" x="331" y="0" width="40" height="37" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+            </Container>
+            <Container name="boot_button" x="53" y="7" width="54" height="39">
+               <Container name="bg" x="0" y="0" width="53" height="38">
+                  <Frame name="boot" x="162" y="0" width="53" height="38" source="./textures/Client.png"/>
                </Container>
-               <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Client" font="font3" paint="paint6" alignment="center"/>
-            </Guise>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="54" height="39">
+                     <Frame name="boot" x="161" y="58" width="54" height="39" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="5" y="5" width="43" height="28">
+                     <Frame name="boot" x="0" y="109" width="43" height="28" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="53" height="38">
+                     <Frame name="boot" x="161" y="97" width="53" height="38" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+            </Container>
+            <Container name="ban_button" x="7" y="8" width="38" height="36">
+               <Container name="bg" x="1" y="0" width="37" height="36">
+                  <Frame name="ban" x="371" y="36" width="37" height="36" source="./textures/Client.png"/>
+               </Container>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="38" height="36">
+                     <Frame name="ban" x="371" y="0" width="38" height="36" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="active">
+                  <Container name="bg" x="6" y="5" width="27" height="26">
+                     <Frame name="ban" x="180" y="135" width="27" height="26" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+               <Guise name="down">
+                  <Container name="bg" x="1" y="0" width="37" height="36">
+                     <Frame name="ban" x="371" y="72" width="37" height="36" source="./textures/Client.png"/>
+                  </Container>
+               </Guise>
+            </Container>
          </Container>
-         <Container name="minimize_button" x="711" y="12" width="16" height="18">
-            <Frame name="minimizeIcon" x="49" y="75" width="16" height="18" source="./textures/#common.png"/>
+         <Container name="pin_button" x="1" y="8" width="20" height="19" visible="false">
+            <Frame name="clip" x="135" y="29" width="20" height="19" source="./textures/#common.png"/>
             <Guise name="active">
-               <Frame name="minimizeIcon" x="263" y="145" width="16" height="18" source="./textures/#common.png"/>
+               <Frame name="clip" x="155" y="29" width="20" height="19" source="./textures/#common.png"/>
             </Guise>
          </Container>
-         <Container name="light_simple" x="673" y="8" class="Indicator">
-            <Frame name="Indicator" x="26" y="174" width="23" height="24" source="./textures/#common.png"/>
+         <Container name="info" x="46" y="28" width="125" height="39">
+            <Text name="time_label" x="0" y="22" width="106" height="14" text="88:88:88" font="font4" paint="paint4" alignment="left"/>
+            <Text name="ip_label" x="1" y="23" width="124" height="16" text="888.888.888.888" font="font5" paint="paint6" alignment="left" visible="false"/>
+            <Text name="interface_label" x="1" y="0" width="106" height="18" text="JSON STR" font="font5" paint="paint5" alignment="left" visible="false"/>
+            <Text name="clientName_label" x="1" y="1" width="124" height="18" text="IPad Application " font="font5" paint="paint6" alignment="left"/>
          </Container>
-         <Container name="textShape" x="20" y="16" width="60" height="15">
-            <Frame name="textShape" x="5" y="147" width="60" height="15" source="./textures/ClientsPanel.png"/>
-         </Container>
+         <Container name="light_simple" x="11" y="51" class="Indicator"/>
       </Container>
-   </Class>
-
-   <Class name="Servers" width="768" height="428">
-      <Container name="footer_simple" x="0" y="426" width="768" height="2">
-         <Frame name="bg" x="26" y="46" width="1" height="2" source="./textures/#common.png"/>
-      </Container>
-      <Container name="content_collapsable" x="0" y="44" width="768" height="383">
-         <Container name="backgroundImagesSubsection" x="0" y="0" width="768" height="382">
-            <Container name="backgroundStretchY" x="0" y="7" width="768" height="343">
-               <Frame name="BGSolidWhite" x="44" y="198" width="1" height="1" source="./textures/#common.png"/>
-            </Container>
-            <Container name="mainBack" x="0" y="0" width="768" height="382">
-               <Container name="GraphicMoveBottom" x="0" y="235" width="768" height="147">
-                  <Frame name="graphicPinBottom" x="0" y="0" width="768" height="147" source="./textures/Servers.png"/>
-               </Container>
-               <Container name="GraphicMoveTop" x="0" y="0" width="768" height="122">
-                  <Frame name="graphicPinTop" x="768" y="0" width="768" height="122" source="./textures/Servers.png"/>
-               </Container>
-            </Container>
-         </Container>
-         <Container name="server_list" x="20" y="0" width="727" height="358">
-            <Mask x="0" y="147" source="./textures/Servers.png"/>
-            <Container name="row_0_group" x="2" y="4" class="Server"/>
-         </Container>
-         <Container name="server_scroller" x="707" y="2" class="SectionScroller">
-            <Container name="track" x="0" y="0" width="21" height="350">
-               <Container name="back" x="0" y="0" width="21" height="350">
-                  <Frame name="trackbg" x="0" y="46" width="21" height="350" source="./textures/#common.png"/>
-               </Container>
-               <Container name="in" x="8" y="9" width="5" height="235">
-                  <Frame name="inside" x="21" y="46" width="5" height="235" source="./textures/#common.png"/>
-               </Container>
-            </Container>
-            <Container name="thumb_button" x="1" y="1" width="18" height="99">
-               <Frame name="thumbImg" x="384" y="46" width="18" height="99" source="./textures/#common.png"/>
-               <Guise name="down">
-                  <Frame name="thumbImg" x="26" y="75" width="18" height="99" source="./textures/#common.png"/>
-               </Guise>
-            </Container>
-         </Container>
-      </Container>
-      <Container name="header_group" x="0" y="0" width="768" height="44">
-         <Container name="headerBackground" x="0" y="0" width="768" height="44">
-            <Frame name="bgSolidGray" x="65" y="46" width="1" height="1" source="./textures/#common.png"/>
-         </Container>
-         <Container name="addServer_button" x="533" y="8" width="121" height="29">
-            <Container name="bg" x="0" y="0" width="121" height="29">
-               <Frame name="buttonBackgroud" x="21" y="281" width="121" height="29" source="./textures/#common.png"/>
-            </Container>
-            <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Server" font="font3" paint="paint6" alignment="center"/>
-            <Guise name="disabled">
-               <Container name="bg" x="0" y="0" width="121" height="29">
-                  <Frame name="buttonBackgroud" x="142" y="46" width="121" height="29" source="./textures/#common.png"/>
-               </Container>
-               <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Server" font="font3" paint="paint7" alignment="center"/>
-            </Guise>
-            <Guise name="down">
-               <Container name="bg" x="0" y="0" width="121" height="29">
-                  <Frame name="buttonBackgroud" x="263" y="46" width="121" height="29" source="./textures/#common.png"/>
-               </Container>
-               <Text name="title_label" x="2" y="7" width="117" height="17" text="Add Server" font="font3" paint="paint6" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="minimize_button" x="711" y="12" width="16" height="18">
-            <Frame name="minimizeIcon" x="49" y="75" width="16" height="18" source="./textures/#common.png"/>
-            <Guise name="active">
-               <Frame name="minimizeIcon" x="263" y="145" width="16" height="18" source="./textures/#common.png"/>
-            </Guise>
-         </Container>
-         <Container name="light_simple" x="673" y="8" class="Indicator">
-            <Frame name="Indicator" x="26" y="174" width="23" height="24" source="./textures/#common.png"/>
-         </Container>
-         <Container name="textShape" x="20" y="16" width="66" height="15">
-            <Frame name="textShape" x="727" y="147" width="66" height="15" source="./textures/Servers.png"/>
-         </Container>
-      </Container>
-   </Class>
-
-   <Class name="Client" width="170" height="0">
-      <Container name="content_group" x="0" y="0" width="182" height="170">
-         <Container name="chart" x="1" y="86" width="163" height="84">
-            <Container name="info" x="0" y="0" width="163" height="84">
-               <Text name="messages_label" x="47" y="0" width="116" height="18" text="2245/0" font="font1" paint="paint2" alignment="left"/>
-               <Text name="dataSpeedBottom_label" x="0" y="66" width="32" height="18" text="30" font="font1" paint="paint5" alignment="right"/>
-               <Text name="dataSpeedTop_label" x="0" y="17" width="32" height="18" text="60" font="font1" paint="paint5" alignment="right"/>
-            </Container>
-            <Container name="chartGraphics" x="35" y="19" width="118" height="58">
-               <Frame name="chartFront" x="167" y="52" width="118" height="58" source="./textures/Client.png"/>
-            </Container>
-         </Container>
-         <Container name="icon" x="6" y="29" width="33" height="31">
-            <Frame name="desktop" x="436" y="31" width="33" height="31" source="./textures/Client.png"/>
-            <Frame name="html5" x="436" y="62" width="33" height="31" source="./textures/Client.png"/>
-            <Frame name="ipad" x="436" y="93" width="33" height="31" source="./textures/Client.png"/>
-            <Frame name="ipod" x="436" y="124" width="33" height="31" source="./textures/Client.png"/>
-         </Container>
-         <Container name="bottomButtonsGroup" x="5" y="251" width="167" height="59" visible="false">
-            <Container name="clientButtonBackgroundBox" x="0" y="0" width="167" height="59">
-               <Frame name="clientButtonBoxBackground" x="0" y="52" width="167" height="59" source="./textures/Client.png"/>
-            </Container>
-            <Container name="rx_button" x="16" y="6" width="33" height="42">
-               <Frame name="bg" x="403" y="0" width="33" height="42" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="403" y="42" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="403" y="84" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="285" y="90" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-            <Container name="tx_button" x="67" y="6" width="32" height="42">
-               <Frame name="bg" x="332" y="90" width="32" height="42" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="364" y="90" width="32" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="167" y="110" width="32" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="199" y="110" width="32" height="42" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-            <Container name="echo_button" x="118" y="6" width="33" height="42">
-               <Frame name="bg" x="231" y="110" width="33" height="42" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="0" y="111" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="33" y="111" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="66" y="111" width="33" height="42" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-         </Container>
-         <Container name="topButtons_group" x="5" y="103" width="168" height="52" visible="false">
-            <Container name="backgroundBox" x="0" y="0" width="168" height="52">
-               <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/Client.png"/>
-            </Container>
-            <Container name="reset_button" x="121" y="11" width="34" height="31">
-               <Frame name="bg" x="99" y="111" width="34" height="31" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="133" y="111" width="34" height="31" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="396" y="126" width="34" height="31" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="436" y="0" width="34" height="31" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-            <Container name="boot_button" x="62" y="10" width="47" height="32">
-               <Frame name="bg" x="168" y="0" width="47" height="32" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="285" y="58" width="47" height="32" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="215" y="0" width="47" height="32" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="332" y="58" width="47" height="32" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-            <Container name="ban_button" x="16" y="11" width="31" height="30">
-               <Frame name="bg" x="470" y="0" width="31" height="30" source="./textures/Client.png"/>
-               <Guise name="disabled">
-                  <Frame name="bg" x="470" y="30" width="31" height="30" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="bg" x="470" y="60" width="31" height="30" source="./textures/Client.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="bg" x="470" y="90" width="31" height="30" source="./textures/Client.png"/>
-               </Guise>
-            </Container>
-         </Container>
-         <Container name="pin_button" x="1" y="21" width="20" height="19" visible="false">
-            <Frame name="clip" x="168" y="32" width="20" height="19" source="./textures/Client.png"/>
-            <Guise name="active">
-               <Frame name="clip" x="262" y="0" width="20" height="19" source="./textures/Client.png"/>
-            </Guise>
-         </Container>
-         <Container name="info" x="47" y="44" width="135" height="43">
-            <Text name="time_label" x="1" y="25" width="79" height="18" text="88:88:88" font="font1" paint="paint2" alignment="left"/>
-            <Text name="ip_label" x="1" y="25" width="127" height="18" text="888.888.888.888" font="font1" paint="paint2" alignment="left" visible="false"/>
-            <Text name="interface_label" x="1" y="1" width="106" height="21" text="JSON STR" font="font2" paint="paint3" alignment="left" visible="false"/>
-            <Text name="clientName_label" x="0" y="0" width="135" height="21" text="IPad Application " font="font2" paint="paint4" alignment="left"/>
-         </Container>
-         <Container name="light_simple" x="14" y="73" class="Indicator"/>
-      </Container>
-      
       <Guise name="advanced">
-         <Container name="content_group" x="0" y="0" width="182" height="336">
-            <Container name="chart" x="1" y="161" width="163" height="84">
-               <Container name="info" x="0" y="0" width="163" height="84">
-                  <Text name="messages_label" x="47" y="0" width="116" height="18" text="2245/0" font="font1" paint="paint2" alignment="left"/>
-                  <Text name="dataSpeedBottom_label" x="0" y="66" width="32" height="18" text="30" font="font1" paint="paint5" alignment="right"/>
-                  <Text name="dataSpeedTop_label" x="0" y="17" width="32" height="18" text="60" font="font1" paint="paint5" alignment="right"/>
-               </Container>
-               <Container name="chartGraphics" x="35" y="19" width="118" height="58">
-                  <Frame name="chartFront" x="285" y="0" width="118" height="58" source="./textures/Client.png"/>
-               </Container>
+         <Container name="content_group" x="0" y="0" width="170" height="300">
+            <Container name="chart" x="-1" y="66" class="SmallChart"/>
+            <Container name="icon" x="9" y="16" width="28" height="26">
+               <Frame name="desktop" x="371" y="108" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="html5" x="409" y="0" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="cloud" x="409" y="26" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="server" x="409" y="52" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="default" x="409" y="78" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="unknown" x="409" y="104" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="ipad" x="409" y="130" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="ipod" x="371" y="134" width="28" height="26" source="./textures/Client.png"/>
+               <Frame name="cloudup" x="152" y="135" width="28" height="26" source="./textures/Client.png"/>
             </Container>
-            <Container name="icon" x="6" y="29" width="33" height="31">
-               <Frame name="desktop" x="436" y="31" width="33" height="31" source="./textures/Client.png"/>
-               <Frame name="html5" x="436" y="62" width="33" height="31" source="./textures/Client.png"/>
-               <Frame name="ipad" x="436" y="93" width="33" height="31" source="./textures/Client.png"/>
-               <Frame name="ipod" x="436" y="124" width="33" height="31" source="./textures/Client.png"/>
-            </Container>
-            <Container name="bottomButtonsGroup" x="5" y="251" width="167" height="59">
-               <Container name="clientButtonBackgroundBox" x="0" y="0" width="167" height="59">
-                  <Frame name="clientButtonBoxBackground" x="0" y="52" width="167" height="59" source="./textures/Client.png"/>
+            <Container name="bottomButtonsGroup" x="4" y="231" width="162" height="58">
+               <Container name="clientButtonBackgroundBox" x="0" y="0" width="162" height="58">
+                  <Frame name="clientButtonBoxBackground" x="0" y="0" width="162" height="58" source="./textures/Client.png"/>
                </Container>
-               <Container name="rx_button" x="16" y="6" width="33" height="42">
-                  <Frame name="bg" x="403" y="0" width="33" height="42" source="./textures/Client.png"/>
+               <Container name="rx_button" x="13" y="3" width="39" height="48">
+                  <Container name="bg" x="1" y="0" width="38" height="47">
+                     <Frame name="rx" x="254" y="48" width="38" height="47" source="./textures/Client.png"/>
+                  </Container>
                   <Guise name="disabled">
-                     <Frame name="bg" x="403" y="42" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="0" y="0" width="39" height="48">
+                        <Frame name="rx" x="215" y="0" width="39" height="48" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="active">
-                     <Frame name="bg" x="403" y="84" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="6" y="5" width="28" height="37">
+                        <Frame name="rx" x="124" y="109" width="28" height="37" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="down">
-                     <Frame name="bg" x="285" y="90" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="1" y="0" width="38" height="47">
+                        <Frame name="rx" x="254" y="95" width="38" height="47" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                </Container>
-               <Container name="tx_button" x="67" y="6" width="32" height="42">
-                  <Frame name="bg" x="332" y="90" width="32" height="42" source="./textures/Client.png"/>
+               <Container name="tx_button" x="63" y="2" width="40" height="49">
+                  <Container name="bg" x="1" y="1" width="38" height="48">
+                     <Frame name="tx" x="215" y="48" width="38" height="48" source="./textures/Client.png"/>
+                  </Container>
                   <Guise name="disabled">
-                     <Frame name="bg" x="364" y="90" width="32" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="0" y="0" width="40" height="49">
+                        <Frame name="tx" x="214" y="97" width="40" height="49" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="active">
-                     <Frame name="bg" x="167" y="110" width="32" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="6" y="6" width="28" height="38">
+                        <Frame name="tx" x="331" y="37" width="28" height="38" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="down">
-                     <Frame name="bg" x="199" y="110" width="32" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="1" y="1" width="38" height="48">
+                        <Frame name="tx" x="254" y="0" width="38" height="48" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                </Container>
-               <Container name="echo_button" x="118" y="6" width="33" height="42">
-                  <Frame name="bg" x="231" y="110" width="33" height="42" source="./textures/Client.png"/>
+               <Container name="echo_button" x="115" y="3" width="39" height="48">
+                  <Container name="bg" x="0" y="0" width="39" height="48">
+                     <Frame name="echo" x="292" y="0" width="39" height="48" source="./textures/Client.png"/>
+                  </Container>
                   <Guise name="disabled">
-                     <Frame name="bg" x="0" y="111" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="0" y="0" width="39" height="48">
+                        <Frame name="echo" x="292" y="48" width="39" height="48" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="active">
-                     <Frame name="bg" x="33" y="111" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="5" y="5" width="29" height="38">
+                        <Frame name="echo" x="331" y="75" width="29" height="38" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                   <Guise name="down">
-                     <Frame name="bg" x="66" y="111" width="33" height="42" source="./textures/Client.png"/>
+                     <Container name="bg" x="0" y="0" width="39" height="48">
+                        <Frame name="echo" x="292" y="96" width="39" height="48" source="./textures/Client.png"/>
+                     </Container>
                   </Guise>
                </Container>
             </Container>
-            <Container name="topButtons_group" x="5" y="103" width="168" height="52">
+            <Container name="topButtons_group" x="4" y="83" width="161" height="51">
+               <Container name="backgroundBox" x="0" y="0" width="161" height="51">
+                  <Frame name="btnBack" x="0" y="58" width="161" height="51" source="./textures/Client.png"/>
+               </Container>
+               <Container name="reset_button" x="112" y="8" width="41" height="37">
+                  <Container name="bg" x="1" y="0" width="40" height="37">
+                     <Frame name="reset" x="84" y="109" width="40" height="37" source="./textures/Client.png"/>
+                  </Container>
+                  <Guise name="disabled">
+                     <Container name="bg" x="0" y="0" width="41" height="37">
+                        <Frame name="reset" x="43" y="109" width="41" height="37" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="active">
+                     <Container name="bg" x="6" y="5" width="30" height="27">
+                        <Frame name="reset" x="331" y="113" width="30" height="27" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="down">
+                     <Container name="bg" x="1" y="0" width="40" height="37">
+                        <Frame name="reset" x="331" y="0" width="40" height="37" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+               </Container>
+               <Container name="boot_button" x="53" y="7" width="54" height="39">
+                  <Container name="bg" x="0" y="0" width="53" height="38">
+                     <Frame name="boot" x="162" y="0" width="53" height="38" source="./textures/Client.png"/>
+                  </Container>
+                  <Guise name="disabled">
+                     <Container name="bg" x="0" y="0" width="54" height="39">
+                        <Frame name="boot" x="161" y="58" width="54" height="39" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="active">
+                     <Container name="bg" x="5" y="5" width="43" height="28">
+                        <Frame name="boot" x="0" y="109" width="43" height="28" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="down">
+                     <Container name="bg" x="0" y="0" width="53" height="38">
+                        <Frame name="boot" x="161" y="97" width="53" height="38" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+               </Container>
+               <Container name="ban_button" x="7" y="8" width="38" height="36">
+                  <Container name="bg" x="1" y="0" width="37" height="36">
+                     <Frame name="ban" x="371" y="36" width="37" height="36" source="./textures/Client.png"/>
+                  </Container>
+                  <Guise name="disabled">
+                     <Container name="bg" x="0" y="0" width="38" height="36">
+                        <Frame name="ban" x="371" y="0" width="38" height="36" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="active">
+                     <Container name="bg" x="6" y="5" width="27" height="26">
+                        <Frame name="ban" x="180" y="135" width="27" height="26" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+                  <Guise name="down">
+                     <Container name="bg" x="1" y="0" width="37" height="36">
+                        <Frame name="ban" x="371" y="72" width="37" height="36" source="./textures/Client.png"/>
+                     </Container>
+                  </Guise>
+               </Container>
+            </Container>
+            <Container name="pin_button" x="1" y="8" width="20" height="19">
+               <Frame name="clip" x="135" y="29" width="20" height="19" source="./textures/#common.png"/>
+               <Guise name="active">
+                  <Frame name="clip" x="155" y="29" width="20" height="19" source="./textures/#common.png"/>
+               </Guise>
+            </Container>
+            <Container name="info" x="47" y="11" width="124" height="73">
+               <Text name="time_label" x="0" y="57" width="99" height="16" text="88:88:88" font="font5" paint="paint6" alignment="left"/>
+               <Text name="ip_label" x="0" y="40" width="124" height="16" text="888.888.888.888" font="font5" paint="paint6" alignment="left"/>
+               <Text name="interface_label" x="0" y="17" width="106" height="18" text="JSON STR" font="font5" paint="paint5" alignment="left"/>
+               <Text name="clientName_label" x="0" y="0" width="123" height="18" text="IPad Application " font="font5" paint="paint6" alignment="left"/>
+            </Container>
+            <Container name="light_simple" x="11" y="51" class="Indicator"/>
+         </Container>
+      </Guise>
+   </Class>
+
+   <Class name="ServerInterface" width="179" height="158">
+      <Container name="content_group" x="0" y="1" width="178" height="134">
+         <Container name="light_simple" x="11" y="51" class="Indicator"/>
+         <Container name="top_buttonsGroup" x="3" y="82" width="168" height="52" visible="false">
+            <Container name="backgroundBox" x="0" y="0" width="168" height="52">
+               <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/ServerInterface.png"/>
+            </Container>
+            <Container name="remove_button" x="110" y="12" width="27" height="28">
+               <Frame name="remove" x="168" y="0" width="27" height="28" source="./textures/ServerInterface.png"/>
+               <Guise name="disabled">
+                  <Frame name="remove" x="168" y="28" width="27" height="28" source="./textures/ServerInterface.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="remove" x="0" y="52" width="27" height="28" source="./textures/ServerInterface.png"/>
+               </Guise>
+               <Guise name="down">
+                  <Frame name="remove" x="27" y="52" width="27" height="28" source="./textures/ServerInterface.png"/>
+               </Guise>
+            </Container>
+            <Container name="power_button" x="40" y="13" width="27" height="27">
+               <Frame name="power" x="72" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
+               <Guise name="disabled">
+                  <Frame name="power" x="99" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
+               </Guise>
+               <Guise name="active">
+                  <Frame name="power" x="126" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
+               </Guise>
+               <Guise name="down">
+                  <Frame name="power" x="153" y="56" width="27" height="27" source="./textures/ServerInterface.png"/>
+               </Guise>
+            </Container>
+         </Container>
+         <Container name="pin_button" x="2" y="0" width="20" height="19" visible="false">
+            <Frame name="clip" x="135" y="29" width="20" height="19" source="./textures/#common.png"/>
+            <Guise name="active">
+               <Frame name="clip" x="155" y="29" width="20" height="19" source="./textures/#common.png"/>
+            </Guise>
+         </Container>
+         <Container name="icon" x="13" y="10" width="18" height="28">
+            <Frame name="interface" x="54" y="52" width="18" height="28" source="./textures/ServerInterface.png"/>
+         </Container>
+         <Container name="info_group" x="45" y="27" width="127" height="55">
+            <Text name="title_label" x="1" y="0" width="106" height="18" text="JSON STR" font="font3" paint="paint5" alignment="left"/>
+            <Text name="clients_label" x="1" y="39" width="79" height="16" text="88:88:88" font="font4" paint="paint4" alignment="left"/>
+            <Text name="port_label" x="0" y="23" width="127" height="16" text="888.888.888.888" font="font4" paint="paint4" alignment="left"/>
+            <Text name="ip_label" x="0" y="23" width="127" height="16" text="888.888.888.888" font="font4" paint="paint4" alignment="left" visible="false"/>
+         </Container>
+      </Container>
+      <Guise name="advanced">
+         <Container name="content_group" x="1" y="0" width="178" height="158">
+            <Container name="icon" x="12" y="11" width="18" height="28">
+               <Frame name="interface" x="54" y="52" width="18" height="28" source="./textures/ServerInterface.png"/>
+            </Container>
+            <Container name="top_buttonsGroup" x="2" y="83" width="168" height="52">
                <Container name="backgroundBox" x="0" y="0" width="168" height="52">
-                  <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/Client.png"/>
+                  <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/ServerInterface.png"/>
                </Container>
-               <Container name="reset_button" x="121" y="11" width="34" height="31">
-                  <Frame name="bg" x="99" y="111" width="34" height="31" source="./textures/Client.png"/>
+               <Container name="remove_button" x="110" y="12" width="27" height="28">
+                  <Frame name="remove" x="168" y="0" width="27" height="28" source="./textures/ServerInterface.png"/>
                   <Guise name="disabled">
-                     <Frame name="bg" x="133" y="111" width="34" height="31" source="./textures/Client.png"/>
+                     <Frame name="remove" x="168" y="28" width="27" height="28" source="./textures/ServerInterface.png"/>
                   </Guise>
                   <Guise name="active">
-                     <Frame name="bg" x="396" y="126" width="34" height="31" source="./textures/Client.png"/>
+                     <Frame name="remove" x="0" y="52" width="27" height="28" source="./textures/ServerInterface.png"/>
                   </Guise>
                   <Guise name="down">
-                     <Frame name="bg" x="436" y="0" width="34" height="31" source="./textures/Client.png"/>
+                     <Frame name="remove" x="27" y="52" width="27" height="28" source="./textures/ServerInterface.png"/>
                   </Guise>
                </Container>
-               <Container name="boot_button" x="62" y="10" width="47" height="32">
-                  <Frame name="bg" x="168" y="0" width="47" height="32" source="./textures/Client.png"/>
+               <Container name="power_button" x="40" y="13" width="27" height="27">
+                  <Frame name="power" x="72" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
                   <Guise name="disabled">
-                     <Frame name="bg" x="285" y="58" width="47" height="32" source="./textures/Client.png"/>
+                     <Frame name="power" x="99" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
                   </Guise>
                   <Guise name="active">
-                     <Frame name="bg" x="215" y="0" width="47" height="32" source="./textures/Client.png"/>
+                     <Frame name="power" x="126" y="52" width="27" height="27" source="./textures/ServerInterface.png"/>
                   </Guise>
                   <Guise name="down">
-                     <Frame name="bg" x="332" y="58" width="47" height="32" source="./textures/Client.png"/>
-                  </Guise>
-               </Container>
-               <Container name="ban_button" x="16" y="11" width="31" height="30">
-                  <Frame name="bg" x="470" y="0" width="31" height="30" source="./textures/Client.png"/>
-                  <Guise name="disabled">
-                     <Frame name="bg" x="470" y="30" width="31" height="30" source="./textures/Client.png"/>
-                  </Guise>
-                  <Guise name="active">
-                     <Frame name="bg" x="470" y="60" width="31" height="30" source="./textures/Client.png"/>
-                  </Guise>
-                  <Guise name="down">
-                     <Frame name="bg" x="470" y="90" width="31" height="30" source="./textures/Client.png"/>
+                     <Frame name="power" x="153" y="56" width="27" height="27" source="./textures/ServerInterface.png"/>
                   </Guise>
                </Container>
             </Container>
-            <Container name="pin_button" x="1" y="21" width="20" height="19">
-               <Frame name="clip" x="168" y="32" width="20" height="19" source="./textures/Client.png"/>
+            <Container name="pin_button" x="1" y="1" width="20" height="19">
+               <Frame name="clip" x="135" y="29" width="20" height="19" source="./textures/#common.png"/>
                <Guise name="active">
-                  <Frame name="clip" x="262" y="0" width="20" height="19" source="./textures/Client.png"/>
+                  <Frame name="clip" x="155" y="29" width="20" height="19" source="./textures/#common.png"/>
                </Guise>
             </Container>
-            <Container name="info" x="47" y="24" width="135" height="80">
-               <Text name="time_label" x="1" y="62" width="79" height="18" text="88:88:88" font="font1" paint="paint2" alignment="left"/>
-               <Text name="ip_label" x="1" y="45" width="127" height="18" text="888.888.888.888" font="font1" paint="paint2" alignment="left"/>
-               <Text name="interface_label" x="1" y="21" width="106" height="21" text="JSON STR" font="font2" paint="paint3" alignment="left"/>
-               <Text name="clientName_label" x="0" y="0" width="135" height="21" text="IPad Application " font="font2" paint="paint4" alignment="left"/>
+            <Container name="light_simple" x="10" y="52" class="Indicator"/>
+            <Container name="info_group" x="44" y="7" width="129" height="76">
+               <Text name="title_label" x="2" y="0" width="106" height="18" text="JSON STR" font="font3" paint="paint5" alignment="left"/>
+               <Text name="clients_label" x="2" y="60" width="79" height="16" text="88:88:88" font="font4" paint="paint4" alignment="left"/>
+               <Text name="port_label" x="2" y="22" width="127" height="16" text="3304" font="font4" paint="paint4" alignment="left"/>
+               <Text name="ip_label" x="0" y="44" width="127" height="16" text="888.888.888.888" font="font4" paint="paint4" alignment="left"/>
             </Container>
-            <Container name="light_simple" x="14" y="73" class="Indicator"/>
-         </Container>
-         
-      </Guise>
-   </Class>
-
-   <Class name="Server" width="180" height="160">
-      <Container name="icon" x="12" y="19" width="24" height="36" visible="false">
-         <Frame name="interface" x="168" y="0" width="24" height="36" source="./textures/Server.png"/>
-      </Container>
-      <Container name="top_buttonsGroup" x="5" y="96" width="168" height="52" visible="false">
-         <Container name="backgroundBox" x="0" y="0" width="168" height="52">
-            <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/Server.png"/>
-         </Container>
-         <Container name="remove_button" x="102" y="12" width="27" height="28">
-            <Frame name="remove" x="168" y="36" width="27" height="28" source="./textures/Server.png"/>
-            <Guise name="disabled">
-               <Frame name="remove" x="195" y="0" width="27" height="28" source="./textures/Server.png"/>
-            </Guise>
-            <Guise name="active">
-               <Frame name="remove" x="195" y="28" width="27" height="28" source="./textures/Server.png"/>
-            </Guise>
-            <Guise name="down">
-               <Frame name="remove" x="0" y="52" width="27" height="28" source="./textures/Server.png"/>
-            </Guise>
-         </Container>
-         <Container name="power_button" x="32" y="14" width="27" height="27">
-            <Frame name="power" x="27" y="52" width="27" height="27" source="./textures/Server.png"/>
-            <Guise name="disabled">
-               <Frame name="power" x="54" y="52" width="27" height="27" source="./textures/Server.png"/>
-            </Guise>
-            <Guise name="active">
-               <Frame name="power" x="81" y="52" width="27" height="27" source="./textures/Server.png"/>
-            </Guise>
-            <Guise name="down">
-               <Frame name="power" x="108" y="52" width="27" height="27" source="./textures/Server.png"/>
-            </Guise>
-         </Container>
-      </Container>
-      <Container name="pinToggle_button" x="1" y="14" width="20" height="19" visible="false">
-         <Frame name="clip" x="195" y="56" width="20" height="19" source="./textures/Server.png"/>
-         <Guise name="active">
-            <Frame name="clip" x="135" y="52" width="20" height="19" source="./textures/Server.png"/>
-         </Guise>
-      </Container>
-      <Container name="light_simple" x="16" y="71" class="Indicator">
-         <Container name="ok" x="0" y="0" width="15" height="14">
-            <Frame name="connectionLight" x="155" y="64" width="15" height="14" source="./textures/Server.png"/>
-         </Container>
-         <Container name="alert" x="0" y="0" width="15" height="14">
-            <Frame name="connectionLight" x="170" y="64" width="15" height="14" source="./textures/Server.png"/>
-         </Container>
-         <Container name="warning" x="0" y="0" width="15" height="14">
-            <Frame name="connectionLight" x="222" y="0" width="15" height="14" source="./textures/Server.png"/>
-         </Container>
-      </Container>
-      <Container name="thumbSimple" x="12" y="19" width="24" height="36">
-         <Frame name="interface" x="168" y="0" width="24" height="36" source="./textures/Server.png"/>
-      </Container>
-      <Container name="info_group" x="47" y="26" width="127" height="71">
-         <Text name="interface_label" x="0" y="0" width="106" height="21" text="JSON STR" font="font2" paint="paint3" alignment="left"/>
-         <Text name="time_label" x="0" y="53" width="79" height="18" text="88:88:88" font="font1" paint="paint2" alignment="left"/>
-         <Text name="port_label" x="0" y="17" width="127" height="18" text="3304" font="font1" paint="paint2" alignment="left"/>
-         <Text name="ip_label" x="0" y="39" width="127" height="18" text="888.888.888.888" font="font1" paint="paint2" alignment="left"/>
-      </Container>
-      <Guise name="advanced">
-         <Container name="icon" x="12" y="19" width="24" height="36">
-            <Frame name="interface" x="168" y="0" width="24" height="36" source="./textures/Server.png"/>
-         </Container>
-         <Container name="top_buttonsGroup" x="5" y="96" width="168" height="52">
-            <Container name="backgroundBox" x="0" y="0" width="168" height="52">
-               <Frame name="btnBack" x="0" y="0" width="168" height="52" source="./textures/Server.png"/>
-            </Container>
-            <Container name="remove_button" x="102" y="12" width="27" height="28">
-               <Frame name="remove" x="168" y="36" width="27" height="28" source="./textures/Server.png"/>
-               <Guise name="disabled">
-                  <Frame name="remove" x="195" y="0" width="27" height="28" source="./textures/Server.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="remove" x="195" y="28" width="27" height="28" source="./textures/Server.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="remove" x="0" y="52" width="27" height="28" source="./textures/Server.png"/>
-               </Guise>
-            </Container>
-            <Container name="power_button" x="32" y="14" width="27" height="27">
-               <Frame name="power" x="27" y="52" width="27" height="27" source="./textures/Server.png"/>
-               <Guise name="disabled">
-                  <Frame name="power" x="54" y="52" width="27" height="27" source="./textures/Server.png"/>
-               </Guise>
-               <Guise name="active">
-                  <Frame name="power" x="81" y="52" width="27" height="27" source="./textures/Server.png"/>
-               </Guise>
-               <Guise name="down">
-                  <Frame name="power" x="108" y="52" width="27" height="27" source="./textures/Server.png"/>
-               </Guise>
-            </Container>
-         </Container>
-         <Container name="pinToggle_button" x="1" y="14" width="20" height="19">
-            <Frame name="clip" x="195" y="56" width="20" height="19" source="./textures/Server.png"/>
-            <Guise name="active">
-               <Frame name="clip" x="135" y="52" width="20" height="19" source="./textures/Server.png"/>
-            </Guise>
-         </Container>
-         <Container name="light_simple" x="16" y="71" class="Indicator">
-            <Container name="ok" x="0" y="0" width="15" height="14">
-               <Frame name="connectionLight" x="155" y="64" width="15" height="14" source="./textures/Server.png"/>
-            </Container>
-            <Container name="alert" x="0" y="0" width="15" height="14">
-               <Frame name="connectionLight" x="170" y="64" width="15" height="14" source="./textures/Server.png"/>
-            </Container>
-            <Container name="warning" x="0" y="0" width="15" height="14">
-               <Frame name="connectionLight" x="222" y="0" width="15" height="14" source="./textures/Server.png"/>
-            </Container>
-         </Container>
-         <Container name="thumbSimple" x="12" y="19" width="24" height="36">
-            <Frame name="interface" x="168" y="0" width="24" height="36" source="./textures/Server.png"/>
-         </Container>
-         <Container name="info_group" x="47" y="26" width="127" height="71">
-            <Text name="interface_label" x="0" y="0" width="106" height="21" text="JSON STR" font="font2" paint="paint3" alignment="left"/>
-            <Text name="time_label" x="0" y="53" width="79" height="18" text="88:88:88" font="font1" paint="paint2" alignment="left"/>
-            <Text name="port_label" x="0" y="17" width="127" height="18" text="3304" font="font1" paint="paint2" alignment="left"/>
-            <Text name="ip_label" x="0" y="39" width="127" height="18" text="888.888.888.888" font="font1" paint="paint2" alignment="left"/>
          </Container>
       </Guise>
    </Class>
 
-   <Class name="ClientGroupHeader" width="705" height="46">
-      <Container name="headerBackground" x="0" y="0" width="705" height="46">
-         <Frame name="bgSolidGray" x="0" y="0" width="705" height="46" source="./textures/#common.png"/>
+   <Class name="SmallChart" width="163" height="83">
+      <Container name="bg" x="44" y="18" width="115" height="58">
+         <Frame name="bg" x="0" y="0" width="115" height="58" source="./textures/SmallChart.png"/>
       </Container>
-      <Container name="minimize_button" x="655" y="16" width="17" height="18">
-         <Frame name="minimizeIcon" x="26" y="198" width="17" height="18" source="./textures/#common.png"/>
-         <Guise name="active">
-            <Frame name="minimizeIcon" x="402" y="75" width="17" height="18" source="./textures/#common.png"/>
-         </Guise>
+      <Container name="info_group" x="0" y="0" width="163" height="83">
+         <Text name="messages_label" x="47" y="0" width="116" height="16" text="88:88:88" font="font4" paint="paint4" alignment="left"/>
+         <Text name="bottom_label" x="0" y="67" width="32" height="16" text="30" font="font4" paint="paint3" alignment="right"/>
+         <Text name="top_label" x="0" y="18" width="32" height="16" text="60" font="font4" paint="paint3" alignment="right"/>
       </Container>
-      <Container name="light_simple" x="625" y="12" class="Indicator"/>
-      <Container name="textShape" x="44" y="19" width="52" height="14">
-         <Frame name="textShape" x="0" y="0" width="52" height="14" source="./textures/ClientGroupHeader.png"/>
-      </Container>
-   </Class>
-
-   <Class name="ServerGroupHeader" width="705" height="46">
-      <Container name="headerBackground" x="0" y="0" width="705" height="46">
-         <Frame name="bgSolidGray" x="0" y="0" width="705" height="46" source="./textures/#common.png"/>
-      </Container>
-      <Container name="minimize_button" x="655" y="16" width="17" height="18">
-         <Frame name="minimizeIcon" x="26" y="198" width="17" height="18" source="./textures/#common.png"/>
-         <Guise name="active">
-            <Frame name="minimizeIcon" x="402" y="75" width="17" height="18" source="./textures/#common.png"/>
-         </Guise>
-      </Container>
-      <Container name="controls_group" x="185" y="8" width="424" height="28">
-         <Container name="disconnectServer_button" x="0" y="0" width="141" height="28" visible="false">
-            <Container name="bg" x="0" y="0" width="139" height="28">
-               <Frame name="btnBack" x="0" y="0" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="2" y="8" width="139" height="17" text="Disconnect Server" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="137" height="26">
-                  <Frame name="btnBack" x="0" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="2" y="8" width="139" height="17" text="Disconnect Server" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="ipInput_button" x="1" y="0" width="140" height="28">
-            <Container name="bg" x="0" y="0" width="139" height="28">
-               <Frame name="btnBack" x="0" y="28" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="1" y="8" width="139" height="17" text="888.888.888.888" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="137" height="26">
-                  <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="888.888.888.888" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="addInterface_button" x="284" y="0" width="140" height="28" visible="false">
-            <Container name="bg" x="0" y="0" width="139" height="28">
-               <Frame name="btnBack" x="139" y="0" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="1" y="8" width="139" height="17" text="Add Interface" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="137" height="26">
-                  <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="Add Interface" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="portInput_button" x="142" y="0" width="70" height="28">
-            <Container name="bg" x="0" y="0" width="68" height="28">
-               <Frame name="btnBack" x="274" y="56" width="68" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="2" y="8" width="68" height="17" text="8888 Server" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="66" height="26">
-                  <Frame name="btnBack" x="342" y="28" width="66" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="2" y="8" width="68" height="17" text="8888 Server" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="connect_button" x="213" y="0" width="69" height="28">
-            <Container name="bg" x="0" y="0" width="68" height="28">
-               <Frame name="btnBack" x="342" y="0" width="68" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="1" y="8" width="68" height="17" text="Connect" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="66" height="26">
-                  <Frame name="btnBack" x="342" y="54" width="66" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="68" height="17" text="Connect" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Container name="removeServer_button" x="284" y="0" width="140" height="28">
-            <Container name="bg" x="0" y="0" width="139" height="28">
-               <Frame name="btnBack" x="139" y="0" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-            </Container>
-            <Text name="button_label" x="1" y="8" width="139" height="17" text="Remove Server" font="font1" paint="paint1" alignment="center"/>
-            <Guise name="down">
-               <Container name="bg" x="1" y="1" width="137" height="26">
-                  <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="Remove Server" font="font1" paint="paint1" alignment="center"/>
-            </Guise>
-         </Container>
-         <Guise name="connected">
-            <Container name="disconnectServer_button" x="0" y="0" width="141" height="28">
-               <Container name="bg" x="0" y="0" width="139" height="28">
-                  <Frame name="btnBack" x="0" y="0" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="2" y="8" width="139" height="17" text="Disconnect Server" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="137" height="26">
-                     <Frame name="btnBack" x="0" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="2" y="8" width="139" height="17" text="Disconnect Server" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-            <Container name="ipInput_button" x="1" y="0" width="140" height="28">
-               <Container name="bg" x="0" y="0" width="139" height="28">
-                  <Frame name="btnBack" x="0" y="28" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="888.888.888.888" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="137" height="26">
-                     <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="1" y="8" width="139" height="17" text="888.888.888.888" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-            <Container name="removeServer_button" x="143" y="0" width="140" height="28">
-               <Container name="bg" x="0" y="0" width="139" height="28">
-                  <Frame name="btnBack" x="139" y="28" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="Remove Server" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="137" height="26">
-                     <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="1" y="8" width="139" height="17" text="Remove Server" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-            <Container name="portInput_button" x="142" y="0" width="70" height="28">
-               <Container name="bg" x="0" y="0" width="68" height="28">
-                  <Frame name="btnBack" x="274" y="56" width="68" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="2" y="8" width="68" height="17" text="8888 Server" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="66" height="26">
-                     <Frame name="btnBack" x="342" y="28" width="66" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="2" y="8" width="68" height="17" text="8888 Server" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-            <Container name="connect_button" x="213" y="0" width="69" height="28">
-               <Container name="bg" x="0" y="0" width="68" height="28">
-                  <Frame name="btnBack" x="342" y="0" width="68" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="68" height="17" text="Connect" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="66" height="26">
-                     <Frame name="btnBack" x="342" y="54" width="66" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="1" y="8" width="68" height="17" text="Connect" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-            <Container name="addInterface_button" x="284" y="0" width="140" height="28">
-               <Container name="bg" x="0" y="0" width="139" height="28">
-                  <Frame name="btnBack" x="139" y="0" width="139" height="28" source="./textures/ServerGroupHeader.png"/>
-               </Container>
-               <Text name="button_label" x="1" y="8" width="139" height="17" text="Add Interface" font="font1" paint="paint1" alignment="center"/>
-               <Guise name="down">
-                  <Container name="bg" x="1" y="1" width="137" height="26">
-                     <Frame name="btnBack" x="137" y="56" width="137" height="26" source="./textures/ServerGroupHeader.png"/>
-                  </Container>
-                  <Text name="button_label" x="1" y="8" width="139" height="17" text="Add Interface" font="font1" paint="paint1" alignment="center"/>
-               </Guise>
-            </Container>
-         </Guise>
-      </Container>
-      <Container name="light_simple" x="625" y="12" class="Indicator"/>
-      <Container name="textShape" x="44" y="19" width="59" height="13">
-         <Frame name="textShape" x="278" y="0" width="59" height="13" source="./textures/ServerGroupHeader.png"/>
-      </Container>
-      <Container name="icon" x="12" y="15" width="17" height="18">
-         <Frame name="localServer" x="278" y="13" width="17" height="18" source="./textures/ServerGroupHeader.png"/>
-         <Frame name="remoteServer" x="295" y="13" width="17" height="18" source="./textures/ServerGroupHeader.png"/>
+      <Container name="columns_group" x="44" y="18" width="115" height="58">
+         <Container name="column_0_simple" x="0" y="0" class="ChartColumn"/>
+         <Container name="column_1_simple" x="10" y="0" class="ChartColumn"/>
+         <Container name="column_2_simple" x="19" y="0" class="ChartColumn"/>
+         <Container name="column_3_simple" x="29" y="0" class="ChartColumn"/>
+         <Container name="column_4_simple" x="39" y="0" class="ChartColumn"/>
+         <Container name="column_5_simple" x="49" y="0" class="ChartColumn"/>
+         <Container name="column_6_simple" x="59" y="0" class="ChartColumn"/>
+         <Container name="column_7_simple" x="69" y="0" class="ChartColumn"/>
+         <Container name="column_8_simple" x="78" y="0" class="ChartColumn"/>
+         <Container name="column_9_simple" x="88" y="0" class="ChartColumn"/>
+         <Container name="column_10_simple" x="98" y="0" class="ChartColumn"/>
+         <Container name="column_11_simple" x="108" y="0" class="ChartColumn"/>
       </Container>
    </Class>
 
-   <Class name="SmallChart" width="0" height="0"/>
-
-   <Class name="HeaderChart" width="354" height="79"/>
-
-   <Class name="ScrollerVert" width="21" height="880">
-      <Container name="track" x="0" y="0" width="21" height="880">
-         <Frame name="bg" x="0" y="0" width="21" height="880" source="./textures/ScrollerVert.png"/>
+   <Class name="ScrollerVert" width="21" height="859">
+      <Container name="track" x="9" y="0" width="6" height="859">
+         <Frame name="bg" x="0" y="0" width="6" height="859" source="./textures/ScrollerVert.png"/>
       </Container>
-      <Container name="thumb_button" x="3" y="4" width="15" height="117">
-         <Frame name="thumbImg" x="0" y="880" width="15" height="117" source="./textures/ScrollerVert.png"/>
+      <Container name="thumb_button" x="0" y="0" width="21" height="95">
+         <Frame name="thumbImg" x="6" y="0" width="21" height="95" source="./textures/ScrollerVert.png"/>
          <Guise name="down">
-            <Frame name="thumbImg" x="15" y="880" width="15" height="117" source="./textures/ScrollerVert.png"/>
+            <Frame name="thumbImg" x="6" y="95" width="21" height="95" source="./textures/ScrollerVert.png"/>
          </Guise>
       </Container>
    </Class>
 
-   <Class name="SectionScroller" width="21" height="254">
-      <Container name="track" x="0" y="0" width="21" height="254">
-         <Container name="back" x="0" y="0" width="21" height="254">
-            <Frame name="trackbg" x="0" y="0" width="21" height="254" source="./textures/SectionScroller.png"/>
+   <Class name="SectionScroller" width="22" height="332">
+      <Container name="track_slice" x="8" y="0" width="6" height="332" scale="true">
+         <Container name="bottomRight" x="4" y="329" width="2" height="3">
+            <Frame name="default" x="0" y="95" width="2" height="3" source="./textures/SectionScroller.png"/>
          </Container>
-         <Container name="in" x="8" y="9" width="5" height="235">
-            <Frame name="inside" x="21" y="46" width="5" height="235" source="./textures/#common.png"/>
+         <Container name="bottom" x="2" y="329" width="2" height="3">
+            <Frame name="default" x="2" y="95" width="1" height="3" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="bottomLeft" x="0" y="329" width="2" height="3">
+            <Frame name="default" x="3" y="95" width="2" height="3" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="right" x="4" y="3" width="2" height="326">
+            <Frame name="default" x="10" y="95" width="2" height="1" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="middle" x="2" y="3" width="2" height="326">
+            <Frame name="default" x="10" y="96" width="1" height="1" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="left" x="0" y="3" width="2" height="326">
+            <Frame name="default" x="12" y="95" width="2" height="1" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="topRight" x="4" y="0" width="2" height="3">
+            <Frame name="default" x="5" y="95" width="2" height="3" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="top" x="2" y="0" width="2" height="3">
+            <Frame name="default" x="7" y="95" width="1" height="3" source="./textures/SectionScroller.png"/>
+         </Container>
+         <Container name="topLeft" x="0" y="0" width="2" height="3">
+            <Frame name="default" x="8" y="95" width="2" height="3" source="./textures/SectionScroller.png"/>
          </Container>
       </Container>
-      <Container name="thumb_button" x="1" y="1" width="18" height="99">
-         <Frame name="thumbImg" x="384" y="46" width="18" height="99" source="./textures/#common.png"/>
+      <Container name="thumb_button" x="0" y="0" width="22" height="95">
+         <Frame name="thumbImg" x="0" y="0" width="22" height="95" source="./textures/SectionScroller.png"/>
          <Guise name="down">
-            <Frame name="thumbImg" x="26" y="75" width="18" height="99" source="./textures/#common.png"/>
+            <Frame name="thumbImg" x="22" y="0" width="22" height="95" source="./textures/SectionScroller.png"/>
          </Guise>
       </Container>
    </Class>
 
-   <Class name="Indicator" width="23" height="24">
-      <Frame name="light" x="0" y="0" width="23" height="24" source="./textures/Indicator.png"/>
-      <Guise name="disabled">
-         <Frame name="light" x="23" y="0" width="23" height="24" source="./textures/Indicator.png"/>
-      </Guise>
+   <Class name="ClientGroup" width="768" height="303">
+      <Container name="content_collapsable" x="5" y="46" width="759" height="257">
+         <Container name="client_grid" x="13" y="0" width="728" height="251">
+            <Container name="item_vBox" x="0" y="0" class="Client"/>
+         </Container>
+      </Container>
+      <Container name="header_group" x="0" y="0" width="768" height="47">
+         <Container name="headerBackground" x="0" y="0" width="768" height="47">
+            <Frame name="bgSolidGray" x="0" y="0" width="768" height="47" source="./textures/ClientGroup.png"/>
+         </Container>
+         <Container name="minimize_button" x="9" y="6" width="135" height="33">
+            <Frame name="minimizeIcon" x="0" y="0" width="135" height="33" source="./textures/#common.png"/>
+            <Guise name="active">
+               <Frame name="minimizeIcon" x="0" y="33" width="135" height="33" source="./textures/#common.png"/>
+            </Guise>
+         </Container>
+         <Container name="light_simple" x="721" y="9" class="Indicator"/>
+         <Container name="clientIcon_simple" x="49" y="12" width="17" height="18">
+            <Frame name="client" x="768" y="0" width="17" height="18" source="./textures/ClientGroup.png"/>
+         </Container>
+         <Text name="text_label" x="74" y="15" width="318" height="19" text="Clients" font="font1" paint="paint1" alignment="left"/>
+      </Container>
+   </Class>
+
+   <Class name="ServerGroup" width="768" height="299">
+      <Container name="content_collapsable" x="0" y="47" width="768" height="252">
+         <Container name="content_grid" x="0" y="0" width="767" height="252">
+            <Container name="item_vBox" x="31" y="2" class="ServerInterface"/>
+         </Container>
+      </Container>
+      <Container name="header_group" x="0" y="0" width="768" height="47">
+         <Container name="headerBackground" x="0" y="0" width="768" height="47">
+            <Frame name="bgSolidGray" x="280" y="28" width="1" height="47" source="./textures/ServerGroup.png"/>
+         </Container>
+         <Container name="minimize_button" x="9" y="6" width="135" height="33">
+            <Frame name="minimizeIcon" x="0" y="0" width="135" height="33" source="./textures/#common.png"/>
+            <Guise name="active">
+               <Frame name="minimizeIcon" x="0" y="33" width="135" height="33" source="./textures/#common.png"/>
+            </Guise>
+         </Container>
+         <Container name="light_simple" x="721" y="9" class="Indicator"/>
+         <Container name="controls_group" x="258" y="9" width="447" height="34">
+            <Container name="disconnect_button" x="159" y="0" width="140" height="33">
+               <Container name="bg" x="0" y="0" width="140" height="28">
+                  <Frame name="btnBack" x="0" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+               </Container>
+               <Text name="button_label" x="1" y="9" width="139" height="23" text="Disconnect " font="font3" paint="paint2" alignment="center"/>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="140" height="28">
+                     <Frame name="btnBack" x="140" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="button_label" x="1" y="10" width="139" height="23" text="Disconnect " font="font3" paint="paint2" alignment="center"/>
+               </Guise>
+            </Container>
+            <Container name="connect_button" x="159" y="0" width="140" height="32">
+               <Container name="bg" x="0" y="0" width="140" height="28">
+                  <Frame name="btnBack" x="0" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+               </Container>
+               <Text name="button_label" x="1" y="7" width="139" height="23" text="Connect " font="font3" paint="paint2" alignment="center"/>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="140" height="28">
+                     <Frame name="btnBack" x="140" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="button_label" x="1" y="9" width="139" height="23" text="Connect " font="font3" paint="paint2" alignment="center"/>
+               </Guise>
+            </Container>
+            <Container name="addInterface_button" x="305" y="0" width="142" height="32">
+               <Container name="bg" x="0" y="0" width="140" height="28">
+                  <Frame name="btnBack" x="152" y="0" width="140" height="28" source="./textures/ServerGroup.png"/>
+               </Container>
+               <Text name="button_label" x="1" y="8" width="141" height="22" text="Add Interface" font="font3" paint="paint2" alignment="center"/>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="140" height="28">
+                     <Frame name="btnBack" x="140" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="button_label" x="2" y="10" width="139" height="22" text="Add Interface" font="font3" paint="paint2" alignment="center"/>
+               </Guise>
+            </Container>
+            <Container name="remove_button" x="305" y="0" width="141" height="31">
+               <Container name="bg" x="0" y="0" width="140" height="28">
+                  <Frame name="btnBack" x="152" y="0" width="140" height="28" source="./textures/ServerGroup.png"/>
+               </Container>
+               <Text name="button_label" x="0" y="7" width="141" height="22" text="Remove Server" font="font3" paint="paint2" alignment="center"/>
+               <Guise name="down">
+                  <Container name="bg" x="0" y="0" width="140" height="28">
+                     <Frame name="btnBack" x="140" y="28" width="140" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="button_label" x="1" y="9" width="139" height="22" text="Remove Server" font="font3" paint="paint2" alignment="center"/>
+               </Guise>
+            </Container>
+            <Container name="urlInput_editable" x="0" y="1" width="152" height="33">
+               <Container name="bg" x="0" y="0" width="152" height="28">
+                  <Frame name="btnBack" x="0" y="0" width="152" height="28" source="./textures/ServerGroup.png"/>
+               </Container>
+               <Text name="text" x="1" y="9" width="150" height="24" text="192.168.0.220:4400" font="font2" paint="paint2" alignment="center"/>
+               <Guise name="disabled">
+                  <Container name="bg" x="0" y="0" width="152" height="28">
+                     <Frame name="btnBack" x="0" y="0" width="152" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="text" x="1" y="9" width="151" height="23" text="192.168.0.220:4400" font="font2" paint="paint3" alignment="center"/>
+               </Guise>
+               <Guise name="editing">
+                  <Container name="bg" x="0" y="0" width="152" height="28">
+                     <Frame name="btnBack" x="0" y="0" width="152" height="28" source="./textures/ServerGroup.png"/>
+                  </Container>
+                  <Text name="text" x="1" y="9" width="150" height="24" text="192.168.0.220:4400" font="font2" paint="paint2" alignment="center"/>
+               </Guise>
+            </Container>
+         </Container>
+         <Text name="title_label" x="74" y="15" width="181" height="23" text="Remote" font="font1" paint="paint1" alignment="left"/>
+         <Container name="serverIcon_simple" x="49" y="13" width="17" height="17">
+            <Frame name="localServer" x="0" y="56" width="17" height="17" source="./textures/ServerGroup.png"/>
+            <Frame name="remoteServer" x="17" y="56" width="17" height="17" source="./textures/ServerGroup.png"/>
+         </Container>
+      </Container>
+   </Class>
+
+   <Class name="ChartColumn" width="7" height="58">
+      <Frame name="0" x="255" y="29" width="1" height="1" source="./textures/#common.png"/>
+      <Frame name="7" x="0" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="6" x="1" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="12" x="0" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="5" x="1" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="4" x="2" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="3" x="2" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="10" x="3" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="2" x="3" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="9" x="4" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="1" x="4" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="8" x="5" y="0" width="1" height="58" source="./textures/ChartColumn.png"/>
+      <Frame name="11" x="5" y="58" width="1" height="58" source="./textures/ChartColumn.png"/>
+   </Class>
+
+   <Class name="Indicator" width="25" height="25">
+      <Frame name="light" x="0" y="0" width="25" height="25" source="./textures/Indicator.png"/>
       <Guise name="active">
-         <Frame name="light" x="0" y="24" width="23" height="24" source="./textures/Indicator.png"/>
+         <Frame name="light" x="25" y="0" width="25" height="25" source="./textures/Indicator.png"/>
       </Guise>
+      <Guise name="disabled">
+         <Frame name="light" x="0" y="25" width="25" height="25" source="./textures/Indicator.png"/>
+      </Guise>
+   </Class>
+
+   <Class name="Icons" width="184" height="392">
+      <Frame name="warn" x="0" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="micOff" x="184" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="arrow" x="0" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="server" x="184" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="replyAll" x="368" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="idea" x="368" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="download" x="552" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="transfer" x="552" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="charts" x="736" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="reply" x="736" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="alert" x="920" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="magicians" x="920" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="chat" x="1104" y="0" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="upload" x="1104" y="392" width="184" height="392" source="./textures/Icons.png"/>
+      <Frame name="mic" x="1288" y="0" width="184" height="392" source="./textures/Icons.png"/>
    </Class>
 
 </Assets>

@@ -1,8 +1,9 @@
 <ntactic>
-   <viewport width="768" height="768" color="white" />
+   <viewport width="768" height="1024" color="white" />
    
-   <model id="default" initialBranch="Span" defaultDepth="3" historyLength="50">
-      <screen id="Span"/>  
+   <model id="default" initialBranch="ClientScreen" defaultDepth="3" historyLength="50">
+      <screen id="ClientScreen"/>  
+      <screen id="ServerScreen"/>
    </model>
  
    <model id="menu" initialBranch="Main" defaultDepth="2">

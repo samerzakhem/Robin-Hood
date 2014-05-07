@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/3.4">
   <id>com.nfuzion.nSpan</id>
-  <versionNumber>0.1.2</versionNumber>
+  <versionNumber>0.3.5</versionNumber>
   <filename>nSpan</filename>
   <name>nSpan</name>
   <initialWindow>
@@ -12,11 +12,10 @@
     <visible>true</visible>
     <minimizable>true</minimizable>
     <width>784</width>
-    <height>784</height>
-    <minSize>784 500</minSize>
-    <resizable>true</resizable>
+    <height>1128</height>
+    <minSize>784 234</minSize>
     <maximizable>false</maximizable>
-    <maxSize>784 1024</maxSize>
+    <maxSize>784 1128</maxSize>
   </initialWindow>
   <!-- 
 	More options:
@@ -28,5 +27,6 @@
     <image16x16>icon/icon16.png</image16x16>
     <image32x32>icon/icon32.png</image32x32>
     <image512x512>icon/icon512.png</image512x512>
+    <image72x72>icon/icon72.png</image72x72>
   </icon>
 </application>

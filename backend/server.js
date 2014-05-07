@@ -43,7 +43,8 @@ var HMI = new HMI({
 
 // DEBUG: Listen to any responses from the intent engine
 HMI.socket.on('message', function(msg) {
-  // console.log(">> [HMI] (%s)", new Date().getTime(), JSON.stringify(msg));
+  if(!msg.hasOwnProperty("debug.LetTrace"))
+    console.log(">> [HMI] (%s)", new Date().getTime(), JSON.stringify(msg));
 });
 
 //// [ INTENT ENGINE ] ////////////////////////////////////////////////////////
