@@ -25,15 +25,19 @@
       size="201.7" style="normal" weight="normal"
    />
    <Font
+      name="font5" source="./fonts/TitilliumWeb_ExtraLight.ttf"
+      size="51.2" style="normal" weight="normal"
+   />
+   <Font
       name="TitiliumWeb" source="./fonts/TitiliumWeb.ttf"
       size="34" style="normal" weight="normal"
    />
    <Font
-      name="font5" source="./fonts/TitilliumWeb_ExtraLight.ttf"
+      name="font6" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="118.1" style="normal" weight="normal"
    />
    <Font
-      name="font6" source="./fonts/TitilliumWeb_ExtraLight.ttf"
+      name="font7" source="./fonts/TitilliumWeb_ExtraLight.ttf"
       size="199.8" style="normal" weight="normal"
    />
 
@@ -45,133 +49,140 @@
    <Class name="Cluster" width="1888" height="638">
       <Container name="transmission" x="1004" y="426" width="285" height="212">
          <Container name="background" x="0" y="0" width="285" height="212">
-            <Frame name="bgImg" x="48" y="929" width="285" height="212" source="./textures/Cluster.png"/>
+            <Frame name="bgImg" x="232" y="305" width="285" height="212" source="./textures/Cluster.png"/>
          </Container>
          <Container name="prnd_simple" x="38" y="14" width="211" height="40">
-            <Frame name="drive" x="47" y="1141" width="211" height="40" source="./textures/Cluster.png"/>
-            <Frame name="park" x="641" y="758" width="211" height="40" source="./textures/Cluster.png"/>
-            <Frame name="reverse" x="704" y="258" width="211" height="40" source="./textures/Cluster.png"/>
-            <Frame name="neutral" x="356" y="712" width="211" height="40" source="./textures/Cluster.png"/>
+            <Frame name="drive" x="623" y="775" width="211" height="40" source="./textures/Cluster.png"/>
+            <Frame name="park" x="232" y="729" width="211" height="40" source="./textures/Cluster.png"/>
+            <Frame name="reverse" x="232" y="775" width="211" height="40" source="./textures/Cluster.png"/>
+            <Frame name="neutral" x="693" y="815" width="211" height="40" source="./textures/Cluster.png"/>
          </Container>
       </Container>
       <Container name="odometer" x="516" y="426" width="285" height="212">
          <Container name="odometerBg" x="0" y="0" width="285" height="212">
-            <Frame name="bgImg" x="356" y="500" width="285" height="212" source="./textures/Cluster.png"/>
+            <Frame name="bgImg" x="232" y="517" width="285" height="212" source="./textures/Cluster.png"/>
          </Container>
-         <Text name="odometer_label" x="23" y="0" width="223" height="70" text="233335Ø" font="font1" paint="paint1" alignment="right"/>
+         <Text name="odometer_label" x="0" y="14" width="246" height="55" text="86753Ø" font="font5" paint="paint1" alignment="right"/>
       </Container>
       <Container name="speedometer" x="707" y="0" width="391" height="305">
          <Container name="bg" x="0" y="0" width="391" height="305">
-            <Frame name="bgImg" x="354" y="914" width="391" height="305" source="./textures/Cluster.png"/>
+            <Frame name="bgImg" x="232" y="0" width="391" height="305" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="speed" x="8" y="44" width="377" height="207">
+         <Container name="speed" x="8" y="40" width="377" height="207">
             <Text name="speed_label" x="0" y="0" width="377" height="207" text="0" font="font4" paint="paint2" alignment="center"/>
          </Container>
-         <Text name="speedIncrement_label" x="47" y="233" width="292" height="64" text="mph" font="font1" paint="paint2" alignment="center"/>
+         <Text name="speedIncrement_label" x="47" y="232" width="292" height="64" text="mph" font="font1" paint="paint2" alignment="center"/>
       </Container>
       <Container name="tacticalNav_group" x="1185" y="9" width="703" height="500">
-         <Frame name="ticks" x="0" y="0" width="703" height="500" source="./textures/Cluster.png"/>
          <Container name="turnGroup" x="0" y="5" width="655" height="164">
-            <Text name="nextTurnStreetName_label" x="43" y="8" width="590" height="75" text="Van Dyke Ave" font="font3" paint="paint1" alignment="right"/>
+            <Text name="nextTurnStreetName_label" x="43" y="8" width="590" height="95" text="Van Dyke Ave" font="font3" paint="paint1" alignment="right"/>
             <Text name="turnDistance_label" x="16" y="82" width="616" height="82" text="2.6Ø" font="font2" paint="paint1" alignment="right"/>
          </Container>
          <Container name="directionArrows_simple" x="384" y="162" width="231" height="258">
-            <Frame name="bearRight" x="0" y="1219" width="231" height="258" source="./textures/Cluster.png"/>
-            <Frame name="uturn" x="231" y="1219" width="231" height="258" source="./textures/Cluster.png"/>
-            <Frame name="right" x="462" y="1219" width="231" height="258" source="./textures/Cluster.png"/>
-            <Frame name="forward" x="641" y="500" width="231" height="258" source="./textures/Cluster.png"/>
-            <Frame name="bearLeft" x="693" y="1219" width="231" height="258" source="./textures/Cluster.png"/>
-            <Frame name="left" x="704" y="0" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="bearRight" x="0" y="847" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="uturn" x="231" y="847" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="right" x="462" y="847" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="forward" x="517" y="517" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="bearLeft" x="623" y="0" width="231" height="258" source="./textures/Cluster.png"/>
+            <Frame name="left" x="623" y="258" width="231" height="258" source="./textures/Cluster.png"/>
+         </Container>
+         <Container name="bottomTicks" x="668" y="85" width="23" height="330">
+            <Frame name="ticks" x="47" y="490" width="1" height="330" source="./textures/Cluster.png"/>
          </Container>
          <Container name="distance_scroller" x="656" y="0" width="47" height="500">
             <Container name="progress" x="6" y="5" width="36" height="490">
-               <Frame name="progressImage" x="47" y="500" width="1" height="490" source="./textures/Cluster.png"/>
+               <Frame name="progressImage" x="47" y="0" width="1" height="490" source="./textures/Cluster.png"/>
             </Container>
             <Container name="track" x="6" y="5" width="36" height="490"/>
             <Container name="trackBg" x="0" y="0" width="47" height="500">
-               <Frame name="img" x="0" y="500" width="47" height="500" source="./textures/Cluster.png"/>
+               <Frame name="img" x="0" y="0" width="47" height="500" source="./textures/Cluster.png"/>
             </Container>
+         </Container>
+         <Container name="topTicks" x="668" y="83" width="23" height="330">
+            <Frame name="ticks" x="172" y="429" width="1" height="330" source="./textures/Cluster.png"/>
          </Container>
       </Container>
       <Container name="warningLights" x="502" y="25" width="794" height="372">
          <Container name="turnLeft_simple" x="0" y="314" width="50" height="58">
-            <Frame name="leftTurn" x="825" y="298" width="50" height="58" source="./textures/Cluster.png"/>
+            <Frame name="leftTurn" x="517" y="339" width="50" height="58" source="./textures/Cluster.png"/>
          </Container>
          <Container name="turnRight_simple" x="744" y="314" width="50" height="58">
-            <Frame name="rightTurn" x="745" y="359" width="50" height="58" source="./textures/Cluster.png"/>
+            <Frame name="rightTurn" x="174" y="429" width="50" height="58" source="./textures/Cluster.png"/>
          </Container>
          <Container name="parkingbrake_simple" x="10" y="0" width="80" height="61">
-            <Frame name="brake" x="852" y="758" width="80" height="61" source="./textures/Cluster.png"/>
+            <Frame name="brake" x="748" y="516" width="80" height="61" source="./textures/Cluster.png"/>
          </Container>
          <Container name="seatBelts_simple" x="715" y="91" width="57" height="68">
-            <Frame name="seatBelts" x="258" y="1141" width="57" height="68" source="./textures/Cluster.png"/>
+            <Frame name="seatBelts" x="172" y="759" width="57" height="68" source="./textures/Cluster.png"/>
          </Container>
          <Container name="tractionControl_simple" x="132" y="285" width="65" height="65">
-            <Frame name="tractionControl" x="567" y="712" width="65" height="65" source="./textures/Cluster.png"/>
+            <Frame name="tractionControl" x="834" y="516" width="65" height="65" source="./textures/Cluster.png"/>
          </Container>
          <Container name="oil_simple" x="583" y="301" width="86" height="34">
-            <Frame name="oil" x="47" y="1181" width="86" height="34" source="./textures/Cluster.png"/>
+            <Frame name="oil" x="517" y="305" width="86" height="34" source="./textures/Cluster.png"/>
          </Container>
          <Container name="battery_simple" x="673" y="205" width="61" height="40">
-            <Frame name="battery" x="704" y="798" width="61" height="40" source="./textures/Cluster.png"/>
+            <Frame name="battery" x="834" y="775" width="61" height="40" source="./textures/Cluster.png"/>
          </Container>
          <Container name="highBeams_simple" x="719" y="1" width="63" height="63">
-            <Frame name="highBeams" x="852" y="819" width="63" height="63" source="./textures/Cluster.png"/>
+            <Frame name="highBeams" x="834" y="855" width="63" height="63" source="./textures/Cluster.png"/>
          </Container>
          <Container name="abs_simple" x="50" y="191" width="80" height="61">
-            <Frame name="abs" x="745" y="298" width="80" height="61" source="./textures/Cluster.png"/>
+            <Frame name="abs" x="517" y="775" width="80" height="61" source="./textures/Cluster.png"/>
          </Container>
          <Container name="airbag_simple" x="25" y="96" width="50" height="66">
-            <Frame name="airBag" x="356" y="758" width="50" height="66" source="./textures/Cluster.png"/>
+            <Frame name="airBag" x="443" y="729" width="50" height="66" source="./textures/Cluster.png"/>
          </Container>
       </Container>
-      <Container name="gauges" x="24" y="4" width="401" height="504">
-         <Container name="watericon" x="7" y="452" width="57" height="52">
-            <Frame name="waterIcon" x="406" y="758" width="57" height="52" source="./textures/Cluster.png"/>
+      <Container name="gauges" x="24" y="12" width="393" height="496">
+         <Container name="watericon" x="7" y="444" width="57" height="52">
+            <Frame name="waterIcon" x="174" y="500" width="57" height="52" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="Fuelicon" x="129" y="452" width="48" height="51">
-            <Frame name="fuelIcon" x="0" y="1000" width="48" height="51" source="./textures/Cluster.png"/>
+         <Container name="Fuelicon" x="129" y="444" width="48" height="51">
+            <Frame name="fuelIcon" x="443" y="795" width="48" height="51" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="lowerWaterTicks" x="23" y="84" width="23" height="280">
-            <Frame name="ticks" x="703" y="0" width="1" height="280" source="./textures/Cluster.png"/>
+         <Container name="lowerWaterTicks" x="23" y="74" width="23" height="280">
+            <Frame name="ticks" x="0" y="500" width="1" height="280" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="lowerFuelTicks" x="134" y="84" width="23" height="280">
-            <Frame name="ticks" x="703" y="0" width="1" height="280" source="./textures/Cluster.png"/>
+         <Container name="lowerFuelTicks" x="134" y="74" width="23" height="280">
+            <Frame name="ticks" x="0" y="500" width="1" height="280" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="waterTemp_scroller" x="10" y="15" width="49" height="414">
+         <Container name="waterTemp_scroller" x="10" y="7" width="49" height="414">
             <Container name="track" x="0" y="0" width="49" height="414"/>
             <Container name="progress_simple" x="0" y="413" width="49" height="-414">
-               <Frame name="progressImage" x="354" y="500" width="1" height="414" source="./textures/Cluster.png"/>
+               <Container name="progressImage" x="0" y="0" width="49" height="414">
+                  <Frame name="progressImage" x="170" y="429" width="1" height="414" source="./textures/Cluster.png"/>
+               </Container>
             </Container>
-            <Container name="upperWaterTicks" x="13" y="67" width="23" height="280">
-               <Frame name="ticks" x="333" y="929" width="1" height="280" source="./textures/Cluster.png"/>
+            <Container name="upperWaterTicks" x="13" y="69" width="23" height="280">
+               <Frame name="ticks" x="173" y="429" width="1" height="280" source="./textures/Cluster.png"/>
             </Container>
          </Container>
-         <Container name="fuelLevel_scroller" x="112" y="0" width="289" height="467">
-            <Container name="popup_group" x="72" y="0" width="209" height="71">
+         <Container name="fuelLevel_scroller" x="112" y="5" width="281" height="416">
+            <Container name="popup_group" x="72" y="0" width="209" height="85">
                <Container name="indicator" x="0" y="15" width="35" height="3">
-                  <Frame name="indicator" x="285" y="918" width="35" height="3" source="./textures/Cluster.png"/>
+                  <Frame name="indicator" x="170" y="843" width="35" height="3" source="./textures/Cluster.png"/>
                </Container>
-               <Text name="text_label" x="39" y="1" width="170" height="70" text="123Ø" font="font1" paint="paint1" alignment="left"/>
+               <Text name="text_label" x="39" y="15" width="170" height="70" text="123Ø" font="font1" paint="paint1" alignment="left"/>
             </Container>
-            <Container name="track" x="0" y="15" width="65" height="414"/>
-            <Container name="progress_simple" x="0" y="428" width="65" height="-414">
-               <Container name="prgressImage" x="0" y="0" width="65" height="414">
-                  <Frame name="progressImage" x="355" y="500" width="1" height="414" source="./textures/Cluster.png"/>
+            <Container name="track" x="0" y="2" width="65" height="414"/>
+            <Container name="progress_simple" x="0" y="415" width="65" height="-414">
+               <Container name="progressImage" x="0" y="0" width="65" height="414">
+                  <Frame name="progressImage" x="171" y="429" width="1" height="414" source="./textures/Cluster.png"/>
                </Container>
             </Container>
-            <Container name="upperFuelTicks" x="22" y="82" width="23" height="280">
-               <Frame name="ticks" x="333" y="929" width="1" height="280" source="./textures/Cluster.png"/>
+            <Container name="upperFuelTicks" x="22" y="71" width="23" height="280">
+               <Frame name="ticks" x="173" y="429" width="1" height="280" source="./textures/Cluster.png"/>
             </Container>
          </Container>
-         <Container name="gaugeMask" x="0" y="8" width="184" height="429">
-            <Frame name="img" x="48" y="500" width="184" height="429" source="./textures/Cluster.png"/>
+         <Container name="gaugeMask" x="0" y="0" width="184" height="429">
+            <Frame name="img" x="48" y="0" width="184" height="429" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="watertrackBg" x="8" y="13" width="53" height="418">
-            <Frame name="trackImg" x="232" y="500" width="53" height="418" source="./textures/Cluster.png"/>
+         <Container name="watertrackBg" x="8" y="5" width="53" height="418">
+            <Frame name="trackImg" x="48" y="429" width="53" height="418" source="./textures/Cluster.png"/>
          </Container>
-         <Container name="fueltrackBg" x="110" y="13" width="69" height="418">
-            <Frame name="trackBg" x="285" y="500" width="69" height="418" source="./textures/Cluster.png"/>
+         <Container name="fueltrackBg" x="110" y="5" width="69" height="418">
+            <Frame name="trackBg" x="101" y="429" width="69" height="418" source="./textures/Cluster.png"/>
          </Container>
       </Container>
    </Class>
@@ -195,8 +206,8 @@
             <Frame name="fadeImg" x="1920" y="1" width="1758" height="1" source="./textures/Welcome.png"/>
          </Container>
       </Container>
-      <Text name="text_label" x="0" y="120" width="1921" height="467" text="Welcome" font="font6" paint="paint2" alignment="center"/>
-      <Text name="subtext_label" x="648" y="325" width="1272" height="420" text="aaa" font="font5" paint="paint2" alignment="center"/>
+      <Text name="text_label" x="0" y="120" width="1921" height="467" text="Welcome" font="font7" paint="paint2" alignment="center"/>
+      <Text name="subtext_label" x="648" y="325" width="1272" height="420" text="aaa" font="font6" paint="paint2" alignment="center"/>
       <Container name="overlay" x="0" y="0" width="1920" height="1080">
          <Frame name="overlayImg" x="0" y="1" width="1920" height="1" source="./textures/Welcome.png"/>
       </Container>

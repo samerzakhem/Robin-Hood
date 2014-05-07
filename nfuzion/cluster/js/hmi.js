@@ -4450,7 +4450,7 @@ nfuzion.graphics.Component.prototype = $extend(nfuzion.graphics.BaseComponent.pr
 			this.yChanged();
 			if(!this.vFlipped) this.vFlipped = true;
 			this.updateTransform();
-			this.implementation.style.height = Std.string(Math.round(-this._height)) + "px";
+			this.implementation.style.height = Std.string(Math.round(-this._height) + 1) + "px";
 		}
 		if(this.borderWidth > 0 && this.borderPaint != null) this.updateBorder();
 		if(this.backgroundImage != null) this.updateBackground();
@@ -8643,7 +8643,8 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 					}
 				} else {
 				}
-			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 356, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
+			} else {
+			}
 		}
 	}
 	,onImageError: function(e) {
@@ -12491,8 +12492,8 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 				var yValueRange = this.vMaximum - this.vMinimum - this.vPageSize;
 				if(yValueRange < 0) yValueRange = 0;
 				if(yValueRange != 0 && this.height != 0) yPosition += (this.get_value() - this.vMinimum) / yValueRange * this.height;
-				newRight = xPosition;
-				newBottom = yPosition;
+				newRight = xPosition + this.track._x;
+				newBottom = yPosition + this.track._y;
 			}
 			if(this.horizontalEnabled) this.progressIndicator.set_right(newRight);
 			if(this.verticalEnabled) this.progressIndicator.set_bottom(newBottom);
@@ -12970,7 +12971,7 @@ nfuzion.widget.Slice.prototype = $extend(nfuzion.widget.Simple.prototype,{
 		this.lastWidth = width;
 		this.lastHeight = height;
 		var leftWidth = this.leftSize;
-		var middleWidth = width - this.minWidth;
+		var middleWidth = width - this.minWidth - 1;
 		var rightWidth = this.rightSize;
 		if(width <= -this.minWidth) {
 			leftWidth = -this.leftSize;
@@ -12985,10 +12986,10 @@ nfuzion.widget.Slice.prototype = $extend(nfuzion.widget.Simple.prototype,{
 			rightWidth = -width * (this.rightSize / this.minWidth);
 			middleWidth = 0;
 		}
-		var rightEdge = width - rightWidth + 1;
+		var rightEdge = width - rightWidth;
 		if(width < 0) rightEdge = width - rightWidth - 1;
 		var topHeight = this.topSize;
-		var middleHeight = height - this.minHeight;
+		var middleHeight = height - this.minHeight - 1;
 		var bottomHeight = this.bottomSize;
 		if(height <= -this.minHeight) {
 			topHeight = -this.topSize;
@@ -13003,7 +13004,7 @@ nfuzion.widget.Slice.prototype = $extend(nfuzion.widget.Simple.prototype,{
 			middleHeight = 0;
 			bottomHeight = -height * (this.bottomSize / this.minHeight);
 		}
-		var bottomEdge = height - bottomHeight + 1;
+		var bottomEdge = height - bottomHeight;
 		if(height < 0) bottomEdge = height - bottomHeight - 1;
 		if(this.topLeft != null) this.topLeft.setSize(leftWidth,topHeight);
 		if(this.top != null) this.top.setSquare(leftWidth,this.top._y,middleWidth,topHeight);
@@ -13175,7 +13176,7 @@ peripheral.Peripheral.initialize = function() {
 		peripheral.Peripheral.spanClient.addEventListener("SpanClientEvent.disconnect",peripheral.Peripheral.onClientDisconnect);
 	} catch( e ) {
 		peripheral.Peripheral.spanClient = null;
-		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 52, className : "peripheral.Peripheral", methodName : "initialize"});
+		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 58, className : "peripheral.Peripheral", methodName : "initialize"});
 		peripheral.Peripheral.useDefault();
 		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value);
 	}
@@ -13258,16 +13259,18 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.navArrows = this.getWidget("tacticalNav_group.directionArrows_simple");
 		this.prndSimple = this.getWidget("prnd_simple");
 		var popupGroup = this.getWidget("fuelLevel_scroller.popup_group");
-		this.updateFuelLevelPopup(popupGroup);
 		this.waterTemp.set_maximum(1.0);
 		this.waterTemp.set_minimum(0.0);
 		this.waterTemp.set_pageSize(0.0);
+		this.waterTemp.set_value(0.5);
 		this.fuelLevel.set_maximum(1.0);
 		this.fuelLevel.set_minimum(0.0);
 		this.fuelLevel.set_pageSize(0.0);
 		this.fuelLevel.hidePopupOnStop = false;
 		this.fuelLevel.set_popupPageThreshold(-1);
 		this.fuelLevel.popupUpdater = $bind(this,this.updateFuelLevelPopup);
+		this.fuelLevel.set_value(0.5);
+		this.updateFuelLevelPopup(popupGroup);
 		this.distanceToTargetScroller.set_maximum(1.0);
 		this.distanceToTargetScroller.set_minimum(0.0);
 		this.distanceToTargetScroller.set_pageSize(0.0);
@@ -13287,7 +13290,7 @@ screen.Cluster.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		this.distanceToTargetLabel.set_text("");
 		this.navigationLabel.set_text("");
 		this.odometerLabel.set_text("86753˘");
-		this.distanceToEmptyLabel.set_text("400˘");
+		this.distanceToEmptyLabel.set_text("200˘");
 		this.navGroup.set_visible(false);
 	}
 	,enterScreen: function() {
