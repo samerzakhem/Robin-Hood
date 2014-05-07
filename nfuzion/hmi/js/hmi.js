@@ -89,8 +89,8 @@ nfuzion.application.Application = function(name) {
 	if(name == null) throw "Application name cannot be null.";
 	if(nfuzion.application.Application.appName != null) throw "Cannot create more than one instance of Application.";
 	nfuzion.application.Application.appName = name;
-	haxe.Log.trace("Starting " + name + ".",{ fileName : "Application.hx", lineNumber : 53, className : "nfuzion.application.Application", methodName : "new"});
-	haxe.Log.trace("Built: " + "2014-05-06 13:31:26",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
+	console.log("Starting " + name + ".");
+	console.log("Built: " + "2014-05-06 10:16:05");
 };
 $hxClasses["nfuzion.application.Application"] = nfuzion.application.Application;
 nfuzion.application.Application.__name__ = ["nfuzion","application","Application"];
@@ -132,16 +132,16 @@ nfuzion.nTactic.NTactic["goto"] = function(branch,vars,addToHistory) {
 	var array = branch.split(":");
 	if(array.length > 1) {
 		var screenModel = nfuzion.nTactic.NTactic.screens.getModel(array.shift());
-		if(screenModel != null) screenModel["goto"](array.join("/"),vars,addToHistory); else haxe.Log.trace("ERROR: Failed to go to branch on screen model.",{ fileName : "NTactic.hx", lineNumber : 85, className : "nfuzion.nTactic.NTactic", methodName : "goto"});
+		if(screenModel != null) screenModel["goto"](array.join("/"),vars,addToHistory); else console.log("ERROR: Failed to go to branch on screen model.");
 	} else nfuzion.nTactic.NTactic.screens.defaultModel["goto"](branch);
 };
 nfuzion.nTactic.NTactic.cacheScreens = function(model,screensToCache) {
 	var screenModel = nfuzion.nTactic.NTactic.screens.getModel(model);
-	if(screenModel != null) screenModel.cacheScreens(screensToCache); else haxe.Log.trace("ERROR: Failed to cache screen(s). Screen model does not exist",{ fileName : "NTactic.hx", lineNumber : 108, className : "nfuzion.nTactic.NTactic", methodName : "cacheScreens"});
+	if(screenModel != null) screenModel.cacheScreens(screensToCache); else console.log("ERROR: Failed to cache screen(s). Screen model does not exist");
 };
 nfuzion.nTactic.NTactic.releaseScreens = function(model,screensToRelease) {
 	var screenModel = nfuzion.nTactic.NTactic.screens.getModel(model);
-	if(screenModel != null) screenModel.releaseScreens(screensToRelease); else haxe.Log.trace("ERROR: Failed to cache screen(s). Screen model does not exist",{ fileName : "NTactic.hx", lineNumber : 123, className : "nfuzion.nTactic.NTactic", methodName : "releaseScreens"});
+	if(screenModel != null) screenModel.releaseScreens(screensToRelease); else console.log("ERROR: Failed to cache screen(s). Screen model does not exist");
 };
 nfuzion.nTactic.NTactic.back = function() {
 	nfuzion.nTactic.NTactic.screens.defaultModel.back();
@@ -157,7 +157,7 @@ nfuzion.nTactic.NTactic.prototype = $extend(nfuzion.application.Application.prot
 	}
 	,assignCacheManager: function(cacheManager) {
 		if(cacheManager == null) {
-			haxe.Log.trace("WARNING: Intercepted attempt to set property 'cacheManager' to null.",{ fileName : "NTactic.hx", lineNumber : 166, className : "nfuzion.nTactic.NTactic", methodName : "assignCacheManager"});
+			console.log("WARNING: Intercepted attempt to set property 'cacheManager' to null.");
 			return;
 		}
 		if(nfuzion.nTactic.NTactic.cacheManager != null) throw "Property 'cacheManager' has already been assigned!";
@@ -168,7 +168,7 @@ nfuzion.nTactic.NTactic.prototype = $extend(nfuzion.application.Application.prot
 		var xml = Xml.parse(this.loader.data);
 		nfuzion.nTactic.NTactic.configurationXml = xml.firstElement();
 		if(nfuzion.nTactic.NTactic.configurationXml == null) {
-			haxe.Log.trace("FATAL: 'ntactic.xml' data is null!",{ fileName : "NTactic.hx", lineNumber : 183, className : "nfuzion.nTactic.NTactic", methodName : "onNTacticXmlReady"});
+			console.log("FATAL: 'ntactic.xml' data is null!");
 			return;
 		}
 		var viewportXml = nfuzion.nTactic.NTactic.configurationXml.elementsNamed("viewport").next();
@@ -177,13 +177,13 @@ nfuzion.nTactic.NTactic.prototype = $extend(nfuzion.application.Application.prot
 			var height = 600;
 			var paint = null;
 			var widthString = viewportXml.get("width");
-			if(widthString == null) haxe.Log.trace("FATAL: Viewport width is not specified in 'ntactic.xml'.",{ fileName : "NTactic.hx", lineNumber : 197, className : "nfuzion.nTactic.NTactic", methodName : "onNTacticXmlReady"}); else width = Std.parseInt(widthString);
+			if(widthString == null) console.log("FATAL: Viewport width is not specified in 'ntactic.xml'."); else width = Std.parseInt(widthString);
 			var heightString = viewportXml.get("height");
-			if(heightString == null) haxe.Log.trace("FATAL: Viewport height is not specified in 'ntactic.xml'.",{ fileName : "NTactic.hx", lineNumber : 206, className : "nfuzion.nTactic.NTactic", methodName : "onNTacticXmlReady"}); else height = Std.parseInt(heightString);
+			if(heightString == null) console.log("FATAL: Viewport height is not specified in 'ntactic.xml'."); else height = Std.parseInt(heightString);
 			var colorString = viewportXml.get("color");
 			if(colorString != null) paint = new nfuzion.paint.Paint("viewport",nfuzion.utility.ColorTools.fromString(colorString)); else paint = new nfuzion.paint.Paint("viewport",nfuzion.type.Color.black);
 			nfuzion.nTactic.NTactic.stage = new nfuzion.graphics.Stage(width,height,paint);
-		} else haxe.Log.trace("FATAL: Viewport not specified in 'ntactic.xml'.",{ fileName : "NTactic.hx", lineNumber : 225, className : "nfuzion.nTactic.NTactic", methodName : "onNTacticXmlReady"});
+		} else console.log("FATAL: Viewport not specified in 'ntactic.xml'.");
 		nfuzion.nTactic.NTactic.screens = new nfuzion.nTactic.core.AppModel();
 		this.onReady();
 	}
@@ -816,12 +816,6 @@ Xml.prototype = {
 	,__properties__: {set_nodeValue:"set_nodeValue",set_nodeName:"set_nodeName",get_nodeName:"get_nodeName"}
 };
 var haxe = {};
-haxe.Log = function() { };
-$hxClasses["haxe.Log"] = haxe.Log;
-haxe.Log.__name__ = ["haxe","Log"];
-haxe.Log.trace = function(v,infos) {
-	js.Boot.__trace(v,infos);
-};
 haxe.Serializer = function() {
 	this.buf = new StringBuf();
 	this.cache = new Array();
@@ -1895,25 +1889,6 @@ var js = {};
 js.Boot = function() { };
 $hxClasses["js.Boot"] = js.Boot;
 js.Boot.__name__ = ["js","Boot"];
-js.Boot.__unhtml = function(s) {
-	return s.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;");
-};
-js.Boot.__trace = function(v,i) {
-	var msg;
-	if(i != null) msg = i.fileName + ":" + i.lineNumber + ": "; else msg = "";
-	msg += js.Boot.__string_rec(v,"");
-	if(i != null && i.customParams != null) {
-		var _g = 0;
-		var _g1 = i.customParams;
-		while(_g < _g1.length) {
-			var v1 = _g1[_g];
-			++_g;
-			msg += "," + js.Boot.__string_rec(v1,"");
-		}
-	}
-	var d;
-	if(typeof(document) != "undefined" && (d = document.getElementById("haxe:trace")) != null) d.innerHTML += js.Boot.__unhtml(msg) + "<br/>"; else if(typeof console != "undefined" && console.log != null) console.log(msg);
-};
 js.Boot.getClass = function(o) {
 	if((o instanceof Array) && o.__enum__ == null) return Array; else return o.__class__;
 };
@@ -2145,7 +2120,7 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		var classSketch;
 		classSketch = this.sketch.getClass(className);
 		if(classSketch == null) {
-			haxe.Log.trace("ERROR: Class '" + className + "' not found.",{ fileName : "Builder.hx", lineNumber : 79, className : "nfuzion.builder.Builder", methodName : "build"});
+			console.log("ERROR: Class '" + className + "' not found.");
 			return false;
 		}
 		this.buildContainer(foundation,classSketch);
@@ -2155,7 +2130,7 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		var classSketch;
 		classSketch = this.sketch.getClass(className);
 		if(classSketch == null) {
-			haxe.Log.trace("ERROR: Class '" + className + "' not found.",{ fileName : "Builder.hx", lineNumber : 101, className : "nfuzion.builder.Builder", methodName : "buildOver"});
+			console.log("ERROR: Class '" + className + "' not found.");
 			return false;
 		}
 		this.configueComponent(container,classSketch);
@@ -2176,7 +2151,7 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		if(sketchContainer.className != null) {
 			var className = sketchContainer.className;
 			classSketch = this.sketch.getClass(className);
-			if(classSketch == null) haxe.Log.trace("ERROR: Class '" + className + "' not found.",{ fileName : "Builder.hx", lineNumber : 141, className : "nfuzion.builder.Builder", methodName : "buildContainer"}); else {
+			if(classSketch == null) throw "ERROR: Class '" + className + "' not found."; else {
 				this.configueComponent(container,classSketch);
 				this.buildChildren(container,classSketch);
 				container.sketch = classSketch;
@@ -2206,7 +2181,7 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 				this.buildText(foundation,child);
 				break;
 			default:
-				haxe.Log.trace("ERROR: Unknown sketch type '" + Type.getClassName(Type.getClass(child)) + "'.",{ fileName : "Builder.hx", lineNumber : 180, className : "nfuzion.builder.Builder", methodName : "buildChildren"});
+				throw "Unknown sketch type '" + Type.getClassName(Type.getClass(child)) + "'.";
 			}
 		}
 	}
@@ -2217,6 +2192,8 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		return text;
 	}
 	,theme: function(foundation,sketchComponent) {
+		if(foundation == null) throw "Foundation is null!";
+		if(sketchComponent == null) throw "sketchComponent is null!";
 		this.themeChild(foundation,sketchComponent,false);
 	}
 	,themeContainer: function(container,sketchContainer,useBox) {
@@ -2226,7 +2203,7 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		if(sketchContainer.className != null) {
 			var className = sketchContainer.className;
 			classSketch = this.sketch.getClass(className);
-			if(classSketch == null) haxe.Log.trace("ERROR: Class '" + className + "' not found.",{ fileName : "Builder.hx", lineNumber : 230, className : "nfuzion.builder.Builder", methodName : "themeContainer"}); else {
+			if(classSketch == null) throw "ERROR: Class '" + className + "' not found."; else {
 				this.themeComponent(container,classSketch,false);
 				container.setSize(classSketch._width,classSketch._height);
 				this.themeChildren(container,classSketch);
@@ -2249,7 +2226,9 @@ nfuzion.builder.Builder.prototype = $extend(nfuzion.event.EventDispatcher.protot
 	}
 	,themeChild: function(child,childSketch,useBox) {
 		if(useBox == null) useBox = true;
-		if(js.Boot.__instanceof(child,nfuzion.graphics.Text)) this.themeText(child,childSketch,useBox); else if(js.Boot.__instanceof(child,nfuzion.graphics.Container)) this.themeContainer(child,childSketch,useBox); else haxe.Log.trace("ERROR: Unknown sketch type '" + Type.getClassName(Type.getClass(child)) + "'.",{ fileName : "Builder.hx", lineNumber : 285, className : "nfuzion.builder.Builder", methodName : "themeChild"});
+		if(child == null) throw "child is null!";
+		if(childSketch == null) throw "childSketch is null!";
+		if(js.Boot.__instanceof(child,nfuzion.graphics.Text)) this.themeText(child,childSketch,useBox); else if(js.Boot.__instanceof(child,nfuzion.graphics.Container)) this.themeContainer(child,childSketch,useBox); else throw "Unknown sketch type '" + Type.getClassName(Type.getClass(child)) + "'.";
 	}
 	,themeText: function(text,sketchText,useBox) {
 		if(useBox == null) useBox = true;
@@ -2355,7 +2334,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 	,windowSize: null
 	,set_windowSize: function(windowSize) {
 		if(windowSize < 1) {
-			haxe.Log.trace("ERROR: Cannot set cache window size to less than 1.",{ fileName : "ListCache.hx", lineNumber : 69, className : "nfuzion.cache.ListCache", methodName : "set_windowSize"});
+			console.log("ERROR: Cannot set cache window size to less than 1.");
 			windowSize = 1;
 		}
 		if(this.windowSize != windowSize) {
@@ -2367,7 +2346,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 	,listLength: null
 	,set_listLength: function(listLength) {
 		if(listLength < 0) {
-			haxe.Log.trace("ERROR: Cannot set list length to less than 0.",{ fileName : "ListCache.hx", lineNumber : 85, className : "nfuzion.cache.ListCache", methodName : "set_listLength"});
+			console.log("ERROR: Cannot set list length to less than 0.");
 			listLength = 0;
 		}
 		if(this.listLength != listLength) {
@@ -2392,7 +2371,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 	,listPosition: null
 	,set_listPosition: function(listPosition) {
 		if(listPosition < 0) {
-			haxe.Log.trace("ERROR: Cannot set list position to less than 0.",{ fileName : "ListCache.hx", lineNumber : 120, className : "nfuzion.cache.ListCache", methodName : "set_listPosition"});
+			console.log("ERROR: Cannot set list position to less than 0.");
 			listPosition = 0;
 		}
 		if(this.listPosition != listPosition) {
@@ -2427,7 +2406,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 				}
 			}
 			if(partialList.offset >= this.listLength) {
-				haxe.Log.trace("WARNING: List received out-of-range data.",{ fileName : "ListCache.hx", lineNumber : 180, className : "nfuzion.cache.ListCache", methodName : "addData"});
+				console.log("WARNING: List received out-of-range data.");
 				return;
 			}
 			if(partialList.offset >= this.listPosition - 20 && partialList.offset + partialList.entries.length <= this.listPosition + this.windowSize + 20) {
@@ -2437,6 +2416,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 						this.data = partialList.clone();
 					}
 				} else {
+					if(partialList.entries == this.data.entries) console.log("ERROR: Windowed data in data.entries must not be reused by the caller!");
 					i = this.data.offset - 1;
 					while(i >= partialList.offset) {
 						this.data.entries.unshift(partialList.entries[i - partialList.offset]);
@@ -2540,7 +2520,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 	}
 	,addDataRequest: function(start,end) {
 		if(end > this.listLength - 1) end = this.listLength - 1;
-		if(start < 0 || end < 0 || end < start) haxe.Log.trace("WARNING: Request for invalid data range!",{ fileName : "ListCache.hx", lineNumber : 461, className : "nfuzion.cache.ListCache", methodName : "addDataRequest"}); else {
+		if(start < 0 || end < 0 || end < start) console.log("WARNING: Request for invalid data range!"); else {
 			this.requestTimer.start();
 			this.requestedStart = start;
 			this.requestedEnd = end;
@@ -2549,7 +2529,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 		}
 	}
 	,onRequestTimeout: function(e) {
-		haxe.Log.trace("ERROR: No response received for list request after " + this.requestTimer.period + " seconds.",{ fileName : "ListCache.hx", lineNumber : 476, className : "nfuzion.cache.ListCache", methodName : "onRequestTimeout"});
+		console.log("ERROR: No response received for list request after " + this.requestTimer.period + " seconds.");
 		this.requestTimer.reset();
 		this.requestInProgress = false;
 		this.requestData();
@@ -2675,7 +2655,7 @@ nfuzion.cache.ListCache.prototype = $extend(nfuzion.event.EventDispatcher.protot
 			}
 			this.ranges = new Array();
 		} else {
-			haxe.Log.trace("WARNING: Cannot remove partial cache range.  Removing all.",{ fileName : "ListCache.hx", lineNumber : 784, className : "nfuzion.cache.ListCache", methodName : "removeCacheRange"});
+			console.log("WARNING: Cannot remove partial cache range.  Removing all.");
 			this.removeCacheRange(0,this.listLength - 1);
 		}
 	}
@@ -2897,7 +2877,7 @@ nfuzion.client.WebSocketClient.prototype = $extend(nfuzion.client.Client.prototy
 				if(this.client.bufferedAmount <= 0) try {
 					this.client.send(data);
 				} catch( e ) {
-					haxe.Log.trace("ERROR: " + Std.string(e),{ fileName : "WebSocketClient.hx", lineNumber : 97, className : "nfuzion.client.WebSocketClient", methodName : "send"});
+					console.log("ERROR: " + Std.string(e));
 					this.disconnect();
 					return false;
 				} else {
@@ -2914,7 +2894,7 @@ nfuzion.client.WebSocketClient.prototype = $extend(nfuzion.client.Client.prototy
 			if(this.txQueue.length > 0) try {
 				this.client.send(this.txQueue.shift());
 			} catch( e1 ) {
-				haxe.Log.trace("ERROR: " + Std.string(e1),{ fileName : "WebSocketClient.hx", lineNumber : 144, className : "nfuzion.client.WebSocketClient", methodName : "onTxTimer"});
+				console.log("ERROR: " + Std.string(e1));
 				this.disconnect();
 			}
 			this.txTimer.reset();
@@ -2936,7 +2916,7 @@ nfuzion.client.WebSocketClient.prototype = $extend(nfuzion.client.Client.prototy
 		if(e.data != null) this.dispatchEvent(new nfuzion.client.event.ClientEvent("ClientEvent.data",this,e.data));
 	}
 	,onError: function(message) {
-		haxe.Log.trace("ERROR:" + Std.string(message),{ fileName : "WebSocketClient.hx", lineNumber : 191, className : "nfuzion.client.WebSocketClient", methodName : "onError"});
+		console.log("ERROR:" + Std.string(message));
 	}
 	,__class__: nfuzion.client.WebSocketClient
 });
@@ -2960,8 +2940,6 @@ $hxClasses["nfuzion.debug.Debug"] = nfuzion.debug.Debug;
 nfuzion.debug.Debug.__name__ = ["nfuzion","debug","Debug"];
 nfuzion.debug.Debug.__properties__ = {set_client:"set_client"}
 nfuzion.debug.Debug.initialize = function() {
-	nfuzion.debug.Debug.buffer = new Array();
-	haxe.Log.trace = nfuzion.debug.Debug.debugTrace;
 };
 nfuzion.debug.Debug.debugTrace = function(v,inf) {
 	var message = new nfuzion.message.debug.LetTrace(nfuzion.timer.Delay.now(),nfuzion.application.Application.appName,Std.string(v),inf.fileName,inf.lineNumber,inf.className,inf.methodName);
@@ -2971,8 +2949,6 @@ nfuzion.debug.Debug.debugTrace = function(v,inf) {
 	} else nfuzion.debug.Debug.client.send(message);
 };
 nfuzion.debug.Debug.set_client = function(client) {
-	nfuzion.debug.Debug.client = client;
-	if(!client.get_connected()) client.addEventListener("SpanClientEvent.connect",nfuzion.debug.Debug.onClientConnect); else nfuzion.debug.Debug.onClientConnect();
 	return nfuzion.debug.Debug.client;
 };
 nfuzion.debug.Debug.onClientConnect = function(e) {
@@ -3019,7 +2995,10 @@ nfuzion.event.ListenerManager.prototype = {
 			}
 			this.listeners.push(new nfuzion.event.ListenerRecord(dispatcher,type,listener));
 			dispatcher.addEventListener(type,listener);
-		} else haxe.Log.trace("ERROR: Attempted to add a listener to a null EventDispatcher.",{ fileName : "ListenerManager.hx", lineNumber : 36, className : "nfuzion.event.ListenerManager", methodName : "attachListener"});
+		} else {
+			console.log("ERROR: Attempted to add a listener to a null EventDispatcher.");
+			throw "ERROR: Attempted to add a listener to a null EventDispatcher.";
+		}
 	}
 	,detachListener: function(dispatcher,type,listener) {
 		var _g1 = 0;
@@ -3180,7 +3159,7 @@ nfuzion.font.IFontFace.prototype = {
 nfuzion.font.BaseFontFace = function(path) {
 	nfuzion.event.EventDispatcher.call(this);
 	if(!StringTools.endsWith(path,".ttf")) {
-		haxe.Log.trace("ERROR: Invalid font filename: " + path,{ fileName : "BaseFontFace.hx", lineNumber : 23, className : "nfuzion.font.BaseFontFace", methodName : "new"});
+		console.log("ERROR: Invalid font filename: " + path);
 		return;
 	}
 	this.path = path;
@@ -3279,6 +3258,7 @@ nfuzion.font.FontManager.prototype = {
 	,get: function(name) {
 		var font = this.fonts.get(name);
 		if(font == null) {
+			console.log("WARNING: Font '" + name + "' not found.");
 			font = new nfuzion.font.Font();
 			this.fonts.set(name,font);
 		}
@@ -3463,6 +3443,10 @@ nfuzion.geometry.IBox.prototype = {
 };
 nfuzion.geometry.Box = function(x,y,width,height) {
 	nfuzion.event.EventDispatcher.call(this);
+	if(Math.isNaN(x)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(y)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(width)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(height)) throw "Cannot set property to NaN.";
 	this._x = x;
 	this._y = y;
 	this._width = width;
@@ -3479,6 +3463,10 @@ $hxClasses["nfuzion.geometry.Box"] = nfuzion.geometry.Box;
 nfuzion.geometry.Box.__name__ = ["nfuzion","geometry","Box"];
 nfuzion.geometry.Box.__interfaces__ = [nfuzion.geometry.IBox];
 nfuzion.geometry.Box.createBox = function(left,right,top,bottom) {
+	if(Math.isNaN(left)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(right)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(top)) throw "Cannot set property to NaN.";
+	if(Math.isNaN(bottom)) throw "Cannot set property to NaN.";
 	return new nfuzion.geometry.Box(left,right,right - left + 1,bottom - top + 1);
 };
 nfuzion.geometry.Box.__super__ = nfuzion.event.EventDispatcher;
@@ -3489,6 +3477,10 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 	,_width: null
 	,_height: null
 	,setBox: function(left,right,top,bottom) {
+		if(Math.isNaN(left)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(right)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(top)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(bottom)) throw "Cannot set property to NaN.";
 		var oldWidth = this._width;
 		var oldHeight = this._height;
 		var oldX = this._x;
@@ -3525,6 +3517,10 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		if(boxChanged) this.boxChanged();
 	}
 	,setSquare: function(x,y,width,height) {
+		if(Math.isNaN(x)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(y)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(width)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(height)) throw "Cannot set property to NaN.";
 		var oldWidth = this._width;
 		var oldHeight = this._height;
 		var oldX = this._x;
@@ -3561,6 +3557,8 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		if(boxChanged) this.boxChanged();
 	}
 	,setPosition: function(x,y) {
+		if(Math.isNaN(x)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(y)) throw "Cannot set property to NaN.";
 		var oldX = this._x;
 		var oldY = this._y;
 		this._x = x;
@@ -3580,6 +3578,8 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		}
 	}
 	,setSize: function(width,height) {
+		if(Math.isNaN(width)) throw "Cannot set property to NaN.";
+		if(Math.isNaN(height)) throw "Cannot set property to NaN.";
 		var oldWidth = this._width;
 		var oldHeight = this._height;
 		this._width = width;
@@ -3602,6 +3602,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._x;
 	}
 	,set_left: function(left) {
+		if(Math.isNaN(left)) throw "Cannot set property to NaN.";
 		if(this._x != left) {
 			var delta = this._x - left;
 			this._x -= delta;
@@ -3618,6 +3619,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._x + this._width - 1;
 	}
 	,set_right: function(right) {
+		if(Math.isNaN(right)) throw "Cannot set property to NaN.";
 		if(right != this._x + this._width - 1) {
 			this._width = right - this._x + 1;
 			this.widthChanged();
@@ -3630,6 +3632,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._y;
 	}
 	,set_top: function(top) {
+		if(Math.isNaN(top)) throw "Cannot set property to NaN.";
 		if(this._y != top) {
 			var delta = this._y - top;
 			this._y -= delta;
@@ -3646,6 +3649,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._y + this._height - 1;
 	}
 	,set_bottom: function(bottom) {
+		if(Math.isNaN(bottom)) throw "Cannot set property to NaN.";
 		if(bottom != this._y + this._height - 1) {
 			this._height = bottom - this._y + 1;
 			this.heightChanged();
@@ -3658,6 +3662,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._x;
 	}
 	,set_x: function(x) {
+		if(Math.isNaN(x)) throw "Cannot set property to NaN.";
 		if(this._x != x) {
 			this._x = x;
 			this.xChanged();
@@ -3670,6 +3675,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._y;
 	}
 	,set_y: function(y) {
+		if(Math.isNaN(y)) throw "Cannot set property to NaN.";
 		if(this._y != y) {
 			this._y = y;
 			this.yChanged();
@@ -3682,6 +3688,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._width;
 	}
 	,set_width: function(width) {
+		if(Math.isNaN(width)) throw "Cannot set property to NaN.";
 		if(this._width != width) {
 			this._width = width;
 			this.widthChanged();
@@ -3694,6 +3701,7 @@ nfuzion.geometry.Box.prototype = $extend(nfuzion.event.EventDispatcher.prototype
 		return this._height;
 	}
 	,set_height: function(height) {
+		if(Math.isNaN(height)) throw "Cannot set property to NaN.";
 		if(this._height != height) {
 			this._height = height;
 			this.heightChanged();
@@ -3814,6 +3822,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this._x / this.referenceBox.get_width();
 	}
 	,set_relativeLeft: function(relativeLeft) {
+		if(Math.isNaN(relativeLeft)) throw "Cannot set property to NaN.";
 		var pause = this.pauseRelativeBox;
 		this.pauseRelativeBox = true;
 		if(this.referenceBox != null) this.set_left(this.referenceBox.get_width() * relativeLeft);
@@ -3830,6 +3839,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this.get_right() / this.referenceBox.get_width();
 	}
 	,set_relativeRight: function(relativeRight) {
+		if(Math.isNaN(relativeRight)) throw "Cannot set property to NaN.";
 		var pause = this.pauseRelativeBox;
 		this.pauseRelativeBox = true;
 		if(this.referenceBox != null) this.set_right(this.referenceBox.get_width() * relativeRight);
@@ -3846,6 +3856,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this._y / this.referenceBox.get_height();
 	}
 	,set_relativeTop: function(relativeTop) {
+		if(Math.isNaN(relativeTop)) throw "Cannot set property to NaN.";
 		var pause = this.pauseRelativeBox;
 		this.pauseRelativeBox = true;
 		if(this.referenceBox != null) this.set_top(this.referenceBox.get_height() * relativeTop);
@@ -3862,6 +3873,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this.get_bottom() / this.referenceBox.get_height();
 	}
 	,set_relativeBottom: function(relativeBottom) {
+		if(Math.isNaN(relativeBottom)) throw "Cannot set property to NaN.";
 		var pause = this.pauseRelativeBox;
 		this.pauseRelativeBox = true;
 		if(this.referenceBox != null) this.set_bottom(this.referenceBox.get_height() * relativeBottom);
@@ -3875,6 +3887,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this.get_relativeLeft();
 	}
 	,set_relativeX: function(relativeX) {
+		if(Math.isNaN(relativeX)) throw "Cannot set property to NaN.";
 		this.set_relativeLeft(relativeX);
 		return this.get_relativeLeft();
 	}
@@ -3882,6 +3895,7 @@ nfuzion.geometry.RelativeBox.prototype = $extend(nfuzion.geometry.Box.prototype,
 		return this.get_relativeTop();
 	}
 	,set_relativeY: function(relativeY) {
+		if(Math.isNaN(relativeY)) throw "Cannot set property to NaN.";
 		this.set_relativeTop(relativeY);
 		return this.get_relativeTop();
 	}
@@ -4202,6 +4216,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 		return position;
 	}
 	,addImage: function(url) {
+		if(url == null) throw "URL is null!";
 		if(this.screen != null && url != null) return this.screen.addImage(url);
 		return null;
 	}
@@ -4214,6 +4229,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 	}
 	,screen: null
 	,set_screen: function(screen) {
+		if(screen != null && this.desroyed) throw "Grave digger deeced and desroyed!";
 		if(screen != this.screen) {
 			if(this.screen != null) this.removedFromScreen();
 			this.screen = screen;
@@ -4258,7 +4274,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 	,set_defaultFrame: function(name) {
 		if(name != null) {
 			if(!this.frames.exists(name)) {
-				haxe.Log.trace("WARNING: Attempted to set a default frame that doesn't exist",{ fileName : "BaseComponent.hx", lineNumber : 353, className : "nfuzion.graphics.BaseComponent", methodName : "set_defaultFrame"});
+				console.log("WARNING: Attempted to set a default frame that doesn't exist");
 				name = null;
 			}
 		}
@@ -4286,7 +4302,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 	,imposeTouchDisabledChanged: function() {
 	}
 	,clone: function() {
-		haxe.Log.trace("ERROR: Cannot clone BaseComponent.",{ fileName : "BaseComponent.hx", lineNumber : 405, className : "nfuzion.graphics.BaseComponent", methodName : "clone"});
+		throw "Cannot clone BaseComponent.";
 		return null;
 	}
 	,copy: function(from) {
@@ -4473,7 +4489,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 				var $it1 = frames.iterator();
 				while( $it1.hasNext() ) {
 					var frame1 = $it1.next();
-					if(frame1.url == null) haxe.Log.trace("frame null on '" + this.get_fullName() + "'",{ fileName : "BaseComponent.hx", lineNumber : 769, className : "nfuzion.graphics.BaseComponent", methodName : "set_frames"});
+					if(frame1.url == null) console.log("frame null on '" + this.get_fullName() + "'");
 					this.addImage(frame1.url);
 				}
 			} else this.frames = null;
@@ -4499,7 +4515,10 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 	}
 	,updateGuise: function() {
 		var targetSketch = this.sketch;
-		if(this.guise != null && this.guises != null && this.guises.exists(this.guise)) targetSketch = this.guises.get(this.guise);
+		if(this.guise != null && this.guises != null && this.guises.exists(this.guise)) {
+			targetSketch = this.guises.get(this.guise);
+			if(targetSketch == null) throw "targetSketch should not be null!";
+		}
 		if(targetSketch != this.currentSketch && this.guises != null) {
 			this.currentSketch = targetSketch;
 			nfuzion.nTactic.NTactic.builder.theme(this,this.currentSketch);
@@ -4537,7 +4556,7 @@ nfuzion.graphics.BaseComponent.prototype = $extend(nfuzion.geometry.Box.prototyp
 			if(this.layout != null) this.layout.detach();
 			if(!this.layout.attach(this)) {
 				layout = null;
-				haxe.Log.trace("Could not attach layout to component '" + this.get_fullName() + "'.",{ fileName : "BaseComponent.hx", lineNumber : 926, className : "nfuzion.graphics.BaseComponent", methodName : "set_layout"});
+				throw "Could not attach layout to component '" + this.get_fullName() + "'.";
 			}
 		}
 		return this.layout;
@@ -5293,6 +5312,7 @@ nfuzion.graphics.Stage.prototype = $extend(nfuzion.graphics.Container.prototype,
 		return true;
 	}
 	,clone: function() {
+		console.log("ERROR: Cannot clone Stage.");
 		return null;
 	}
 	,copy: function(from) {
@@ -5363,7 +5383,7 @@ nfuzion.graphics.Text.prototype = $extend(nfuzion.graphics.Component.prototype,{
 		if(font != null) {
 			this.font = font;
 			this.implementation.className = font.cssName;
-		} else haxe.Log.trace("ERROR: Cannot set font to null.",{ fileName : "Text.hx", lineNumber : 132, className : "nfuzion.graphics.Text", methodName : "set_font"});
+		} else console.log("ERROR: Cannot set font to null.");
 		return this.font;
 	}
 	,wrap: null
@@ -5665,7 +5685,10 @@ nfuzion.image.ImageManager.prototype = {
 	,remove: function(url) {
 		if(url != null) {
 			var image = this.images.get(url);
-			if(image == null) return null;
+			if(image == null) {
+				console.log("WARNING: Image at '" + url + "' not found.");
+				return null;
+			}
 			image.useCount--;
 			if(image.useCount <= 0) this.images.remove(url);
 			return image;
@@ -5717,7 +5740,7 @@ nfuzion.layout.BaseLayout.__super__ = nfuzion.event.ListenerManagerAndEventDispa
 nfuzion.layout.BaseLayout.prototype = $extend(nfuzion.event.ListenerManagerAndEventDispatcher.prototype,{
 	component: null
 	,attach: function(component) {
-		if(component == null) haxe.Log.trace("ERROR: Cannot attach a null component to a layout.",{ fileName : "BaseLayout.hx", lineNumber : 20, className : "nfuzion.layout.BaseLayout", methodName : "attach"});
+		if(component == null) throw "Cannot attach a null component to a layout.";
 		if(this.component != component) {
 			this.detach();
 			this.component = component;
@@ -5892,7 +5915,7 @@ nfuzion.lingo.JsonLingo.prototype = {
 		var instanceClass = Type.getClass(instance);
 		var instanceClassName = Type.getClassName(instanceClass);
 		if(!StringTools.startsWith(instanceClassName,this.impliedClassPrefix)) {
-			haxe.Log.trace("Unexpected message class namespace.",{ fileName : "JsonLingo.hx", lineNumber : 54, className : "nfuzion.lingo.JsonLingo", methodName : "classTo"});
+			console.log("Unexpected message class namespace.");
 			return null;
 		}
 		instanceClassName = HxOverrides.substr(instanceClassName,this.impliedClassPrefix.length,null);
@@ -5967,7 +5990,7 @@ nfuzion.lingo.JsonLingo.prototype = {
 		if(serializedMessage == null) return null;
 		serializedMessage = StringTools.replace(serializedMessage,"\n","");
 		if(serializedMessage.charAt(0) == "{") {
-			if(serializedMessage.length - serializedMessage.lastIndexOf("}") > 2) haxe.Log.trace("WARNING: Data possibly being ignored in serialized message",{ fileName : "JsonLingo.hx", lineNumber : 185, className : "nfuzion.lingo.JsonLingo", methodName : "from"});
+			if(serializedMessage.length - serializedMessage.lastIndexOf("}") > 2) console.log("WARNING: Data possibly being ignored in serialized message");
 			serializedMessage = serializedMessage.substring(1,serializedMessage.lastIndexOf("}"));
 		}
 		var className = this.impliedClassPrefix + this.getQuotedString(serializedMessage);
@@ -5980,18 +6003,18 @@ nfuzion.lingo.JsonLingo.prototype = {
 		}
 		serializedMessage = this.trimToChar(serializedMessage,"{");
 		if(serializedMessage == null) {
-			haxe.Log.trace("Root element is not an object.",{ fileName : "JsonLingo.hx", lineNumber : 216, className : "nfuzion.lingo.JsonLingo", methodName : "from"});
+			console.log("Root element is not an object.");
 			return null;
 		}
 		serializedMessage = this.propertiesFrom(serializedMessage,message);
 		if(!this.closesWith(serializedMessage,"}")) {
-			haxe.Log.trace("Root object does not have closing bracket..",{ fileName : "JsonLingo.hx", lineNumber : 224, className : "nfuzion.lingo.JsonLingo", methodName : "from"});
+			console.log("Root object does not have closing bracket..");
 			return null;
 		}
 		serializedMessage = this.trimToChar(serializedMessage,"}");
 		StringTools.ltrim(serializedMessage);
 		if(serializedMessage.length > 0) {
-			haxe.Log.trace("Extra data found in serialized message.",{ fileName : "JsonLingo.hx", lineNumber : 234, className : "nfuzion.lingo.JsonLingo", methodName : "from"});
+			console.log("Extra data found in serialized message.");
 			return null;
 		}
 		return message;
@@ -6103,12 +6126,12 @@ nfuzion.lingo.JsonLingo.prototype = {
 		var name = this.getQuotedString(serial);
 		serial = this.trimToChar(serial,":");
 		if(serial == null) {
-			haxe.Log.trace("Property name not followed by ':'",{ fileName : "JsonLingo.hx", lineNumber : 387, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+			console.log("Property name not followed by ':'");
 			return null;
 		}
 		var propertyType = this.getValueType(serial);
 		if(propertyType == null) {
-			haxe.Log.trace("Could not determine type of property: '" + name + "'",{ fileName : "JsonLingo.hx", lineNumber : 394, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+			console.log("Could not determine type of property: '" + name + "'");
 			return null;
 		}
 		if(propertyClassArray == null && js.Boot.__instanceof(parentInstance,nfuzion.message.generic.base.Base)) {
@@ -6116,7 +6139,7 @@ nfuzion.lingo.JsonLingo.prototype = {
 			propertyClassArray = base.getPropertyType(name);
 		}
 		if(propertyClassArray == null) {
-			haxe.Log.trace("Failed to get property class array.",{ fileName : "JsonLingo.hx", lineNumber : 405, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+			console.log("Failed to get property class array.");
 			return null;
 		}
 		var propertyClass = propertyClassArray.shift();
@@ -6128,12 +6151,12 @@ nfuzion.lingo.JsonLingo.prototype = {
 				if(serial != null) serial = this.arrayFrom(serial,array,propertyClassArray);
 				serial = this.trimToChar(serial,"]");
 				if(serial == null) {
-					haxe.Log.trace("Error parsing array.",{ fileName : "JsonLingo.hx", lineNumber : 425, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+					console.log("Error parsing array.");
 					return null;
 				}
 				Reflect.setProperty(parentInstance,name,array);
 			} else {
-				haxe.Log.trace("Message type and class do not match.",{ fileName : "JsonLingo.hx", lineNumber : 432, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+				console.log("Message type and class do not match.");
 				return null;
 			}
 			break;
@@ -6170,7 +6193,7 @@ nfuzion.lingo.JsonLingo.prototype = {
 					parentInstance[name] = instance;
 				}
 				if(instance == null) {
-					haxe.Log.trace("Failed to create class.",{ fileName : "JsonLingo.hx", lineNumber : 485, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+					console.log("Failed to create class.");
 					return null;
 				}
 				break;
@@ -6180,7 +6203,7 @@ nfuzion.lingo.JsonLingo.prototype = {
 				Reflect.setField(parentInstance,name,Type.createEnum(propertyClass,propertyValue3));
 				break;
 			default:
-				haxe.Log.trace("Unhandled type \"" + Std.string(propertyType) + "\" in class.",{ fileName : "JsonLingo.hx", lineNumber : 493, className : "nfuzion.lingo.JsonLingo", methodName : "propertyFrom"});
+				console.log("Unhandled type \"" + Std.string(propertyType) + "\" in class.");
 				return null;
 			}
 		}
@@ -6231,7 +6254,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 		var instanceClass = Type.getClass(instance);
 		var instanceClassName = Type.getClassName(instanceClass);
 		if(!StringTools.startsWith(instanceClassName,this.impliedClassPrefix)) {
-			haxe.Log.trace("Unknown class type.",{ fileName : "XmlLingo.hx", lineNumber : 55, className : "nfuzion.lingo.XmlLingo", methodName : "classTo"});
+			console.log("Unknown class type.");
 			return null;
 		}
 		instanceClassName = HxOverrides.substr(instanceClassName,this.impliedClassPrefix.length,null);
@@ -6273,7 +6296,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 						serializedProperty += this.propertyTo(item,"item",padding + this.pad);
 					}
 					serializedProperty += padding + this.pad + "</" + propertyName + ">" + this.lineEnd;
-				} else if(js.Boot.__instanceof(property,nfuzion.message.generic.type.TypeClass)) serializedProperty += this.classTo(property,propertyName,padding + this.pad); else haxe.Log.trace("Detected class does not extend TypeClass.  Property will not be serialized.",{ fileName : "XmlLingo.hx", lineNumber : 142, className : "nfuzion.lingo.XmlLingo", methodName : "propertyTo"});
+				} else if(js.Boot.__instanceof(property,nfuzion.message.generic.type.TypeClass)) serializedProperty += this.classTo(property,propertyName,padding + this.pad); else console.log("Detected class does not extend TypeClass.  Property will not be serialized.");
 				break;
 			case 3:
 				serializedProperty += padding + this.pad + "<" + propertyName + " type=\"" + Std.string(nfuzion.lingo.type.PropertyType["boolean"]) + "\">" + (property == true?"true":"false") + "</" + propertyName + ">" + this.lineEnd;
@@ -6288,11 +6311,11 @@ nfuzion.lingo.XmlLingo.prototype = {
 	}
 	,from: function(serializedMessage) {
 		if(serializedMessage == null) {
-			haxe.Log.trace("ERROR: Serialized message is null!",{ fileName : "XmlLingo.hx", lineNumber : 172, className : "nfuzion.lingo.XmlLingo", methodName : "from"});
+			console.log("ERROR: Serialized message is null!");
 			return null;
 		}
 		if(serializedMessage == "") {
-			haxe.Log.trace("ERROR: Serialized message is empty!",{ fileName : "XmlLingo.hx", lineNumber : 177, className : "nfuzion.lingo.XmlLingo", methodName : "from"});
+			console.log("ERROR: Serialized message is empty!");
 			return null;
 		}
 		var tagStarts = serializedMessage.split("<");
@@ -6322,15 +6345,15 @@ nfuzion.lingo.XmlLingo.prototype = {
 			var end = tagStarts.shift();
 			if(end != null) {
 				if(!StringTools.startsWith(end,"/" + partialClassName + ">")) {
-					haxe.Log.trace("Root tag does not match.",{ fileName : "XmlLingo.hx", lineNumber : 231, className : "nfuzion.lingo.XmlLingo", methodName : "from"});
+					console.log("Root tag does not match.");
 					return null;
 				}
 			} else {
-				haxe.Log.trace("No end tag",{ fileName : "XmlLingo.hx", lineNumber : 237, className : "nfuzion.lingo.XmlLingo", methodName : "from"});
+				console.log("No end tag");
 				return null;
 			}
 			if(tagStarts.length != 0) {
-				haxe.Log.trace("Extraneous data found in serialized message.",{ fileName : "XmlLingo.hx", lineNumber : 244, className : "nfuzion.lingo.XmlLingo", methodName : "from"});
+				console.log("Extraneous data found in serialized message.");
 				return null;
 			}
 		}
@@ -6343,7 +6366,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 	,propertyFrom: function(tagStarts,parentInstance,propertyClassArray) {
 		var start = tagStarts.shift();
 		if(start == null) {
-			haxe.Log.trace("ERROR: start is null!",{ fileName : "XmlLingo.hx", lineNumber : 272, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+			console.log("ERROR: start is null!");
 			return false;
 		}
 		var name;
@@ -6351,7 +6374,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 		name = HxOverrides.substr(start,0,len);
 		if(propertyClassArray == null && js.Boot.__instanceof(parentInstance,nfuzion.message.generic.base.Base)) propertyClassArray = (js.Boot.__cast(parentInstance , nfuzion.message.generic.base.Base)).getPropertyType(name);
 		if(propertyClassArray == null) {
-			haxe.Log.trace("Failed to get property class array.",{ fileName : "XmlLingo.hx", lineNumber : 282, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+			console.log("Failed to get property class array.");
 			return false;
 		}
 		var propertyClass = propertyClassArray.shift();
@@ -6363,7 +6386,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 				if(!this.arrayFrom(tagStarts,array,propertyClassArray)) return false;
 				Reflect.setProperty(parentInstance,name,array);
 			} else {
-				haxe.Log.trace("Message type and class do not match.",{ fileName : "XmlLingo.hx", lineNumber : 302, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+				console.log("Message type and class do not match.");
 				return false;
 			}
 			break;
@@ -6400,7 +6423,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 					parentInstance[name] = instance;
 				}
 				if(instance == null) {
-					haxe.Log.trace("Failed to create class.",{ fileName : "XmlLingo.hx", lineNumber : 334, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+					console.log("Failed to create class.");
 					return false;
 				}
 				break;
@@ -6411,18 +6434,18 @@ nfuzion.lingo.XmlLingo.prototype = {
 				Reflect.setField(parentInstance,name,Type.createEnum(propertyClass,propertyValue4));
 				break;
 			default:
-				haxe.Log.trace("Unhandled type \"" + Std.string(propertyType) + "\" in class.",{ fileName : "XmlLingo.hx", lineNumber : 341, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+				console.log("Unhandled type \"" + Std.string(propertyType) + "\" in class.");
 				return false;
 			}
 		}
 		var end = tagStarts.shift();
 		if(end != null) {
 			if(!StringTools.startsWith(end,"/" + name + ">")) {
-				haxe.Log.trace("Bogus end tag.",{ fileName : "XmlLingo.hx", lineNumber : 351, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+				console.log("Bogus end tag.");
 				return false;
 			}
 		} else {
-			haxe.Log.trace("No end tag",{ fileName : "XmlLingo.hx", lineNumber : 357, className : "nfuzion.lingo.XmlLingo", methodName : "propertyFrom"});
+			console.log("No end tag");
 			return false;
 		}
 		return true;
@@ -6436,7 +6459,7 @@ nfuzion.lingo.XmlLingo.prototype = {
 				break;
 			}
 		} else {
-			haxe.Log.trace("None item tag found in an array.",{ fileName : "XmlLingo.hx", lineNumber : 388, className : "nfuzion.lingo.XmlLingo", methodName : "arrayFrom"});
+			console.log("None item tag found in an array.");
 			result = false;
 			break;
 		}
@@ -6505,7 +6528,7 @@ nfuzion.loader.TextLoader.prototype = $extend(nfuzion.event.EventDispatcher.prot
 		this.dispatchEvent(new nfuzion.loader.event.LoaderEvent("LoaderEvent.ready",this));
 	}
 	,onError: function() {
-		if(this.hasEventListener("LoaderEvent.error")) this.dispatchEvent(new nfuzion.loader.event.LoaderEvent("LoaderEvent.error",this)); else haxe.Log.trace("ERROR: Failed to load file at '" + this.url + "'.",{ fileName : "TextLoader.hx", lineNumber : 126, className : "nfuzion.loader.TextLoader", methodName : "onError"});
+		if(this.hasEventListener("LoaderEvent.error")) this.dispatchEvent(new nfuzion.loader.event.LoaderEvent("LoaderEvent.error",this)); else console.log("ERROR: Failed to load file at '" + this.url + "'.");
 	}
 	,__class__: nfuzion.loader.TextLoader
 });
@@ -6537,7 +6560,7 @@ nfuzion.message.generic.base.Base.prototype = {
 			if(propertyType != null) return propertyType.slice();
 			cls = Type.getSuperClass(cls);
 		}
-		haxe.Log.trace("WARNING: Class appears to not have a field named '" + name + "'.",{ fileName : "Base.hx", lineNumber : 32, className : "nfuzion.message.generic.base.Base", methodName : "getPropertyType"});
+		console.log("WARNING: Class appears to not have a field named '" + name + "'.");
 		return null;
 	}
 	,__class__: nfuzion.message.generic.base.Base
@@ -8461,6 +8484,19 @@ nfuzion.message.swc.type.Phase.change.__enum__ = nfuzion.message.swc.type.Phase;
 nfuzion.message.swc.type.Phase.end = ["end",2];
 nfuzion.message.swc.type.Phase.end.toString = $estr;
 nfuzion.message.swc.type.Phase.end.__enum__ = nfuzion.message.swc.type.Phase;
+nfuzion.message.swc.LetButton = function(name,phase) {
+	nfuzion.message.generic.templates.Let.call(this);
+	this.name = name;
+	this.phase = phase;
+};
+$hxClasses["nfuzion.message.swc.LetButton"] = nfuzion.message.swc.LetButton;
+nfuzion.message.swc.LetButton.__name__ = ["nfuzion","message","swc","LetButton"];
+nfuzion.message.swc.LetButton.__super__ = nfuzion.message.generic.templates.Let;
+nfuzion.message.swc.LetButton.prototype = $extend(nfuzion.message.generic.templates.Let.prototype,{
+	name: null
+	,phase: null
+	,__class__: nfuzion.message.swc.LetButton
+});
 nfuzion.message.swc.LetCursor = function(x,y,phase) {
 	nfuzion.message.generic.templates.Let.call(this);
 	this.x = x;
@@ -9379,7 +9415,7 @@ nfuzion.moduleLink.ClientModuleLink.prototype = $extend(nfuzion.moduleLink.Modul
 		var message = e.message;
 		if(className.indexOf("Let") == 0) {
 			var functionName = "on" + className;
-			if(Lambda.has(Type.getInstanceFields(Type.getClass(this)),functionName)) Reflect.callMethod(this,Reflect.field(this,functionName),[message]); else haxe.Log.trace("Function " + functionName + " not implemented.",{ fileName : "ClientModuleLink.hx", lineNumber : 72, className : "nfuzion.moduleLink.ClientModuleLink", methodName : "onClientMessage"});
+			if(Lambda.has(Type.getInstanceFields(Type.getClass(this)),functionName)) Reflect.callMethod(this,Reflect.field(this,functionName),[message]); else console.log("Function " + functionName + " not implemented.");
 		}
 	}
 	,__class__: nfuzion.moduleLink.ClientModuleLink
@@ -9990,7 +10026,7 @@ nfuzion.moduleLink.NavigationProxy.prototype = $extend(nfuzion.moduleLink.Client
 		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationDistancePercentage"));
 	}
 	,onLetCancel: function(message) {
-		haxe.Log.trace("CANCEL!",{ fileName : "NavigationProxy.hx", lineNumber : 115, className : "nfuzion.moduleLink.NavigationProxy", methodName : "onLetCancel"});
+		console.log("CANCEL!");
 		this.dispatchEvent(new nfuzion.moduleLink.event.NavigationEvent("navigationCancel"));
 	}
 	,distance: null
@@ -10227,7 +10263,7 @@ nfuzion.moduleLink.PhoneProxy.prototype = $extend(nfuzion.moduleLink.ClientModul
 		this.sendMessage(new nfuzion.message.phone.SetAction(action,number));
 	}
 	,setText: function(recipient,text) {
-		haxe.Log.trace("Phone: setText(" + recipient + ", " + text + ")",{ fileName : "PhoneProxy.hx", lineNumber : 82, className : "nfuzion.moduleLink.PhoneProxy", methodName : "setText"});
+		console.log("Phone: setText(" + recipient + ", " + text + ")");
 		this.sendMessage(new nfuzion.message.phone.SetText(recipient,text));
 	}
 	,onLetStatus: function(message) {
@@ -10312,6 +10348,9 @@ nfuzion.moduleLink.SwcProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleL
 	}
 	,onLetZoom: function(message) {
 		this.dispatchEvent(nfuzion.moduleLink.event.SwcEvent.createZoomEvent(message.deltaZoom,message.fingerCount));
+	}
+	,onLetButton: function(message) {
+		this.dispatchEvent(nfuzion.moduleLink.event.SwcEvent.createButtonEvent(message.name,message.phase));
 	}
 	,__class__: nfuzion.moduleLink.SwcProxy
 });
@@ -10753,7 +10792,7 @@ nfuzion.moduleLink.event.SwcEvent.createScrollEvent = function(deltaX,deltaY,vel
 	return event;
 };
 nfuzion.moduleLink.event.SwcEvent.createTapEvent = function(x,y,fingerCount,clickCount) {
-	var event = new nfuzion.moduleLink.event.SwcEvent("swcCursor");
+	var event = new nfuzion.moduleLink.event.SwcEvent("swcTap");
 	event.x = x;
 	event.y = y;
 	event.fingerCount = fingerCount;
@@ -10766,9 +10805,16 @@ nfuzion.moduleLink.event.SwcEvent.createZoomEvent = function(deltaZoom,fingerCou
 	event.fingerCount = fingerCount;
 	return event;
 };
+nfuzion.moduleLink.event.SwcEvent.createButtonEvent = function(name,phase) {
+	var event = new nfuzion.moduleLink.event.SwcEvent("button");
+	event.name = name;
+	event.phase = phase;
+	return event;
+};
 nfuzion.moduleLink.event.SwcEvent.__super__ = nfuzion.event.Event;
 nfuzion.moduleLink.event.SwcEvent.prototype = $extend(nfuzion.event.Event.prototype,{
-	x: null
+	name: null
+	,x: null
 	,y: null
 	,phase: null
 	,gesture: null
@@ -10985,12 +11031,15 @@ nfuzion.nTactic.core.AppModel.prototype = $extend(nfuzion.event.EventDispatcher.
 	}
 	,'goto': function(branch,vars,addToHistory) {
 		if(addToHistory == null) addToHistory = true;
-		haxe.Log.trace("NOTICE: Loading: " + branch,{ fileName : "AppModel.hx", lineNumber : 158, className : "nfuzion.nTactic.core.AppModel", methodName : "goto"});
+		console.log("NOTICE: Loading: " + branch);
 		var addressArray = branch.split(":");
 		if(addressArray.length > 1) {
 			var model;
 			model = this.getModel(addressArray[0]);
-			if(model != null) model["goto"](addressArray[1],vars,addToHistory); else haxe.Log.trace("ERROR: Could not find screen model: " + addressArray[0],{ fileName : "AppModel.hx", lineNumber : 173, className : "nfuzion.nTactic.core.AppModel", methodName : "goto"});
+			if(model != null) model["goto"](addressArray[1],vars,addToHistory); else {
+				throw "ERROR: Could not find screen model: " + addressArray[0];
+				console.log("ERROR: Could not find screen model: " + addressArray[0]);
+			}
 		} else this.defaultModel["goto"](addressArray[0],vars,addToHistory);
 	}
 	,back: function(modelId) {
@@ -11152,7 +11201,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 	}
 	,initializeScreen: function() {
 		if(this.useBuilder) {
-			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) haxe.Log.trace("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.",{ fileName : "Screen.hx", lineNumber : 105, className : "nfuzion.nTactic.core.Screen", methodName : "initializeScreen"});
+			if(!nfuzion.nTactic.NTactic.builder.buildOver(this.graphicsClassName,this)) console.log("ERROR: Screen graphics class not found for " + this.graphicsClassName + ".  A ghost screen will be created.");
 		}
 		this.group = new nfuzion.widget.Group(this.graphicsClassName,this);
 	}
@@ -11291,9 +11340,9 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 						this.detachListener(image,"ImageEvent.ready",$bind(this,this.onImageReady));
 						this.detachListener(image,"ImageEvent.error",$bind(this,this.onImageError));
 					}
-				} else {
-				}
-			} else haxe.Log.trace("WARNING: cannot detatch image " + url,{ fileName : "Screen.hx", lineNumber : 356, className : "nfuzion.nTactic.core.Screen", methodName : "detatchImage"});
+				} else console.log("WARNING: This should never happen");
+			} else {
+			}
 		}
 	}
 	,onImageError: function(e) {
@@ -11323,7 +11372,7 @@ nfuzion.nTactic.core.Screen.prototype = $extend(nfuzion.graphics.Container.proto
 		if(ready) this.onReady();
 	}
 	,onReady: function() {
-		haxe.Log.trace(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ",{ fileName : "Screen.hx", lineNumber : 403, className : "nfuzion.nTactic.core.Screen", methodName : "onReady"});
+		console.log(" ** *  *   *     *  Screen " + this.graphicsClassName + " is ready!  *    *   *  * ** ");
 		this.initalGraphicsLoaded = true;
 		this.dispatchEvent(new nfuzion.nTactic.event.ScreenEvent("ready",this));
 	}
@@ -11471,9 +11520,9 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 	}
 	,get: function(record) {
 		if(record.screen == null) {
-			haxe.Log.trace(" [ + ] Creating Screen: " + record.branch,{ fileName : "ScreenCache.hx", lineNumber : 36, className : "nfuzion.nTactic.core.ScreenCache", methodName : "get"});
+			console.log(" [ + ] Creating Screen: " + record.branch);
 			this.createScreen(record,nfuzion.nTactic.NTactic.screens.getModel(record.modelId));
-		} else haxe.Log.trace(" [ = ] Reusing screen: " + record.branch,{ fileName : "ScreenCache.hx", lineNumber : 41, className : "nfuzion.nTactic.core.ScreenCache", methodName : "get"});
+		} else console.log(" [ = ] Reusing screen: " + record.branch);
 		if(record.screen != null) {
 			record.inUse = true;
 			nfuzion.nTactic.NTactic.cacheManager["use"](record.branch);
@@ -11490,7 +11539,7 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 			cls = null;
 		}
 		if(cls == null) {
-			haxe.Log.trace("FATAL: Could not instantiate '" + className + "'.  Check the screen name and verify that it is imported.",{ fileName : "ScreenCache.hx", lineNumber : 69, className : "nfuzion.nTactic.core.ScreenCache", methodName : "createScreen"});
+			console.log("FATAL: Could not instantiate '" + className + "'.  Check the screen name and verify that it is imported.");
 			return false;
 		}
 		screen = Type.createInstance(cls,[className]);
@@ -11504,7 +11553,7 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 	}
 	,release: function(branch) {
 		if(this.screenRecords.exists(branch)) {
-			haxe.Log.trace(" [ - ] Releasing screen: " + branch,{ fileName : "ScreenCache.hx", lineNumber : 87, className : "nfuzion.nTactic.core.ScreenCache", methodName : "release"});
+			console.log(" [ - ] Releasing screen: " + branch);
 			this.screenRecords.get(branch).inUse = false;
 			nfuzion.nTactic.NTactic.cacheManager.release(branch);
 		}
@@ -11512,7 +11561,7 @@ nfuzion.nTactic.core.ScreenCache.prototype = $extend(nfuzion.event.EventDispatch
 	,destroy: function(branch) {
 		var record = this.screenRecords.get(branch);
 		if(record != null && record.destroyScreen()) return true;
-		haxe.Log.trace("NOTE: Could not destroy screen " + branch,{ fileName : "ScreenCache.hx", lineNumber : 102, className : "nfuzion.nTactic.core.ScreenCache", methodName : "destroy"});
+		console.log("NOTE: Could not destroy screen " + branch);
 		return false;
 	}
 	,destroyAll: function() {
@@ -11661,13 +11710,13 @@ nfuzion.nTactic.core.ScreenModel.prototype = $extend(nfuzion.event.EventDispatch
 				++_g;
 				var record = nfuzion.nTactic.NTactic.cache.getRecord(this.id + ":" + screenBranch);
 				if(record != null) {
-					haxe.Log.trace("Setting priority for " + record.branch + " to MAX",{ fileName : "ScreenModel.hx", lineNumber : 243, className : "nfuzion.nTactic.core.ScreenModel", methodName : "cacheScreens"});
+					console.log("Setting priority for " + record.branch + " to MAX");
 					record.priority = 134217727;
 					if(record.screen == null) {
-						haxe.Log.trace("NOTE: Preloading " + record.branch + ".",{ fileName : "ScreenModel.hx", lineNumber : 248, className : "nfuzion.nTactic.core.ScreenModel", methodName : "cacheScreens"});
+						console.log("NOTE: Preloading " + record.branch + ".");
 						var screen = nfuzion.nTactic.NTactic.cache.get(record);
 						nfuzion.nTactic.NTactic.cache.release(screen.branch);
-					} else haxe.Log.trace("WARNING: could not find record for branch: " + screenBranch + " Screen will not be cached",{ fileName : "ScreenModel.hx", lineNumber : 256, className : "nfuzion.nTactic.core.ScreenModel", methodName : "cacheScreens"});
+					} else console.log("WARNING: could not find record for branch: " + screenBranch + " Screen will not be cached");
 				}
 			}
 		}
@@ -11681,10 +11730,10 @@ nfuzion.nTactic.core.ScreenModel.prototype = $extend(nfuzion.event.EventDispatch
 				++_g;
 				var record = nfuzion.nTactic.NTactic.cache.getRecord(this.id + ":" + screenBranch);
 				if(record != null) {
-					haxe.Log.trace("NOTE: Setting priority for " + record.branch + " to MIN",{ fileName : "ScreenModel.hx", lineNumber : 281, className : "nfuzion.nTactic.core.ScreenModel", methodName : "releaseScreens"});
+					console.log("NOTE: Setting priority for " + record.branch + " to MIN");
 					record.priority = 134217728;
 					if(!record.inUse) nfuzion.nTactic.NTactic.cache.release(record.branch);
-				} else haxe.Log.trace("WARNING: could not find record for branch: " + screenBranch + " Screen will not be released",{ fileName : "ScreenModel.hx", lineNumber : 293, className : "nfuzion.nTactic.core.ScreenModel", methodName : "releaseScreens"});
+				} else console.log("WARNING: could not find record for branch: " + screenBranch + " Screen will not be released");
 			}
 		}
 	}
@@ -11718,7 +11767,7 @@ nfuzion.nTactic.core.ScreenModel.prototype = $extend(nfuzion.event.EventDispatch
 	}
 	,getScreenRecord: function(branch) {
 		var record = nfuzion.nTactic.NTactic.cache.getRecord(this.id + ":" + branch);
-		if(record == null) haxe.Log.trace("WARNING: Could not locate screen branch: " + this.id + ":" + branch,{ fileName : "ScreenModel.hx", lineNumber : 383, className : "nfuzion.nTactic.core.ScreenModel", methodName : "getScreenRecord"});
+		if(record == null) throw "Could not locate screen branch: " + this.id + ":" + branch;
 		return record;
 	}
 	,addScreens: function() {
@@ -11848,7 +11897,7 @@ nfuzion.nTactic.core.ScreenRecord.prototype = {
 		var success = false;
 		if(this.screen != null) {
 			if(!this.inUse && !this.screen.entered) {
-				haxe.Log.trace(" [ X ] Destroying screen: " + this.branch,{ fileName : "ScreenRecord.hx", lineNumber : 34, className : "nfuzion.nTactic.core.ScreenRecord", methodName : "destroyScreen"});
+				console.log(" [ X ] Destroying screen: " + this.branch);
 				this.screen.destroy();
 				this.screen = null;
 				success = true;
@@ -11860,6 +11909,8 @@ nfuzion.nTactic.core.ScreenRecord.prototype = {
 	,__class__: nfuzion.nTactic.core.ScreenRecord
 };
 nfuzion.nTactic.core.SubScreen = function(parentGroup,fillParent,graphicsClassName) {
+	if(parentGroup == null) throw "Parent group is null!";
+	if(parentGroup.implementation == null) throw "Parent implementation is null.  '" + parentGroup.get_fullName() + "' is probably a ghost widget.";
 	this.parentGroup = parentGroup;
 	nfuzion.nTactic.core.Screen.call(this,graphicsClassName,fillParent);
 	this.name = "SubScreen(" + this.graphicsClassName + ")";
@@ -11942,6 +11993,7 @@ nfuzion.paint.PaintManager.prototype = {
 	,get: function(name) {
 		var paint = this.palette.get(name);
 		if(paint == null) {
+			console.log("WARNING: Paint '" + name + "' not found.");
 			paint = new nfuzion.paint.Paint(name);
 			this.palette.set(name,paint);
 		}
@@ -12022,6 +12074,8 @@ nfuzion.physics.Scrolling.prototype = $extend(nfuzion.event.EventDispatcher.prot
 	,touching: null
 	,rowSize: null
 	,set_rowSize: function(rowSize) {
+		if(Math.isNaN(rowSize)) throw "rowSize must not be NaN.";
+		if(rowSize <= 0) throw "rowSize must be greater than 0.";
 		this.rowSize = rowSize;
 		return this.rowSize;
 	}
@@ -12035,6 +12089,7 @@ nfuzion.physics.Scrolling.prototype = $extend(nfuzion.event.EventDispatcher.prot
 	}
 	,step: null
 	,set_step: function(step) {
+		if(Math.isNaN(step)) throw "step must not be NaN.";
 		this.step = step;
 		if(this.scroller != null) {
 			this.scroller.set_pageSize(step / this.rowSize);
@@ -12344,18 +12399,18 @@ nfuzion.sketch.XmlSketch.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				var assets = Xml.parse(this.loader.data);
 				this.assets = assets.elementsNamed("Assets").next();
 			} catch( e1 ) {
-				haxe.Log.trace("ERROR: " + Std.string(e1),{ fileName : "XmlSketch.hx", lineNumber : 80, className : "nfuzion.sketch.XmlSketch", methodName : "onReady"});
+				console.log("ERROR: " + Std.string(e1));
 				this.assets = null;
 			}
 			if(this.assets == null) {
-				haxe.Log.trace("ERROR: No 'Assets' ag found.",{ fileName : "XmlSketch.hx", lineNumber : 85, className : "nfuzion.sketch.XmlSketch", methodName : "onReady"});
+				console.log("ERROR: No 'Assets' ag found.");
 				return;
 			}
 			this.parsePalee();
 			this.parseFonts();
 			this.parseClasses();
 		}
-		if(this.assets == null) haxe.Log.trace("ERROR: No assets loaded.",{ fileName : "XmlSketch.hx", lineNumber : 94, className : "nfuzion.sketch.XmlSketch", methodName : "onReady"});
+		if(this.assets == null) console.log("ERROR: No assets loaded.");
 		this.ready = true;
 		this.dispatchEvent(new nfuzion.sketch.event.SketchEvent("BuilderEvent.ready"));
 	}
@@ -12400,6 +12455,7 @@ nfuzion.sketch.XmlSketch.prototype = $extend(nfuzion.event.EventDispatcher.proto
 			switch(_g) {
 			case "Guise":
 				var guise = this.readContainer(element,true);
+				if(guise == null) throw "Guise is null.";
 				parent.addGuise(guise);
 				break;
 			case "Container":
@@ -12523,6 +12579,7 @@ nfuzion.sketch.type.SketchComponent.prototype = $extend(nfuzion.geometry.Box.pro
 		this.frames.set(frameName,frame);
 	}
 	,addGuise: function(guise) {
+		if(guise == null) throw "guise is null!";
 		this.guises.set(guise.name,guise);
 	}
 	,__class__: nfuzion.sketch.type.SketchComponent
@@ -12637,7 +12694,7 @@ nfuzion.span.SpanClient.parseUrlString = function(urlString,throwHints) {
 		url.host = "ghost";
 		break;
 	default:
-		haxe.Log.trace("ERROR: This should never happen: protocol = " + url.protocol,{ fileName : "SpanClient.hx", lineNumber : 101, className : "nfuzion.span.SpanClient", methodName : "parseUrlString"});
+		console.log("ERROR: This should never happen: protocol = " + url.protocol);
 		return null;
 	}
 	return url;
@@ -12666,7 +12723,7 @@ nfuzion.span.SpanClient.prototype = $extend(nfuzion.event.EventDispatcher.protot
 			this.client = new nfuzion.client.GhostClient();
 			break;
 		default:
-			haxe.Log.trace("ERROR: This should never happen: protocol = " + this.url.protocol,{ fileName : "SpanClient.hx", lineNumber : 131, className : "nfuzion.span.SpanClient", methodName : "newClient"});
+			console.log("ERROR: This should never happen: protocol = " + this.url.protocol);
 		}
 		if(lingo == null) {
 			var _g1 = this.url.port;
@@ -12681,7 +12738,7 @@ nfuzion.span.SpanClient.prototype = $extend(nfuzion.event.EventDispatcher.protot
 				this.lingo = new nfuzion.lingo.HaxeLingo();
 				break;
 			default:
-				haxe.Log.trace("WARNING: No default lingo specified for port " + this.url.port + ".  Using XmlLingo.",{ fileName : "SpanClient.hx", lineNumber : 145, className : "nfuzion.span.SpanClient", methodName : "newClient"});
+				console.log("WARNING: No default lingo specified for port " + this.url.port + ".  Using XmlLingo.");
 				this.lingo = new nfuzion.lingo.XmlLingo();
 			}
 		} else this.lingo = lingo;
@@ -12924,7 +12981,7 @@ nfuzion.timer.Delay.__name__ = ["nfuzion","timer","Delay"];
 nfuzion.timer.Delay.now = function() {
 	var timestamp = haxe.Timer.stamp();
 	if(timestamp < nfuzion.timer.Delay.lastTimestamp) {
-		haxe.Log.trace("FATAL: Timer is broken!",{ fileName : "Delay.hx", lineNumber : 43, className : "nfuzion.timer.Delay", methodName : "now"});
+		console.log("FATAL: Timer is broken!");
 		return -3.4e+038;
 	}
 	nfuzion.timer.Delay.lastTimestamp = timestamp;
@@ -13074,6 +13131,7 @@ nfuzion.tween.Tween.prototype = {
 };
 nfuzion.tween.type = {};
 nfuzion.tween.type.TweenProperty = function(target,name,targetValue,type) {
+	if(target == null) throw "Tween property target is null!";
 	this.target = target;
 	this.name = name;
 	this.targetValue = targetValue;
@@ -13092,7 +13150,7 @@ nfuzion.tween.type.TweenProperty = function(target,name,targetValue,type) {
 		this.get = null;
 	}
 	if(this.get == null) {
-		haxe.Log.trace("ERROR: Getter for property '" + name + "' could not be found.",{ fileName : "TweenProperty.hx", lineNumber : 62, className : "nfuzion.tween.type.TweenProperty", methodName : "new"});
+		console.log("ERROR: Getter for property '" + name + "' could not be found.");
 		return;
 	}
 	success = true;
@@ -13107,7 +13165,7 @@ nfuzion.tween.type.TweenProperty = function(target,name,targetValue,type) {
 		this.set = null;
 	}
 	if(this.set == null) {
-		haxe.Log.trace("ERROR: Setter for property '" + name + "' could not be found.",{ fileName : "TweenProperty.hx", lineNumber : 93, className : "nfuzion.tween.type.TweenProperty", methodName : "new"});
+		console.log("ERROR: Setter for property '" + name + "' could not be found.");
 		return;
 	}
 };
@@ -13449,6 +13507,7 @@ nfuzion.utility.ColorTools.fromString = function(value) {
 		var $int = Std.parseInt(value);
 		color = nfuzion.utility.ColorTools.fromInt($int);
 	}
+	if(color == null) console.log("ERROR: Could not parse string '" + value + "' as a color.");
 	return color;
 };
 nfuzion.widget = {};
@@ -13494,7 +13553,7 @@ nfuzion.widget.Simple.prototype = $extend(nfuzion.event.ListenerManagerAndEventD
 	}
 	,encloseGraphics: function(component) {
 		if(this.implementation != null) {
-			haxe.Log.trace("ERROR: Widget already contains graphics.",{ fileName : "Simple.hx", lineNumber : 78, className : "nfuzion.widget.Simple", methodName : "encloseGraphics"});
+			console.log("ERROR: Widget already contains graphics.");
 			return false;
 		}
 		this.implementation = component;
@@ -13719,17 +13778,18 @@ nfuzion.widget.Group.prototype = $extend(nfuzion.widget.Simple.prototype,{
 		var name = nameArray.shift();
 		var child = this.getChild(name);
 		if(child == null) {
+			console.log("NOTICE: Creating ghost widget '" + name + "' in '" + this.get_fullName() + "'.");
 			child = this.createChild(name);
 			this.appendChild(child);
 		}
 		if(child == null) {
-			haxe.Log.trace("ERROR: Could not find or create child '" + name + "'.",{ fileName : "Group.hx", lineNumber : 72, className : "nfuzion.widget.Group", methodName : "getWidgetByArray"});
+			console.log("ERROR: Could not find or create child '" + name + "'.");
 			return null;
 		}
 		if(nameArray.length > 0) {
 			var group = child;
 			if(group != null) return group.getWidgetByArray(nameArray); else {
-				haxe.Log.trace("ERROR: Widget '" + name + "' cannot contain children.",{ fileName : "Group.hx", lineNumber : 84, className : "nfuzion.widget.Group", methodName : "getWidgetByArray"});
+				console.log("ERROR: Widget '" + name + "' cannot contain children.");
 				return null;
 			}
 		}
@@ -14688,6 +14748,7 @@ nfuzion.widget.List.prototype = $extend(nfuzion.widget.Group.prototype,{
 		});
 		this.size = this.implementation._height;
 		if(rows.length > 1) this.rowSize = rows[1].widget.implementation._y - rows[0].widget.implementation._y; else this.rowSize = rows[0].widget.implementation._height;
+		if(this.rowSize <= 0) throw "rowSize must be greater than 0.";
 		this.rowOverlap = rows[0].widget.implementation._height - this.rowSize;
 		this.pageSize = Math.ceil(this.size / this.rowSize);
 		this.cache.set_windowSize(this.pageSize);
@@ -14733,6 +14794,7 @@ nfuzion.widget.List.prototype = $extend(nfuzion.widget.Group.prototype,{
 			this.visualPosition = visualPosition;
 			var targetDataPosition = visualPosition / this.rowSize | 0;
 			this.changeDataPosition(targetDataPosition);
+			if(Math.isNaN(visualPosition)) console.log("ERROR: visualPosition is NaN!");
 		}
 		return visualPosition;
 	}
@@ -14788,7 +14850,7 @@ nfuzion.widget.List.prototype = $extend(nfuzion.widget.Group.prototype,{
 		this.update();
 	}
 	,getPosition: function(point) {
-		haxe.Log.trace("FATAL: getPosition from List.as must be overridden.",{ fileName : "List.hx", lineNumber : 280, className : "nfuzion.widget.List", methodName : "getPosition"});
+		console.log("FATAL: getPosition from List.as must be overridden.");
 		return 0;
 	}
 	,adjustRowPositions: function() {
@@ -15587,6 +15649,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 		if(this.roundValue) return Math.round(this.vValue); else return this.vValue;
 	}
 	,set_vValue: function(value) {
+		if(Math.isNaN(value)) throw "Cannot set property to NaN.";
 		if(value != this.get_vValue()) {
 			if(value > this.vMaximum - this.vPageSize) value = this.vMaximum - this.vPageSize;
 			if(value < this.vMinimum) value = this.vMinimum;
@@ -15600,6 +15663,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 		if(this.roundValue) return Math.round(this.hValue); else return this.hValue;
 	}
 	,set_hValue: function(value) {
+		if(Math.isNaN(value)) throw "Cannot set property to NaN.";
 		if(value != this.get_hValue()) {
 			if(value > this.hMaximum - this.hPageSize) value = this.hMaximum - this.hPageSize;
 			if(value < this.hMinimum) value = this.hMinimum;
@@ -15617,6 +15681,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,hMinimum: null
 	,set_hMinimum: function(min) {
+		if(Math.isNaN(min)) throw "Cannot set property to NaN.";
 		if(min != this.hMinimum) {
 			this.hMinimum = min;
 			if(this.hMinimum > this.hMaximum) this.set_hMaximum(this.hMinimum);
@@ -15627,6 +15692,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,vMinimum: null
 	,set_vMinimum: function(min) {
+		if(Math.isNaN(min)) throw "Cannot set property to NaN.";
 		if(min != this.vMinimum) {
 			this.vMinimum = min;
 			if(this.vMinimum > this.vMaximum) this.set_vMaximum(this.vMinimum);
@@ -15648,6 +15714,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,vMaximum: null
 	,set_vMaximum: function(max) {
+		if(Math.isNaN(max)) throw "Cannot set property to NaN.";
 		if(max != this.vMaximum) {
 			this.vMaximum = max;
 			if(this.vMaximum < this.vMinimum) this.set_vMinimum(this.vMaximum);
@@ -15662,6 +15729,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,hMaximum: null
 	,set_hMaximum: function(max) {
+		if(Math.isNaN(max)) throw "Cannot set property to NaN.";
 		if(max != this.hMaximum) {
 			this.hMaximum = max;
 			if(this.hMaximum < this.hMinimum) this.set_hMinimum(this.hMaximum);
@@ -15683,6 +15751,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,vPageSize: null
 	,set_vPageSize: function(pageSize) {
+		if(Math.isNaN(pageSize)) throw "Cannot set property to NaN.";
 		if(pageSize != this.vPageSize) {
 			this.vPageSize = pageSize;
 			if(this.vMaximum - this.vPageSize < this.get_vValue()) this.set_value(this.vMaximum - this.vPageSize);
@@ -15692,6 +15761,7 @@ nfuzion.widget.Scroller.prototype = $extend(nfuzion.widget.Group.prototype,{
 	}
 	,hPageSize: null
 	,set_hPageSize: function(pageSize) {
+		if(Math.isNaN(pageSize)) throw "Cannot set property to NaN.";
 		if(pageSize != this.hPageSize) {
 			this.hPageSize = pageSize;
 			if(this.hMaximum - this.hPageSize < this.get_hValue()) this.set_value(this.hMaximum - this.hPageSize);
@@ -16161,7 +16231,7 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 			if(waypointArray.length == 2) {
 				var waypointX = Std.parseFloat(waypointArray[0]);
 				var waypointY = Std.parseFloat(waypointArray[1]);
-				haxe.Log.trace("adding new waypoint " + waypointX + ", " + waypointY,{ fileName : "ActionManager.hx", lineNumber : 43, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+				console.log("adding new waypoint " + waypointX + ", " + waypointY);
 				peripheral.Peripheral.navigation.addWaypoint(new nfuzion.message.navigation.type.Waypoint("Waypoint","",waypointX,waypointY));
 				peripheral.Peripheral.navigation.setStartByPoint(new nfuzion.message.navigation.type.SerializablePoint(peripheral.Peripheral.gps.latitide,peripheral.Peripheral.gps.longitude));
 				peripheral.Peripheral.navigation.requestNewRoute(nfuzion.message.navigation.type.TransitType.driving);
@@ -16169,18 +16239,18 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 			}
 			break;
 		case 1:
-			haxe.Log.trace("SetDestination",{ fileName : "ActionManager.hx", lineNumber : 52, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+			console.log("SetDestination");
 			var pointArray = action.data.split(",");
 			if(pointArray.length == 2) {
 				var pointX = Std.parseFloat(pointArray[0]);
 				var pointY = Std.parseFloat(pointArray[1]);
-				haxe.Log.trace("Setting new destination " + pointX + ", " + pointY,{ fileName : "ActionManager.hx", lineNumber : 58, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+				console.log("Setting new destination " + pointX + ", " + pointY);
 				peripheral.Peripheral.navigation.clearRoute();
 				peripheral.Peripheral.navigation.setStartByPoint(new nfuzion.message.navigation.type.SerializablePoint(peripheral.Peripheral.gps.latitide,peripheral.Peripheral.gps.longitude));
 				peripheral.Peripheral.navigation.setEndByPoint(new nfuzion.message.navigation.type.SerializablePoint(pointX,pointY));
 				peripheral.Peripheral.navigation.requestNewRoute(nfuzion.message.navigation.type.TransitType.driving);
 				peripheral.Peripheral.backlog.getCurrentEventData();
-			} else haxe.Log.trace("WARNING: Unable to set destination. Coordinates are invalid",{ fileName : "ActionManager.hx", lineNumber : 69, className : "peripheral.ActionManager", methodName : "performIntentAction"});
+			} else console.log("WARNING: Unable to set destination. Coordinates are invalid");
 			break;
 		case 2:
 			var id = peripheral.Peripheral.backlog.popupNotice.id;
@@ -16215,7 +16285,7 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				nfuzion.nTactic.NTactic["goto"](action.data);
 				break;
 			case 5:
-				if(action.data.branch != null) nfuzion.nTactic.NTactic["goto"](action.data.branch,action.data.screenVars); else haxe.Log.trace("ERROR: Branch not specified.",{ fileName : "ActionManager.hx", lineNumber : 110, className : "peripheral.ActionManager", methodName : "performLocalAction"});
+				if(action.data.branch != null) nfuzion.nTactic.NTactic["goto"](action.data.branch,action.data.screenVars); else console.log("ERROR: Branch not specified.");
 				break;
 			case 6:
 				peripheral.Peripheral.tts.speak(action.data);
@@ -16231,7 +16301,7 @@ peripheral.ActionManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 				peripheral.Peripheral.vr.setCapture(action.data);
 				break;
 			}
-		} else haxe.Log.trace("NOTICE: Action is null.",{ fileName : "ActionManager.hx", lineNumber : 132, className : "peripheral.ActionManager", methodName : "performLocalAction"});
+		} else console.log("NOTICE: Action is null.");
 	}
 	,__class__: peripheral.ActionManager
 });
@@ -16239,7 +16309,7 @@ peripheral.CommBacklog = function() {
 	nfuzion.event.EventDispatcher.call(this);
 	this.popupModel = nfuzion.nTactic.NTactic.screens.getModel("popup");
 	this.items = new Array();
-	this.items = [new peripheral.type.CommItem("Roger Hamilton",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(14)),new peripheral.type.CommItem("Nate Williams",peripheral.type.CommIcon.twitter,null,this.generateRelativeTime(38)),new peripheral.type.CommItem("Donuts?",peripheral.type.CommIcon.intentEngine,null,this.generateRelativeTime(53)),new peripheral.type.CommItem("Steve Henly",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(58)),new peripheral.type.CommItem("Micah Jones ",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(72)),new peripheral.type.CommItem("Mint",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(80)),new peripheral.type.CommItem("Jen",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(92)),new peripheral.type.CommItem("Yi Glaser",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(100)),new peripheral.type.CommItem("Mom",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(112)),new peripheral.type.CommItem("Tricia Morrow",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(123))];
+	this.items = [new peripheral.type.CommItem("Roger Hamilton",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(14)),new peripheral.type.CommItem("Nate Williams",peripheral.type.CommIcon.twitter,null,this.generateRelativeTime(38)),new peripheral.type.CommItem("Donuts?",peripheral.type.CommIcon.intentEngine,null,this.generateRelativeTime(53)),new peripheral.type.CommItem("Samer Zakhem",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(58)),new peripheral.type.CommItem("Micah Jones ",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(72)),new peripheral.type.CommItem("Mint",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(80)),new peripheral.type.CommItem("Jen",peripheral.type.CommIcon.sms,null,this.generateRelativeTime(92)),new peripheral.type.CommItem("Yi Glaser",peripheral.type.CommIcon.facebook,null,this.generateRelativeTime(100)),new peripheral.type.CommItem("Mom",peripheral.type.CommIcon.phone,null,this.generateRelativeTime(112)),new peripheral.type.CommItem("Tricia Morrow",peripheral.type.CommIcon.mail,null,this.generateRelativeTime(123))];
 	peripheral.Peripheral.notice.addEventListener("ready",$bind(this,this.onReady));
 	peripheral.Peripheral.notice.addEventListener("count",$bind(this,this.onCount));
 	peripheral.Peripheral.notice.addEventListener("noticeNotices",$bind(this,this.onNotices));
@@ -16276,7 +16346,7 @@ peripheral.CommBacklog.prototype = $extend(nfuzion.event.EventDispatcher.prototy
 	}
 	,getCurrentEventData: function() {
 		if(this.currentEvent != null) {
-			haxe.Log.trace("dispatching event",{ fileName : "CommBacklog.hx", lineNumber : 91, className : "peripheral.CommBacklog", methodName : "getCurrentEventData"});
+			console.log("dispatching event");
 			this.dispatchEvent(new peripheral.event.CommBacklogEvent("currentEventChanged"));
 		}
 	}
@@ -16291,7 +16361,7 @@ peripheral.CommBacklog.prototype = $extend(nfuzion.event.EventDispatcher.prototy
 		if(peripheral.Peripheral.notice.ready) peripheral.Peripheral.notice.getCount();
 	}
 	,onCount: function(e) {
-		haxe.Log.trace("onCount " + peripheral.Peripheral.notice.get_count(),{ fileName : "CommBacklog.hx", lineNumber : 115, className : "peripheral.CommBacklog", methodName : "onCount"});
+		console.log("onCount " + peripheral.Peripheral.notice.get_count());
 		if(peripheral.Peripheral.notice.get_count() > 0) peripheral.Peripheral.notice.getNotices(0,peripheral.Peripheral.notice.get_count() - 1);
 	}
 	,onNotices: function(e) {
@@ -16424,6 +16494,8 @@ peripheral.HumanInput = function() {
 	window.document.onkeydown = $bind(this,this.onKeyDown);
 	this.attachTouch();
 	this.attachLeap();
+	this.attachSwc();
+	peripheral.Peripheral.router.addEventListener("selector",$bind(this,this.onSelector));
 };
 $hxClasses["peripheral.HumanInput"] = peripheral.HumanInput;
 peripheral.HumanInput.__name__ = ["peripheral","HumanInput"];
@@ -16431,6 +16503,10 @@ peripheral.HumanInput.__super__ = nfuzion.event.EventDispatcher;
 peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototype,{
 	registration: null
 	,registrationDelay: null
+	,muted: null
+	,onSelector: function(e) {
+		if(e.name == "mute") this.muted = e.value == "true";
+	}
 	,onKeyDown: function(e) {
 		e.preventDefault();
 		this.keyDown(e.keyCode);
@@ -16467,6 +16543,14 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 	}
 	,beckon: function() {
 		this.dispatchEvent(new peripheral.event.HumanInputEvent(peripheral.event.HumanInputEvent.BECKON));
+	}
+	,ptt: function() {
+		if(peripheral.Peripheral.phone.status == nfuzion.message.phone.type.PhoneStatus.ringing) peripheral.Peripheral.phone.setAction(nfuzion.message.phone.type.PhoneAction.answer,null);
+	}
+	,mute: function() {
+		if(peripheral.Peripheral.phone.status == nfuzion.message.phone.type.PhoneStatus.idle) {
+			if(this.muted) peripheral.Peripheral.router.setSelector("mute","true"); else peripheral.Peripheral.router.setSelector("mute","false");
+		} else peripheral.Peripheral.phone.setAction(nfuzion.message.phone.type.PhoneAction.hangup,peripheral.Peripheral.phone.activeNumber);
 	}
 	,startRegistration: function(registration) {
 		if(this.registration != peripheral.type.Registration.none) this.endRegistration();
@@ -16639,6 +16723,7 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 			peripheral.Peripheral.swc.addEventListener("swcScroll",$bind(this,this.onSwcScroll));
 			peripheral.Peripheral.swc.addEventListener("swcTap",$bind(this,this.onSwcTap));
 			peripheral.Peripheral.swc.addEventListener("swcZoom",$bind(this,this.onSwcZoom));
+			peripheral.Peripheral.swc.addEventListener("button",$bind(this,this.onSwcButton));
 		}
 	}
 	,swcCursorLastY: null
@@ -16675,8 +16760,10 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 		var _g = e.gesture;
 		switch(_g[1]) {
 		case 0:
+			this.switchPanels();
 			break;
 		case 1:
+			this.switchPanels();
 			break;
 		case 2:
 			this.up();
@@ -16692,6 +16779,34 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 			break;
 		case 7:
 			break;
+		}
+	}
+	,onSwcButton: function(e) {
+		if(e.phase == nfuzion.message.swc.type.Phase.end) {
+			var _g = e.name;
+			switch(_g) {
+			case "left":
+				this.startRegistration(peripheral.type.Registration.left);
+				break;
+			case "right":
+				this.startRegistration(peripheral.type.Registration.center);
+				break;
+			case "up":
+				this.up();
+				break;
+			case "down":
+				this.down();
+				break;
+			case "select":
+				this.select();
+				break;
+			case "ptt":
+				this.ptt();
+				break;
+			case "mute":
+				this.mute();
+				break;
+			}
 		}
 	}
 	,onSwcScroll: function(e) {
@@ -16726,7 +16841,7 @@ peripheral.Peripheral.initialize = function() {
 		peripheral.Peripheral.spanClient.addEventListener("SpanClientEvent.disconnect",peripheral.Peripheral.onClientDisconnect);
 	} catch( e ) {
 		peripheral.Peripheral.spanClient = null;
-		haxe.Log.trace("NOTICE: Invalid url. Using default.",{ fileName : "Peripheral.hx", lineNumber : 94, className : "peripheral.Peripheral", methodName : "initialize"});
+		console.log("NOTICE: Invalid url. Using default.");
 		peripheral.Peripheral.useDefault();
 		peripheral.Peripheral.spanClient = new nfuzion.span.SpanClient(peripheral.Peripheral.urlRecord.value);
 	}
@@ -16784,7 +16899,7 @@ peripheral.SourceManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 		if(peripheral.Peripheral.router.ready) peripheral.Peripheral.router.getSelector("source");
 	}
 	,onSelector: function(e) {
-		haxe.Log.trace("onSelector: " + Std.string(e.value),{ fileName : "SourceManager.hx", lineNumber : 35, className : "peripheral.SourceManager", methodName : "onSelector"});
+		console.log("onSelector: " + Std.string(e.value));
 		var _g = e.name;
 		switch(_g) {
 		case "source":
@@ -16808,11 +16923,11 @@ peripheral.SourceManager.prototype = $extend(nfuzion.event.EventDispatcher.proto
 			this.source = source;
 			switch(source[1]) {
 			case 0:
-				haxe.Log.trace("setSelector media",{ fileName : "SourceManager.hx", lineNumber : 62, className : "peripheral.SourceManager", methodName : "set_source"});
+				console.log("setSelector media");
 				peripheral.Peripheral.router.setSelector("source","media");
 				break;
 			case 1:
-				haxe.Log.trace("setSelector pandora",{ fileName : "SourceManager.hx", lineNumber : 65, className : "peripheral.SourceManager", methodName : "set_source"});
+				console.log("setSelector pandora");
 				peripheral.Peripheral.router.setSelector("source","pandora");
 				break;
 			}
@@ -17307,6 +17422,7 @@ screen.CommList.prototype = $extend(screen.FocusPanel.prototype,{
 		this.highestMoreButtonPosition = this.panelChain.links[3].widget.implementation.get_globalPosition().y;
 		this.lowestMoreButtonPosition = this.panelChain.links[9].widget.implementation.get_globalPosition().y + this.buttonSize - 1;
 		this.distanceFromBottom = this._height - this.moreButton.implementation._y;
+		this.moreButton.setText("More");
 	}
 	,enterScreen: function() {
 		screen.FocusPanel.prototype.enterScreen.call(this);
@@ -17714,7 +17830,7 @@ screen.EventPanel.prototype = $extend(screen.FocusPanel.prototype,{
 		this.attachListener(peripheral.Peripheral.navigation,"navigationCancel",$bind(this,this.onCancel));
 	}
 	,onCancel: function(e) {
-		haxe.Log.trace("onCancel",{ fileName : "EventPanel.hx", lineNumber : 68, className : "screen.EventPanel", methodName : "onCancel"});
+		console.log("onCancel");
 		this.data = [];
 		this.controlChain.set_data(this.data);
 		this.titleLabel.set_text("");
@@ -18391,7 +18507,7 @@ screen.MusicPlayer.prototype = $extend(screen.FocusPanel.prototype,{
 				if(peripheral.Peripheral.media.repeatMode == nfuzion.message.media.type.RepeatModeType.off) peripheral.Peripheral.media.setRepeatMode(nfuzion.message.media.type.RepeatModeType.song); else peripheral.Peripheral.media.setRepeatMode(nfuzion.message.media.type.RepeatModeType.off);
 				break;
 			default:
-				haxe.Log.trace("WARNING: Unhandled music player control '" + action + "'.",{ fileName : "MusicPlayer.hx", lineNumber : 359, className : "screen.MusicPlayer", methodName : "onSelect"});
+				console.log("WARNING: Unhandled music player control '" + action + "'.");
 			}
 		}
 	}
@@ -18422,7 +18538,6 @@ screen.MusicSourcePanel.prototype = $extend(screen.ChainPopup.prototype,{
 		var label = group.getWidget("text_label");
 		var menuItem = item.data;
 		label.set_text(menuItem.title);
-		haxe.Log.trace("label.text = " + label.text,{ fileName : "MusicSourcePanel.hx", lineNumber : 53, className : "screen.MusicSourcePanel", methodName : "updateItem"});
 		var iconSimple = group.getWidget("icon_simple");
 		if(iconSimple.implementation != null) iconSimple.implementation["goto"](menuItem.icon);
 	}
@@ -18530,7 +18645,7 @@ screen.SpanConfigPopup.prototype = $extend(nfuzion.nTactic.core.DynamicScreen.pr
 	}
 	,addListeners: function() {
 		nfuzion.nTactic.core.DynamicScreen.prototype.addListeners.call(this);
-		haxe.Log.trace("Adding Listeners",{ fileName : "SpanConfigPopup.hx", lineNumber : 156, className : "screen.SpanConfigPopup", methodName : "addListeners"});
+		console.log("Adding Listeners");
 		this.attachListener(this.keyMatrix,"ButtonEvent.click",$bind(this,this.onKeyClick));
 		this.attachListener(this.deleteButton,"ButtonEvent.longPress",$bind(this,this.onDeleteLongPress));
 		this.attachListener(this.deleteButton,"ButtonEvent.autoClick",$bind(this,this.onDeleteAutoClick));
@@ -18732,21 +18847,21 @@ screen.SpanConfigPopup.prototype = $extend(nfuzion.nTactic.core.DynamicScreen.pr
 	}
 	,onConnectionEvent: function(e) {
 		if(peripheral.Peripheral.spanClient.get_connected()) {
-			haxe.Log.trace("Connected to Span!",{ fileName : "SpanConfigPopup.hx", lineNumber : 484, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
+			console.log("Connected to Span!");
 			this.descriptionLabel.set_text("Connected");
 			this.displayLabel.set_paint(this.connectedPaint);
 		} else if(e == null) {
-			haxe.Log.trace("Not Connected",{ fileName : "SpanConfigPopup.hx", lineNumber : 492, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
+			console.log("Not Connected");
 			this.descriptionLabel.set_text("Disconnected");
 		} else {
-			haxe.Log.trace("Connection Failed!",{ fileName : "SpanConfigPopup.hx", lineNumber : 496, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
+			console.log("Connection Failed!");
 			this.descriptionLabel.set_text("Connection failed");
 			this.displayLabel.set_paint(this.invalidPaint);
 		}
 	}
 	,onKeyClick: function(e) {
 		var value = this.keyMatrix.getDataByWidget(e.target);
-		haxe.Log.trace("Key " + value + " clicked",{ fileName : "SpanConfigPopup.hx", lineNumber : 511, className : "screen.SpanConfigPopup", methodName : "onKeyClick"});
+		console.log("Key " + value + " clicked");
 		this.entry += value;
 		this.setDisplayLabel(this.entry);
 	}
@@ -18959,7 +19074,7 @@ screen.VrPopup.prototype = $extend(screen.ChainPopup.prototype,{
 		this.attachListener(peripheral.Peripheral.vr,"VoiceRecognitionEvent.capture",$bind(this,this.onCapture));
 	}
 	,onError: function(e) {
-		haxe.Log.trace("ERROR capturing VR",{ fileName : "VrPopup.hx", lineNumber : 89, className : "screen.VrPopup", methodName : "onError"});
+		console.log("ERROR capturing VR");
 		this.recordIcon.implementation["goto"]("disabled");
 		this.statusLabel.set_text("Error");
 		this.levelScroller.set_value(0);
@@ -19038,11 +19153,11 @@ screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		new nfuzion.timer.Delay($bind(this,this.animate),1.8);
 	}
 	,animate: function() {
-		haxe.Log.trace("Animating!",{ fileName : "Welcome.hx", lineNumber : 58, className : "screen.Welcome", methodName : "animate"});
+		console.log("Animating!");
 		this.animationTween = new nfuzion.tween.Tween(2,[new nfuzion.tween.type.TweenProperty(this.lines,"x",0,nfuzion.tween.type.TweenType.linear)],$bind(this,this.animationComplete));
 	}
 	,animationComplete: function() {
-		haxe.Log.trace("Complete",{ fileName : "Welcome.hx", lineNumber : 64, className : "screen.Welcome", methodName : "animationComplete"});
+		console.log("Complete");
 		nfuzion.nTactic.NTactic.screens["goto"]("Main");
 		nfuzion.nTactic.NTactic.screens["goto"]("status:Status");
 		nfuzion.nTactic.NTactic.screens["goto"]("welcome:");
@@ -19371,6 +19486,8 @@ nfuzion.message.router.SetSelector.valueType = [String];
 nfuzion.message.span.LetClientMetadata.nameType = [String];
 nfuzion.message.span.LetClientMetadata.clientCatagoryType = [String];
 nfuzion.message.span.LetClientMetadata.echoType = [Bool];
+nfuzion.message.swc.LetButton.nameType = [String];
+nfuzion.message.swc.LetButton.phaseType = [nfuzion.message.swc.type.Phase];
 nfuzion.message.swc.LetCursor.xType = [Float];
 nfuzion.message.swc.LetCursor.yType = [Float];
 nfuzion.message.swc.LetCursor.phaseType = [nfuzion.message.swc.type.Phase];
@@ -19471,6 +19588,7 @@ nfuzion.moduleLink.event.SwcEvent.ROTATE = "swcRotate";
 nfuzion.moduleLink.event.SwcEvent.SCROLL = "swcScroll";
 nfuzion.moduleLink.event.SwcEvent.TAP = "swcTap";
 nfuzion.moduleLink.event.SwcEvent.ZOOM = "swcZoom";
+nfuzion.moduleLink.event.SwcEvent.BUTTON = "button";
 nfuzion.moduleLink.event.TextToSpeechEvent.TEXT = "TextToSpeech.text";
 nfuzion.moduleLink.event.TextToSpeechEvent.TEXT_COMPLETE = "TextToSpeech.textComplete";
 nfuzion.moduleLink.event.TextToSpeechEvent.CACHE_CHANGED = "TextToSpeech.cacheChanged";
@@ -19633,3 +19751,5 @@ screen.SpanConfigPopup.SYMBOL_FONT_PATH = "./fonts/Symbols.ttf";
 screen.SpanConfigPopup.keyLayouts = [["a","b","c","d","e","f","g","7","8","9","h","i","j","k","l","m","n","4","5","6","o","p","q","r","s","t","u","1","2","3","v","w","x","y","z","-",":","/","0","."],["1","2","3","4","5","6","7","8","9","0","q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l",":","z","x","c","v","b","n","m","-",".","/"],["1","2","3","4","5","6","7","8","9","0",":","/",".","p","y","f","g","c","r","l","a","o","e","u","i","d","h","t","n","s","-","q","j","k","x","b","m","w","v","z"]];
 Main.main();
 })();
+
+//# sourceMappingURL=hmi.js.map
