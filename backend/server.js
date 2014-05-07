@@ -43,8 +43,8 @@ var HMI = new HMI({
 
 // DEBUG: Listen to any responses from the intent engine
 HMI.socket.on('message', function(msg) {
-  if(!msg.hasOwnProperty("debug.LetTrace"))
-    console.log(">> [HMI] (%s)", new Date().getTime(), JSON.stringify(msg));
+  // if(!msg.hasOwnProperty("debug.LetTrace"))
+    // console.log(">> [HMI] (%s)", new Date().getTime(), JSON.stringify(msg));
 });
 
 //// [ INTENT ENGINE ] ////////////////////////////////////////////////////////
@@ -174,10 +174,17 @@ new socket.PropertyRecognizer({
       console.log("[SUGGEST]:", msg.data.nearbyPlaces[0]);
 
       HMI.SetAddNotice({
-        title:    "New Destination",
-        text:     msg.data.nearbyPlaces[0].Name,
+        title:    "Sock Monkey",
+        text:     "Coffee @ " + msg.data.nearbyPlaces[0].Name + "?",
         type:     "waypointSuggestion",
         priority: 'medium',
+        eventData: {
+          name:           "Get Coffee",
+          locationName:   msg.data.nearbyPlaces[0].Name,
+          time:           "3:45pm",
+          contactName:    '',
+          contactNumber:  '',
+        },
         options:  [{
           data:     msg.data.nearbyPlaces[0].Location,
           action:   'setDestination',
@@ -227,7 +234,7 @@ new socket.CommandRecognizer({
   // property:      'navigation.SetEndByAddress',
   property:      'navigation.SetEndByPoint',
   onRecognized:  function(msg) {
-    console.log("SetEndByPoint:", msg); 
+    console.log(">> SetEndByPoint:", msg); 
     // Vehicle.setDestination( msg.value );
     Vehicle.setDestination( msg );
   }
