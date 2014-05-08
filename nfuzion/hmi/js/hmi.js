@@ -96,7 +96,7 @@ nfuzion.application.Application = function(name) {
 	if(nfuzion.application.Application.appName != null) throw "Cannot create more than one instance of Application.";
 	nfuzion.application.Application.appName = name;
 	haxe.Log.trace("Starting " + name + ".",{ fileName : "Application.hx", lineNumber : 53, className : "nfuzion.application.Application", methodName : "new"});
-	haxe.Log.trace("Built: " + "2014-05-06 13:31:26",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
+	haxe.Log.trace("Built: " + "2014-05-08 09:14:12",{ fileName : "Application.hx", lineNumber : 54, className : "nfuzion.application.Application", methodName : "new"});
 };
 $hxClasses["nfuzion.application.Application"] = nfuzion.application.Application;
 nfuzion.application.Application.__name__ = ["nfuzion","application","Application"];
@@ -215,6 +215,7 @@ var Hmi = function() {
 	nfuzion.nTactic.NTactic.call(this,"Robin Hood Hmi");
 	this.assignAssetsPath("../assets/");
 	nfuzion.nTactic.NTactic.builder.set_sketch(new nfuzion.sketch.XmlSketch("assets.xml"));
+	nfuzion.nTactic.NTactic.cacheManager.set_cacheAll(false);
 };
 $hxClasses["Hmi"] = Hmi;
 Hmi.__name__ = ["Hmi"];
@@ -4738,7 +4739,7 @@ nfuzion.graphics.Component.prototype = $extend(nfuzion.graphics.BaseComponent.pr
 	}
 	,destroy: function() {
 		nfuzion.graphics.BaseComponent.prototype.destroy.call(this);
-		this.implementation.component = null;
+		if(this.implementation != null) this.implementation.component = null;
 		this.implementation = null;
 	}
 	,visibleChanged: function() {
@@ -18943,7 +18944,7 @@ screen.SpanConfigPopup.prototype = $extend(nfuzion.nTactic.core.DynamicScreen.pr
 			this.descriptionLabel.set_text("Connected");
 			this.displayLabel.set_paint(this.connectedPaint);
 		} else if(e == null) {
-			haxe.Log.trace("Not Connected",{ fileName : "SpanConfigPopup.hx", lineNumber : 492, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
+			haxe.Log.trace("Not Connected",{ fileName : "SpanConfigPopup.hx", lineNumber : 491, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
 			this.descriptionLabel.set_text("Disconnected");
 		} else {
 			haxe.Log.trace("Connection Failed!",{ fileName : "SpanConfigPopup.hx", lineNumber : 496, className : "screen.SpanConfigPopup", methodName : "onConnectionEvent"});
@@ -18953,7 +18954,7 @@ screen.SpanConfigPopup.prototype = $extend(nfuzion.nTactic.core.DynamicScreen.pr
 	}
 	,onKeyClick: function(e) {
 		var value = this.keyMatrix.getDataByWidget(e.target);
-		haxe.Log.trace("Key " + value + " clicked",{ fileName : "SpanConfigPopup.hx", lineNumber : 511, className : "screen.SpanConfigPopup", methodName : "onKeyClick"});
+		haxe.Log.trace("Key " + value + " clicked",{ fileName : "SpanConfigPopup.hx", lineNumber : 510, className : "screen.SpanConfigPopup", methodName : "onKeyClick"});
 		this.entry += value;
 		this.setDisplayLabel(this.entry);
 	}
@@ -19252,11 +19253,11 @@ screen.Welcome.prototype = $extend(nfuzion.nTactic.core.Screen.prototype,{
 		new nfuzion.timer.Delay($bind(this,this.animate),1.8);
 	}
 	,animate: function() {
-		haxe.Log.trace("Animating!",{ fileName : "Welcome.hx", lineNumber : 57, className : "screen.Welcome", methodName : "animate"});
+		haxe.Log.trace("Animating!",{ fileName : "Welcome.hx", lineNumber : 65, className : "screen.Welcome", methodName : "animate"});
 		this.animationTween = new nfuzion.tween.Tween(2,[new nfuzion.tween.type.TweenProperty(this.lines,"x",0,nfuzion.tween.type.TweenType.linear)],$bind(this,this.animationComplete));
 	}
 	,animationComplete: function() {
-		haxe.Log.trace("Complete",{ fileName : "Welcome.hx", lineNumber : 64, className : "screen.Welcome", methodName : "animationComplete"});
+		haxe.Log.trace("Complete",{ fileName : "Welcome.hx", lineNumber : 71, className : "screen.Welcome", methodName : "animationComplete"});
 		nfuzion.nTactic.NTactic.screens["goto"]("Main");
 		nfuzion.nTactic.NTactic.screens["goto"]("status:Status");
 		nfuzion.nTactic.NTactic.screens["goto"]("welcome:");
