@@ -10416,6 +10416,7 @@ nfuzion.moduleLink.TraumaProxy.__interfaces__ = [nfuzion.moduleLink.ITrauma];
 nfuzion.moduleLink.TraumaProxy.__super__ = nfuzion.moduleLink.ClientModuleLink;
 nfuzion.moduleLink.TraumaProxy.prototype = $extend(nfuzion.moduleLink.ClientModuleLink.prototype,{
 	onLetLevel: function(message) {
+		this.level = message.level;
 		this.dispatchEvent(new nfuzion.moduleLink.event.TraumaEvent("level"));
 	}
 	,level: null
