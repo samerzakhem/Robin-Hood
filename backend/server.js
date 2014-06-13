@@ -11,7 +11,7 @@ var needle        = require('needle'),
 
     config        = {
       intentEngine: {
-        url:            'ws://smartgrid.asd.novaconcepts.net:9090/EmergingServices/websocket/RobinHoodWS',
+        url:            'ws://sandboxdev.asd.novaconcepts.net:9090/EmergingServices/websocket/RobinHoodWS',
         VIN:            '1G1RA6E43CU123168',
         ACCESS_TOKEN:   '5c49870ac65101f32affcf0e0e1d0800'
       },
@@ -20,7 +20,7 @@ var needle        = require('needle'),
         // url:             'ws://192.168.0.106:4412'
       },
       userData: {
-        url:            'http://smartgrid.asd.novaconcepts.net:9090/EmergingServices/rest/userData'
+        url:            'http://sandboxdev.asd.novaconcepts.net:9090/EmergingServices/rest/userData'
       }
     };
 
