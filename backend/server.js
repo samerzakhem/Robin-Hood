@@ -3,6 +3,7 @@
  */
 
 var needle        = require('needle'),
+    exec          = require('child_process').exec,
     socket        = require('./com/gm/socket'),
     server        = new socket.Server('/gm', 8000),
     Vehicle       = require('./services/Vehicle'),
@@ -25,6 +26,8 @@ var needle        = require('needle'),
     };
 
 
+//// [ DEBUG ] ////////////////////////////////////////////////////////////////
+
 // Helpful to debug when things connect, comment out if it gets obnoxious
 server.faye.bind('subscribe', function(client, channel) {
   console.log("[%s] subscribed to: %s", client, channel);
@@ -32,6 +35,14 @@ server.faye.bind('subscribe', function(client, channel) {
 
 server.faye.bind('publish', function(client, channel, data) {
   // console.log("[%s] published to %s", client, channel, data);
+});
+
+//// [ LEAP ] /////////////////////////////////////////////////////////////////
+
+var leap = exec('python ../leap/volume.py', function(error, stdout, stderr) {
+  stdout.on('data', function(data) {
+    console.log(">> [LEAP]", data);
+  });
 });
 
 //// [ HMI ] //////////////////////////////////////////////////////////////////
