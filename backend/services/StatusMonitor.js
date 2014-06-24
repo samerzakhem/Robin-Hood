@@ -27,7 +27,8 @@ StatusMonitor.prototype.onMessage = function(message) {
 	// Loop over every key in the status message
 	for(key in message) {
 		// If we have this key, and it's different
-		if(this.values.hasOwnProperty(key) &&  this.values[key] !== message[key]) {
+		// if(this.values.hasOwnProperty(key) &&  this.values[key] !== message[key]) {
+		if(this.values.hasOwnProperty(key)) {
 			this.values[key] = message[key]
 			this._dirty = true;
 		}

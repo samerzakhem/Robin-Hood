@@ -16810,7 +16810,6 @@ peripheral.HumanInput.prototype = $extend(nfuzion.event.EventDispatcher.prototyp
 	}
 	,attachSwc: function() {
 		if(peripheral.Peripheral.swc != null) {
-			peripheral.Peripheral.swc.addEventListener("swcCursor",$bind(this,this.onSwcCursor));
 			peripheral.Peripheral.swc.addEventListener("swcGesture",$bind(this,this.onSwcGesture));
 			peripheral.Peripheral.swc.addEventListener("swcScroll",$bind(this,this.onSwcScroll));
 			peripheral.Peripheral.swc.addEventListener("swcTap",$bind(this,this.onSwcTap));
