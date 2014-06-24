@@ -38,7 +38,8 @@ server.faye.bind('publish', function(client, channel, data) {
 
 var HMI = new HMI({
   server:   server,
-  url:      config.hmi.url
+  url:      config.hmi.url,
+  debug:    true
 });
 
 // DEBUG: Listen to any responses from the intent engine
